@@ -557,6 +557,19 @@
     $('admin-delete').addEventListener('click', deleteEntry);
     $('admin-search').addEventListener('input', renderList);
     $('admin-file').addEventListener('change', handleFiles);
+    // 修改口令：校验后 POST /api/password（服务端存 scrypt 哈希，明文不落盘）
+    $('pw-change').addEventListener('click', function () {
+      var a = $('pw-new').value, b = $('pw-new2').value;
+      var msg = $('pw-msg');
+      if (a.length < 8) { msg.textContent = '新口令至少 8 位'; return; }
+      if (a !== b) { msg.textContent = '两次输入的新口令不一致'; return; }
+      api('POST', '/api/password', { newPassword: a }).then(function (r) {
+        msg.textContent = (r && r.note) || '已修改';
+        $('pw-new').value = ''; $('pw-new2').value = '';
+      }).catch(function (e) {
+        msg.textContent = '失败：' + e.message;
+      });
+    });
     $('admin-logout').addEventListener('click', function () {
       api('POST', '/api/logout', {}).catch(function () {}).then(function () {
         state.token = null; state.entries = [];

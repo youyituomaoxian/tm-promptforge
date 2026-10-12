@@ -43,7 +43,12 @@
   <div class="grid-head">
     <span id="result-count" class="result-count"></span>
     <div class="grid-head-right">
-      <button id="grid-sort" type="button" class="sort-btn">最新发布</button>
+      <select id="grid-sort" class="sort-btn" aria-label="排序方式">
+        <option value="recent">最新发布</option>
+        <option value="oldest">最早发布</option>
+        <option value="category">按类别</option>
+        <option value="title">按标题</option>
+      </select>
     </div>
   </div>
   <section id="card-grid" class="card-grid"></section>
@@ -103,12 +108,56 @@
   </div>
 </div>
 
+<section id="about" class="about" aria-label="关于">
+  <div class="about-inner">
+    <p class="about-kicker">ABOUT</p>
+    <h2 class="about-title">关于团队提示词库</h2>
+    <p class="about-lead">
+      顺应 AI 图像生成趋势，把「好提示词」从个人收藏沉淀为<strong>团队资产</strong>——可搜、可复现、可复用。
+    </p>
+
+    <div class="about-grid">
+      <article class="about-card">
+        <h3>灵感收集</h3>
+        <p>打动人的 AI 作品连同提示词、模型与效果图一并收进来，条条可溯源、可复现。</p>
+      </article>
+      <article class="about-card">
+        <h3>模板化</h3>
+        <p>零散好句整理成结构化模板，下次出同类图，站在已验证的起点上。</p>
+      </article>
+      <article class="about-card">
+        <h3>流程化</h3>
+        <p>模板沉淀为流程，新人按分类检索、按模板改写，稳定输出品牌调性画面。</p>
+      </article>
+    </div>
+
+    <p class="about-asset">
+      这是公司在 AIGC 方向的<strong>数字资产</strong>——人员会流动，方法与审美标准不会流失。
+    </p>
+
+    <div class="about-credit">
+      <p class="about-credit-org">设计 · 开发 · 维护：弘讯集团-总裁室-品牌发展组</p>
+      <p class="about-credit-note">
+        在 AI 人人可用的当下，差距在于把用法沉淀成组织能力——品牌发展组定规范、定标准，让 AI 真正服务于品牌。
+      </p>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="wrap">
     <p class="footer-main">TM PromptForge · 团队内部提示词库 · 游客只读</p>
-    <p class="footer-note">设计维护：弘讯 集团-总裁室-品牌发展组</p>
+    <p class="footer-note">设计维护：弘讯集团-总裁室-品牌发展组-马守坤</p>
   </div>
 </footer>
+
+<!-- 悬浮回顶：滚过约一屏后右下角浮现，点击平滑回顶 -->
+<button id="back-to-top" type="button" class="back-to-top" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+    <path d="M9 14V4M4 8.5 9 3.5l5 5" stroke="currentColor" stroke-width="1.8"
+      stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
 
 <script src="app.js"></script>
 </body>

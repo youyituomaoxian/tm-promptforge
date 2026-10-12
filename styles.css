@@ -168,6 +168,12 @@ body{
 }
 .sort-btn:hover{border-color:var(--brand);color:var(--brand)}
 .sort-btn.is-active{background:var(--ink-strong);border-color:var(--ink-strong);color:#fff}
+/* 排序控件（select）：去原生外观、补内边距给箭头让位 */
+select.sort-btn{
+  appearance:none;-webkit-appearance:none;padding:8px 30px 8px 12px;line-height:22px;
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%235A646E' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+}
 
 /* 图库区：CSS columns 瀑布流（列内纵向填充，与参考站一致）。
  * 书4 实测对齐：1440 下 4 列 / 卡宽 332 / 列间距 16 / 页边距 32 / 圆角 12。
@@ -367,10 +373,63 @@ body{
 .btn-copy-main:hover{background:#00539C;border-color:#00539C;box-shadow:var(--shadow-xl)}
 .btn-copy-main:active{transform:scale(.98)}
 
+/* 关于（#about 锚点落地）：品牌柔色通栏带 + 顶部品牌规线，与上方图库区做明显区块区分。
+ * 品牌色只做结构色（底/线），白卡承载文字，Swiss 编辑风。 */
+.about{
+  background:var(--brand-soft);border-top:3px solid var(--brand);
+  padding:56px 0 48px;scroll-margin-top:20px;
+}
+.about-inner{max-width:960px;margin:0 auto;padding:0 32px}
+.about-kicker{margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--brand)}
+.about-title{margin:0 0 14px;font-size:26px;line-height:1.35;letter-spacing:.01em}
+.about-lead{margin:0 0 24px;max-width:720px;font-size:15px;line-height:1.95;color:var(--ink-2)}
+.about-lead strong{color:var(--ink);font-weight:600}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.about-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px}
+.about-card h3{margin:0 0 10px;font-size:15px;letter-spacing:.02em}
+.about-card h3::before{content:'';display:block;width:24px;height:3px;background:var(--brand);margin-bottom:12px}
+.about-card p{margin:0;font-size:13px;line-height:1.95;color:var(--ink-2)}
+.about-asset{margin:0 0 20px;max-width:820px;font-size:13px;line-height:1.95;color:var(--ink-2)}
+.about-asset strong{color:var(--brand);font-weight:700}
+.about-credit{
+  background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--brand);
+  border-radius:0 var(--radius) var(--radius) 0;padding:16px 18px;
+}
+.about-credit-org{margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:.02em}
+.about-credit-note{margin:0;font-size:12px;line-height:1.95;color:var(--ink-3)}
+@media (max-width:767px){
+  .about{padding:36px 0 32px}
+  .about-inner{padding:0 16px}
+  .about-title{font-size:21px}
+  .about-grid{grid-template-columns:1fr}
+}
+
 .site-footer{border-top:1px solid var(--line);background:var(--bg);padding:20px 0;
   color:var(--ink-3);font-size:12px;text-align:center}
 .footer-main{margin:0;line-height:20px}
 .footer-note{margin:6px 0 0;font-size:11px;line-height:18px;color:var(--ink-3);opacity:.85}
+
+/* 悬浮回顶：右下角固定，滚过约一屏后浮现（app.js 切 .is-visible）。
+ * 白底描边 + 品牌色箭头（品牌色只做结构/焦点色），弹窗打开时随锁滚一并隐藏。
+ * z-index 30：高于内容与顶栏（20），低于弹窗遮罩（40），不与弹窗抢层。 */
+.back-to-top{
+  position:fixed;right:28px;bottom:28px;z-index:30;
+  width:44px;height:44px;padding:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);color:var(--brand);
+  border:1px solid var(--line);border-radius:50%;
+  box-shadow:var(--shadow-sm);cursor:pointer;
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease),
+    visibility var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{border-color:var(--brand);box-shadow:var(--shadow-xl)}
+.back-to-top:active{transform:translateY(0) scale(.92)}
+body.detail-open .back-to-top{opacity:0;visibility:hidden}
+@media (max-width:767px){
+  .back-to-top{right:16px;bottom:16px;width:40px;height:40px}
+}
 
 body.detail-open{overflow:hidden}
 

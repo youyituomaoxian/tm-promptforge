@@ -60,6 +60,32 @@
     });
   }
 
+  // 排序模式（grid-sort 控件）：recent 最新 / oldest 最早 / category 按类别 / title 按标题
+  function sortEntries(list, mode, cats) {
+    if (mode === 'oldest') {
+      return list.slice().sort(function (a, b) {
+        var d = String(a.updatedAt || '').localeCompare(String(b.updatedAt || ''));
+        return d !== 0 ? d : String(a.id).localeCompare(String(b.id));
+      });
+    }
+    if (mode === 'title') {
+      return list.slice().sort(function (a, b) {
+        return String(a.title || '').localeCompare(String(b.title || ''), 'zh-Hans-CN');
+      });
+    }
+    if (mode === 'category') {
+      var order = cats || CATEGORIES;
+      return list.slice().sort(function (a, b) {
+        var ia = order.indexOf(a.category), ib = order.indexOf(b.category);
+        if (ia < 0) ia = 999; if (ib < 0) ib = 999;
+        if (ia !== ib) return ia - ib;
+        var d = String(b.updatedAt || '').localeCompare(String(a.updatedAt || ''));
+        return d !== 0 ? d : String(a.id).localeCompare(String(b.id));
+      });
+    }
+    return sortRecent(list);
+  }
+
   // 一键复制 = 完整 prompt 文本，逐字
   function copyText(entry) {
     return entry.prompt;
@@ -97,6 +123,7 @@
 
   function state(doc) {
     return { entries: [], query: '', category: '全部', openId: null, imgIndex: 0,
+      sort: 'recent', dims: {},
       categories: CATEGORIES.slice() };
   }
 
@@ -120,7 +147,7 @@
 
   function renderGrid(doc, st) {
     var grid = doc.getElementById('card-grid');
-    var list = sortRecent(filterEntries(st.entries, st.query, st.category));
+    var list = sortEntries(filterEntries(st.entries, st.query, st.category), st.sort, st.categories);
     var cnt = doc.getElementById('result-count');
     cnt.textContent = list.length + ' 个结果';
     grid.innerHTML = '';
@@ -134,6 +161,10 @@
       // 入场动画按顺序错峰（对应参考站 progressive fade-in）
       card.style.animationDelay = (idx % 12) * 40 + 'ms';
       var media = el('div', 'card-cover');
+      // 预留高度（根治瀑布流随懒加载重排）：加载前就按 image-dims.json 的真实比例定死图框；
+      // 清单没有的新图退回 load 后再定（旧行为），只影响单卡、不引发整列重排。
+      var dim = st.dims && st.dims[e.images[0]];
+      if (dim && dim[0] && dim[1]) media.style.aspectRatio = dim[0] + ' / ' + dim[1];
       var img = doc.createElement('img');
       img.src = e.images[0];
       img.alt = e.title;
@@ -291,6 +322,12 @@
 
     // Hero CTA：随机逛一条 / 最近更新 / 复制随机提示词
     function currentList() { return sortRecent(filterEntries(st.entries, st.query, st.category)); }
+    // 排序控件（grid-head「计数排序条」）：切换即重排瀑布流
+    var sortSel = doc.getElementById('grid-sort');
+    if (sortSel) sortSel.addEventListener('change', function () {
+      st.sort = sortSel.value;
+      renderAll(doc, st);
+    });
     doc.getElementById('hero-random').addEventListener('click', function () {
       var list = currentList();
       if (!list.length) return;
@@ -342,6 +379,24 @@
         flashBtn(doc, btn, '复制', ok ? '已复制' : '复制失败，请手动选择', ok ? 2000 : 2500);
       });
     });
+    // 悬浮回顶：滚过约一屏浮现；点击平滑回顶（reduced-motion 时直接跳顶）。
+    // 弹窗打开时 body.detail-open 隐藏本按钮（CSS），不与弹窗抢层。
+    var topBtn = doc.getElementById('back-to-top');
+    if (topBtn) {
+      var onScroll = function () {
+        topBtn.classList.toggle('is-visible', (doc.defaultView ? doc.defaultView.scrollY : 0) > 480);
+      };
+      if (doc.defaultView && doc.defaultView.addEventListener) {
+        doc.defaultView.addEventListener('scroll', onScroll, { passive: true });
+      }
+      onScroll();
+      topBtn.addEventListener('click', function () {
+        var view = doc.defaultView;
+        if (!view) return;
+        var reduce = view.matchMedia && view.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        view.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }
     // 书4：分类表与条目表并行拉取，两者都到齐才首渲染（避免中途闪一下旧分类）
     // 双通道：http(s) 走 fetch；file:// 直开时浏览器禁 fetch 本地文件，
     // 走 <script> 注入 data/*.js 孪生（window.__TM_DATA__，由 server/storage-fs.js 写入时同步生成）
@@ -349,12 +404,16 @@
       .then(function (cats) { setCategories(cats); return cats; })
       .catch(function () { return CATEGORIES.slice(); });   // 读不到则用默认 7 类
     var entriesReady = loadJSON(doc, 'data/entries.json', 'entries');
+    // 图片尺寸清单（瀑布流预留高度用）：读不到不阻塞，退回旧行为
+    var dimsReady = loadJSON(doc, 'data/image-dims.json', 'image-dims')
+      .catch(function () { return {}; });
 
-    Promise.all([catsReady, entriesReady])
-      .then(function (both) {
-        var cats = both[0], data = both[1];
+    Promise.all([catsReady, entriesReady, dimsReady])
+      .then(function (all) {
+        var cats = all[0], data = all[1], dims = all[2] || {};
         st.categories = cats.slice();
         st.entries = data;
+        st.dims = dims;
         // B-9：动态计数读数据长度填入，不写死在 HTML
         var c = doc.getElementById('hero-count');
         if (c) c.textContent = String(data.length);
@@ -375,6 +434,7 @@
     filterEntries: filterEntries,
     countByCategory: countByCategory,
     sortRecent: sortRecent,
+    sortEntries: sortEntries,
     copyText: copyText,
     naturalRatio: naturalRatio,
     nextImageIndex: nextImageIndex,

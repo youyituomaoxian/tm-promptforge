@@ -110,6 +110,21 @@
         </div>
       </form>
       <div id="admin-empty" class="admin-empty">选择左侧条目进行编辑，或点「新增条目」。</div>
+
+      <section class="admin-pwbox" aria-label="修改口令">
+        <h3 class="admin-pwbox-title">账号安全 · 修改口令</h3>
+        <div class="field">
+          <span class="field-label">新口令（至少 8 位）</span>
+          <input id="pw-new" type="password" autocomplete="new-password">
+        </div>
+        <div class="field">
+          <span class="field-label">确认新口令</span>
+          <input id="pw-new2" type="password" autocomplete="new-password">
+        </div>
+        <button id="pw-change" type="button" class="btn-ghost">保存新口令</button>
+        <p id="pw-msg" class="admin-msg"></p>
+        <p class="field-hint">口令仅存 scrypt 哈希（server/.pw-hash），明文不落盘；保存后立即生效，重启后沿用。</p>
+      </section>
     </main>
   </div>
 </section>
