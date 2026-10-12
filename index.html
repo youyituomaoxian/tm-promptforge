@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TM PromptForge · 团队提示词库</title>
+<link rel="icon" href="data/images/logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#">
+      <img class="brand-mark" src="data/images/logo.svg" alt="TM PromptForge">
+      <span class="brand-name">TM PromptForge<em>团队提示词库</em></span>
+    </a>
+    <nav class="top-nav">
+      <a href="#gallery">图库</a>
+      <a href="#about">关于</a>
+      <a href="admin.html" class="nav-admin">管理员登录</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-logo" aria-hidden="true">
+    <img src="data/images/logo.svg" alt="">
+  </div>
+  <h1 class="hero-title">AI 图像生成提示词<br><span class="hero-title-accent">灵感库</span></h1>
+  <p class="hero-slogan">已收录 <span id="hero-count">…</span> 条 · 覆盖品牌视觉、PPT 演示、营销海报、产品图、UI 界面与插画 IP</p>
+  <div class="hero-actions">
+    <button id="hero-random" type="button" class="btn-hero">随机逛一条</button>
+    <button id="hero-latest" type="button" class="btn-hero btn-hero-dark">最近更新</button>
+    <button id="hero-copy" type="button" class="btn-hero btn-hero-primary">复制随机提示词</button>
+  </div>
+  <div class="hero-search">
+    <input id="search-input" type="search" placeholder="搜索提示词或作者..." autocomplete="off">
+  </div>
+</section>
+
+<main class="gallery-wrap" id="gallery">
+  <nav id="category-nav" class="category-nav" aria-label="分类导航"></nav>
+  <div class="grid-head">
+    <span id="result-count" class="result-count"></span>
+    <div class="grid-head-right">
+      <button id="grid-sort" type="button" class="sort-btn">最新发布</button>
+    </div>
+  </div>
+  <section id="card-grid" class="card-grid"></section>
+</main>
+
+<!-- 点卡弹窗：1080×864 居中，左 60% 图 / 右 40% 信息（对齐 aiart.pics） -->
+<div id="detail" class="detail" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="detail-mask" data-close="1"></div>
+  <div class="detail-panel" role="document">
+    <div class="detail-handle" aria-hidden="true"></div>
+    <button id="detail-close" type="button" class="btn-close" aria-label="关闭">×</button>
+
+    <!-- 左 60%：效果图（多图切换移入此处） -->
+    <div class="detail-media">
+      <img id="detail-image" src="" alt="">
+      <button id="detail-prev" type="button" class="nav-arrow prev" aria-label="上一张">‹</button>
+      <button id="detail-next" type="button" class="nav-arrow next" aria-label="下一张">›</button>
+      <span id="detail-img-count" class="img-count"></span>
+    </div>
+
+    <!-- 右 40%：信息 + 提示词 + 一键复制（排版对齐参考站：徽章→标题→作者/分类→标签→提示词卡→CTA 条） -->
+    <div class="detail-body">
+      <div class="detail-body-head">
+        <span id="detail-model" class="detail-model-badge"></span>
+      </div>
+      <h2 id="detail-title" class="detail-title"></h2>
+      <div class="detail-author-line">
+        <span id="detail-category" class="detail-category"></span>
+        <span>贡献人 <b id="detail-author" class="detail-author"></b></span>
+      </div>
+      <div class="block">
+        <div id="detail-tags" class="tag-row"></div>
+      </div>
+      <div class="prompt-card">
+        <div class="block-head">
+          <h3 class="block-label">提示词</h3>
+          <button id="detail-copy-sm" type="button" class="btn-copy-sm">复制</button>
+        </div>
+        <pre id="detail-prompt" class="prompt-block"></pre>
+      </div>
+      <div class="prompt-card is-hidden" id="detail-negative-block">
+        <div class="block-head">
+          <h3 class="block-label">负向提示词</h3>
+        </div>
+        <pre id="detail-negative" class="prompt-block is-negative"></pre>
+      </div>
+      <dl class="meta-grid meta-grid-sub">
+        <dt>来源</dt><dd id="detail-source"></dd>
+        <dt>创建</dt><dd id="detail-date"></dd>
+        <dt>更新</dt><dd id="detail-updated"></dd>
+      </dl>
+      <div class="detail-cta">
+        <button id="detail-copy" type="button" class="btn-copy-main">复制提示词</button>
+      </div>
+      <span id="copy-feedback" class="copy-feedback" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-main">TM PromptForge · 团队内部提示词库 · 游客只读</p>
+    <p class="footer-note">设计维护：弘讯 集团-总裁室-品牌发展组</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
