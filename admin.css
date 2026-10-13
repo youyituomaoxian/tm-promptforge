@@ -138,6 +138,9 @@
 
 /* 分类管理（书4） */
 .cat-manager{border-top:1px solid var(--line);padding:12px 14px;background:var(--bg)}
+/* 登录卡底部的「← 返回游客页」：管理员登录前/点错进 admin.html 时也有路回游客页 */
+.admin-back{display:inline-block;margin-top:14px;font-size:13px;color:var(--ink-2);text-decoration:none}
+.admin-back:hover{color:var(--brand);text-decoration:underline}
 .cat-manager-head{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--ink-2);margin-bottom:6px;
   display:flex;align-items:center;justify-content:space-between;gap:8px}
 .cat-count{font-weight:500;letter-spacing:0;color:var(--brand);font-variant-numeric:tabular-nums}
