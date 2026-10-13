@@ -8,6 +8,8 @@
   var RESERVED_CATEGORY = '其他';
   var MAX_EDGE = 1600;
   var MAX_BYTES = 300 * 1024;
+  var THUMB_EDGE = 640;         // 缩略图长边（与 scripts/gen-thumbs.py 同口径）
+  var THUMB_QUALITY = 0.72;
 
   var state = { token: null, entries: [], draft: null, editId: null, cat: '全部',
     categories: DEFAULT_CATEGORIES.slice() };
@@ -313,6 +315,18 @@
             return mergeDims(null, [pathInRepo]).then(function () { return { ok: true, existed: true }; });
           });
         });
+      },
+      // 缩略图连带删除（书8）：原图删除后把 thumb-<文件名> 一并 DELETE。
+      // 没有就跳过、失败不阻塞——卡片端有 onerror 回退原图的兜底。
+      deleteImageThumb: function (id, filename) {
+        var pathInRepo = 'data/images/' + id + '/thumb-' + filename;
+        return getRaw(pathInRepo, true).then(function (cur) {
+          if (!cur || !cur.sha) return { ok: true, existed: false };
+          return req('DELETE', pathInRepo, {
+            message: 'chore: remove image thumb ' + id + '/' + filename,
+            sha: cur.sha, branch: branch
+          }).then(function () { return { ok: true, existed: true }; });
+        }).catch(function () { return { ok: true, existed: false }; });
       }
     };
   }
@@ -550,6 +564,24 @@
       fr.onerror = function () { reject(new Error('读取文件失败')); };
       fr.readAsDataURL(blob);
     });
+  }
+
+  // 缩略图：把已压好的图再压一张 ≤640px 的（卡片用，详情仍用原图）。
+  // 上传链路自动带，不依赖任何人记得跑脚本——这是缩略图能长期生效的前提。
+  function makeThumb(blob) {
+    return loadBitmap(blob).then(function (img) {
+      var w0 = img.naturalWidth, h0 = img.naturalHeight;
+      if (!w0 || !h0) return null;
+      var scale = Math.min(1, THUMB_EDGE / Math.max(w0, h0));
+      var c = document.createElement('canvas');
+      c.width = Math.max(1, Math.round(w0 * scale));
+      c.height = Math.max(1, Math.round(h0 * scale));
+      var ctx = c.getContext('2d');
+      ctx.fillStyle = '#ffffff';           // JPEG 无透明通道，先铺白底
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      return canvasToBlob(c, THUMB_QUALITY).then(blobToBase64);
+    }).catch(function () { return null; });
   }
 
   // ---------- 渲染：条目列表 ----------
@@ -809,6 +841,17 @@
     }
   }
 
+  // 删图 = 原图 + 缩略图一起删。
+  // local 模式：服务端 storage-fs 的 deleteImage 已连带删 thumb-<file>；
+  // github 模式：服务端只删原图，缩略图由客户端再补一刀（deleteImageThumb）。
+  function deleteImagePair(id, filename) {
+    var be1 = be();
+    return be1.deleteImage(id, filename).then(function (r) {
+      if (typeof be1.deleteImageThumb !== 'function') return r;
+      return be1.deleteImageThumb(id, filename).then(function () { return r; });
+    });
+  }
+
   function removeImage(i) {
     var rel = state.draft.images[i];
     state.draft.images.splice(i, 1);
@@ -816,7 +859,7 @@
     // 同步删磁盘文件（仅对已存在的旧图；新上传未保存的不动）
     var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
     if (m) {
-      be().deleteImage(m[1], m[2])
+      deleteImagePair(m[1], m[2])
         .catch(function () { /* 新图可能尚未落盘，忽略 */ });
     }
   }
@@ -908,7 +951,7 @@
     imgs.forEach(function (rel) {
       var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
       if (m) {
-        be().deleteImage(m[1], m[2])
+        deleteImagePair(m[1], m[2])
           .catch(function () {});
       }
     });
@@ -949,6 +992,12 @@
                 renderImages();
                 setMsg(msg, '已上传 ' + Math.round(out.w) + '×' + Math.round(out.h) +
                   '，' + Math.round(out.blob.size / 1024) + 'KB', 'ok');
+                // 缩略图（640px）一并上传：卡片用它，线上游客页流量降约 6 倍。
+                // 失败不阻塞原图（卡片端有 onerror 回退原图的兜底）。
+                return makeThumb(out.blob).then(function (tb64) {
+                  if (!tb64) return null;
+                  return be().saveImage(id, 'thumb-' + name, tb64).catch(function () { return null; });
+                });
               });
           });
         }).catch(function (e) { setMsg(msg, e.message, 'error'); });

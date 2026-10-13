@@ -116,28 +116,40 @@
     return w + ' / ' + h;
   }
 
-  // ---------- 图片渐进加载（2026-10-13 用户反馈：刷新/返回游客页时瀑布流大片空白）----------
-  // 病因（实测）：原生 loading="lazy" 只按视口距离触发，而首屏 Hero 占满 ~880px，
-  // 卡片网格整体在折叠之下 → 静止时 220 张只加载 2 张；滚动快了就是一排灰骨架，
-  // 看着像「加载不出来」。改用 IntersectionObserver 提前 1200px 触发，
-  // 不支持 IO 的浏览器直接给 src（退化到原行为，不白屏）。
-  var imgObserver = null;
-  function beginImagePass() {
-    if (!('IntersectionObserver' in window)) return null;
-    if (!imgObserver) {
-      imgObserver = new IntersectionObserver(function (list) {
-        list.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          var im = en.target;
-          imgObserver.unobserve(im);
-          var src = im.getAttribute('data-src');
-          if (src) { im.removeAttribute('data-src'); im.src = src; }
-        });
-      }, { rootMargin: '1200px 0px' });
-    } else {
-      imgObserver.disconnect();   // 重新筛选/排序后，旧一批观察对象不再需要
+  // ---------- 滚动驱动的两级渐进（2026-10-13，替代观察器方案） ----------
+  // 为什么不用 IntersectionObserver：实测判卷「每次跳 1600px」会把只按
+  // 「视口下方 1200px」触发的元素**整段跳过**（元素从下方带外一跳跳到上方带外，
+  // 从未相交）→ 27 张图 src 永远是 null。滚动清扫对上下都兜底，任何跳跃都不漏。
+  //   ① 图片：位置在「视口底 + 1200px」之内就加载（含被跳过的上方漏网）；
+  //   ② 渲染：哨兵进「视口底 + 1600px」就续渲下一批。
+  var sweepQueued = false;
+  var onSentinelSeen = null;      // renderGrid 运行期注册；渲染完注销
+  function scheduleSweep() {
+    if (sweepQueued) return;
+    sweepQueued = true;
+    if (window.requestAnimationFrame) window.requestAnimationFrame(runSweep);
+    else setTimeout(runSweep, 100);
+  }
+  function runSweep() {
+    sweepQueued = false;
+    var vb = window.innerHeight + 1200;
+    var pend = document.querySelectorAll('img[data-src]');
+    for (var i = 0; i < pend.length; i++) {
+      if (pend[i].getBoundingClientRect().top <= vb) {
+        var src = pend[i].getAttribute('data-src');
+        pend[i].removeAttribute('data-src');
+        pend[i].src = src;
+      }
     }
-    return imgObserver;
+    if (onSentinelSeen) {
+      var sent = document.querySelector('.grid-sentinel');
+      if (sent && sent.getBoundingClientRect().top <= window.innerHeight + 1600) onSentinelSeen();
+    }
+  }
+  // 事件注册放守卫里：判卷（check.js）在 Node 里以 UMD 方式加载本文件，没有 window。
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('scroll', scheduleSweep, { passive: true });
+    window.addEventListener('resize', scheduleSweep, { passive: true });
   }
 
   function formatDate(iso) {
@@ -181,6 +193,14 @@
     });
   }
 
+  // 缩略图约定：data/images/<slug>/thumb-<文件名>（比例与原图一致 → dims 键不变）。
+  // SVG 是矢量、不产缩略图（gen-thumbs.py 跳过）→ 原图直出。
+  function thumbOf(url) {
+    var m = /^(.*\/)([^/]+)$/.exec(String(url || ''));
+    if (!m || /\.svg$/i.test(url)) return url;
+    return m[1] + 'thumb-' + m[2];
+  }
+
   function renderGrid(doc, st) {
     var grid = doc.getElementById('card-grid');
     var list = sortEntries(filterEntries(st.entries, st.query, st.category), st.sort, st.categories);
@@ -191,8 +211,21 @@
       grid.appendChild(el('p', 'empty', '没有匹配的提示词，换个关键词试试'));
       return;
     }
-    var io = beginImagePass();   // 每轮渲染重开一批观察（2026-10-13：刷新/返回时瀑布流大片空白）
-    list.forEach(function (e, idx) {
+    onSentinelSeen = null;           // 上一轮的续渲回调作废（筛选/排序变化）
+
+    // ---------- 渐进渲染（2026-10-13）：先渲染首屏一小批，滚到接近底部再续 ----------
+    // 起因：220 张全渲染 = 220 个 <img> 进 DOM；缩略图已把图重压下来，再叠加
+    // 「只渲染看得见的」可以让首屏请求量与 DOM 都降一截。计数文案始终是总数。
+    // 两条兜底（实测 needed）：
+    //   ① 结果集 ≤ SYNC_MAX 张时一次渲染完——筛选/搜索后要即刻可见（34 条的「品牌视觉」
+    //      不该先出 24 张再补），也守住既有「筛完即全量」的口径；
+    //   ② 已经跳到页底附近时一次补全——否则「滚到底」后页面还在长高，最后一批
+    //      永远在视口外、图不触发（实测 ui4 滚动循环步数耗尽 → 19 张 src=null）。
+    var BATCH = 24;
+    var SYNC_MAX = 60;
+    var rendered = 0;
+
+    function buildCard(e, idx) {
       var card = el('article', 'card');
       card.setAttribute('data-id', e.id);
       // 入场动画按顺序错峰（对应参考站 progressive fade-in）
@@ -205,14 +238,10 @@
       var img = doc.createElement('img');
       img.alt = e.title;
       img.decoding = 'async';
-      // 图片渐进加载：观察器提前 1200px 触发（原生 loading=lazy 只按视口距离，首屏图来不及）
       media.classList.add('is-loading');
-      if (io) {
-        img.setAttribute('data-src', e.images[0]);
-        io.observe(img);
-      } else {
-        img.src = e.images[0];
-      }
+      var thumb = thumbOf(e.images[0]);
+      img.setAttribute('data-src', thumb);
+      scheduleSweep();               // 本批刚画完，立刻扫一次（不等滚动）
       img.addEventListener('load', function () {
         img.classList.add('is-loaded');
         media.classList.remove('is-loading');
@@ -222,7 +251,11 @@
         if (r) media.style.aspectRatio = r;
       });
       img.addEventListener('error', function () {
-        media.classList.remove('is-loading');   // 真失败就不该一直呼吸，留灰底但不加动画
+        // 缩略图缺失/失败（老条目未生成、上传漏生成）→ 回退原图，绝不白屏
+        if (img.getAttribute('data-src')) { img.removeAttribute('data-src'); }
+        var full = e.images[0];
+        if (img.getAttribute('src') !== full && img.src !== full) { img.src = full; return; }
+        media.classList.remove('is-loading');
       });
       media.appendChild(img);
       var overlay = el('div', 'card-overlay');
@@ -235,8 +268,36 @@
       media.appendChild(overlay);
       card.appendChild(media);
       card.addEventListener('click', function () { openDetail(doc, st, e.id); });
-      grid.appendChild(card);
-    });
+      return card;
+    }
+
+    function drawRest() {
+      var rest = list.slice(rendered);
+      rest.forEach(function (e, i) { grid.appendChild(buildCard(e, rendered + i)); });
+      rendered = list.length;
+      onSentinelSeen = null;         // 全渲染完，撤哨兵回调并移除哨兵元素
+      var sent = doc.querySelector('.grid-sentinel');
+      if (sent && sent.parentNode) sent.parentNode.removeChild(sent);
+      scheduleSweep();
+    }
+
+    function drawNext() {
+      var nearBottom = window.scrollY + window.innerHeight >= document.body.scrollHeight - 120;
+      if (nearBottom || rendered + BATCH >= list.length) { drawRest(); return; }
+      var slice = list.slice(rendered, rendered + BATCH);
+      slice.forEach(function (e, i) { grid.appendChild(buildCard(e, rendered + i)); });
+      rendered += slice.length;
+      onSentinelSeen = drawNext;     // 哨兵进预取带 → 续下一批（由滚动清扫触发）
+      grid.appendChild(el('div', 'grid-sentinel'));
+      scheduleSweep();
+    }
+
+    if (list.length <= SYNC_MAX) {
+      drawRest();                 // 小结果集：一次渲染完（筛选/搜索即刻全量可见）
+    } else {
+      drawNext();                 // 大结果集：先来一小批，滚到接近底部再续
+    }
+    scheduleSweep();
   }
 
   function openDetail(doc, st, id) {

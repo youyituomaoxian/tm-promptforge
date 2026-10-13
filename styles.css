@@ -204,6 +204,8 @@ select.sort-btn{
   opacity:0;transition:opacity .35s var(--ease),transform var(--dur-img) var(--ease);
 }
 .card-cover img.is-loaded{opacity:1}
+/* 渐进渲染哨兵：零高度不占位，只作「该续渲下一批了」的触发点 */
+.grid-sentinel{height:1px}
 .card:hover .card-cover img{transform:scale(1.1)}
 /* 压字层：默认全隐藏，hover 渐显（对齐参考站 opacity-0 → group-hover:opacity-100） */
 .card-overlay{
