@@ -472,10 +472,13 @@
       if (a === cur) { setMsg(msg, '新访问口令不能与当前口令相同', 'error'); return; }
       setMsg(msg, '正在计算新哈希并提交到仓库…', '', true);
       var salt = randomSaltHex(16);
+      var nextGate = null;   // 跨两个 then 传递：hash 只在上一个回调里存在
       return gateHash(a, salt, iter).then(function (hash) {
-        return be().saveGateHash({ salt: salt, iter: iter, hash: hash });
+        nextGate = { salt: salt, iter: iter, hash: hash };
+        return be().saveGateHash(nextGate);
       }).then(function () {
-        window.TM_GATE = { salt: salt, iter: iter, hash: hash };   // 本页立即切到新哈希
+        window.TM_GATE = nextGate;                 // 本页立即切到新哈希
+        setMsg($('gp-msg'), '');
         closeGatePwModal();
         setMsg($('admin-status'), '访问口令已更新：Pages 重建约 1 分钟后，刷新页面用新口令登录', '', true);
         setMsg($('admin-login-msg'), '访问口令已更新，请用新口令登录', 'ok', true);
