@@ -4647,25 +4647,5 @@
     "source": "https://x.com/1rpc_ai/status/1999038943443177955",
     "createdAt": "2025-12-18T00:00:00Z",
     "updatedAt": "2025-12-18T00:00:00Z"
-  },
-  {
-    "id": "p21",
-    "title": "在线管理活体测试条目-OC-1791860230949",
-    "prompt": "这是线上管理活体层的测试提示词，判卷结束后会被删除。",
-    "categories": [
-      "品牌视觉"
-    ],
-    "tags": [
-      "活体",
-      "测试"
-    ],
-    "model": "test-model",
-    "author": "online-check",
-    "source": "verify/online-check.js",
-    "images": [
-      "data/images/p21/p21-240x180.jpg"
-    ],
-    "createdAt": "2026-10-13T02:57:38Z",
-    "updatedAt": "2026-10-13T02:57:38Z"
   }
 ]
