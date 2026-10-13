@@ -7,7 +7,9 @@
     "images": [
       "data/images/p01/1.svg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "冷白",
       "瑞士风",
@@ -29,7 +31,9 @@
       "data/images/p02/1.svg",
       "data/images/p02/2.svg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "工业",
       "留白",
@@ -49,7 +53,9 @@
     "images": [
       "data/images/p03/1.svg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "色板",
       "扁平",
@@ -71,7 +77,9 @@
       "data/images/p04/2.svg",
       "data/images/p04/3.svg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "展会",
       "横幅",
@@ -92,7 +100,9 @@
       "data/images/p05/1.svg",
       "data/images/p05/2.svg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "PPT",
       "封面",
@@ -112,7 +122,9 @@
     "images": [
       "data/images/p06/1.svg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "PPT",
       "内页",
@@ -132,7 +144,9 @@
     "images": [
       "data/images/p07/1.svg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "PPT",
       "过渡页",
@@ -153,7 +167,9 @@
       "data/images/p08/1.svg",
       "data/images/p08/2.svg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "海报",
       "预热",
@@ -172,7 +188,9 @@
     "images": [
       "data/images/p09/1.svg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "产品发布",
       "影棚光",
@@ -192,7 +210,9 @@
     "images": [
       "data/images/p10/1.svg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "数字孪生",
       "同心环",
@@ -214,7 +234,9 @@
       "data/images/p11/2.svg",
       "data/images/p11/3.svg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品图",
       "白底",
@@ -234,7 +256,9 @@
     "images": [
       "data/images/p12/1.svg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "爆炸图",
       "零部件",
@@ -254,7 +278,9 @@
     "images": [
       "data/images/p13/1.svg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "微距",
       "细节",
@@ -275,7 +301,9 @@
       "data/images/p14/1.svg",
       "data/images/p14/2.svg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "B端",
       "仪表盘",
@@ -295,7 +323,9 @@
     "images": [
       "data/images/p15/1.svg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "移动端",
       "列表",
@@ -315,7 +345,9 @@
     "images": [
       "data/images/p16/1.svg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "登录页",
       "单卡片",
@@ -336,7 +368,9 @@
       "data/images/p17/1.svg",
       "data/images/p17/2.svg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "吉祥物",
       "扁平插画",
@@ -356,7 +390,9 @@
     "images": [
       "data/images/p18/1.svg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "线性图标",
       "网格",
@@ -377,7 +413,9 @@
       "data/images/p19/1.svg",
       "data/images/p19/2.svg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "3D渲染",
       "通用场景",
@@ -396,7 +434,9 @@
     "images": [
       "data/images/p20/1.svg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "人物剪影",
       "占位",
@@ -415,7 +455,9 @@
     "images": [
       "data/images/santas-insane-sale/santas-insane-sale.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -434,7 +476,9 @@
     "images": [
       "data/images/acidic-christmas-poster/acidic-christmas-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -453,7 +497,9 @@
     "images": [
       "data/images/christmas-special-skin-care-set-promotion-card/christmas-special-skin-care-set-promotion-card.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -472,7 +518,9 @@
     "images": [
       "data/images/ecommerce-product-page-kv-generation-guide/ecommerce-product-page-kv-generation-guide.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -491,7 +539,9 @@
     "images": [
       "data/images/vintage-style-gpt-4o-ai-painting-service-advertisement/vintage-style-gpt-4o-ai-painting-service-advertisement.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -510,7 +560,9 @@
     "images": [
       "data/images/create-great-ad-campaigns-with-nano-bnana-pro/create-great-ad-campaigns-with-nano-bnana-pro.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -529,7 +581,9 @@
     "images": [
       "data/images/product-image-to-marketing-advertisement-guide/product-image-to-marketing-advertisement-guide.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -548,7 +602,9 @@
     "images": [
       "data/images/ai-empowerment-innovation-event-poster/ai-empowerment-innovation-event-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -567,7 +623,9 @@
     "images": [
       "data/images/create-storyboards-in-seconds-and-rapidly-iterate-high-end-beauty-ecommerce-ads/create-storyboards-in-seconds-and-rapidly-iterate-high-end-beauty-ecommerce-ads.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -586,7 +644,9 @@
     "images": [
       "data/images/new-year-new-scene-christmas-disney-theme-park-nighttime-photography/new-year-new-scene-christmas-disney-theme-park-nighttime-photography.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -605,7 +665,9 @@
     "images": [
       "data/images/surrealist-minimalist-concept-ad/surrealist-minimalist-concept-ad.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -624,7 +686,9 @@
     "images": [
       "data/images/1950s-poster/1950s-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -643,7 +707,9 @@
     "images": [
       "data/images/food-explainer-ad-video-workflow/food-explainer-ad-video-workflow.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -662,7 +728,9 @@
     "images": [
       "data/images/virtual-realistic-fusion-concept-poster/virtual-realistic-fusion-concept-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -681,7 +749,9 @@
     "images": [
       "data/images/mixed-media-collage-poster/mixed-media-collage-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -700,7 +770,9 @@
     "images": [
       "data/images/character-deconstruction-art-poster/character-deconstruction-art-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -719,7 +791,9 @@
     "images": [
       "data/images/hand-embroidered-music-album-cover/hand-embroidered-music-album-cover.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -738,7 +812,9 @@
     "images": [
       "data/images/gpt-1-5-image-ultra-hd-hyper-realistic-digital-poster/gpt-1-5-image-ultra-hd-hyper-realistic-digital-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -757,7 +833,9 @@
     "images": [
       "data/images/grok-and-nano-banana-pro-poster/grok-and-nano-banana-pro-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -776,7 +854,9 @@
     "images": [
       "data/images/outfit-poster-generation-guidelines/outfit-poster-generation-guidelines.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -795,7 +875,9 @@
     "images": [
       "data/images/3x3-grid-creative-high-end-commercial-campaign/3x3-grid-creative-high-end-commercial-campaign.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -814,7 +896,9 @@
     "images": [
       "data/images/cinematic-outdoor-advertising-scene-modern-city-plaza-dusk/cinematic-outdoor-advertising-scene-modern-city-plaza-dusk.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -833,7 +917,9 @@
     "images": [
       "data/images/luxury-brand-character-fashion-advertisement/luxury-brand-character-fashion-advertisement.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -852,7 +938,9 @@
     "images": [
       "data/images/superhero-poster-style-iron-man/superhero-poster-style-iron-man.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -871,7 +959,9 @@
     "images": [
       "data/images/christmas-food-poster/christmas-food-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -890,7 +980,9 @@
     "images": [
       "data/images/hand-knitted-movie-poster/hand-knitted-movie-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -909,7 +1001,9 @@
     "images": [
       "data/images/supawork-ai-christmas-edition/supawork-ai-christmas-edition.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -928,7 +1022,9 @@
     "images": [
       "data/images/bread-and-pastry-series-posters/bread-and-pastry-series-posters.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -947,7 +1043,9 @@
     "images": [
       "data/images/powerful-sorcerer-movie-poster/powerful-sorcerer-movie-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -966,7 +1064,9 @@
     "images": [
       "data/images/unofficial-macbook-pro-ad-concept/unofficial-macbook-pro-ad-concept.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -985,7 +1085,9 @@
     "images": [
       "data/images/hyper-realistic-cinematic-movie-poster-powerful-male-sorcerer/hyper-realistic-cinematic-movie-poster-powerful-male-sorcerer.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1004,7 +1106,9 @@
     "images": [
       "data/images/nike-fashion-advertisement/nike-fashion-advertisement.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1023,7 +1127,9 @@
     "images": [
       "data/images/cinematic-3d-action-packed-advertisement-nano-banana-pro/cinematic-3d-action-packed-advertisement-nano-banana-pro.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1042,7 +1148,9 @@
     "images": [
       "data/images/modern-sport-poster-design/modern-sport-poster-design.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1061,7 +1169,9 @@
     "images": [
       "data/images/animal-alphabet-poster-a-z/animal-alphabet-poster-a-z.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1080,7 +1190,9 @@
     "images": [
       "data/images/action-movie-poster/action-movie-poster.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1099,7 +1211,9 @@
     "images": [
       "data/images/sports-posters-recreated-with-nano-banana-pro/sports-posters-recreated-with-nano-banana-pro.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1118,7 +1232,9 @@
     "images": [
       "data/images/high-end-iphone-17-pro-advertising-concept/high-end-iphone-17-pro-advertising-concept.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1137,7 +1253,9 @@
     "images": [
       "data/images/nano-banana-pro-18k-ultra-realistic-promotional-prompt/nano-banana-pro-18k-ultra-realistic-promotional-prompt.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1156,7 +1274,9 @@
     "images": [
       "data/images/high-end-commercial-marketing-campaign-3x3-grid-image-analysis/high-end-commercial-marketing-campaign-3x3-grid-image-analysis.jpg"
     ],
-    "category": "营销海报",
+    "categories": [
+      "营销海报"
+    ],
     "tags": [
       "主视觉",
       "排版设计",
@@ -1175,7 +1295,9 @@
     "images": [
       "data/images/hyper-minimalist-product-design/hyper-minimalist-product-design.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1194,7 +1316,9 @@
     "images": [
       "data/images/winter-body-care-line-packaging-design-concept/winter-body-care-line-packaging-design-concept.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1213,7 +1337,9 @@
     "images": [
       "data/images/mirror-product-photography/mirror-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1232,7 +1358,9 @@
     "images": [
       "data/images/realistic-product-photo/realistic-product-photo.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1251,7 +1379,9 @@
     "images": [
       "data/images/figure-zbrush-modeling-screen-and-bandai-style-box/figure-zbrush-modeling-screen-and-bandai-style-box.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1270,7 +1400,9 @@
     "images": [
       "data/images/nano-banana-package-design/nano-banana-package-design.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1289,7 +1421,9 @@
     "images": [
       "data/images/personalized-beauty-products-with-my-portrait/personalized-beauty-products-with-my-portrait.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1308,7 +1442,9 @@
     "images": [
       "data/images/high-end-cosmic-premium-product-photography-futuristic-energy-balancing-serum/high-end-cosmic-premium-product-photography-futuristic-energy-balancing-serum.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1327,7 +1463,9 @@
     "images": [
       "data/images/liquid-pour-product-photography/liquid-pour-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1346,7 +1484,9 @@
     "images": [
       "data/images/nano-banana-pro-product-photography-tips/nano-banana-pro-product-photography-tips.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1365,7 +1505,9 @@
     "images": [
       "data/images/packaging-design-display-analysis/packaging-design-display-analysis.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1384,7 +1526,9 @@
     "images": [
       "data/images/master-oatmeal-packaging-design/master-oatmeal-packaging-design.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1403,7 +1547,9 @@
     "images": [
       "data/images/exquisite-3d-render-of-handheld-console/exquisite-3d-render-of-handheld-console.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1422,7 +1568,9 @@
     "images": [
       "data/images/shadow-architecture-product-photography/shadow-architecture-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1441,7 +1589,9 @@
     "images": [
       "data/images/gemini-nano-banana-pro-product-shot/gemini-nano-banana-pro-product-shot.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1460,7 +1610,9 @@
     "images": [
       "data/images/desert-mirage-product-photography/desert-mirage-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1479,7 +1631,9 @@
     "images": [
       "data/images/melting-transition-product-photography/melting-transition-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1498,7 +1652,9 @@
     "images": [
       "data/images/color-block-product-photography-flux-2-adobe-firefly/color-block-product-photography-flux-2-adobe-firefly.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1517,7 +1673,9 @@
     "images": [
       "data/images/melting-product-photography/melting-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1536,7 +1694,9 @@
     "images": [
       "data/images/ultra-realistic-premium-beverage-product-photography/ultra-realistic-premium-beverage-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1555,7 +1715,9 @@
     "images": [
       "data/images/chiaroscuro-product-photography/chiaroscuro-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1574,7 +1736,9 @@
     "images": [
       "data/images/sand-and-wind-product-photography/sand-and-wind-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1593,7 +1757,9 @@
     "images": [
       "data/images/mid-air-suspended-product-with-glowing-sparks-textured-surfaces-highlighted-by-dramatic-studio-lighting/mid-air-suspended-product-with-glowing-sparks-textured-surfaces-highlighted-by-dramatic-studio-lighting.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1612,7 +1778,9 @@
     "images": [
       "data/images/botanical-product-photography/botanical-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1631,7 +1799,9 @@
     "images": [
       "data/images/miniature-world-product-photography/miniature-world-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1650,7 +1820,9 @@
     "images": [
       "data/images/frozen-in-ice-product-photography/frozen-in-ice-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1669,7 +1841,9 @@
     "images": [
       "data/images/male-studio-portrait/male-studio-portrait.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1688,7 +1862,9 @@
     "images": [
       "data/images/inspired-new-gameplay-creative-product-photography/inspired-new-gameplay-creative-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1707,7 +1883,9 @@
     "images": [
       "data/images/vertical-split-screen-creative-product-photography/vertical-split-screen-creative-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1726,7 +1904,9 @@
     "images": [
       "data/images/floating-product-photography/floating-product-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1745,7 +1925,9 @@
     "images": [
       "data/images/product-render-based-on-sketch/product-render-based-on-sketch.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1764,7 +1946,9 @@
     "images": [
       "data/images/fancy-perfume-bottle-photography/fancy-perfume-bottle-photography.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1783,7 +1967,9 @@
     "images": [
       "data/images/8k-morning-still-life-on-a-100-year-old-wooden-desk-in-golden-sunlight/8k-morning-still-life-on-a-100-year-old-wooden-desk-in-golden-sunlight.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1802,7 +1988,9 @@
     "images": [
       "data/images/explosive-food-and-product-photography-with-nano-banana-adobe-firefly/explosive-food-and-product-photography-with-nano-banana-adobe-firefly.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1821,7 +2009,9 @@
     "images": [
       "data/images/hyper-detailed-boxy-paper-toy/hyper-detailed-boxy-paper-toy.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1840,7 +2030,9 @@
     "images": [
       "data/images/beauty-brand-in-new-market/beauty-brand-in-new-market.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1859,7 +2051,9 @@
     "images": [
       "data/images/90s-style-wrestler/90s-style-wrestler.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1878,7 +2072,9 @@
     "images": [
       "data/images/brand-3d-render-of-large-capsule-container/brand-3d-render-of-large-capsule-container.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1897,7 +2093,9 @@
     "images": [
       "data/images/paper-toy-version/paper-toy-version.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1916,7 +2114,9 @@
     "images": [
       "data/images/3d-shop-render/3d-shop-render.jpg"
     ],
-    "category": "产品图",
+    "categories": [
+      "产品图"
+    ],
     "tags": [
       "产品渲染",
       "影棚布光",
@@ -1935,7 +2135,9 @@
     "images": [
       "data/images/futuristic-holographic-prism-logo-for-brands/futuristic-holographic-prism-logo-for-brands.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -1954,7 +2156,9 @@
     "images": [
       "data/images/oil-on-water-color-logo-for-brands/oil-on-water-color-logo-for-brands.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -1973,7 +2177,9 @@
     "images": [
       "data/images/fabric-stitched-textile-logo-for-brands/fabric-stitched-textile-logo-for-brands.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -1992,7 +2198,9 @@
     "images": [
       "data/images/ice-liquid-hybrid-logo-of-brands/ice-liquid-hybrid-logo-of-brands.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2011,7 +2219,9 @@
     "images": [
       "data/images/liquid-gloss-brand-logo/liquid-gloss-brand-logo.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2030,7 +2240,9 @@
     "images": [
       "data/images/rebranding-nano-banana/rebranding-nano-banana.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2049,7 +2261,9 @@
     "images": [
       "data/images/modern-bookshelf-inspired-by-brand-logos/modern-bookshelf-inspired-by-brand-logos.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2068,7 +2282,9 @@
     "images": [
       "data/images/firework-logo/firework-logo.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2087,7 +2303,9 @@
     "images": [
       "data/images/modern-personal-brand-showcase/modern-personal-brand-showcase.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2106,7 +2324,9 @@
     "images": [
       "data/images/neon-brand-reimagining/neon-brand-reimagining.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2125,7 +2345,9 @@
     "images": [
       "data/images/brand-folded-paper/brand-folded-paper.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2144,7 +2366,9 @@
     "images": [
       "data/images/animal-inspired-brand/animal-inspired-brand.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2163,7 +2387,9 @@
     "images": [
       "data/images/branded-planet-world/branded-planet-world.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2182,7 +2408,9 @@
     "images": [
       "data/images/nano-banana-turn-any-logo-into-a-calligraphic-monogram/nano-banana-turn-any-logo-into-a-calligraphic-monogram.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2201,7 +2429,9 @@
     "images": [
       "data/images/winter-brand-visual/winter-brand-visual.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2220,7 +2450,9 @@
     "images": [
       "data/images/openai-logo/openai-logo.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2239,7 +2471,9 @@
     "images": [
       "data/images/nano-banana-pro-logo-pillow/nano-banana-pro-logo-pillow.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2258,7 +2492,9 @@
     "images": [
       "data/images/miniature-brand-night-light-design/miniature-brand-night-light-design.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2277,7 +2513,9 @@
     "images": [
       "data/images/hyper-realistic-brand-architecture/hyper-realistic-brand-architecture.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2296,7 +2534,9 @@
     "images": [
       "data/images/turning-logos-into-luxury-leather-patches/turning-logos-into-luxury-leather-patches.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2315,7 +2555,9 @@
     "images": [
       "data/images/ai-generated-brand-assets-for-editing/ai-generated-brand-assets-for-editing.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2334,7 +2576,9 @@
     "images": [
       "data/images/portrait-of-david-duchovny/portrait-of-david-duchovny.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2353,7 +2597,9 @@
     "images": [
       "data/images/nano-banana-pro-transforming-logos-into-3d-isometric-logistics-hub/nano-banana-pro-transforming-logos-into-3d-isometric-logistics-hub.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2372,7 +2618,9 @@
     "images": [
       "data/images/designing-premium-olive-oil-brands-social-media-with-one-prompt/designing-premium-olive-oil-brands-social-media-with-one-prompt.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2391,7 +2639,9 @@
     "images": [
       "data/images/nano-banana-pro-3d-brand-headquarters/nano-banana-pro-3d-brand-headquarters.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2410,7 +2660,9 @@
     "images": [
       "data/images/metallic-logo/metallic-logo.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2429,7 +2681,9 @@
     "images": [
       "data/images/transform-logos-into-floating-islands-across-4-eras/transform-logos-into-floating-islands-across-4-eras.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2448,7 +2702,9 @@
     "images": [
       "data/images/nano-banana-pro-virtual-tryon-generating-36-unique-characters/nano-banana-pro-virtual-tryon-generating-36-unique-characters.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2467,7 +2723,9 @@
     "images": [
       "data/images/logo-ornaments-by-nano-banana-pro/logo-ornaments-by-nano-banana-pro.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2486,7 +2744,9 @@
     "images": [
       "data/images/brand-capsule-design/brand-capsule-design.jpg"
     ],
-    "category": "品牌视觉",
+    "categories": [
+      "品牌视觉"
+    ],
     "tags": [
       "品牌规范",
       "视觉识别",
@@ -2505,7 +2765,9 @@
     "images": [
       "data/images/neon-wireframe/neon-wireframe.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2524,7 +2786,9 @@
     "images": [
       "data/images/paparazzi-collage-master/paparazzi-collage-master.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2543,7 +2807,9 @@
     "images": [
       "data/images/instagram-profile-holographic-card-close-up/instagram-profile-holographic-card-close-up.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2562,7 +2828,9 @@
     "images": [
       "data/images/sam-altman-launching-yc-research-and-yc-continuity-in-2015/sam-altman-launching-yc-research-and-yc-continuity-in-2015.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2581,7 +2849,9 @@
     "images": [
       "data/images/ai-image-prompt-websites- compilation/ai-image-prompt-websites- compilation.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2600,7 +2870,9 @@
     "images": [
       "data/images/nano-banana-pro-gammaapp-integration/nano-banana-pro-gammaapp-integration.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2619,7 +2891,9 @@
     "images": [
       "data/images/gammaapp-launches-nano-banana-pro-become-a-content-master-in-seconds/gammaapp-launches-nano-banana-pro-become-a-content-master-in-seconds.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2638,7 +2912,9 @@
     "images": [
       "data/images/detailed-3d-isometric-icon/detailed-3d-isometric-icon.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2657,7 +2933,9 @@
     "images": [
       "data/images/voxel-icon-creation-in-chatgpt-4o/voxel-icon-creation-in-chatgpt-4o.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2676,7 +2954,9 @@
     "images": [
       "data/images/arcade-vibes-minimalist-8-bit-pixel-icons-for-your-inner-retro-nerd/arcade-vibes-minimalist-8-bit-pixel-icons-for-your-inner-retro-nerd.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2695,7 +2975,9 @@
     "images": [
       "data/images/app-ui-refresh-prompt-nano-banana-pro-agentv1-2-vide-coding/app-ui-refresh-prompt-nano-banana-pro-agentv1-2-vide-coding.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2714,7 +2996,9 @@
     "images": [
       "data/images/nano-banana-pro-web-page-creation/nano-banana-pro-web-page-creation.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2733,7 +3017,9 @@
     "images": [
       "data/images/autostereogram-generation-website/autostereogram-generation-website.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2752,7 +3038,9 @@
     "images": [
       "data/images/wes-anderson-designed-x-app-interface/wes-anderson-designed-x-app-interface.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2771,7 +3059,9 @@
     "images": [
       "data/images/nano-banana-pro-agent-v1-2-ui-refresh-prompt/nano-banana-pro-agent-v1-2-ui-refresh-prompt.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2790,7 +3080,9 @@
     "images": [
       "data/images/nano-banana-pro-prototype-character-and-phone-interface-screenshot/nano-banana-pro-prototype-character-and-phone-interface-screenshot.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2809,7 +3101,9 @@
     "images": [
       "data/images/comfyui-qweneditimage-multiple-angle-template-Compilation/comfyui-qweneditimage-multiple-angle-template-Compilation.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2828,7 +3122,9 @@
     "images": [
       "data/images/gammaapp-launches-nano-banana-pro-one-button-design-strategy/gammaapp-launches-nano-banana-pro-one-button-design-strategy.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2847,7 +3143,9 @@
     "images": [
       "data/images/nano-banana-pro-text-generation-and-layout-ability-analysis/nano-banana-pro-text-generation-and-layout-ability-analysis.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2866,7 +3164,9 @@
     "images": [
       "data/images/nano-banana-pro-visualizes-retro-game-interfaces-as-real-photos/nano-banana-pro-visualizes-retro-game-interfaces-as-real-photos.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2885,7 +3185,9 @@
     "images": [
       "data/images/league-of-legends-yasuo-mid-lane-lane-clearing-game-interface/league-of-legends-yasuo-mid-lane-lane-clearing-game-interface.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2904,7 +3206,9 @@
     "images": [
       "data/images/nano-banana-zhongdu-personalized-sns-icon-generation/nano-banana-zhongdu-personalized-sns-icon-generation.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2923,7 +3227,9 @@
     "images": [
       "data/images/nano-banana-pro-art-of-magazine-layout-for-articles/nano-banana-pro-art-of-magazine-layout-for-articles.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2942,7 +3248,9 @@
     "images": [
       "data/images/3d-cube-shaped-city-dioramas-created-by-nano-banana-pro-on-geminiapp/3d-cube-shaped-city-dioramas-created-by-nano-banana-pro-on-geminiapp.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2961,7 +3269,9 @@
     "images": [
       "data/images/liu-yifei-backstage写真-男友视角下的性感与私密/liu-yifei-backstage写真-男友视角下的性感与私密.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2980,7 +3290,9 @@
     "images": [
       "data/images/futuristic-social-interface-keywords-in-comments/futuristic-social-interface-keywords-in-comments.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -2999,7 +3311,9 @@
     "images": [
       "data/images/nano-banana-prompt-convert-your-x-profile-to-a-cyber-aesthetic-futuristic-social-app-interface/nano-banana-prompt-convert-your-x-profile-to-a-cyber-aesthetic-futuristic-social-app-interface.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -3018,7 +3332,9 @@
     "images": [
       "data/images/abstract-liquid-typography/abstract-liquid-typography.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -3037,7 +3353,9 @@
     "images": [
       "data/images/glowing-icon/glowing-icon.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -3056,7 +3374,9 @@
     "images": [
       "data/images/prismatic-glass-icon/prismatic-glass-icon.jpg"
     ],
-    "category": "UI界面",
+    "categories": [
+      "UI界面"
+    ],
     "tags": [
       "界面设计",
       "组件规范",
@@ -3075,7 +3395,9 @@
     "images": [
       "data/images/hand-drawn-portrait-illustration-in-red-and-yellow-pen-inspired-by-doodle-art-and-comic-annotations/hand-drawn-portrait-illustration-in-red-and-yellow-pen-inspired-by-doodle-art-and-comic-annotations.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3094,7 +3416,9 @@
     "images": [
       "data/images/miniature-2d-cartoon-illustration/miniature-2d-cartoon-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3113,7 +3437,9 @@
     "images": [
       "data/images/trendy-hand-drawn-illustration-woman-mirror-selfie-stylish-doodle-art-sketch/trendy-hand-drawn-illustration-woman-mirror-selfie-stylish-doodle-art-sketch.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3132,7 +3458,9 @@
     "images": [
       "data/images/retro-comic-style-cartoon-illustration/retro-comic-style-cartoon-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3151,7 +3479,9 @@
     "images": [
       "data/images/japanese-comedy-manga-style-illustration/japanese-comedy-manga-style-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3170,7 +3500,9 @@
     "images": [
       "data/images/classic-comics-style-illustration/classic-comics-style-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3189,7 +3521,9 @@
     "images": [
       "data/images/3d-cartoon-style-character-portraits-set/3d-cartoon-style-character-portraits-set.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3208,7 +3542,9 @@
     "images": [
       "data/images/cartoon-style-character-jumping-through-blue-circular-portal-in-fantasy-forest/cartoon-style-character-jumping-through-blue-circular-portal-in-fantasy-forest.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3227,7 +3563,9 @@
     "images": [
       "data/images/minimalist-flat-q-version-sticker/minimalist-flat-q-version-sticker.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3246,7 +3584,9 @@
     "images": [
       "data/images/nano-banana-pro-vol3-comment-tag-sticker/nano-banana-pro-vol3-comment-tag-sticker.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3265,7 +3605,9 @@
     "images": [
       "data/images/from-nano-banana-pro-illustration-to-manga-prompt/from-nano-banana-pro-illustration-to-manga-prompt.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3284,7 +3626,9 @@
     "images": [
       "data/images/nano-banana-3d-carrot-character-creation/nano-banana-3d-carrot-character-creation.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3303,7 +3647,9 @@
     "images": [
       "data/images/cheerful-3d-cartoon-girl-sticker/cheerful-3d-cartoon-girl-sticker.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3322,7 +3668,9 @@
     "images": [
       "data/images/cartoon-modern-style-illustration/cartoon-modern-style-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3341,7 +3689,9 @@
     "images": [
       "data/images/nintendo-style-3d-cartoon-illustration/nintendo-style-3d-cartoon-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3360,7 +3710,9 @@
     "images": [
       "data/images/brand-3d-cartoon-animal-character/brand-3d-cartoon-animal-character.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3379,7 +3731,9 @@
     "images": [
       "data/images/90s-american-cartoon-stop-motion-style-illustration/90s-american-cartoon-stop-motion-style-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3398,7 +3752,9 @@
     "images": [
       "data/images/hand-drawn-calendar-illustration/hand-drawn-calendar-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3417,7 +3773,9 @@
     "images": [
       "data/images/beloved-character-making-anime-style-signature/beloved-character-making-anime-style-signature.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3436,7 +3794,9 @@
     "images": [
       "data/images/aesthetic-digital-illustration-young-woman-mirror-selfie/aesthetic-digital-illustration-young-woman-mirror-selfie.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3455,7 +3815,9 @@
     "images": [
       "data/images/happy-character-cartoon-breaking-down-a-wall/happy-character-cartoon-breaking-down-a-wall.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3474,7 +3836,9 @@
     "images": [
       "data/images/hyper-detailed-paper-sculpture-character-minimalist-museum-display-box/hyper-detailed-paper-sculpture-character-minimalist-museum-display-box.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3493,7 +3857,9 @@
     "images": [
       "data/images/fluid-anime-illustration/fluid-anime-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3512,7 +3878,9 @@
     "images": [
       "data/images/anime-sticker-image-generation-analysis/anime-sticker-image-generation-analysis.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3531,7 +3899,9 @@
     "images": [
       "data/images/nano-banana-pro-dragon-ball-z-style-q-version-pseudo-3d-illustration/nano-banana-pro-dragon-ball-z-style-q-version-pseudo-3d-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3550,7 +3920,9 @@
     "images": [
       "data/images/coca-cola-miniature-building-illustration/coca-cola-miniature-building-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3569,7 +3941,9 @@
     "images": [
       "data/images/cute-3d-cartoon-character/cute-3d-cartoon-character.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3588,7 +3962,9 @@
     "images": [
       "data/images/nano-banana-pro-drawing-tips-cartoon-character-illustration/nano-banana-pro-drawing-tips-cartoon-character-illustration.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3607,7 +3983,9 @@
     "images": [
       "data/images/exclusive-pop-anime-stage-posters-for-otaku-characters-guide/exclusive-pop-anime-stage-posters-for-otaku-characters-guide.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3626,7 +4004,9 @@
     "images": [
       "data/images/gguo-manhuan-zhuan-ren-zhen-huan-yuan-comiket-dongman-yuanshu/gguo-manhuan-zhuan-ren-zhen-huan-yuan-comiket-dongman-yuanshu.jpg"
     ],
-    "category": "插画IP",
+    "categories": [
+      "插画IP"
+    ],
     "tags": [
       "角色设定",
       "插画风格",
@@ -3645,7 +4025,9 @@
     "images": [
       "data/images/kirigami-app-1-0-0-beta-1-powerpoint-editing-tool-release/kirigami-app-1-0-0-beta-1-powerpoint-editing-tool-release.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3664,7 +4046,9 @@
     "images": [
       "data/images/cinematic-fashion-photoshoot-coloring-slides/cinematic-fashion-photoshoot-coloring-slides.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3683,7 +4067,9 @@
     "images": [
       "data/images/creating-simple-design-slides-with-manus-and-nano-banana-pro/creating-simple-design-slides-with-manus-and-nano-banana-pro.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3702,7 +4088,9 @@
     "images": [
       "data/images/notebooklm-auto-generated-perfect-slides/notebooklm-auto-generated-perfect-slides.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3721,7 +4109,9 @@
     "images": [
       "data/images/nike-fashion-advertisement-slides/nike-fashion-advertisement-slides.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3740,7 +4130,9 @@
     "images": [
       "data/images/notebooklm-slide-font-repair/notebooklm-slide-font-repair.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3759,7 +4151,9 @@
     "images": [
       "data/images/nano-banana-pro-one-click-medical-data-policy-slide-creation/nano-banana-pro-one-click-medical-data-policy-slide-creation.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3778,7 +4172,9 @@
     "images": [
       "data/images/nano-banana-pro-quickly-creates-slide-on-prime-ministers-chinese-relations-in-10-seconds/nano-banana-pro-quickly-creates-slide-on-prime-ministers-chinese-relations-in-10-seconds.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3797,7 +4193,9 @@
     "images": [
       "data/images/the-most-viral-nano-banana-pro-simple-slideshow-prompt/the-most-viral-nano-banana-pro-simple-slideshow-prompt.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3816,7 +4214,9 @@
     "images": [
       "data/images/anthropic-claude-style-ppt-design-nano-banana-pro-generated-chinese-presentation/anthropic-claude-style-ppt-design-nano-banana-pro-generated-chinese-presentation.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3835,7 +4235,9 @@
     "images": [
       "data/images/creating-a-terrible-slide-presentation-to-introduce-einstein/creating-a-terrible-slide-presentation-to-introduce-einstein.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3854,7 +4256,9 @@
     "images": [
       "data/images/nano-banana-pro-ppt-futuristic-ui-ux-presentation-slides/nano-banana-pro-ppt-futuristic-ui-ux-presentation-slides.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3873,7 +4277,9 @@
     "images": [
       "data/images/create-presentations-or-websites-faster-than-making-tea/create-presentations-or-websites-faster-than-making-tea.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3892,7 +4298,9 @@
     "images": [
       "data/images/nano-banana-pro-the-powerpoint-killer/nano-banana-pro-the-powerpoint-killer.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3911,7 +4319,9 @@
     "images": [
       "data/images/this-years-most-valuable-prompt-word-generate-perfect-ppt/this-years-most-valuable-prompt-word-generate-perfect-ppt.jpg"
     ],
-    "category": "PPT演示",
+    "categories": [
+      "PPT演示"
+    ],
     "tags": [
       "版式设计",
       "演示稿",
@@ -3930,7 +4340,9 @@
     "images": [
       "data/images/chaotic-anime-illustration-poster-design/chaotic-anime-illustration-poster-design.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -3949,7 +4361,9 @@
     "images": [
       "data/images/cartoon-style-app-icon-design/cartoon-style-app-icon-design.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -3968,7 +4382,9 @@
     "images": [
       "data/images/branding-minimalist/branding-minimalist.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -3987,7 +4403,9 @@
     "images": [
       "data/images/minimalist-vector-icon-of-any-character/minimalist-vector-icon-of-any-character.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4006,7 +4424,9 @@
     "images": [
       "data/images/typographic-logos-by-gpt-1-5-image/typographic-logos-by-gpt-1-5-image.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4025,7 +4445,9 @@
     "images": [
       "data/images/nintendo-brand-merchandise-showcase/nintendo-brand-merchandise-showcase.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4044,7 +4466,9 @@
     "images": [
       "data/images/christmas-advent-calendar-24th-day/christmas-advent-calendar-24th-day.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4063,7 +4487,9 @@
     "images": [
       "data/images/pixar-style-3d-cartoon-character-prompt-words/pixar-style-3d-cartoon-character-prompt-words.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4082,7 +4508,9 @@
     "images": [
       "data/images/christmas-digital-art-prompt/christmas-digital-art-prompt.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4101,7 +4529,9 @@
     "images": [
       "data/images/makeup-blogger-christmas-makeup-tutorial-interface/makeup-blogger-christmas-makeup-tutorial-interface.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4120,7 +4550,9 @@
     "images": [
       "data/images/exploded-view-of-nespresso-coffee-machine-internal-components/exploded-view-of-nespresso-coffee-machine-internal-components.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4139,7 +4571,9 @@
     "images": [
       "data/images/baby-store-product-photography-marketing-analysis/baby-store-product-photography-marketing-analysis.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4158,7 +4592,9 @@
     "images": [
       "data/images/fashion-lady-and-labubu-character-advertising-photo/fashion-lady-and-labubu-character-advertising-photo.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4177,7 +4613,9 @@
     "images": [
       "data/images/gpt-image-1-5-vs-midjourney-anime-style-cross-stitch-of-a-christmas-elf/gpt-image-1-5-vs-midjourney-anime-style-cross-stitch-of-a-christmas-elf.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
@@ -4196,7 +4634,9 @@
     "images": [
       "data/images/christmas-snow-globe-characters-by-nano-banana-pro/christmas-snow-globe-characters-by-nano-banana-pro.jpg"
     ],
-    "category": "其他",
+    "categories": [
+      "其他"
+    ],
     "tags": [
       "创意视觉",
       "生成实验",
