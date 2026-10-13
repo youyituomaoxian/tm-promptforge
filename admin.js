@@ -12,6 +12,12 @@
   var state = { token: null, entries: [], draft: null, editId: null, cat: '全部',
     categories: DEFAULT_CATEGORIES.slice() };
   var $ = function (id) { return document.getElementById(id); };
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
 
   function setMsg(el, text, kind, keep) {
     el.textContent = text || '';
@@ -23,6 +29,9 @@
   // 连不到服务端的引导文案（网络错误 ≠ 口令错误，必须说清楚差在哪一步）
   var HINT_OFFLINE = '连不到本地管理服务——不是口令问题。请先在项目目录运行 node server/start.js，' +
     '然后浏览器打开 http://127.0.0.1:8125/admin.html';
+  // 书8 任务4：线上模式换文案——线上没有本地服务，令牌才是权限边界
+  var HINT_ONLINE = '连不上 GitHub API——不是访问口令的问题。请检查网络/代理是否允许浏览器直连 ' +
+    'api.github.com（CORS），或令牌是否已失效。';
   function isOfflineError(e) {
     var m = (e && e.message) || '';
     return /Failed to fetch|NetworkError|Load failed|fetch failed|HTTP 404/i.test(m);
@@ -42,6 +51,346 @@
         return j;
       });
     });
+  }
+
+  // ---------- 提交层双后端（书8 任务2）----------
+  // 契约与 server/storage.js 的 REQUIRED 同构：loadEntries / saveEntries /
+  // loadCategories / saveCategories / saveImage / deleteImage，各两个实现：
+  //   backendLocal()       走现有 /api/*（本地预览与判卷；逻辑一字未动，只换调用形状）
+  //   backendGithub(token) 直连 GitHub contents API（线上；任务4 填全六方法）
+  // 后端选择由纯函数 selectBackend 算出：localhost/127.0.0.1 → local，任何其他
+  // 主机名 → github；?backend=github|local 强制覆盖（判卷与排障）。不做「记住上次选择」。
+
+  function selectBackend(loc, search) {
+    var q = new URLSearchParams(String(search || ''));
+    var forced = q.get('backend');
+    if (forced === 'local' || forced === 'github') return forced;
+    var host = String((loc && loc.hostname) || '').toLowerCase();
+    return (host === 'localhost' || host === '127.0.0.1') ? 'local' : 'github';
+  }
+
+  function backendLocal() {
+    return {
+      kind: 'local',
+      loadEntries: function () {
+        return api('GET', '/api/entries').then(function (r) { return r.entries || []; });
+      },
+      saveEntries: function (entries) {
+        return api('PUT', '/api/entries', { entries: entries });
+      },
+      loadCategories: function () {
+        return api('GET', '/api/categories').then(function (r) { return r.categories || []; });
+      },
+      saveCategories: function (cats) {
+        return api('PUT', '/api/categories', { categories: cats });
+      },
+      saveImage: function (id, filename, dataBase64, out) {
+        return api('POST', '/api/image', { id: id, filename: filename, dataBase64: dataBase64, w: Math.round(out.w), h: Math.round(out.h) });
+      },
+      deleteImage: function (id, filename) {
+        return api('DELETE', '/api/image?id=' + encodeURIComponent(id) + '&filename=' + encodeURIComponent(filename));
+      }
+    };
+  }
+
+  // ---------- GitHub contents API 客户端（书8 任务4）----------
+  // 浏览器直连 api.github.com，零后端：写入即 commit，Pages 自动重建。
+  // 配置：repoSlug 默认 youyituomaoxian/tm-promptforge（?repo= 覆盖）、branch 默认 gh-pages。
+  // 令牌只在内存（进 Authorization 头），不落盘、不进 URL、不打日志。
+  var GH_DEFAULT_REPO = 'youyituomaoxian/tm-promptforge';
+  var GH_DEFAULT_BRANCH = 'gh-pages';
+
+  function ghConfig(loc) {
+    var l = loc || (typeof window !== 'undefined' && window.location) || {};
+    var q = new URLSearchParams(l.search || '');
+    return {
+      repo: q.get('repo') || GH_DEFAULT_REPO,
+      branch: q.get('branch') || GH_DEFAULT_BRANCH
+    };
+  }
+
+  function backendGithub(token, cfg) {
+    var tk = String(token || '');
+    var c = cfg || ghConfig();
+    var repoSlug = String(c.repo || GH_DEFAULT_REPO);
+    var branch = String(c.branch || GH_DEFAULT_BRANCH);
+    // fetch 可注入（判卷用假响应喂纯逻辑，只 mock GitHub 端点，不 mock 本客户端）
+    var doFetch = c.fetch
+      ? function (u, o) { return c.fetch(u, o); }
+      : function (u, o) { return window.fetch(u, o); };
+
+    function apiUrl(pathInRepo) {
+      return 'https://api.github.com/repos/' + repoSlug + '/contents/' + pathInRepo +
+        '?ref=' + encodeURIComponent(branch);
+    }
+
+    // 错误分级：401/403 令牌或权限、404 仓库/分支、409 并发冲突、422 原样透出
+    function ghFail(status, j) {
+      var msg = (j && j.message) || ('HTTP ' + status);
+      var e;
+      if (status === 401 || status === 403) {
+        e = new Error('令牌无效或权限不足——检查是否给了 Contents R/W 且限定本仓库（GitHub: ' + msg + '）');
+      } else if (status === 404) {
+        e = new Error('仓库或分支不存在（GitHub: ' + msg + '）');
+      } else if (status === 409) {
+        e = new Error('并发冲突：别人刚改过同一文件，请刷新页面后重试（GitHub: ' + msg + '）');
+      } else if (status === 422) {
+        e = new Error('GitHub 拒绝（422）: ' + msg);
+      } else {
+        e = new Error('GitHub API ' + status + ': ' + msg);
+      }
+      e.status = status;   // 404/409 判定走 status，不猜文案
+      return e;
+    }
+
+    function req(method, pathInRepo, body) {
+      return doFetch(apiUrl(pathInRepo), {
+        method: method,
+        headers: {
+          'Authorization': 'Bearer ' + tk,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        body: body === undefined ? undefined : JSON.stringify(body)
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok) throw ghFail(r.status, j);
+          return j;
+        });
+      });
+    }
+
+    // GET 原始内容：base64 去换行后解码（contents API 的 content 带换行）。
+    // nullIf404=true 只给**写入/删除路径**用（查 sha 时「文件不存在」= 新建场景）；
+    // 读取路径传 false —— 读不到就是「仓库/分支不存在」，必须报错而不是静默空列表。
+    function getRaw(pathInRepo, nullIf404) {
+      return req('GET', pathInRepo).then(function (j) {
+        return { sha: j.sha || null, b64: String(j.content || '').replace(/\n/g, '') };
+      }, function (e) {
+        if (e.status === 404 && nullIf404) return null;
+        throw e;
+      });
+    }
+
+    function getText(pathInRepo, nullIf404) {
+      return getRaw(pathInRepo, nullIf404).then(function (r) {
+        if (!r) return null;
+        var bin = atob(r.b64);
+        var arr = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+        return { sha: r.sha, text: new TextDecoder('utf-8').decode(arr) };
+      });
+    }
+
+    // PUT 文件：先 GET 拿 sha（有则更新、无则新建）；409 自动重取 sha 重试一次
+    function putFile(pathInRepo, content, message) {
+      function build(sha) {
+        var body = { message: message, content: content, branch: branch };
+        if (sha) body.sha = sha;
+        return body;
+      }
+      return getRaw(pathInRepo, true).then(function (cur) {
+        return req('PUT', pathInRepo, build(cur && cur.sha)).catch(function (e) {
+          if (e.status !== 409) throw e;
+          return getRaw(pathInRepo, true).then(function (cur2) {
+            return req('PUT', pathInRepo, build(cur2 && cur2.sha));
+          });
+        });
+      });
+    }
+
+    function b64Utf8(text) {
+      var bytes = new TextEncoder().encode(text);
+      var bin = '';
+      for (var i = 0; i < bytes.length; i += 8192) {
+        bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
+      }
+      return btoa(bin);
+    }
+
+    // image-dims.json 增量维护：与 server/storage-github.js 同口径，
+    // 序列化与 scripts/gen-dims.py 产物逐字节同构（sort_keys + indent=0 + CRLF）
+    function pyJsonDims(dims) {
+      var keys = Object.keys(dims).sort();
+      if (!keys.length) return '{}';
+      var s = '{\n' + keys.map(function (k) {
+        return JSON.stringify(k) + ': [\n' + dims[k][0] + ',\n' + dims[k][1] + '\n]';
+      }).join(',\n') + '\n}';
+      return s.replace(/\n/g, '\r\n');
+    }
+
+    function mergeDims(addMap, removeList) {
+      return getText('data/image-dims.json', true).then(function (r) {
+        var dims = {};
+        if (r && r.text) {
+          try {
+            dims = JSON.parse(r.text);
+            if (!dims || typeof dims !== 'object' || Array.isArray(dims)) dims = {};
+          } catch (e) { dims = {}; }
+        }
+        (removeList || []).forEach(function (k) { delete dims[k]; });
+        Object.keys(addMap || {}).forEach(function (k) { dims[k] = addMap[k]; });
+        return putFile('data/image-dims.json', b64Utf8(pyJsonDims(dims)), 'chore: update image-dims.json');
+      });
+    }
+
+    return {
+      kind: 'github',
+      repo: repoSlug,
+      branch: branch,
+      loadEntries: function () {
+        return getText('data/entries.json', false).then(function (r) {
+          return r ? JSON.parse(r.text) : [];
+        });
+      },
+      saveEntries: function (entries) {
+        return putFile('data/entries.json',
+          b64Utf8(JSON.stringify(entries, null, 2) + '\n'),
+          'chore: 在线更新条目（共 ' + entries.length + ' 条）')
+          .then(function () { return { ok: true, count: entries.length }; });
+      },
+      loadCategories: function () {
+        return getText('data/categories.json', false).then(function (r) {
+          return r ? JSON.parse(r.text) : [];
+        });
+      },
+      saveCategories: function (cats) {
+        return putFile('data/categories.json', b64Utf8(JSON.stringify(cats, null, 2) + '\n'),
+          'chore: 在线更新分类（共 ' + cats.length + ' 类）')
+          .then(function () { return { ok: true, count: cats.length }; });
+      },
+      saveImage: function (id, filename, dataBase64, out) {
+        var pathInRepo = 'data/images/' + id + '/' + filename;
+        var content = String(dataBase64 || '').replace(/\s+/g, '');   // 去所有换行再提交
+        var hasWH = !!(out && Number(out.w) > 0 && Number(out.h) > 0);
+        var msg = 'feat: add image ' + id + '/' + filename +
+          (hasWH ? '（' + Math.round(out.w) + 'x' + Math.round(out.h) + '）' : '');
+        return putFile(pathInRepo, content, msg).then(function () {
+          if (!hasWH) return { rel: pathInRepo };
+          var addMap = {};
+          addMap[pathInRepo] = [Math.round(out.w), Math.round(out.h)];
+          return mergeDims(addMap, null).then(function () { return { rel: pathInRepo }; });
+        });
+      },
+      deleteImage: function (id, filename) {
+        var pathInRepo = 'data/images/' + id + '/' + filename;
+        return getRaw(pathInRepo, true).then(function (cur) {
+          if (!cur || !cur.sha) return { ok: true, existed: false };
+          return req('DELETE', pathInRepo, {
+            message: 'chore: remove image ' + id + '/' + filename,
+            sha: cur.sha,
+            branch: branch
+          }).then(function () {
+            return mergeDims(null, [pathInRepo]).then(function () { return { ok: true, existed: true }; });
+          });
+        });
+      }
+    };
+  }
+
+  function createBackend(token, loc) {
+    var l = loc || (typeof window !== 'undefined' && window.location) || {};
+    var kind = selectBackend(l, l.search || '');
+    return kind === 'github' ? backendGithub(token, ghConfig(l)) : backendLocal();
+  }
+  function be() { return createBackend(state.token); }
+
+  // 测试挂载（判卷离线断言用；不参与业务逻辑）
+  window.__TM_ONLINE_TEST__ = {
+    selectBackend: selectBackend,
+    backendLocal: backendLocal,
+    backendGithub: backendGithub,
+    createBackend: createBackend,
+    gateVerify: gateVerify,
+    ghConfig: ghConfig,
+    hintOffline: hintOffline
+  };
+
+  // ---------- 线上模式：静态口令门 + 令牌登录（书8 任务3）----------
+  // 访问口令门 = 防误触/防扫描，**不是安全边界**（页面源码公开）；
+  // 真正的权限边界是用户的 GitHub 令牌（只存 sessionStorage，关标签页即失效）。
+  var GATE_KEY = 'tm_gh_token';
+
+  function gateMode() {
+    var l = (typeof window !== 'undefined' && window.location) || {};
+    return selectBackend(l, l.search || '') === 'github';
+  }
+
+  // 模式感知的离线引导：本地模式讲「起本地服务」，线上模式讲「直连 GitHub 的令牌/网络」
+  function hintOffline() {
+    return gateMode() ? HINT_ONLINE : HINT_OFFLINE;
+  }
+
+  function hexToBytes(hex) {
+    var out = new Uint8Array(hex.length / 2);
+    for (var i = 0; i < out.length; i++) out[i] = parseInt(hex.substr(i * 2, 2), 16);
+    return out;
+  }
+
+  // 常量时间比较：不提前返回，差异累计到最后一位（不用 === 直接比字符串）
+  function ctEqualBytes(a, b) {
+    var diff = a.length ^ b.length;
+    var n = Math.min(a.length, b.length);
+    for (var i = 0; i < n; i++) diff |= a[i] ^ b[i];
+    return diff === 0 && a.length === b.length;
+  }
+
+  function gateVerify(pw) {
+    var g = window.TM_GATE;
+    if (!pw || !g || !g.salt || !g.hash) return Promise.resolve(false);
+    var enc = new TextEncoder();
+    return crypto.subtle.importKey('raw', enc.encode(pw), { name: 'PBKDF2' }, false, ['deriveBits'])
+      .then(function (key) {
+        return crypto.subtle.deriveBits(
+          { name: 'PBKDF2', salt: hexToBytes(g.salt), iterations: Number(g.iter) || 100000, hash: 'SHA-256' },
+          key, 256);   // 32 字节
+      })
+      .then(function (bits) {
+        return ctEqualBytes(new Uint8Array(bits), hexToBytes(g.hash));
+      })
+      .catch(function () { return false; });
+  }
+
+  function doGate() {
+    var pw = $('gate-pw').value;
+    var msg = $('admin-login-msg');
+    setMsg(msg, '');
+    gateVerify(pw).then(function (ok2) {
+      if (!ok2) { setMsg(msg, '访问口令不对', 'error'); return; }
+      $('gate-row').classList.add('is-hidden');
+      $('gh-row').classList.remove('is-hidden');
+      $('gh-token').focus();
+      setMsg(msg, '口令正确——请填你的 GitHub 令牌（权限边界在令牌，不在访问口令）', 'ok', true);
+    });
+  }
+
+  function doGhLogin() {
+    var token = $('gh-token').value.trim();
+    var msg = $('admin-login-msg');
+    setMsg(msg, '');
+    if (token.length < 20) { setMsg(msg, '令牌看起来不对（至少 20 位）', 'error'); return; }
+    // 令牌只进 sessionStorage（关标签页即失效）；localStorage / cookie / URL 一律不出现
+    try { sessionStorage.setItem(GATE_KEY, token); } catch (e) { /* 隐私模式等 */ }
+    state.token = token;
+    $('gh-token').value = '';
+    enterApp().catch(function (e) {
+      // 进后台失败（令牌无效等）：回登录页第二道，话说明白差在哪
+      $('admin-app').classList.add('is-hidden');
+      $('admin-login').classList.remove('is-hidden');
+      $('gh-row').classList.remove('is-hidden');
+      setMsg(msg, '令牌验证失败：' + e.message + '（检查是否给了 Contents R/W 且限定本仓库）', 'error', true);
+    });
+  }
+
+  function ghLogout() {
+    try { sessionStorage.removeItem(GATE_KEY); } catch (e) {}
+    state.token = null; state.entries = [];
+    $('admin-app').classList.add('is-hidden');
+    $('admin-login').classList.remove('is-hidden');
+    $('gh-row').classList.add('is-hidden');
+    $('gate-row').classList.remove('is-hidden');
+    $('gate-pw').value = ''; $('gh-token').value = '';
+    setMsg($('admin-login-msg'), '已退出，令牌已从本标签页清除', 'ok', true);
   }
 
   // ---------- 图片压缩（真实读像素，非伪造size） ----------
@@ -112,7 +461,8 @@
   function visibleEntries() {
     var q = $('admin-search').value.trim().toLowerCase();
     return state.entries.filter(function (e) {
-      var catOk = state.cat === '全部' || e.category === state.cat;
+      // 书6：列表筛选同样「含该类即计」
+      var catOk = state.cat === '全部' || (e.categories || []).indexOf(state.cat) !== -1;
       var hay = (e.title + ' ' + e.prompt + ' ' + (e.tags || []).join(' ')).toLowerCase();
       return catOk && (!q || hay.indexOf(q) !== -1);
     });
@@ -143,7 +493,7 @@
       t.className = 'e-title'; t.textContent = e.title;
       var m = document.createElement('div');
       m.className = 'e-meta';
-      m.appendChild(makeSpan(e.category));
+      m.appendChild(makeSpan((e.categories || []).join(' / ') || '未分类'));
       m.appendChild(makeSpan(e.model || ''));
       m.appendChild(makeSpan((e.images || []).length + ' 图'));
       main.appendChild(t); main.appendChild(m);
@@ -206,7 +556,7 @@
     if (!name) { catMsg('分类名不能为空', 'error'); return; }
     if (state.categories.indexOf(name) !== -1) { catMsg('分类「' + name + '」已存在', 'error'); return; }
     var next = state.categories.concat([name]);
-    api('PUT', '/api/categories', { categories: next }).then(function (r) {
+    be().saveCategories(next).then(function (r) {
       state.categories = next;
       $('cat-new').value = '';
       fillCategorySelect();
@@ -219,34 +569,58 @@
     if (!newName || newName === oldName) { catMsg('新名无效', 'error'); return; }
     if (state.categories.indexOf(newName) !== -1) { catMsg('分类「' + newName + '」已存在', 'error'); return; }
     var next = state.categories.map(function (c) { return c === oldName ? newName : c; });
-    // 改名级联：服务端同一次请求里把条目的 category 一并改掉，再全量保存
-    api('PUT', '/api/categories',
-      { categories: next, renameFrom: oldName, renameTo: newName })
-      .then(function (r) {
-        state.categories = next;
-        return api('GET', '/api/entries').then(function (e2) {
-          state.entries = e2.entries || [];
-          fillCategorySelect(); renderCatRows(); renderCats(); renderList();
-          if (state.draft && state.draft.category === oldName) {
-            state.draft.category = newName;
-            $('f-category').value = newName;
-          }
-          catMsg('已改名为「' + newName + '」，级联更新 ' + r.entriesUpdated + ' 条', 'ok');
+    // 书6：改名级联由面板侧完成——server/ 本轮只读约束不动，类表 PUT 成功后
+    // 重新拉全量条目，把所有含该类条目的 categories 数组元素替换，再整体 PUT。
+    // 顺序：先类表后条目；条目 PUT 失败则回滚类表，避免「类表已改、条目未跟」。
+    be().saveCategories(next).then(function () {
+      state.categories = next;
+      return be().loadEntries();
+    }).then(function (fresh) {
+      var cascaded = 0;
+      var entries2 = fresh.map(function (e) {
+        var cats = e.categories || [];
+        if (cats.indexOf(oldName) === -1) return e;
+        cascaded++;
+        return Object.assign({}, e, {
+          categories: cats.map(function (c) { return c === oldName ? newName : c; })
         });
-      }).catch(function (e) { catMsg('改名失败：' + e.message, 'error'); });
+      });
+      return be().saveEntries(entries2).then(function () {
+        state.entries = entries2;
+        fillCategorySelect(); renderCatRows(); renderCats(); renderList();
+        // 草稿同步：草稿里含旧类名的，数组元素一并替换（含双类条目）
+        if (state.draft && (state.draft.categories || []).indexOf(oldName) !== -1) {
+          state.draft.categories = state.draft.categories.map(function (c) { return c === oldName ? newName : c; });
+          syncSelectFromDraft();
+        }
+        catMsg('已改名为「' + newName + '」，级联更新 ' + cascaded + ' 条', 'ok');
+      });
+    }).catch(function (e) {
+      // 回滚类表（仅当类表已改）；条目 PUT 失败时保证类表与条目不长期不一致
+      var rollback = state.categories.indexOf(newName) !== -1 && state.categories.indexOf(oldName) === -1;
+      var done = rollback
+        ? be().saveCategories(state.categories.map(function (c) { return c === newName ? oldName : c; }))
+        : Promise.resolve();
+      done.then(function () {
+        if (rollback) state.categories = state.categories.map(function (c) { return c === newName ? oldName : c; });
+        renderCatRows(); renderCats();
+        catMsg('改名失败：' + e.message + (rollback ? '（类表已回滚）' : ''), 'error');
+      }).catch(function () { catMsg('改名失败：' + e.message + '（回滚也失败，请人工检查）', 'error'); });
+    });
   }
 
   function deleteCategory(name) {
     if (name === RESERVED_CATEGORY) {
       catMsg('「其他」是兜底类，不可删除', 'error'); return;
     }
-    var used = state.entries.filter(function (e) { return e.category === name; }).length;
+    // 书6：删类判定「任一条目含该类即在用」
+    var used = state.entries.filter(function (e) { return (e.categories || []).indexOf(name) !== -1; }).length;
     if (used > 0) {
       catMsg('「' + name + '」下还有 ' + used + ' 条，不能删。请先把这些条目移到别的分类', 'error');
       return;
     }
     var next = state.categories.filter(function (c) { return c !== name; });
-    api('PUT', '/api/categories', { categories: next }).then(function (r) {
+    be().saveCategories(next).then(function (r) {
       state.categories = next;
       fillCategorySelect(); renderCatRows(); renderCats();
       if (state.cat === name) { state.cat = '全部'; renderList(); }
@@ -257,7 +631,7 @@
   // ---------- 表单 ----------
   function blankDraft() {
     return {
-      id: '', title: '', prompt: '', negativePrompt: '', category: '其他',
+      id: '', title: '', prompt: '', negativePrompt: '', categories: ['其他'],
       tags: [], model: '', author: '', source: '', images: []
     };
   }
@@ -289,7 +663,8 @@
 
   function fillForm(d) {
     $('f-title').value = d.title || '';
-    $('f-category').value = d.category || '其他';
+    // 书6：分类多选组件——按草稿 categories 勾选
+    msSetSelected(d.categories || []);
     $('f-prompt').value = d.prompt || '';
     $('f-negative').value = d.negativePrompt || '';
     $('f-model').value = d.model || '';
@@ -337,7 +712,7 @@
     // 同步删磁盘文件（仅对已存在的旧图；新上传未保存的不动）
     var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
     if (m) {
-      api('DELETE', '/api/image?id=' + encodeURIComponent(m[1]) + '&filename=' + encodeURIComponent(m[2]))
+      be().deleteImage(m[1], m[2])
         .catch(function () { /* 新图可能尚未落盘，忽略 */ });
     }
   }
@@ -351,10 +726,20 @@
     return 'p' + String(max + 1).padStart(2, '0');
   }
 
+  // 书6：把草稿的 categories 同步回多选组件（改名级联后用）
+  function syncSelectFromDraft() {
+    msSetSelected((state.draft && state.draft.categories) || []);
+  }
+
   function collectForm() {
     var d = state.draft;
     d.title = $('f-title').value.trim();
-    d.category = $('f-category').value;
+    // 书6：多选读取；「其他」与任何真实类并存时保存前自动剔除
+    var picked = msSelected();
+    if (picked.length > 1) picked = picked.filter(function (c) { return c !== RESERVED_CATEGORY; });
+    d.categories = picked;
+    // 剔除结果同步回组件：界面显示的就是将保存的结果
+    msSetSelected(picked);
     d.prompt = $('f-prompt').value.trim();
     var neg = $('f-negative').value.trim();
     if (neg) d.negativePrompt = neg; else delete d.negativePrompt;
@@ -373,6 +758,8 @@
     var msg = $('admin-img-msg');
     if (!d.title) { setMsg(msg, '标题必填', 'error'); return; }
     if (!d.prompt) { setMsg(msg, '正向提示词必填', 'error'); return; }
+    // 书6：至少选 1 类才许保存
+    if (!(d.categories || []).length) { setMsg(msg, '请至少选择 1 个分类', 'error'); return; }
     if (!(d.images || []).length) { setMsg(msg, '至少需要 1 张效果图', 'error'); return; }
     if ((d.images || []).length > 3) { setMsg(msg, '最多 3 张', 'error'); return; }
 
@@ -392,7 +779,7 @@
   }
 
   function commit(next, msg) {
-    return api('PUT', '/api/entries', { entries: next }).then(function (r) {
+    return be().saveEntries(next).then(function (r) {
       state.entries = next;
       state.editId = d3(next, state.draft.id);
       $('admin-form-title').textContent = '编辑：' + state.draft.title;
@@ -417,11 +804,11 @@
     imgs.forEach(function (rel) {
       var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
       if (m) {
-        api('DELETE', '/api/image?id=' + encodeURIComponent(m[1]) + '&filename=' + encodeURIComponent(m[2]))
+        be().deleteImage(m[1], m[2])
           .catch(function () {});
       }
     });
-    api('PUT', '/api/entries', { entries: next }).then(function (r) {
+    be().saveEntries(next).then(function (r) {
       state.entries = next;
       state.editId = null;
       state.draft = null;
@@ -451,7 +838,8 @@
         return compressImage(f).then(function (out) {
           return blobToBase64(out.blob).then(function (b64) {
             var name = id + '-' + out.w + 'x' + out.h + '.jpg';
-            return api('POST', '/api/image', { id: id, filename: name, dataBase64: b64 })
+            // 书8 任务1：out（含真实宽高）随 saveImage 传后端，增量维护 image-dims.json
+            return be().saveImage(id, name, b64, out)
               .then(function (r) {
                 state.draft.images.push(r.rel);
                 renderImages();
@@ -466,16 +854,84 @@
   }
 
   // ---------- 启动 ----------
+  // ---------- 分类多选组件（书6 用户反馈重构：通用多选，已选以小标签展示）----------
+  // 结构：#f-category（可见盒子：已选 chips + ▾）/ #f-category-panel（下拉选项面板）/
+  //       #f-category-store（隐藏 multiple select，存值真源，collectForm 读它）
+  // 交互：点盒子开合面板；点选项独立切换（无需 Ctrl——修掉原生 multiple select 的
+  //       「单击覆盖式选择」）；已选以 .ms-chip 小标签展示，× 可移除；点外面 / Esc 关闭。
+  function msStore() { return $('f-category-store'); }
+  function msSelected() {
+    return Array.prototype.map.call(msStore().selectedOptions, function (o) { return o.value; });
+  }
+  function msSetSelected(cats) {
+    var sel = msStore();
+    Array.prototype.forEach.call(sel.options, function (o) { o.selected = cats.indexOf(o.value) !== -1; });
+    msRender();
+  }
+  function msRender() {
+    var box = $('f-category');
+    var cats = msSelected();
+    box.innerHTML = '';
+    if (!cats.length) {
+      box.appendChild(el('span', 'ms-placeholder', '请选择分类'));
+    } else {
+      cats.forEach(function (c) {
+        var chip = el('span', 'ms-chip', c);
+        var x = el('button', 'ms-chip-x', '×');
+        x.type = 'button';
+        x.title = '移除 ' + c;
+        x.setAttribute('aria-label', '移除 ' + c);
+        x.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          msSetSelected(cats.filter(function (k) { return k !== c; }));
+        });
+        chip.appendChild(x);
+        box.appendChild(chip);
+      });
+    }
+    var tg = el('span', 'ms-toggle', '▾');
+    tg.setAttribute('aria-hidden', 'true');
+    box.appendChild(tg);
+    Array.prototype.forEach.call(document.querySelectorAll('#f-category-panel .ms-opt'), function (row) {
+      var on = cats.indexOf(row.getAttribute('data-cat')) !== -1;
+      row.classList.toggle('is-on', on);
+      row.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+  function msOptionRow(c) {
+    var row = el('div', 'ms-opt');
+    row.setAttribute('data-cat', c);
+    row.setAttribute('role', 'option');
+    row.appendChild(el('span', 'ms-cb'));
+    row.appendChild(el('span', 'ms-opt-name', c));
+    row.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var cur = msSelected();
+      msSetSelected(cur.indexOf(c) !== -1 ? cur.filter(function (k) { return k !== c; }) : cur.concat([c]));
+    });
+    return row;
+  }
+  function msTogglePanel(force) {
+    var panel = $('f-category-panel');
+    var show = force !== undefined ? force : panel.classList.contains('is-hidden');
+    panel.classList.toggle('is-hidden', !show);
+    $('f-category').classList.toggle('is-open', show);
+  }
+
   function fillCategorySelect() {
-    var sel = $('f-category');
-    var keep = sel.value;
+    var sel = msStore();
+    var keep = msSelected();   // 多选：保留当前勾选（类表增删后不丢已选）
     sel.innerHTML = '';
     state.categories.forEach(function (c) {
       var o = document.createElement('option');
       o.value = c; o.textContent = c;
       sel.appendChild(o);
     });
-    if (keep && state.categories.indexOf(keep) !== -1) sel.value = keep;
+    Array.prototype.forEach.call(sel.options, function (o) { o.selected = keep.indexOf(o.value) !== -1; });
+    var panel = $('f-category-panel');
+    panel.innerHTML = '';
+    state.categories.forEach(function (c) { panel.appendChild(msOptionRow(c)); });
+    msRender();
   }
 
   // 书4：模型 datalist —— 预设 = 【2026 热门前五】∪【库内 model 去重】，允许自由输入（存值不变）。
@@ -514,10 +970,10 @@
   }
 
   function load() {
-    return api('GET', '/api/entries').then(function (r) {
-      state.entries = r.entries || [];
-      return api('GET', '/api/categories').then(function (c) {
-        if (Array.isArray(c.categories) && c.categories.length) state.categories = c.categories;
+    return be().loadEntries().then(function (entries) {
+      state.entries = entries;
+      return be().loadCategories().then(function (cats) {
+        if (Array.isArray(cats) && cats.length) state.categories = cats;
       }).catch(function () { state.categories = DEFAULT_CATEGORIES.slice(); });
     });
   }
@@ -531,19 +987,40 @@
       $('admin-pw').value = '';
       return enterApp();
     }).catch(function (e) {
-      if (isOfflineError(e)) setMsg(msg, HINT_OFFLINE, 'error', true);
+      if (isOfflineError(e)) setMsg(msg, hintOffline(), 'error', true);
       else setMsg(msg, e.message, 'error');
     });
   }
 
   function boot() {
     fillCategorySelect();
+    // 书6：分类多选组件接线——点盒子开合；点外面 / Esc 关闭
+    $('f-category').addEventListener('click', function () { msTogglePanel(); });
+    document.addEventListener('click', function (ev) {
+      var box = $('f-category'), panel = $('f-category-panel');
+      if (!box.contains(ev.target) && !panel.contains(ev.target)) msTogglePanel(false);
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') msTogglePanel(false);
+    });
     // file:// 直开（双击打开）时登录必然失败——提前把话说明白，别让用户白输口令
     if (window.location && window.location.protocol === 'file:') {
-      setMsg($('admin-login-msg'), HINT_OFFLINE, 'error', true);
+      setMsg($('admin-login-msg'), hintOffline(), 'error', true);
     }
     $('admin-login-btn').addEventListener('click', doLogin);
     $('admin-pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
+    // 书8 任务3：线上模式（github 后端）—— 两道门：访问口令 → GitHub 令牌。
+    // 本地模式（localhost/127.0.0.1 或 ?backend=local）维持原样：#admin-pw 照旧用。
+    if (gateMode()) {
+      $('gate-row').classList.remove('is-hidden');
+      $('gate-hint').classList.remove('is-hidden');
+      $('local-row').classList.add('is-hidden');
+      $('pw-open').classList.add('is-hidden');   // 改密是服务端口令概念，线上模式无服务端账号
+      $('gate-btn').addEventListener('click', doGate);
+      $('gate-pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGate(); });
+      $('gh-login-btn').addEventListener('click', doGhLogin);
+      $('gh-token').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGhLogin(); });
+    }
     $('admin-new').addEventListener('click', startNew);
     $('cat-add').addEventListener('click', addCategory);
     $('cat-new').addEventListener('keydown', function (e) { if (e.key === 'Enter') addCategory(); });
@@ -557,20 +1034,48 @@
     $('admin-delete').addEventListener('click', deleteEntry);
     $('admin-search').addEventListener('input', renderList);
     $('admin-file').addEventListener('change', handleFiles);
-    // 修改口令：校验后 POST /api/password（服务端存 scrypt 哈希，明文不落盘）
-    $('pw-change').addEventListener('click', function () {
-      var a = $('pw-new').value, b = $('pw-new2').value;
+    // ---------- 修改口令（书9 重设计：顶栏入口 → 模态对话框）----------
+    // 逻辑：验当前口令 → 新口令 ≥8 位 + 双重确认 + 不许与当前相同 → 服务端改密并
+    // **吊销全部会话**（含当前）→ 面板回登录页，用新口令重登。
+    function openPwModal() {
+      $('pw-modal').classList.remove('is-hidden');
+      $('pw-modal').setAttribute('aria-hidden', 'false');
+      ['pw-current', 'pw-new', 'pw-new2'].forEach(function (id) { $(id).value = ''; });
+      setMsg($('pw-msg'), '');
+      $('pw-current').focus();
+    }
+    function closePwModal() {
+      $('pw-modal').classList.add('is-hidden');
+      $('pw-modal').setAttribute('aria-hidden', 'true');
+    }
+    $('pw-open').addEventListener('click', openPwModal);
+    $('pw-cancel').addEventListener('click', closePwModal);
+    var pwMask = $('pw-modal').querySelector('.pw-mask');
+    if (pwMask) pwMask.addEventListener('click', closePwModal);
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' && !$('pw-modal').classList.contains('is-hidden')) closePwModal();
+    });
+    $('pw-form').addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var cur = $('pw-current').value, a = $('pw-new').value, b = $('pw-new2').value;
       var msg = $('pw-msg');
-      if (a.length < 8) { msg.textContent = '新口令至少 8 位'; return; }
-      if (a !== b) { msg.textContent = '两次输入的新口令不一致'; return; }
-      api('POST', '/api/password', { newPassword: a }).then(function (r) {
-        msg.textContent = (r && r.note) || '已修改';
-        $('pw-new').value = ''; $('pw-new2').value = '';
-      }).catch(function (e) {
-        msg.textContent = '失败：' + e.message;
-      });
+      if (!cur) { setMsg(msg, '请先输入当前口令', 'error'); return; }
+      if (a.length < 8) { setMsg(msg, '新口令至少 8 位', 'error'); return; }
+      if (a !== b) { setMsg(msg, '两次输入的新口令不一致', 'error'); return; }
+      if (a === cur) { setMsg(msg, '新口令不能与当前口令相同', 'error'); return; }
+      api('POST', '/api/password', { currentPassword: cur, newPassword: a }).then(function () {
+        closePwModal();
+        // 改密即全部会话失效（含当前）——主动回登录页，避免旧令牌继续飘
+        state.token = null; state.entries = [];
+        $('admin-app').classList.add('is-hidden');
+        $('admin-login').classList.remove('is-hidden');
+        setMsg($('admin-login-msg'), '口令已修改，请用新口令重新登录', 'ok', true);
+        $('admin-pw').value = '';
+        $('admin-pw').focus();
+      }).catch(function (e) { setMsg(msg, '失败：' + e.message, 'error'); });
     });
     $('admin-logout').addEventListener('click', function () {
+      if (gateMode()) { ghLogout(); return; }   // 线上模式：令牌只存 sessionStorage，退出即清
       api('POST', '/api/logout', {}).catch(function () {}).then(function () {
         state.token = null; state.entries = [];
         $('admin-app').classList.add('is-hidden');

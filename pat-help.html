@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令牌怎么拿 · TM PromptForge 线上管理帮助</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{margin:0;background:var(--bg-page);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 24px 80px}
+  .back{display:inline-block;margin-bottom:24px;color:var(--brand);text-decoration:none;font-size:14px}
+  .back:hover{text-decoration:underline}
+  h1{font-size:28px;margin:0 0 8px;color:var(--ink-strong)}
+  .sub{color:var(--ink-2);font-size:14px;margin:0 0 32px}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;margin-bottom:20px}
+  h2{font-size:18px;margin:0 0 12px;color:var(--ink-strong)}
+  h2 .num{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;align-items:center;justify-content:center;margin-right:8px;vertical-align:2px}
+  p{margin:0 0 12px}
+  code{background:var(--bg-tag);border-radius:4px;padding:1px 6px;font-size:14px}
+  a{color:var(--brand)}
+  .warn{border-left:3px solid var(--brand);background:var(--brand-soft)}
+  .warn strong{color:var(--ink-strong)}
+  ol,ul{margin:8px 0 12px;padding-left:24px}
+  li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="admin.html">← 返回管理面板</a>
+  <h1>令牌怎么拿</h1>
+  <p class="sub">线上管理的「第二道门」是 GitHub 令牌——权限边界在它，不在访问口令。本页是项目文档 docs/DEPLOY.md「线上管理怎么用」的线上镜像，完整文档见项目仓库。</p>
+
+  <div class="card warn">
+    <p><strong>访问口令只防误触，不是安全边界。</strong>页面源码公开，看源码就能跳过它；真正的权限边界是你的 GitHub 令牌。令牌只存在当前标签页的 sessionStorage 里（关掉即失效），不会写进任何文件、不会发往本站之外的服务器。</p>
+  </div>
+
+  <div class="card" id="令牌怎么拿">
+    <h2><span class="num">1</span>打开 GitHub 令牌设置页</h2>
+    <p>登录 GitHub → <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">Settings → Developer settings → Fine-grained tokens</a>（直接打开：<a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">github.com/settings/tokens/new</a>）。</p>
+    <h2><span class="num">2</span>只授权本仓库</h2>
+    <p><strong>Repository access</strong> 选 <code>Only select repositories</code> → 选中 <code>tm-promptforge</code>。<strong>不要选 All repositories</strong>——单仓库是本方案的安全底线。</p>
+    <h2><span class="num">3</span>只给 Contents 读写</h2>
+    <p><strong>Permissions → Repository permissions</strong>：<code>Contents</code> 设为 <code>Read and write</code>，其余全部保持 <code>No access</code>。<strong>不需要</strong> Pages / Administration / Actions 等任何其他权限。</p>
+    <h2><span class="num">4</span>设个短期限</h2>
+    <p><strong>Expiration</strong> 建议 30~90 天。到期即失效、需重新建——这是刻意的，不是麻烦。</p>
+    <h2><span class="num">5</span>生成并复制</h2>
+    <p>点 <strong>Generate token</strong>，复制那串令牌（只显示一次）。回到管理面板第二道门粘贴进去即可。保存即自动提交到仓库 gh-pages 分支，Pages 自动重建。</p>
+  </div>
+
+  <div class="card">
+    <h2>为什么要每人自己的令牌，不要共用</h2>
+    <ul>
+      <li><strong>归因</strong>：共用令牌会让所有提交都长一样，毁掉「谁改的」追溯；每人自己的令牌，commit 作者清清楚楚。</li>
+      <li><strong>泄露半径</strong>：共用=一人泄露全员中招；自己的令牌泄露只影响你自己，删掉重建即可。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>令牌怎么吊销</h2>
+    <p>GitHub → <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">Settings → Developer settings → Fine-grained tokens</a> → 找到对应令牌 → <strong>Delete</strong>。立即生效，无需在本站做任何操作。</p>
+  </div>
+
+  <div class="card">
+    <h2>常见报错</h2>
+    <ul>
+      <li><strong>401 / 403</strong>：令牌无效或权限不足——检查是否给了 Contents R/W 且限定本仓库。</li>
+      <li><strong>404</strong>：仓库或分支不存在。</li>
+      <li><strong>409</strong>：别人刚改过同一文件——面板会自动重取重试一次；仍失败请刷新页面再来。</li>
+      <li><strong>422</strong>：GitHub 拒绝了请求，面板会原样显示它的原因。</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

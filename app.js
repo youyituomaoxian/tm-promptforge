@@ -34,20 +34,24 @@
     return q.split(/\s+/).every(function (tok) { return hay.indexOf(tok) !== -1; });
   }
 
+  // 书6：筛选口径「含该类即计」——一条可属多类，点某类芯片筛出的条目全部含该类
   function filterEntries(entries, query, category) {
     return entries.filter(function (e) {
-      var catOk = !category || category === '全部' || e.category === category;
+      var catOk = !category || category === '全部' || (e.categories || []).indexOf(category) !== -1;
       return catOk && matchEntry(e, query);
     });
   }
 
+  // 书6：计数口径「含该类即计」——一条可计入多类，导航各数字之和 > 220 属正常
   function countByCategory(entries, cats) {
     var list = cats || CATEGORIES;
     var counts = { '全部': entries.length };
     list.forEach(function (c) { counts[c] = 0; });
     entries.forEach(function (e) {
-      if (counts[e.category] === undefined) counts[e.category] = 0;
-      counts[e.category]++;
+      (e.categories || []).forEach(function (c) {
+        if (counts[c] === undefined) counts[c] = 0;
+        counts[c]++;
+      });
     });
     return counts;
   }
@@ -75,9 +79,17 @@
     }
     if (mode === 'category') {
       var order = cats || CATEGORIES;
+      // 书6：「按类别」归组 = 该条目在类表顺序中最靠前的那个类（类表唯一真源，非数组首项）
+      function groupIndex(e) {
+        var best = 999;
+        (e.categories || []).forEach(function (c) {
+          var i = order.indexOf(c);
+          if (i !== -1 && i < best) best = i;
+        });
+        return best;
+      }
       return list.slice().sort(function (a, b) {
-        var ia = order.indexOf(a.category), ib = order.indexOf(b.category);
-        if (ia < 0) ia = 999; if (ib < 0) ib = 999;
+        var ia = groupIndex(a), ib = groupIndex(b);
         if (ia !== ib) return ia - ib;
         var d = String(b.updatedAt || '').localeCompare(String(a.updatedAt || ''));
         return d !== 0 ? d : String(a.id).localeCompare(String(b.id));
@@ -200,7 +212,15 @@
     d.setAttribute('aria-hidden', 'false');
     doc.body.classList.add('detail-open');   // 锁滚
     doc.getElementById('detail-title').textContent = e.title;
-    doc.getElementById('detail-category').textContent = e.category;
+    // 书6：#detail-category 由单文本改多枚 chip（按类表顺序），该 id 不许删
+    var catBox = doc.getElementById('detail-category');
+    catBox.innerHTML = '';
+    var catOrder = st.categories || CATEGORIES;
+    (e.categories || []).slice().sort(function (a, b) {
+      return catOrder.indexOf(a) - catOrder.indexOf(b);
+    }).forEach(function (c) {
+      catBox.appendChild(el('span', 'detail-cat-chip', c));
+    });
     doc.getElementById('detail-prompt').textContent = e.prompt;
     var neg = doc.getElementById('detail-negative');
     neg.textContent = e.negativePrompt || '';

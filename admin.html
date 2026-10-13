@@ -16,11 +16,31 @@
     <img class="admin-login-logo" src="data/images/logo.svg" alt="TM PromptForge">
     <h1 class="admin-login-title">管理面板</h1>
     <p class="admin-login-sub">TM PromptForge · 条目与图片管理</p>
-    <label class="field">
-      <span class="field-label">管理员口令</span>
-      <input id="admin-pw" type="password" placeholder="请输入口令" autocomplete="current-password">
-    </label>
-    <button id="admin-login-btn" type="button" class="btn-primary-block">登录</button>
+    <!-- 线上模式第一道：访问口令（防误触，不是安全边界；书8 任务3） -->
+    <div id="gate-row" class="is-hidden">
+      <label class="field">
+        <span class="field-label">访问口令</span>
+        <input id="gate-pw" type="password" placeholder="请输入访问口令" autocomplete="off">
+      </label>
+      <button id="gate-btn" type="button" class="btn-primary-block">验证</button>
+    </div>
+    <!-- 线上模式第二道：GitHub 令牌（真正的权限边界在这里） -->
+    <div id="gh-row" class="is-hidden">
+      <label class="field">
+        <span class="field-label">GitHub 令牌</span>
+        <input id="gh-token" type="password" placeholder="fine-grained PAT · 仅 Contents R/W" autocomplete="off">
+      </label>
+      <button id="gh-login-btn" type="button" class="btn-primary-block">进入管理</button>
+    </div>
+    <!-- 本地模式：服务端口令（线上模式隐藏但不删除，local 照旧用） -->
+    <div id="local-row">
+      <label class="field">
+        <span class="field-label">管理员口令</span>
+        <input id="admin-pw" type="password" placeholder="请输入口令" autocomplete="current-password">
+      </label>
+      <button id="admin-login-btn" type="button" class="btn-primary-block">登录</button>
+    </div>
+    <p id="gate-hint" class="field-hint is-hidden">访问口令只防误触，<strong>不是安全边界</strong>（页面源码公开，看源码就能跳过它）；真正的权限边界是你的 GitHub 令牌。<a href="pat-help.html#%E4%BB%A4%E7%89%8C%E6%80%8E%E4%B9%88%E6%8B%BF" target="_blank" rel="noopener">令牌怎么拿</a></p>
     <p id="admin-login-msg" class="admin-msg"></p>
   </div>
 </section>
@@ -36,6 +56,7 @@
       <div class="admin-top-actions">
         <span id="admin-status" class="admin-status"></span>
         <a class="btn-ghost" href="/index.html" target="_blank">查看游客页</a>
+        <button id="pw-open" type="button" class="btn-ghost">修改口令</button>
         <button id="admin-logout" type="button" class="btn-ghost">退出</button>
       </div>
     </div>
@@ -70,8 +91,17 @@
         <div class="grid-2">
           <label class="field"><span class="field-label">标题 *</span>
             <input id="f-title" type="text" required></label>
-          <label class="field"><span class="field-label">分类 *</span>
-            <select id="f-category" required></select></label>
+          <div class="field"><span class="field-label">分类 *（可多选）</span>
+            <div class="ms-wrap">
+              <div id="f-category" class="ms" tabindex="0" role="group" aria-label="分类（可多选）">
+                <span class="ms-placeholder">请选择分类</span>
+                <span class="ms-toggle" aria-hidden="true">▾</span>
+              </div>
+              <div id="f-category-panel" class="ms-panel is-hidden" role="listbox" aria-multiselectable="true"></div>
+              <select id="f-category-store" multiple class="ms-store" tabindex="-1" aria-hidden="true"></select>
+            </div>
+            <p class="field-hint">点击选择，可多选；至少选 1 类；与真实类并存时「其他」保存前自动剔除。</p>
+          </div>
         </div>
 
         <label class="field"><span class="field-label">正向提示词 *</span>
@@ -110,25 +140,33 @@
         </div>
       </form>
       <div id="admin-empty" class="admin-empty">选择左侧条目进行编辑，或点「新增条目」。</div>
-
-      <section class="admin-pwbox" aria-label="修改口令">
-        <h3 class="admin-pwbox-title">账号安全 · 修改口令</h3>
-        <div class="field">
-          <span class="field-label">新口令（至少 8 位）</span>
-          <input id="pw-new" type="password" autocomplete="new-password">
-        </div>
-        <div class="field">
-          <span class="field-label">确认新口令</span>
-          <input id="pw-new2" type="password" autocomplete="new-password">
-        </div>
-        <button id="pw-change" type="button" class="btn-ghost">保存新口令</button>
-        <p id="pw-msg" class="admin-msg"></p>
-        <p class="field-hint">口令仅存 scrypt 哈希（server/.pw-hash），明文不落盘；保存后立即生效，重启后沿用。</p>
-      </section>
     </main>
   </div>
 </section>
 
+<!-- 修改口令弹窗（账号级操作：顶栏入口进入，不占编辑列空间） -->
+<div id="pw-modal" class="pw-modal is-hidden" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="pw-mask" data-close="1"></div>
+  <form id="pw-form" class="pw-card" autocomplete="off">
+    <h2 class="pw-title">修改口令</h2>
+    <label class="field"><span class="field-label">当前口令 *</span>
+      <input id="pw-current" type="password" autocomplete="current-password" required></label>
+    <label class="field"><span class="field-label">新口令（至少 8 位）*</span>
+      <input id="pw-new" type="password" autocomplete="new-password" required></label>
+    <label class="field"><span class="field-label">确认新口令 *</span>
+      <input id="pw-new2" type="password" autocomplete="new-password" required></label>
+    <p id="pw-msg" class="admin-msg" aria-live="polite"></p>
+    <div class="pw-actions">
+      <button id="pw-save" type="submit" class="btn-primary-block">保存新口令</button>
+      <button id="pw-cancel" type="button" class="btn-ghost">取消</button>
+    </div>
+    <p class="field-hint">需先验证当前口令；保存后所有已登录会话立即失效，请用新口令重新登录。
+      口令仅存 scrypt 哈希（server/.pw-hash），明文不落盘；若服务以 ADMIN_PW 环境变量启动，重启后以环境变量为准。</p>
+  </form>
+</div>
+
+<!-- 访问口令门参数（scripts/gen-gate-hash.js 生成；口令本身不进代码库，只存 PBKDF2 哈希） -->
+<script>window.TM_GATE = { salt: '90d00c8ec7b59b9dd97a6374ff24abeb', iter: 100000, hash: 'be3f42c780e95099bb7bfa792ebcfa261b8cf23a9ff27dee8e33670920b84380' };</script>
 <script src="admin.js"></script>
 </body>
 </html>

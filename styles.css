@@ -161,6 +161,9 @@ body{
 .grid-title{margin:0;font-size:15px;font-weight:600;letter-spacing:.04em}
 .result-count{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .result-count b{color:var(--brand);font-weight:700}
+/* 书6：排序条右侧 = 说明文案 + 排序控件；文案解释多类计数口径 */
+.grid-head-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.sort-note{font-size:12px;color:var(--ink-3);white-space:nowrap}
 .sort-btn{
   width:140px;height:40px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;
   background:var(--bg);color:var(--ink);font-size:14px;cursor:pointer;font-family:inherit;
@@ -305,7 +308,10 @@ select.sort-btn{
 }
 .detail-title{margin:0 0 8px;font-size:30px;font-weight:700;line-height:37.5px;
   color:var(--ink-strong);flex:1 1 auto}
-.detail-category{flex:0 0 auto;font-size:12px;color:var(--brand);background:var(--brand-soft);
+/* 书6：详情页分类改多 chip（一条可属多类）。容器 #detail-category id 不变，
+   chip 视觉与原单徽章一致（品牌柔底 + 品牌色字 + 999px 胶囊） */
+.detail-category{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.detail-category .detail-cat-chip{font-size:12px;color:var(--brand);background:var(--brand-soft);
   border-radius:999px;padding:6px 12px;white-space:nowrap;line-height:16px}
 .detail-author-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 12px;
   font-size:12px;color:var(--ink-2)}
