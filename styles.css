@@ -194,11 +194,16 @@ select.sort-btn{
 .card:hover{box-shadow:var(--shadow-xl);translate:0 -4px}
 .card:focus-within{outline:2px solid var(--brand);outline-offset:2px}
 .card-cover{position:relative;background:var(--bg-hold);overflow:hidden}
+/* 骨架态（2026-10-13）：图未到时封面轻微呼吸——让「在加载」区别于「加载不出来」。
+   刻意不用渐变扫光：图库视觉主体是效果图，容器不加装饰性渐变（check.js 有断言守着）。 */
+.card-cover.is-loading{animation:cover-pulse 1.4s ease-in-out infinite}
+@keyframes cover-pulse{0%,100%{opacity:1}50%{opacity:.7}}
 .card-cover img{
   width:100%;height:100%;object-fit:cover;display:block;
   transform:scale(1);
-  transition:transform var(--dur-img) var(--ease);
+  opacity:0;transition:opacity .35s var(--ease),transform var(--dur-img) var(--ease);
 }
+.card-cover img.is-loaded{opacity:1}
 .card:hover .card-cover img{transform:scale(1.1)}
 /* 压字层：默认全隐藏，hover 渐显（对齐参考站 opacity-0 → group-hover:opacity-100） */
 .card-overlay{

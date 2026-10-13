@@ -116,6 +116,30 @@
     return w + ' / ' + h;
   }
 
+  // ---------- 图片渐进加载（2026-10-13 用户反馈：刷新/返回游客页时瀑布流大片空白）----------
+  // 病因（实测）：原生 loading="lazy" 只按视口距离触发，而首屏 Hero 占满 ~880px，
+  // 卡片网格整体在折叠之下 → 静止时 220 张只加载 2 张；滚动快了就是一排灰骨架，
+  // 看着像「加载不出来」。改用 IntersectionObserver 提前 1200px 触发，
+  // 不支持 IO 的浏览器直接给 src（退化到原行为，不白屏）。
+  var imgObserver = null;
+  function beginImagePass() {
+    if (!('IntersectionObserver' in window)) return null;
+    if (!imgObserver) {
+      imgObserver = new IntersectionObserver(function (list) {
+        list.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var im = en.target;
+          imgObserver.unobserve(im);
+          var src = im.getAttribute('data-src');
+          if (src) { im.removeAttribute('data-src'); im.src = src; }
+        });
+      }, { rootMargin: '1200px 0px' });
+    } else {
+      imgObserver.disconnect();   // 重新筛选/排序后，旧一批观察对象不再需要
+    }
+    return imgObserver;
+  }
+
   function formatDate(iso) {
     if (!iso) return '';
     var d = new Date(iso);
@@ -167,6 +191,7 @@
       grid.appendChild(el('p', 'empty', '没有匹配的提示词，换个关键词试试'));
       return;
     }
+    var io = beginImagePass();   // 每轮渲染重开一批观察（2026-10-13：刷新/返回时瀑布流大片空白）
     list.forEach(function (e, idx) {
       var card = el('article', 'card');
       card.setAttribute('data-id', e.id);
@@ -178,14 +203,26 @@
       var dim = st.dims && st.dims[e.images[0]];
       if (dim && dim[0] && dim[1]) media.style.aspectRatio = dim[0] + ' / ' + dim[1];
       var img = doc.createElement('img');
-      img.src = e.images[0];
       img.alt = e.title;
-      img.loading = 'lazy';
-      // 卡高 = 原图自然比例（保真优先于首屏速度，拍板第 1 条）。
-      // 图未解码时先不给 aspect-ratio；解码后立刻按真实像素定死，绝不退回哈希档。
+      img.decoding = 'async';
+      // 图片渐进加载：观察器提前 1200px 触发（原生 loading=lazy 只按视口距离，首屏图来不及）
+      media.classList.add('is-loading');
+      if (io) {
+        img.setAttribute('data-src', e.images[0]);
+        io.observe(img);
+      } else {
+        img.src = e.images[0];
+      }
       img.addEventListener('load', function () {
+        img.classList.add('is-loaded');
+        media.classList.remove('is-loading');
+        // 卡高 = 原图自然比例（保真优先于首屏速度，拍板第 1 条）。
+        // 图未解码时先不给 aspect-ratio；解码后立刻按真实像素定死，绝不退回哈希档。
         var r = naturalRatio(img);
         if (r) media.style.aspectRatio = r;
+      });
+      img.addEventListener('error', function () {
+        media.classList.remove('is-loading');   // 真失败就不该一直呼吸，留灰底但不加动画
       });
       media.appendChild(img);
       var overlay = el('div', 'card-overlay');
