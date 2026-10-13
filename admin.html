@@ -55,7 +55,7 @@
       </div>
       <div class="admin-top-actions">
         <span id="admin-status" class="admin-status"></span>
-        <a class="btn-ghost" href="/index.html" target="_blank">查看游客页</a>
+        <a class="btn-ghost" href="index.html" target="_blank" rel="noopener">查看游客页</a>
         <button id="pw-open" type="button" class="btn-ghost">修改口令</button>
         <button id="admin-logout" type="button" class="btn-ghost">退出</button>
       </div>
@@ -73,10 +73,14 @@
       <ul id="admin-entry-list" class="admin-entry-list"></ul>
       <!-- 书4：分类管理（增 / 删 / 改名级联）。放在侧栏底部，不挤表单的一屏空间 -->
       <div id="cat-manager" class="cat-manager">
-        <div class="cat-manager-head">分类管理</div>
+        <div class="cat-manager-head">
+          <span>分类管理</span>
+          <span id="cat-count" class="cat-count">共 0 类</span>
+        </div>
+        <p class="cat-tip">改动即刻提交到仓库；线上 Pages 重建约 1 分钟、浏览器缓存最多 10 分钟，之后刷新游客页可见。</p>
         <div class="cat-add-row">
-          <input id="cat-new" type="text" placeholder="新分类名称" autocomplete="off">
-          <button id="cat-add" type="button" class="btn-mini">添加</button>
+          <input id="cat-new" type="text" placeholder="新分类名称（回车＝确定）" autocomplete="off">
+          <button id="cat-add" type="button" class="btn-mini">确定</button>
         </div>
         <div id="cat-rows" class="cat-rows"></div>
         <p id="cat-msg" class="admin-msg"></p>
@@ -166,6 +170,28 @@
 </div>
 
 <!-- 访问口令门参数（scripts/gen-gate-hash.js 生成；口令本身不进代码库，只存 PBKDF2 哈希） -->
+<!-- 线上模式：修改「访问口令」（GitHub 模式专用；本地模式改的是服务端管理员口令，见 #pw-modal） -->
+<div id="gate-pw-modal" class="pw-modal is-hidden" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="pw-mask"></div>
+  <form id="gate-pw-form" class="pw-card" autocomplete="off">
+    <h2 class="pw-title">修改访问口令</h2>
+    <label class="field"><span class="field-label">当前访问口令</span>
+      <input id="gp-current" type="password" autocomplete="current-password" required></label>
+    <label class="field"><span class="field-label">新访问口令（≥ 8 位）</span>
+      <input id="gp-new" type="password" autocomplete="new-password" required></label>
+    <label class="field"><span class="field-label">确认新访问口令</span>
+      <input id="gp-new2" type="password" autocomplete="new-password" required></label>
+    <div class="pw-actions">
+      <button id="gp-save" type="submit" class="btn-primary-block">保存新访问口令</button>
+      <button id="gp-cancel" type="button" class="btn-ghost">取消</button>
+    </div>
+    <p id="gp-msg" class="admin-msg"></p>
+    <p class="field-hint">改的是<strong>访问口令</strong>（防误触的那道门），<strong>不是 GitHub 令牌</strong>——令牌要去 GitHub → Settings → Developer settings → Fine-grained tokens 改或删。<br>
+      保存方式：浏览器重新计算 PBKDF2 哈希，只把 <code>admin.html</code> 里那行哈希常量替换掉（写入即 commit）。<strong>口令明文永不写入任何文件</strong>，commit 记录里也只有哈希。<br>
+      生效：Pages 重建约 1 分钟；<strong>本页要刷新后才用新口令</strong>（本页此刻已切到新哈希）。若提交失败，旧口令继续有效，可放心重试。</p>
+  </form>
+</div>
+
 <script>window.TM_GATE = { salt: '90d00c8ec7b59b9dd97a6374ff24abeb', iter: 100000, hash: 'be3f42c780e95099bb7bfa792ebcfa261b8cf23a9ff27dee8e33670920b84380' };</script>
 <script src="admin.js"></script>
 </body>

@@ -238,6 +238,35 @@
       kind: 'github',
       repo: repoSlug,
       branch: branch,
+      // 修改访问口令：外科手术式替换 admin.html 里那行 window.TM_GATE 常量。
+      // 只改这一行（命中数必须恰为 1，否则拒绝写），口令明文全程不出现在内存之外的地方。
+      saveGateHash: function (gate) {
+        var pathInRepo = 'admin.html';
+        var lineRe = /window\.TM_GATE\s*=\s*\{[^}]*\};/;
+        function build(html, sha) {
+          var hits = html.match(new RegExp(lineRe.source, 'g')) || [];
+          if (hits.length !== 1) {
+            throw new Error('admin.html 里 window.TM_GATE 行命中 ' + hits.length + ' 处（应为 1），已放弃写入');
+          }
+          var next = html.replace(lineRe,
+            "window.TM_GATE = { salt: '" + gate.salt + "', iter: " + gate.iter + ", hash: '" + gate.hash + "' };");
+          var body = {
+            message: 'chore: 更新访问口令哈希（PBKDF2-SHA256/' + gate.iter + '，口令明文不入库）',
+            content: b64Utf8(next), branch: branch
+          };
+          if (sha) body.sha = sha;
+          return body;
+        }
+        return getText(pathInRepo, false).then(function (cur) {
+          return req('PUT', pathInRepo, build(cur.text, cur.sha)).catch(function (e) {
+            if (e.status !== 409) throw e;
+            // 409（有人同时改过 admin.html）→ 重取一次再替换
+            return getText(pathInRepo, false).then(function (cur2) {
+              return req('PUT', pathInRepo, build(cur2.text, cur2.sha));
+            });
+          });
+        });
+      },
       loadEntries: function () {
         return getText('data/entries.json', false).then(function (r) {
           return r ? JSON.parse(r.text) : [];
@@ -302,6 +331,7 @@
     backendGithub: backendGithub,
     createBackend: createBackend,
     gateVerify: gateVerify,
+    gateHash: gateHash,
     ghConfig: ghConfig,
     hintOffline: hintOffline
   };
@@ -391,6 +421,68 @@
     $('gate-row').classList.remove('is-hidden');
     $('gate-pw').value = ''; $('gh-token').value = '';
     setMsg($('admin-login-msg'), '已退出，令牌已从本标签页清除', 'ok', true);
+  }
+
+  // ---------- 线上模式：修改访问口令（2026-10-13 用户要求恢复入口）----------
+  // 与本地模式的「修改口令」是两件事：本地改的是 server 的管理员口令（走 /api/password）；
+  // 线上没有服务端账号，改的是 admin.html 里那行 PBKDF2 哈希（改 GitHub 令牌请去 GitHub 设置）。
+  function bytesToHex(b) {
+    var s = '';
+    for (var i = 0; i < b.length; i++) s += ('0' + b[i].toString(16)).slice(-2);
+    return s;
+  }
+  function randomSaltHex(n) {
+    var a = new Uint8Array(n);
+    crypto.getRandomValues(a);
+    return bytesToHex(a);
+  }
+  function gateHash(pw, saltHex, iter) {
+    var enc = new TextEncoder();
+    return crypto.subtle.importKey('raw', enc.encode(pw), { name: 'PBKDF2' }, false, ['deriveBits'])
+      .then(function (key) {
+        return crypto.subtle.deriveBits(
+          { name: 'PBKDF2', salt: hexToBytes(saltHex), iterations: iter, hash: 'SHA-256' }, key, 256);
+      })
+      .then(function (bits) { return bytesToHex(new Uint8Array(bits)); });
+  }
+
+  function openGatePwModal() {
+    $('gate-pw-modal').classList.remove('is-hidden');
+    $('gate-pw-modal').setAttribute('aria-hidden', 'false');
+    ['gp-current', 'gp-new', 'gp-new2'].forEach(function (id) { $(id).value = ''; });
+    setMsg($('gp-msg'), '');
+    $('gp-current').focus();
+  }
+  function closeGatePwModal() {
+    $('gate-pw-modal').classList.add('is-hidden');
+    $('gate-pw-modal').setAttribute('aria-hidden', 'true');
+  }
+  function submitGatePw(ev) {
+    ev.preventDefault();
+    var cur = $('gp-current').value, a = $('gp-new').value, b = $('gp-new2').value;
+    var msg = $('gp-msg');
+    setMsg(msg, '');
+    if (!cur) { setMsg(msg, '请先输入当前访问口令', 'error'); return; }
+    if (a.length < 8) { setMsg(msg, '新访问口令至少 8 位', 'error'); return; }
+    if (a !== b) { setMsg(msg, '两次输入的新访问口令不一致', 'error'); return; }
+    var iter = Number((window.TM_GATE || {}).iter) || 100000;
+    setMsg(msg, '正在验当前口令…', '', true);
+    gateVerify(cur).then(function (okCur) {
+      if (!okCur) { setMsg(msg, '当前访问口令不正确', 'error'); return; }
+      if (a === cur) { setMsg(msg, '新访问口令不能与当前口令相同', 'error'); return; }
+      setMsg(msg, '正在计算新哈希并提交到仓库…', '', true);
+      var salt = randomSaltHex(16);
+      return gateHash(a, salt, iter).then(function (hash) {
+        return be().saveGateHash({ salt: salt, iter: iter, hash: hash });
+      }).then(function () {
+        window.TM_GATE = { salt: salt, iter: iter, hash: hash };   // 本页立即切到新哈希
+        closeGatePwModal();
+        setMsg($('admin-status'), '访问口令已更新：Pages 重建约 1 分钟后，刷新页面用新口令登录', '', true);
+        setMsg($('admin-login-msg'), '访问口令已更新，请用新口令登录', 'ok', true);
+      });
+    }).catch(function (e) {
+      setMsg(msg, '修改失败：' + e.message + '（旧口令继续有效，可直接重试）', 'error', true);
+    });
   }
 
   // ---------- 图片压缩（真实读像素，非伪造size） ----------
@@ -523,11 +615,20 @@
   }
 
   // ---------- 分类管理（书4：增 / 删 / 改名级联） ----------
-  function catMsg(text, kind) { setMsg($('cat-msg'), text, kind); }
+  function catMsg(text, kind, keep) { setMsg($('cat-msg'), text, kind, keep); }
+
+  // 提交后的「何时可见」提示（2026-10-13 用户反馈：新增分类后回游客页看不到，
+  // 根因是 Pages 重建 ~1 分钟 + 静态资源 Cache-Control: max-age=600，不是写入失败）
+  function commitHint() {
+    return be().kind === 'github'
+      ? '。线上 Pages 重建约 1 分钟、浏览器缓存最多 10 分钟，之后刷新游客页可见'
+      : '（本地立即生效）';
+  }
 
   function renderCatRows() {
     var box = $('cat-rows');
     box.innerHTML = '';
+    if ($('cat-count')) $('cat-count').textContent = '共 ' + state.categories.length + ' 类';
     state.categories.forEach(function (name) {
       var row = document.createElement('div');
       row.className = 'cat-row';
@@ -561,7 +662,7 @@
       $('cat-new').value = '';
       fillCategorySelect();
       renderCatRows(); renderCats();
-      catMsg('已添加「' + name + '」，共 ' + r.count + ' 类', 'ok');
+      catMsg('已添加「' + name + '」，共 ' + r.count + ' 类' + commitHint(), 'ok', true);
     }).catch(function (e) { catMsg('添加失败：' + e.message, 'error'); });
   }
 
@@ -593,7 +694,7 @@
           state.draft.categories = state.draft.categories.map(function (c) { return c === oldName ? newName : c; });
           syncSelectFromDraft();
         }
-        catMsg('已改名为「' + newName + '」，级联更新 ' + cascaded + ' 条', 'ok');
+        catMsg('已改名为「' + newName + '」，级联更新 ' + cascaded + ' 条' + commitHint(), 'ok', true);
       });
     }).catch(function (e) {
       // 回滚类表（仅当类表已改）；条目 PUT 失败时保证类表与条目不长期不一致
@@ -624,7 +725,7 @@
       state.categories = next;
       fillCategorySelect(); renderCatRows(); renderCats();
       if (state.cat === name) { state.cat = '全部'; renderList(); }
-      catMsg('已删除空分类「' + name + '」，共 ' + r.count + ' 类', 'ok');
+      catMsg('已删除空分类「' + name + '」，共 ' + r.count + ' 类' + commitHint(), 'ok', true);
     }).catch(function (e) { catMsg('删除失败：' + e.message, 'error'); });
   }
 
@@ -1015,11 +1116,20 @@
       $('gate-row').classList.remove('is-hidden');
       $('gate-hint').classList.remove('is-hidden');
       $('local-row').classList.add('is-hidden');
-      $('pw-open').classList.add('is-hidden');   // 改密是服务端口令概念，线上模式无服务端账号
+      // 线上模式没有服务端账号，但「访问口令」可以在线改 → 同一个入口换个标签与行为
+      $('pw-open').textContent = '修改访问口令';
       $('gate-btn').addEventListener('click', doGate);
       $('gate-pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGate(); });
       $('gh-login-btn').addEventListener('click', doGhLogin);
       $('gh-token').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGhLogin(); });
+      // 访问口令修改对话框
+      $('gp-cancel').addEventListener('click', closeGatePwModal);
+      var gpMask = $('gate-pw-modal').querySelector('.pw-mask');
+      if (gpMask) gpMask.addEventListener('click', closeGatePwModal);
+      document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape' && !$('gate-pw-modal').classList.contains('is-hidden')) closeGatePwModal();
+      });
+      $('gate-pw-form').addEventListener('submit', submitGatePw);
     }
     $('admin-new').addEventListener('click', startNew);
     $('cat-add').addEventListener('click', addCategory);
@@ -1048,7 +1158,10 @@
       $('pw-modal').classList.add('is-hidden');
       $('pw-modal').setAttribute('aria-hidden', 'true');
     }
-    $('pw-open').addEventListener('click', openPwModal);
+    // 账号动作区的「修改口令」：本地模式改服务端管理员口令，线上模式改访问口令（两道门那道）
+    $('pw-open').addEventListener('click', function () {
+      if (gateMode()) openGatePwModal(); else openPwModal();
+    });
     $('pw-cancel').addEventListener('click', closePwModal);
     var pwMask = $('pw-modal').querySelector('.pw-mask');
     if (pwMask) pwMask.addEventListener('click', closePwModal);

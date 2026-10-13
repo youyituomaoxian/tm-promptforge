@@ -327,7 +327,9 @@
         (doc.head || doc.documentElement).appendChild(s);
       });
     }
-    return fetch(path).then(function (r) {
+    // 数据文件一律 no-store：GitHub Pages 对静态资源发 Cache-Control: max-age=600，
+    // 管理员刚在线上改完数据、返回游客页时若吃缓存，最长 10 分钟看不到新数据（2026-10-13 实测）。
+    return fetch(path, { cache: 'no-store' }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     });
