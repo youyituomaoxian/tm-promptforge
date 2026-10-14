@@ -4695,5 +4695,29 @@
     ],
     "createdAt": "2026-10-14T00:40:00Z",
     "updatedAt": "2026-10-14T00:40:00Z"
+  },
+  {
+    "id": "p23",
+    "title": "复古日式拼贴画",
+    "prompt": "创作一幅高端复古日式旅行日志编辑拼贴画，采用竖版 4:5 格式，包含四个风格鲜明的城市板块——{argument name=\"locations\" default=\"Bangkok, Thailand; Lisbon, Portugal; Marrakech, Morocco; Istanbul, Turkey\"}。每个板块将温暖、照片级写实的纪实街头摄影与相匹配的不完美手绘丝网印刷插画结合，以不对称方式排布在做旧奶油色纸张上，并加入撕纸层次、档案式边框、细微铅笔痕迹、打字机体说明文字、褪色油墨、纸张纤维和真实的 35mm analog grain。Bangkok：神龛、杂乱电线、热带绿植、青绿色摩托车；Lisbon：黄色有轨电车、陡峭鹅卵石街道、阳台和河景；Marrakech：赤陶色麦地那、棕榈树、地毯和华丽宣礼塔；Istanbul：陡峭石板街道、Galata Tower、Bosphorus 和复古踏板车。采用鼠尾草绿、赭石、赤陶色、芥末黄、炭灰色和暖象牙色的克制配色，搭配精致的编辑艺术指导、柔和对比度、自然光、手工瑕疵和博物馆级旅行 zine 美学。小型档案标签：“Bangkok / Field Note 052”、“Lisbon / Field Note 031”、“Marrakech / Field Note 017”、“Istanbul / Field Note 039”。无 logo、水印、HDR、过度饱和或现代杂物。",
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "拼贴画",
+      "日式",
+      "旅行日记",
+      "照片转化",
+      "风格化"
+    ],
+    "model": "Nano Banana Pro (Google Gemini)",
+    "author": "@马守坤",
+    "source": "团队原创",
+    "images": [
+      "data/images/p23/p23-768x1200.jpg",
+      "data/images/p23/p23-832x1248.jpg"
+    ],
+    "createdAt": "2026-10-14T00:42:48Z",
+    "updatedAt": "2026-10-14T00:42:48Z"
   }
 ]
