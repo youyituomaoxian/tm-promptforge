@@ -4647,5 +4647,30 @@
     "source": "https://x.com/1rpc_ai/status/1999038943443177955",
     "createdAt": "2025-12-18T00:00:00Z",
     "updatedAt": "2025-12-18T00:00:00Z"
+  },
+  {
+    "id": "p21",
+    "title": "3D icon\\",
+    "prompt": "3D图标，卡通风格，【一个钱袋和一个右下到左上的箭头图标，钱袋上有“￥”，橙色浅橙色渐变的磨砂玻璃质感，底下一个大的白色圆形底盘和一个方形橙色渐变的底座，高光硬质塑料材质，避免镜面反光刺眼，符合金融科技行业属性】，白色背景，3d建模，C4D，blender,oc渲染，Ul，精致，有丰富的细节",
+    "categories": [
+      "UI界面"
+    ],
+    "tags": [
+      "3D",
+      "blender",
+      "C4D",
+      "图标",
+      "模拟",
+      "UI"
+    ],
+    "model": "Seedream 4.0 (字节)",
+    "author": "马守坤",
+    "source": "团队原创",
+    "images": [
+      "data/images/p21/p21-1073x1070.jpg",
+      "data/images/p21/p21-1134x1026.jpg"
+    ],
+    "createdAt": "2026-10-14T00:36:13Z",
+    "updatedAt": "2026-10-14T00:36:13Z"
   }
 ]
