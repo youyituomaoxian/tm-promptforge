@@ -3952,11 +3952,11 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "nano-banana-pro-quickly-creates-slide-on-prime-ministers-chinese-relations-in-10-seconds",
-    "title": "Nano Banana Pro快速制作首相中日关系分析幻灯片",
-    "prompt": "Nano Banana Proに頼んだら10秒で「今の高市首相と日中関係悪化問題」について完璧すぎるスライド作ってくれたんだけど。\nわかりやすすぎて2秒で理解した。笑\nプロンプト↓ https://t.co/hcAYN5rQAp",
+    "id": "anthropic-claude-style-ppt-design-nano-banana-pro-generated-chinese-presentation",
+    "title": "Anthropic/Claude风格PPT设计：Nano Banana Pro生成中文演示文稿",
+    "prompt": "有的朋友可能觉得有点花哨\n迭代了一下这个 Anthropic 风格的 Nano Banana Pro PPT 提示词。\n现在会非常克制的使用插图元素，以及严格遵循网格布局，少用圆润的卡片。\n下面是迭代后的提示词👇\n帮我根据下面这个文章做一套专业的的中文PPT。\n先写1个PPT大纲，规划出每一页的PPT的内容。\n然后将每一页的PPT内容分别扔给Nana Banana pro生成对应页面的PPT，需要确保风格一致。\nPPT的具体风格应该为“Anthropic/Claude 风格”的“温暖学术人文主义”设计。\n背景：使用暖米色/奶油色 (# F3F0E9) 作为纯色底色，略微高级纸张质感。\n字体：标题使用优雅的衬线体（Serif），正文使用现代无衬线体（Sans-serif）。\n配色：主色调为赤陶红 (# D67052) 和芥末黄 (# F0B857)，搭配深海军蓝作为点缀。避免使用霓虹色或纯黑色。\n视觉元素：使用注重排版的网格布局，插图风格应为抽象的、有机的黑色手绘线条画，置于赤陶红纯色色块之上，你需要非常克制的使用插图和点缀类的插图元素，插图需要为内容服务。\n图表：扁平化、极简的图表，强调数据对比，去除多余边框。\n文字和图像都由 Nano Banana Pro 生成，另外不要将PPT 变成一整张图，一页一张图。\n文章内容为：",
     "images": [
-      "data/images/nano-banana-pro-quickly-creates-slide-on-prime-ministers-chinese-relations-in-10-seconds/nano-banana-pro-quickly-creates-slide-on-prime-ministers-chinese-relations-in-10-seconds.jpg"
+      "data/images/anthropic-claude-style-ppt-design-nano-banana-pro-generated-chinese-presentation/anthropic-claude-style-ppt-design-nano-banana-pro-generated-chinese-presentation.jpg"
     ],
     "categories": [
       "PPT演示"
@@ -3967,8 +3967,8 @@
       "信息图"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@J",
-    "source": "https://x.com/j_kun_ml/status/1991644547840110948",
+    "author": "@歸藏(guizang.ai)",
+    "source": "https://x.com/op7418/status/1993162900630823106",
     "createdAt": "2025-12-09T00:00:00Z",
     "updatedAt": "2025-12-09T00:00:00Z"
   },
@@ -3990,27 +3990,6 @@
     "model": "Gemini Nano Banana Pro",
     "author": "@Aaliya",
     "source": "https://x.com/aaliya_va/status/1996556247601225850",
-    "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2025-12-22T00:00:00Z"
-  },
-  {
-    "id": "nano-banana-pro-the-powerpoint-killer",
-    "title": "Nano Banana Pro：PPT杀手",
-    "prompt": "I did not expect that the PowerPoint killer would be something called Nano Banana Pro, but that is where its heading\nIt makes the major efforts by all the other AI companies, including Microsoft, to crack PowerPoint by using python seem like a dead end\nImageGen is all you need?",
-    "images": [
-      "data/images/nano-banana-pro-the-powerpoint-killer/nano-banana-pro-the-powerpoint-killer.jpg"
-    ],
-    "categories": [
-      "PPT演示"
-    ],
-    "tags": [
-      "版式设计",
-      "演示稿",
-      "信息图"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@emollick",
-    "source": "https://x.com/emollick/status/1998520025951752278",
     "createdAt": "2025-12-22T00:00:00Z",
     "updatedAt": "2025-12-22T00:00:00Z"
   },
