@@ -3952,27 +3952,6 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "notebooklm-auto-generated-perfect-slides",
-    "title": "NotebookLM自动生成完美幻灯片",
-    "prompt": "もうスライドはほぼ一発で完璧なレベルのものがNotebookLMで出来るようになってしまった\nClaude CodeとNano Banana Proで議事録から提案書スライドを自動生成してみた https://dev.classmethod.jp/articles/claude-code-nano-banana-pro-proposal-slide-generation/ #DevelopersIO",
-    "images": [
-      "data/images/notebooklm-auto-generated-perfect-slides/notebooklm-auto-generated-perfect-slides.jpg"
-    ],
-    "categories": [
-      "PPT演示"
-    ],
-    "tags": [
-      "版式设计",
-      "演示稿",
-      "信息图"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@ニケちゃん",
-    "source": "https://x.com/tegnike/status/1996500814031200294",
-    "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2025-12-22T00:00:00Z"
-  },
-  {
     "id": "nike-fashion-advertisement-slides",
     "title": "Nike时尚广告幻灯片",
     "prompt": "Make some slides with your favorite brand🤟🏻👇\nPrompt:\nA dynamic fashion advertisement for Nike showing a hyper-realistic model mid-twist jump, light trails following her limbs. Background: prism-shifting gradient (hot magenta to sapphire) with refracted lens flares. The model wears iridescent Nike runner tights and a cropped tech hoodie in holographic white. Bold serif \"NIKE\" and motion-glitched \"LUMINA\" in layered text behind. High-energy, futuristic aesthetic with fashion gloss. --ar 3:4 --raw --stylize 750",
