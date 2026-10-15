@@ -3952,27 +3952,6 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "creating-simple-design-slides-with-manus-and-nano-banana-pro",
-    "title": "使用Manus和Nano Banana Pro制作简单设计幻灯片",
-    "prompt": "ManusでもNano banana pro使ったスライドが作れる様に…！\nシンプルなデザインで作ってくれていい感じ。\n私のイベント登壇系スライドの作り方は、、\n①音声入力で喋りたいことをバーとだす\n②Manusでスライド叩き作る\n③Googleスライドで微修正\n凝らなければ20分くらいで完成。",
-    "images": [
-      "data/images/creating-simple-design-slides-with-manus-and-nano-banana-pro/creating-simple-design-slides-with-manus-and-nano-banana-pro.jpg"
-    ],
-    "categories": [
-      "PPT演示"
-    ],
-    "tags": [
-      "版式设计",
-      "演示稿",
-      "信息图"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@あやみ｜マーケティング",
-    "source": "https://x.com/ayami_marketing/status/1996487398486888725",
-    "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2025-12-22T00:00:00Z"
-  },
-  {
     "id": "notebooklm-auto-generated-perfect-slides",
     "title": "NotebookLM自动生成完美幻灯片",
     "prompt": "もうスライドはほぼ一発で完璧なレベルのものがNotebookLMで出来るようになってしまった\nClaude CodeとNano Banana Proで議事録から提案書スライドを自動生成してみた https://dev.classmethod.jp/articles/claude-code-nano-banana-pro-proposal-slide-generation/ #DevelopersIO",
