@@ -33,17 +33,23 @@
     <button id="hero-latest" type="button" class="btn-hero btn-hero-dark">最近更新</button>
     <button id="hero-copy" type="button" class="btn-hero btn-hero-primary">复制随机提示词</button>
   </div>
-  <div class="hero-search">
-    <input id="search-input" type="search" placeholder="搜索提示词或作者..." autocomplete="off">
-  </div>
 </section>
 
-<main class="gallery-wrap" id="gallery">
+<!-- 书10C 控制条：搜索框 + 分类胶囊 + 计数排序 三条一体整体吸顶（页头正下方）。
+     搜索框从 .hero 搬出（藏在 Hero 内正是它跟着滚走的原因）；容器 class 由 hero-search
+     改 control-search——「控制条内不含任何 .hero-* 元素」是判卷断言③。
+     书10E：控制条移出 main#gallery 成为其前置兄弟——原在 main 内，sticky 受容器末端约束，
+     滚到图库底部会被推离吸顶位、下面露出一段卡片（用户反馈「固定模块应钉到滚动终点」）。
+     移出后 sticky 范围 = body，吸顶直到文档终点，不再有「被推走」状态。 -->
+<div class="control-bar" id="control-bar">
+  <div class="control-search">
+    <input id="search-input" type="search" placeholder="搜索提示词或作者..." autocomplete="off">
+  </div>
   <nav id="category-nav" class="category-nav" aria-label="分类导航"></nav>
   <div class="grid-head">
     <span id="result-count" class="result-count"></span>
     <div class="grid-head-right">
-      <span class="sort-note">分类可多选 · 数字为命中条目数</span>
+      <span class="sort-note">条目可属多类 · 数字为含该类条数</span>
       <select id="grid-sort" class="sort-btn" aria-label="排序方式">
         <option value="recent">最新发布</option>
         <option value="oldest">最早发布</option>
@@ -52,6 +58,9 @@
       </select>
     </div>
   </div>
+</div>
+
+<main class="gallery-wrap" id="gallery">
   <section id="card-grid" class="card-grid"></section>
 </main>
 

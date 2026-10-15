@@ -70,10 +70,10 @@ body{
 }
 .top-nav a.nav-admin:hover{border-color:var(--brand);background:var(--brand-soft)}
 
-/* ===== Hero：居中，logo 方块 → 双行标题 → 副标 → CTA → 居中搜索 ===== */
+/* ===== Hero：居中，logo 方块 → 双行标题 → 副标 → CTA（搜索框已搬进控制条，书10C） ===== */
 .hero{
   display:flex;flex-direction:column;align-items:center;text-align:center;
-  padding:64px 24px 8px;
+  padding:64px 24px 40px;                  /* 底部 40px：搬走搜索框后撑住版面，视觉不许塌 */
   animation:fade-in .6s ease-out backwards;
 }
 .hero-logo{
@@ -115,7 +115,10 @@ body{
 .btn-hero-primary{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:700;
   box-shadow:var(--shadow-sm)}
 .btn-hero-primary:hover{background:#00539C;border-color:#00539C;color:#fff;box-shadow:var(--shadow-xl)}
-.hero-search{width:100%;max-width:672px;margin:32px 0 0;display:flex;justify-content:center}
+/* 书10C：搜索框从 .hero 搬进控制条，class 由 hero-search 改 control-search
+ * （判卷断言③：控制条内不含任何 .hero-* 元素）。原 max-width:672px/margin:32px 去掉——
+ * 在控制条内要撑满版心，否则吸住时上方带空白、宽度与版心脱节。 */
+.control-search{width:100%}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:0 0 auto;
   transition:opacity var(--dur) var(--ease)}
 .brand:hover{opacity:.82}
@@ -124,10 +127,14 @@ body{
   font-size:16px;font-weight:600;letter-spacing:.01em}
 .brand-name em{font-style:normal;font-size:11px;font-weight:400;color:var(--ink-2);letter-spacing:.06em}
 .search{flex:1 1 auto;display:flex;justify-content:flex-end}
+/* 书10D 修正③：搜索框回归参考图——桌面窄居中（max-width:520px）、高 44px、字号 15px。
+ * 书10c 曾改成撑满版心（56px/18px）偏离参考图，本轮回改；控件自身浅底细边框圆角不动。
+ * 桌面用 max-width + margin auto 居中（grid area 内），移动端在媒体查询里全宽。 */
 #search-input{
-  width:100%;max-width:672px;height:56px;padding:8px 40px 8px 36px;
+  width:100%;max-width:520px;height:44px;margin:0 auto;
+  padding:6px 36px 6px 32px;
   border:1px solid var(--line);border-radius:999px;
-  background:var(--bg);color:var(--ink);font-size:18px;outline:none;
+  background:var(--bg);color:var(--ink);font-size:15px;outline:none;
   box-shadow:var(--shadow-sm);
   transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
 }
@@ -135,8 +142,57 @@ body{
 #search-input:hover{border-color:#C9D4DF}
 #search-input:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(0,94,174,.12),var(--shadow-sm)}
 
-/* 分类导航：px-4 py-2 圆角 8px 字号 14/500，激活=深底白字（对齐参考站胶囊） */
-.category-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:36px 0 8px}
+/* ===== 书10D 控制条：搜索框 + 分类胶囊 + 计数排序 三条一体，整体吸顶 =====
+ * 位置：main#gallery 内最前（容器够高才钉得住整段网格）；钉在页头正下方。
+ * top = 实测页头高度：桌面 66px（inner 65 + border 1px）、移动端 63px（inner 62 + border 1px）。
+ * z-index 25：高于页头(20) 防内容从缝里透出，低于详情弹窗(40) 与更新细条(60)。
+ * 视觉（书10D 回归参考图，书10E 去毛玻璃）：常态容器**完全隐形**——background 透明、
+ * 无 border-bottom、无 box-shadow，直接躺在页面冷白底（--bg-page:#F7F9FC）上；
+ * 吸顶态（app.js 加 .is-stuck）才垫一层页底冷白 (247,249,252) 的 82% 半透明 + hairline
+ * ——完全透明时卡片效果图会从控件后面滚过、文字糊成不可读；取页面底色而非白卡。
+ * **书10E：backdrop-filter 毛玻璃已去掉**（领导不喜欢），只留半透明底色（82% 不透明度
+ * 不加 blur 也保文字可读）；吸顶态不许有 box-shadow。
+ * 已知边界（非缺陷）：sticky 受 main#gallery 末端约束，滚到关于/页脚区控制条随容器离场。 */
+.control-bar{
+  /* 书10G 修（用户反馈：页头与控制条之间有横向缝隙露出瀑布流）：
+     top 改用 CSS 变量 --hdr-h，由 app.js 在 boot/resize 时按**实测页头高度**写入。
+     此前硬编码 66px —— 页头高度是内容决定的（字体渲染/浏览器缩放/语言环境都会变），
+     实测把页头压到 61px 时吸顶态露出 5px 缝、缝内就是 card-grid（复现用户截图）。
+     变量未就绪时回退 66px（桌面实测值）。 */
+  position:sticky;top:var(--hdr-h, 66px);z-index:25;
+  /* 书10F：常态即用**不透明页底冷白实底**——与页面底色同色（视觉上仍看不出底板），
+     但卡片滚过时被完全遮断、绝不透出。此前常态 transparent + 吸顶时才转实底，
+     转化靠 transition:background-color，实测滚动到吸顶临界点时量到 rgba(...,0.886)
+     这层过渡中间态，卡片从底下透出（用户红框标注的露出）。 */
+  background:var(--bg-page);
+  border-bottom:1px solid transparent;        /* 常态无可见边框（颜色透明） */
+  /* 书10F 修（用户反馈 2）：底色必须铺满**整个视口宽**，否则宽视口下控制条比视口窄
+     （旧 max-width:1680px + margin auto，实测 1920 下 barLeft=120/barW=1680），
+     两侧各 120px 空档里下方的卡片直接露出来（截图已复现）。
+     故本层不设 max-width —— 用 `.control-bar > *` 的内边距把内容对齐版心。 */
+  display:grid;grid-template-areas:"search" "cats" "count";gap:10px 0;   /* 书10E 反馈1：行间距 10px（+cats padding 10 = 20px） */
+  /* 书10F 修（用户反馈 2）：底色铺满整个视口宽（不设 max-width），内容用 padding 对齐 1680 版心。
+     `(100% - 1680px)/2 + 32px` 在宽视口下算出与 .gallery-wrap 卡片左缘一致的缩进（1920 → 152px），
+     窄视口下 max() 兜底 32px。百分比基准是 body 内容宽（已排除滚动条），比 100vw 更准。 */
+  padding:14px max(32px, calc((100% - 1680px) / 2 + 32px)) 0;
+  /* 书10F：**去掉 background-color 过渡**——吸顶是开关语义，渐变只会制造半透明露出窗口；
+     只保留 border-bottom-color 的过渡（细线显现更柔和）。 */
+  transition:border-bottom-color var(--dur) var(--ease);
+}
+/* 书10D 修正② + 书10E 反馈6 + 书10F：吸顶态同色实底 + hairline，无投影、无毛玻璃。
+ * 卡片滚到控制条下方被完全遮断（截断），不透过。 */
+.control-bar.is-stuck{
+  border-bottom-color:var(--line);
+}
+.control-search{grid-area:search;display:flex;justify-content:center}
+.control-bar .category-nav{grid-area:cats}
+.control-bar .grid-head{grid-area:count}
+
+/* 分类导航：px-4 py-2 圆角 8px 字号 14/500，激活=深底白字（对齐参考站胶囊）
+ * 书10C：胶囊收进控制条（与搜索框、计数排序一体吸顶），本条只管胶囊自身排布——
+ * sticky/top/z-index/白底/下线全部上交 .control-bar，nav 恢复为普通块。
+ * 原 padding:36px 0 8px 的 36px 上边距是「与 Hero 的间距」，进控制条后由控制条内边距统一管。 */
+.category-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:10px 0 2px}
 .cat-chip{
   display:inline-flex;align-items:center;gap:8px;
   padding:8px 16px;border:1px solid transparent;
@@ -155,9 +211,9 @@ body{
 }
 .cat-chip.is-active .cat-count{background:rgba(255,255,255,.22);color:#fff}
 
-/* 网格头：左「N 个结果」右排序钮 */
-.grid-head{display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:20px 0 14px;border-bottom:1px solid var(--line)}
+/* 网格头：左「N 个结果」右排序钮。书10C：收进控制条，border-bottom 与 padding 上交控制条
+ * （书10D 起常态无边框、无底板，容器完全隐形；hairline 只在吸顶态出现）。 */
+.grid-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 8px}
 .grid-title{margin:0;font-size:15px;font-weight:600;letter-spacing:.04em}
 .result-count{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .result-count b{color:var(--brand);font-weight:700}
@@ -189,8 +245,10 @@ select.sort-btn{
   overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);
   margin:0 0 16px;display:inline-block;width:100%;
   transition:box-shadow var(--dur) var(--ease),translate var(--dur) var(--ease);
-  animation:fade-in .6s ease-out backwards;
 }
+/* 任务4 动画治理：入场 fade-in 只归「首屏与滚动续渲批次」的卡（.is-enter，app.js 按批打）；
+   筛选/搜索/排序触发的重渲染不打这个类 → 不播动画（旧行为是 .card 无条件重播，每次筛选整屏闪）。 */
+.card.is-enter{animation:fade-in .6s ease-out backwards}
 .card:hover{box-shadow:var(--shadow-xl);translate:0 -4px}
 .card:focus-within{outline:2px solid var(--brand);outline-offset:2px}
 .card-cover{position:relative;background:var(--bg-hold);overflow:hidden}
@@ -239,6 +297,7 @@ select.sort-btn{
 @media (max-width:1023px){
   .card-grid{columns:3}
   .wrap,.gallery-wrap{padding:0 24px}
+  .control-bar{padding:14px 24px 0}   /* 书10F：内容内边距随版心断点同步（底色仍满视口宽） */
 }
 @media (max-width:767px){.card-grid{columns:2;column-gap:8px}}
 
@@ -277,11 +336,30 @@ select.sort-btn{
 
 /* 左 60% 图区：冷调浅底 + 图圆角 16（对齐参考站 bg-muted 版式 + rounded-2xl） */
 .detail-media{position:relative;background:var(--bg-muted);padding:16px;overflow:hidden}
+/* 书10F 移动端：图片区固定尺寸 + 横向 scroll-snap 轨道（每张一屏、可滑动切换、点击看大图）。
+   旧实现 #detail-image{height:auto} 让容器随图长短伸缩，切换不同比例图时整块内容跳动；
+   现在容器尺寸固定、图片 object-fit:contain 自适，切换零位移。 */
+.detail-track{display:none}
 #detail-image{
   width:100%;height:100%;object-fit:contain;display:block;
   border-radius:16px;
   animation:fade-in var(--dur-img) var(--ease);
 }
+/* 大图浮层（书10F）：再点一下 / Esc / 关闭钮退出；z 高于详情弹窗(40) */
+.lightbox{
+  position:fixed;inset:0;z-index:70;display:none;
+  align-items:center;justify-content:center;
+  background:rgba(16,20,26,.92);padding:16px;
+}
+.lightbox.is-open{display:flex}
+.lightbox-img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.lightbox-close{
+  position:absolute;top:14px;right:14px;width:36px;height:36px;
+  border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;
+  font-size:20px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-close:hover{background:rgba(255,255,255,.3)}
 .nav-arrow{
   position:absolute;top:50%;transform:translateY(-50%);
   width:38px;height:38px;border-radius:50%;border:1px solid rgba(0,0,0,.06);
@@ -446,12 +524,32 @@ body.detail-open .back-to-top{opacity:0;visibility:hidden}
 
 body.detail-open{overflow:hidden}
 
+/* 「内容已更新」细条（任务1 SWR：后台拉新发现数据变化）：顶部居中悬浮药丸，
+ * 3 秒自动消失、可点 × 关闭（app.js showUpdateToast 动态创建，index.html 无此元素）。
+ * z-index 60：高于详情弹窗(40)与移动端吸顶 X(50)——弹窗开着时数据更新也该让用户知道。 */
+.update-toast{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;
+  display:flex;align-items:center;gap:10px;height:36px;padding:0 8px 0 16px;
+  border-radius:999px;background:var(--ink-strong);color:#fff;
+  font-size:13px;line-height:1;box-shadow:var(--shadow-xl);
+  animation:toast-in var(--dur) var(--ease);
+}
+.update-toast-text{white-space:nowrap}
+.update-toast-close{
+  width:22px;height:22px;border:0;border-radius:50%;padding:0;flex:0 0 auto;
+  background:rgba(255,255,255,.16);color:#fff;font-size:14px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background-color var(--dur) var(--ease);
+}
+.update-toast-close:hover{background:rgba(255,255,255,.3)}
+@keyframes toast-in{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
+
 /* ===== 移动端适配（对齐参考站 390/375/768 实测） ===== */
 @media (max-width:767px){
   .wrap,.gallery-wrap{padding:0 16px}
   .header-inner{gap:12px;height:auto;padding:12px 0}
   .top-nav{gap:14px}
-  .hero{padding:44px 16px 4px}
+  .hero{padding:44px 16px 28px}                /* 底部 28px：搬走搜索框后撑住，不许塌 */
   .hero-logo{width:96px;height:96px;border-radius:20px;padding:12px}
   .hero-logo img{width:72px;height:72px}
   .hero-title{margin-top:20px;font-size:32px;line-height:42px;letter-spacing:-.5px}
@@ -459,12 +557,44 @@ body.detail-open{overflow:hidden}
   .hero-slogan{margin-top:14px;font-size:15px;line-height:24px}
   .hero-actions{margin-top:20px;gap:8px}
   .btn-hero{height:40px;padding:8px 16px;font-size:14px}
-  .hero-search{margin-top:22px}
-  #search-input{height:48px;padding:8px 20px 8px 18px;font-size:16px}
-  .category-nav{padding-top:28px;gap:6px}
-  .cat-chip{padding:6px 12px;font-size:13px}
-  .grid-head{padding:16px 0 12px}
-  .sort-btn{width:120px;height:36px}
+  #search-input{max-width:none;height:40px;padding:6px 20px 6px 18px;font-size:14px}   /* 书10D：移动端全宽 40px */
+  /* 书10E 控制条移动端两行：行1 = 搜索框 + 排序（等高对齐），行2 = 计数 + 胶囊（**横滑 + 全部固定**）。
+     .grid-head 用 display:contents 拆开，其两枚子元素分赴两个 area——骨架断言的
+     pick('.grid-head') 只在桌面段量测（display:contents 元素无盒），移动端段不量。
+     书10E 反馈2：胶囊改横滑（推翻书10D 的 wrap），「全部」用 order:-1 排到最前 +
+     position:sticky;left:0 横滑时钉在左侧（纯 CSS，不动 DOM/JS）；chip 不缩，横滚由容器出。
+     书10E 反馈5：排序与搜索框等高（40px）+ 垂直居中，顶边底边都齐。 */
+  .control-bar{
+    top:var(--hdr-h, 63px);   /* 书10G：同桌面，用实测页头高（移动端回退值 63px） */
+    /* 书10F：三行 areas（与桌面同序：搜索+排序 → 胶囊 → 计数）。
+       此前用 "search sort"/"count cats" 两行两列，第二行的 1fr+120px 把胶囊挤进 120px 窄缝
+       （实测 clientW:120、scrollW:778，横滑形同虚设）。改三行后胶囊与计数各占满整行。 */
+    grid-template-areas:"search sort" "cats cats" "count count";
+    grid-template-columns:1fr 120px;
+    gap:10px 12px;padding:10px 16px;   /* 移动端固定 16px（视口 <1680 时公式退化为 32px 下限，此处覆盖为 16） */
+  }
+  /* 移动端 .control-search 改普通块：桌面是 flex 居中（搜索框窄居中），而 flex + input
+     width:100% 会与 grid 列宽循环塌缩（实测 wrap 宽 0、input 溢出成 40px）。 */
+  .control-search{display:block}
+  .grid-head{display:contents}
+  #result-count{grid-area:count;align-self:center;justify-self:start}
+  .grid-head-right{grid-area:sort;justify-self:end;align-self:center}   /* 书10E 反馈5：与搜索框垂直居中（等高 40px） */
+  .sort-note{display:none}                     /* 375px 放不下说明文案：元素仍在 DOM，仅视觉隐藏 */
+  .sort-btn{width:120px;height:40px}           /* 书10E 反馈5：与搜索框同高，同行才齐 */
+  .category-nav{grid-area:cats;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+    padding:0;gap:6px;scrollbar-width:none;-ms-overflow-style:none;min-width:0}
+  .category-nav::-webkit-scrollbar{display:none}
+  .cat-chip{flex:0 0 auto;padding:6px 10px;font-size:13px;gap:6px}   /* chip 缩一档限高、不缩宽 */
+  /* 「全部」固定：order:-1 排到最前 + sticky left:0 横滑钉住；实底（页底冷白）遮住后面滚过的胶囊。
+     书10F 修：实底必须加 :not(.is-active)，否则会顶掉选中态深底 → 白底白字不可见。
+     书10F 再修（用户反馈 1）：**删掉右侧 ::after 渐隐**——那片渐变叠在选中态上形成黑污渍
+     （截图里的黑色渐块），属纯污染，固定区边界靠实底本身的硬边即可。 */
+  .cat-chip[data-category="全部"]{
+    order:-1;position:sticky;left:0;z-index:1
+  }
+  .cat-chip[data-category="全部"]:not(.is-active){
+    background:var(--bg-page)
+  }
   /* 书5 任务3：移动端详情改全屏层——废 44%/56% 两栏与拖拽把手，
      满视口 flex-col 整块滚动：图上（纵横比保真）→信息流→提示词卡（内滚）→CTA */
   .detail-panel{
@@ -475,8 +605,26 @@ body.detail-open{overflow:hidden}
     overflow-x:hidden;overflow-y:auto;
   }
   .detail-handle{display:none}
-  .detail-media{padding:12px;flex:0 0 auto}
-  #detail-image{height:auto;object-fit:contain;border-radius:12px}
+  /* 书10F：图片区固定高度（不随图长短伸缩）+ 轨道横滑。旧 #detail-image{height:auto} 会
+     让容器随图比例变高变矮，切图时下方信息整体跳动。改固定高度后：容器尺寸恒定，
+     图片 contain 自适；轨道每格一屏、scroll-snap 吸附，滑动切换无位移。 */
+  .detail-media{padding:12px;flex:0 0 auto;height:46vh;min-height:240px}
+  .detail-track{
+    display:flex;height:100%;width:100%;
+    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .detail-track::-webkit-scrollbar{display:none}
+  .detail-cell{
+    flex:0 0 100%;width:100%;height:100%;
+    scroll-snap-align:center;scroll-snap-stop:always;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .detail-shot{
+    max-width:100%;max-height:100%;object-fit:contain;display:block;
+    border-radius:12px;cursor:zoom-in;
+  }
+  #detail-image{display:none}                 /* 移动端由轨道承载；元素保留在 DOM（25 id 在册） */
   .detail-body{padding:24px 24px 48px;flex:0 0 auto;overflow:visible}
   .detail-title{font-size:22px;line-height:28px}
   /* 书5 遗留拍板：X 吸顶——fixed 相对视口，不随 .detail-panel 整层滚动离场 */
