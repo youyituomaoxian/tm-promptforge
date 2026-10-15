@@ -3973,11 +3973,11 @@
     "updatedAt": "2025-12-22T00:00:00Z"
   },
   {
-    "id": "notebooklm-slide-font-repair",
-    "title": "Notebooklm幻灯片字体修复",
-    "prompt": "一个提示词修复Notebooklm幻灯片中文字体崩坏。\nNotebooklm 真的是一个神级知识学习工具，生成的幻灯片质量也非常高，但有一个痛点：生成的幻灯片图片是1K（1376*768），中文正文小字细节笔画会崩坏，虽然能认出来但是展示起来非常不美观。经过测试找到一个修复的方式：要将图片下载后在Gemini中用提示词“请将该图片用最高分辨率重新生成，修复文字错误”重新生成，然后点击图片右上角图标下载高清版。这样可以得到2K版，画面几乎看不出差别，中文字体清晰度得到极大改善，崩坏的情况几乎没有了，大家可以放大两张图片看对比。",
+    "id": "nike-fashion-advertisement-slides",
+    "title": "Nike时尚广告幻灯片",
+    "prompt": "Make some slides with your favorite brand🤟🏻👇\nPrompt:\nA dynamic fashion advertisement for Nike showing a hyper-realistic model mid-twist jump, light trails following her limbs. Background: prism-shifting gradient (hot magenta to sapphire) with refracted lens flares. The model wears iridescent Nike runner tights and a cropped tech hoodie in holographic white. Bold serif \"NIKE\" and motion-glitched \"LUMINA\" in layered text behind. High-energy, futuristic aesthetic with fashion gloss. --ar 3:4 --raw --stylize 750",
     "images": [
-      "data/images/notebooklm-slide-font-repair/notebooklm-slide-font-repair.jpg"
+      "data/images/nike-fashion-advertisement-slides/nike-fashion-advertisement-slides.jpg"
     ],
     "categories": [
       "PPT演示"
@@ -3988,8 +3988,8 @@
       "信息图"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@sundyme",
-    "source": "https://x.com/sundyme/status/2002326764371038373",
+    "author": "@Aijaz",
+    "source": "https://x.com/iamsofiaijaz/status/2002671783368142996",
     "createdAt": "2025-12-21T00:00:00Z",
     "updatedAt": "2025-12-21T00:00:00Z"
   },
