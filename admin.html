@@ -70,6 +70,14 @@
         <button id="admin-new" type="button" class="btn-primary-block">＋ 新增条目</button>
         <input id="admin-search" type="search" placeholder="搜索标题或提示词…">
         <div id="admin-cats" class="admin-cats"></div>
+        <!-- 批量删除：勾选工具条。未选中时不占空间（is-visible 才显示） -->
+        <div id="admin-pick-bar" class="admin-pick-bar">
+          <button id="admin-pick-all" type="button" class="pick-btn">全选</button>
+          <button id="admin-pick-invert" type="button" class="pick-btn">反选</button>
+          <button id="admin-pick-none" type="button" class="pick-btn">清空</button>
+          <span id="admin-pick-count" class="pick-count">已选 0 条</span>
+          <button id="admin-bulk-del" type="button" class="pick-del" disabled>批量删除</button>
+        </div>
       </div>
       <ul id="admin-entry-list" class="admin-entry-list"></ul>
       <!-- 书4：分类管理（增 / 删 / 改名级联）。放在侧栏底部，不挤表单的一屏空间 -->
@@ -193,7 +201,7 @@
   </form>
 </div>
 
-<script>window.TM_GATE = { salt: '7dbd09dfd71b537cd740930a5285fb79', iter: 100000, hash: '1be77c99d0f82334814007dc4af494640652de3cb5a64d5895ac49939e0e1854' };</script>
+<script>window.TM_GATE = { salt: '90d00c8ec7b59b9dd97a6374ff24abeb', iter: 100000, hash: 'be3f42c780e95099bb7bfa792ebcfa261b8cf23a9ff27dee8e33670920b84380' };</script>
 <script src="admin.js"></script>
 </body>
 </html>

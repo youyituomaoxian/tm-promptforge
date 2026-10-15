@@ -12,7 +12,7 @@
   var THUMB_QUALITY = 0.72;
 
   var state = { token: null, entries: [], draft: null, editId: null, cat: '全部',
-    categories: DEFAULT_CATEGORIES.slice() };
+    categories: DEFAULT_CATEGORIES.slice(), picked: {} };
   var $ = function (id) { return document.getElementById(id); };
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -603,6 +603,20 @@
       var li = document.createElement('li');
       li.setAttribute('data-id', e.id);
       if (state.editId === e.id) li.className = 'is-active';
+      // 勾选框：批量删除用。与「点行进入编辑」解耦——勾选不触发行点击。
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.className = 'e-pick';
+      cb.checked = !!(state.picked && state.picked[e.id]);
+      cb.setAttribute('aria-label', '选择「' + e.title + '」');
+      cb.addEventListener('click', function (ev) {
+        ev.stopPropagation();                 // 关键：不冒泡到 li 的 startEdit
+        if (!state.picked) state.picked = {};
+        state.picked[e.id] = cb.checked;
+        li.classList.toggle('is-picked', cb.checked);
+        renderPickBar();
+      });
+      li.appendChild(cb);
       // 书4：每行 40×40 封面缩略图（取 images[0]，无图给占位）
       var thumb = document.createElement('span');
       thumb.className = 'e-thumb';
@@ -626,6 +640,7 @@
       main.appendChild(t); main.appendChild(m);
       li.appendChild(thumb); li.appendChild(main);
       li.addEventListener('click', function () { startEdit(e.id); });
+      if (state.picked && state.picked[e.id]) li.className += ' is-picked';
       ul.appendChild(li);
     });
     setStatus('共 ' + state.entries.length + ' 条，当前显示 ' + list.length + ' 条');
@@ -943,27 +958,101 @@
 
   function deleteEntry() {
     if (!state.editId) return;
-    var title = state.draft.title;
-    if (!confirm('确认删除「' + title + '」？\n此操作会同时移除其图片文件，且不可撤销。')) return;
-    var msg = $('admin-img-msg');
-    var imgs = (state.draft.images || []).slice();
-    var next = state.entries.filter(function (e) { return e.id !== state.editId; });
-    imgs.forEach(function (rel) {
-      var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
-      if (m) {
-        deleteImagePair(m[1], m[2])
-          .catch(function () {});
-      }
-    });
-    be().saveEntries(next).then(function (r) {
+    deleteEntries([state.editId]);
+  }
+
+  // ---------- 批量删除 ----------
+  /* 为什么必须「一次提交」：
+   *   线上模式（GitHub contents API）下 saveEntries = 把整份 entries.json（约 320KB）
+   *   整份 PUT 上去，一次往返 ≈ 0.5~2s。逐条删除 = N 次这样的全量往返，
+   *   删 20 条就是 20 次串行等待 —— 这是 O(N) 次全量提交，**不是渲染慢**。
+   *   批量删除把 N 次压成 1 次，是数量级提速。
+   *
+   * 提交顺序（刻意）：**先提交 entries.json，再清理图片**。
+   *   条目数据是权威源，先落地保证一致性；若反过来先删图后提交、中途失败，
+   *   会出现「条目还在、图没了」的损坏态（图片不可再生）。而孤儿图无害——
+   *   它只是磁盘残留，下次 gen-dims.py 会如实记录，不影响任何功能。
+   */
+  function deleteEntries(ids) {
+    var list = (ids || []).filter(Boolean);
+    if (!list.length) return Promise.resolve();
+    var doomed = state.entries.filter(function (e) { return list.indexOf(e.id) !== -1; });
+    if (!doomed.length) return Promise.resolve();
+
+    // 不可撤销操作：数量 + 标题预览，让误操作在确认框里就看得见
+    var names = doomed.slice(0, 5).map(function (e) { return e.title; });
+    var more = doomed.length > names.length ? '\n… 另有 ' + (doomed.length - names.length) + ' 条' : '';
+    var imgCount = doomed.reduce(function (n, e) { return n + (e.images || []).length; }, 0);
+    var msg = '确认删除选中的 ' + doomed.length + ' 条？\n\n' +
+      names.join('\n') + more +
+      '\n\n同时会移除 ' + imgCount + ' 个图片文件，且不可撤销。';
+    if (!confirm(msg)) return Promise.resolve();
+
+    var next = state.entries.filter(function (e) { return list.indexOf(e.id) === -1; });
+    var msgBox = $('admin-img-msg');
+    $('admin-bulk-del').disabled = true;
+    setMsg(msgBox, '正在删除 ' + doomed.length + ' 条…', 'ok');
+
+    // ① 先提交数据（权威源）。单次往返覆盖全部选中条目。
+    return be().saveEntries(next).then(function (r) {
       state.entries = next;
-      state.editId = null;
-      state.draft = null;
-      $('admin-form').classList.add('is-hidden');
-      $('admin-empty').classList.remove('is-hidden');
-      setMsg(msg, '已删除，共 ' + r.count + ' 条', 'ok');
-      renderList();
-    }).catch(function (e) { setMsg(msg, '删除失败：' + e.message, 'error'); });
+      state.picked = {};
+      // ② 若正编辑的条目被删了，清空编辑态（否则表单指向已不存在的条目）
+      if (state.editId && list.indexOf(state.editId) !== -1) {
+        state.editId = null;
+        state.draft = null;
+        $('admin-form').classList.add('is-hidden');
+        $('admin-empty').classList.remove('is-hidden');
+      }
+      setMsg(msgBox, '已删除 ' + doomed.length + ' 条，共 ' + r.count + ' 条', 'ok');
+      renderList(); renderPickBar();
+
+      // ③ 图片清理放到提交之后、后台进行：即便个别失败，数据已一致，不阻塞反馈。
+      //    有限并发（4）避免打爆 GitHub API 限流；失败只记数不上报为「删除失败」。
+      var imgs = [];
+      doomed.forEach(function (e) {
+        (e.images || []).forEach(function (rel) {
+          var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
+          if (m) imgs.push([m[1], m[2]]);
+        });
+      });
+      return cleanupImages(imgs).then(function (failed) {
+        if (failed) {
+          setMsg(msgBox, '已删除 ' + doomed.length + ' 条（' + r.count + ' 条在库）；' +
+            failed + ' 张图片清理失败，不影响条目，可稍后在仓库手动清理', 'ok');
+        }
+      });
+    }).catch(function (e) {
+      $('admin-bulk-del').disabled = false;
+      setMsg(msgBox, '删除失败：' + e.message, 'error');
+    });
+  }
+
+  // 有限并发清图：串行太慢，全并发会撞 GitHub 限流
+  function cleanupImages(imgs, limit) {
+    var cap = limit || 4;
+    var failed = 0, i = 0;
+    function worker() {
+      if (i >= imgs.length) return Promise.resolve();
+      var one = imgs[i++];
+      return deleteImagePair(one[0], one[1])
+        .catch(function () { failed++; })
+        .then(worker);
+    }
+    var workers = [];
+    for (var k = 0; k < Math.min(cap, imgs.length); k++) workers.push(worker());
+    return Promise.all(workers).then(function () { return failed; });
+  }
+
+  // ---------- 勾选状态 ----------
+  function pickedIds() {
+    return Object.keys(state.picked || {}).filter(function (id) { return state.picked[id]; });
+  }
+  function renderPickBar() {
+    var n = pickedIds().length;
+    $('admin-pick-count').textContent = '已选 ' + n + ' 条';
+    var del = $('admin-bulk-del');
+    if (del) del.disabled = n === 0;
   }
 
   // ---------- 上传 ----------
@@ -1119,7 +1208,7 @@
   function enterApp() {
     $('admin-login').classList.add('is-hidden');
     $('admin-app').classList.remove('is-hidden');
-    return load().then(function () { fillCategorySelect(); fillModelList(); renderCatRows(); renderCats(); renderList(); });
+    return load().then(function () { fillCategorySelect(); fillModelList(); renderCatRows(); renderCats(); renderList(); renderPickBar(); });
   }
 
   function load() {
@@ -1196,6 +1285,22 @@
     $('admin-delete').addEventListener('click', deleteEntry);
     $('admin-search').addEventListener('input', renderList);
     $('admin-file').addEventListener('change', handleFiles);
+    // ---------- 批量删除：勾选工具条 ----------
+    $('admin-pick-all').addEventListener('click', function () {
+      visibleEntries().forEach(function (e) { state.picked[e.id] = true; });
+      renderList(); renderPickBar();
+    });
+    $('admin-pick-none').addEventListener('click', function () {
+      state.picked = {};
+      renderList(); renderPickBar();
+    });
+    $('admin-pick-invert').addEventListener('click', function () {
+      visibleEntries().forEach(function (e) { state.picked[e.id] = !state.picked[e.id]; });
+      renderList(); renderPickBar();
+    });
+    $('admin-bulk-del').addEventListener('click', function () {
+      deleteEntries(pickedIds());
+    });
     // ---------- 修改口令（书9 重设计：顶栏入口 → 模态对话框）----------
     // 逻辑：验当前口令 → 新口令 ≥8 位 + 双重确认 + 不许与当前相同 → 服务端改密并
     // **吊销全部会话**（含当前）→ 面板回登录页，用新口令重登。

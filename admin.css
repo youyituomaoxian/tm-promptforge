@@ -116,6 +116,32 @@
 }
 .admin-cats button.is-active{background:var(--brand);border-color:var(--brand);color:#fff}
 
+/* 批量删除：勾选工具条 + 行勾选框
+   视觉沿用既有语言：btn-mini 的边框/圆角/字号、btn-danger 的 #C0392B 危险色，
+   不引入新色、不引入新圆角档，克制成一档。
+   ★ 工具条**常驻显示**：若「未选中就隐藏」，则「全选」按钮自身不可点 →
+     用户永远选不上第一条 → 工具条永远不出现（死锁）。故只有批量删除按钮随勾选数禁用。 */
+.admin-pick-bar{display:flex;align-items:center;gap:6px;padding-top:8px;border-top:1px dashed var(--line)}
+.pick-btn{
+  padding:4px 9px;border:1px solid var(--line);border-radius:5px;background:var(--bg);
+  color:var(--ink-2);font-size:11px;cursor:pointer;font-family:inherit;
+  transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+.pick-btn:hover{border-color:var(--brand);color:var(--brand)}
+.pick-count{margin-left:auto;font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.pick-del{
+  padding:4px 10px;border:1px solid #C0392B;border-radius:5px;background:#fff;color:#C0392B;
+  font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;
+  transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+.pick-del:hover:not(:disabled){background:#C0392B;color:#fff}
+.pick-del:disabled{opacity:.42;cursor:not-allowed}
+/* 行勾选框：16×16，与 40×40 缩略图垂直居中对齐；不抢占行的编辑点击热区 */
+.admin-entry-list .e-pick{
+  flex:0 0 auto;width:16px;height:16px;margin:0;cursor:pointer;accent-color:var(--brand);
+}
+.admin-entry-list li.is-picked{background:var(--brand-soft)}
+
 /* 条目列表：书4 加 40×40 封面缩略图 */
 .admin-entry-list{list-style:none;margin:0;padding:0;max-height:46vh;overflow-y:auto}
 .admin-entry-list li{padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer;
