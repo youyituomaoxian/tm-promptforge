@@ -4381,12 +4381,12 @@
     ],
     "model": "GPT Image 2.5 (OpenAI)",
     "author": "@马守坤",
-    "source": "",
+    "source": "团队原创",
     "images": [
       "data/images/p25/p25-1600x686.jpg",
       "data/images/p25/p25-686x1600.jpg"
     ],
-    "createdAt": "2026-10-15T06:25:37Z",
-    "updatedAt": "2026-10-15T06:25:37Z"
+    "createdAt": "2026-10-15T06:25:48Z",
+    "updatedAt": "2026-10-15T06:25:48Z"
   }
 ]
