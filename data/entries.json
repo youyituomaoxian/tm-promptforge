@@ -3952,27 +3952,6 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "create-presentations-or-websites-faster-than-making-tea",
-    "title": "快速创建演示或网站",
-    "prompt": "Imagine creating a full presentation or website faster than making tea.\nGamma @Gammaapp + Nano Banana Pro just made it real.\nThis update is dangerous for procrastinators (and game-changing for creators).",
-    "images": [
-      "data/images/create-presentations-or-websites-faster-than-making-tea/create-presentations-or-websites-faster-than-making-tea.jpg"
-    ],
-    "categories": [
-      "PPT演示"
-    ],
-    "tags": [
-      "版式设计",
-      "演示稿",
-      "信息图"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Aaliya",
-    "source": "https://x.com/aaliya_va/status/1996556247601225850",
-    "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2025-12-22T00:00:00Z"
-  },
-  {
     "id": "chaotic-anime-illustration-poster-design",
     "title": "混沌风格的二次元插画海报设计",
     "prompt": "カオス系の方向性にチャレンジ！２枚目の画像を入れつつ、プロンプトで100人とか言ってみる。(nano banana pro) 多分いらないプロンプトはありそう。\n[100 girls with high school uniform]\nChaotic and anime illustration poster design featuring the subject.\nTheme: Visual overload, maximalism, and disordered composition.\nInterpret the subject into a fragmented explosion of related concepts and abstract shapes. Randomly redraw input subject and chaotically arrange elements similar to the input subject, creating a sense of visual noise and repetition.\nStyle: Mixed media collage, glitch art, acid graphics, random scattered objects.\nNo negative space, fill every corner with details. High saturation, clashing colors, psychedelic atmosphere.Chaotic visual layout.",
