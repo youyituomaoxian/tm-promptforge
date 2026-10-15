@@ -3973,27 +3973,6 @@
     "updatedAt": "2025-12-22T00:00:00Z"
   },
   {
-    "id": "cinematic-fashion-photoshoot-coloring-slides",
-    "title": "时尚摄影色彩幻灯片",
-    "prompt": "Make some coloring slides with your favorite clicks.\nPROMPT: Hyper-realistic cinematic fashion photoshoot of the uploaded person. He has a refined slim face with a lean, elegant physique. Seated on a deep purple bean bag, he wears bold all-purple oversized streetwear: trench coat, wide white pants, chunky sneakers, silver watch. Solid purple background, medium-length wavy hair. Powerful drip vibes, Adidas campaign editorial look, dramatic studio lighting.",
-    "images": [
-      "data/images/cinematic-fashion-photoshoot-coloring-slides/cinematic-fashion-photoshoot-coloring-slides.jpg"
-    ],
-    "categories": [
-      "PPT演示"
-    ],
-    "tags": [
-      "版式设计",
-      "演示稿",
-      "信息图"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Aijaz",
-    "source": "https://x.com/iamsofiaijaz/status/2003073283168903574",
-    "createdAt": "2025-12-25T00:00:00Z",
-    "updatedAt": "2025-12-25T00:00:00Z"
-  },
-  {
     "id": "creating-simple-design-slides-with-manus-and-nano-banana-pro",
     "title": "使用Manus和Nano Banana Pro制作简单设计幻灯片",
     "prompt": "ManusでもNano banana pro使ったスライドが作れる様に…！\nシンプルなデザインで作ってくれていい感じ。\n私のイベント登壇系スライドの作り方は、、\n①音声入力で喋りたいことをバーとだす\n②Manusでスライド叩き作る\n③Googleスライドで微修正\n凝らなければ20分くらいで完成。",
