@@ -3952,27 +3952,6 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "nano-banana-pro-one-click-medical-data-policy-slide-creation",
-    "title": "纳米香蕉Pro：一键制作医疗数据国策幻灯片",
-    "prompt": "nano banana proなら一発で医療データの国策のスライドが作れます（真顔\n「これからの医療データの国策の方向性を調べた上で、これからの医療データ企業のあるべき姿を内閣府の委員会資料のような文字の量多めのポンチ絵スライド画像を作って下さい」 https://t.co/lQRZmOtXyd",
-    "images": [
-      "data/images/nano-banana-pro-one-click-medical-data-policy-slide-creation/nano-banana-pro-one-click-medical-data-policy-slide-creation.jpg"
-    ],
-    "categories": [
-      "PPT演示"
-    ],
-    "tags": [
-      "版式设计",
-      "演示稿",
-      "信息图"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Jun Harada",
-    "source": "https://x.com/hrjn/status/1991779958600134854",
-    "createdAt": "2025-12-09T00:00:00Z",
-    "updatedAt": "2025-12-09T00:00:00Z"
-  },
-  {
     "id": "nano-banana-pro-quickly-creates-slide-on-prime-ministers-chinese-relations-in-10-seconds",
     "title": "Nano Banana Pro快速制作首相中日关系分析幻灯片",
     "prompt": "Nano Banana Proに頼んだら10秒で「今の高市首相と日中関係悪化問題」について完璧すぎるスライド作ってくれたんだけど。\nわかりやすすぎて2秒で理解した。笑\nプロンプト↓ https://t.co/hcAYN5rQAp",
