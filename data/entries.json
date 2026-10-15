@@ -3952,11 +3952,11 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "kirigami-app-1-0-0-beta-1-powerpoint-editing-tool-release",
-    "title": "Nano Banana Pro制作的幻灯片编辑化工具 Kirigami.app 1.0.0-beta.1 发布",
-    "prompt": "「Nano Banana Proで作ったスライド画像→一瞬で編集可能なパワポ化」する http://Kirigami.app 1.0.0-beta.1が公開\n！！！\n・NotebookLMの編集可能なPowerPoint化\n・テキスト編集モード\n・画像一括変換\nなどなど沢山アプデしました！詳細はリプ👇今から2日だけ無料です。",
+    "id": "cinematic-fashion-photoshoot-coloring-slides",
+    "title": "时尚摄影色彩幻灯片",
+    "prompt": "Make some coloring slides with your favorite clicks.\nPROMPT: Hyper-realistic cinematic fashion photoshoot of the uploaded person. He has a refined slim face with a lean, elegant physique. Seated on a deep purple bean bag, he wears bold all-purple oversized streetwear: trench coat, wide white pants, chunky sneakers, silver watch. Solid purple background, medium-length wavy hair. Powerful drip vibes, Adidas campaign editorial look, dramatic studio lighting.",
     "images": [
-      "data/images/kirigami-app-1-0-0-beta-1-powerpoint-editing-tool-release/kirigami-app-1-0-0-beta-1-powerpoint-editing-tool-release.jpg"
+      "data/images/cinematic-fashion-photoshoot-coloring-slides/cinematic-fashion-photoshoot-coloring-slides.jpg"
     ],
     "categories": [
       "PPT演示"
@@ -3967,10 +3967,10 @@
       "信息图"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@Taiyo/AI Agent作る大学生",
-    "source": "https://x.com/taiyo_ai_gakuse/status/1996170597269971249",
-    "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2025-12-22T00:00:00Z"
+    "author": "@Aijaz",
+    "source": "https://x.com/iamsofiaijaz/status/2003073283168903574",
+    "createdAt": "2025-12-25T00:00:00Z",
+    "updatedAt": "2025-12-25T00:00:00Z"
   },
   {
     "id": "creating-simple-design-slides-with-manus-and-nano-banana-pro",
