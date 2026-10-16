@@ -219,7 +219,15 @@ body{
 .result-count b{color:var(--brand);font-weight:700}
 /* 书6：排序条右侧 = 说明文案 + 排序控件；文案解释多类计数口径 */
 .grid-head-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.sort-note{font-size:12px;color:var(--ink-3);white-space:nowrap}
+.view-toggle{display:inline-flex;gap:2px;background:var(--bg-muted);border-radius:999px;padding:3px}
+.view-btn{border:0;background:transparent;color:var(--ink-4);font-size:13px;line-height:20px;font-weight:600;
+  padding:6px 16px;border-radius:999px;cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.view-btn:hover{color:var(--ink-strong)}
+.view-btn.is-active{background:var(--brand);color:#fff;font-weight:700;box-shadow:none}
+.view-btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.hero-cats-line{margin-top:8px;font-size:13px;line-height:22px;color:var(--ink-3);letter-spacing:.01em}
+.hero-cats-label{color:var(--ink-3)}
+#hero-cats{color:var(--ink-2);font-weight:600}
 .sort-btn{
   width:140px;height:40px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;
   background:var(--bg);color:var(--ink);font-size:14px;cursor:pointer;font-family:inherit;
@@ -240,6 +248,7 @@ select.sort-btn{
  *   ≥1024 → 4 列 / padding 32；768~1023 → 3 列 / padding 24；≤767 → 2 列 / padding 16 */
 .card-grid{columns:4;column-gap:16px;padding:16px 0 56px}
 .card{
+  position:relative;
   break-inside:avoid;page-break-inside:avoid;
   background:var(--bg);border-radius:var(--radius);
   overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);
@@ -265,17 +274,16 @@ select.sort-btn{
 /* 渐进渲染哨兵：零高度不占位，只作「该续渲下一批了」的触发点 */
 .grid-sentinel{height:1px}
 .card:hover .card-cover img{transform:scale(1.1)}
-/* 压字层：默认全隐藏，hover 渐显（对齐参考站 opacity-0 → group-hover:opacity-100） */
-.card-overlay{
-  position:absolute;inset:0;display:flex;align-items:flex-end;
+/* 压字层（书16：.card-foot 现直接作卡片信息层；瀑布态绝对覆盖封面 + hover 渐显，网格态转文档流常显） */
+.card-foot{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
   background:linear-gradient(to top,rgba(0,0,0,.80) 0%,rgba(0,0,0,0) 55%);
   opacity:0;transition:opacity var(--dur) var(--ease);
-  pointer-events:none;
+  pointer-events:none;padding:14px;width:100%;max-height:100%;overflow:hidden;
 }
-.card:hover .card-overlay,.card:focus-within .card-overlay{opacity:1}
-.card-foot{padding:14px;width:100%;max-height:100%;overflow:hidden}
+.card:hover .card-foot,.card:focus-within .card-foot{opacity:1}
 .card-title{
-  margin:0 0 4px;font-size:14px;font-weight:700;line-height:20px;color:#fff;
+  margin:0 0 4px;font-size:15px;font-weight:700;line-height:21px;color:#fff;
   text-shadow:0 1px 3px rgba(0,0,0,.55);
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
@@ -288,8 +296,10 @@ select.sort-btn{
 }
 .card-sub .model-badge{background:rgba(255,255,255,.9);border-color:transparent;color:var(--ink-2)}
 .card-tags{display:flex;flex-wrap:wrap;gap:6px}
+/* 书16：标签仅在网格态常显；瀑布流只显示标题+贡献者（不显示标签） */
+.card-foot .card-tags{display:none}
 /* 卡片压字层上的标签：半透明白底，图片上可读 */
-.card-overlay .tag{background:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(2px)}
+.card-foot .tag{background:rgba(255,255,255,.16);color:#fff}
 /* 详情页标签：沿用本站标签风格（品牌色浅底） */
 #detail-tags .tag{background:var(--bg-tag);color:var(--ink-2);padding:6px 12px;
   border-radius:999px;font-size:12px;line-height:16px}
@@ -300,6 +310,30 @@ select.sort-btn{
   .control-bar{padding:14px 24px 0}   /* 书10F：内容内边距随版心断点同步（底色仍满视口宽） */
 }
 @media (max-width:767px){.card-grid{columns:2;column-gap:8px}}
+
+/* ===== 书16：网格视图（瀑布流 / 网格 互切） ===== */
+.card-grid.is-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);column-gap:16px;row-gap:16px;
+  padding:0;align-items:stretch;
+}
+@media (max-width:1023px){.card-grid.is-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:767px){.card-grid.is-grid{grid-template-columns:repeat(2,1fr)}}
+.card-grid.is-grid .card{
+  display:flex;flex-direction:column;width:auto;margin:0;break-inside:auto;
+}
+.card-grid.is-grid .card:hover{translate:none}
+.card-grid.is-grid .card-cover{position:relative;aspect-ratio:4/5 !important;width:100%}
+.card-grid.is-grid .card-foot{
+  position:static;opacity:1;background:none;pointer-events:auto;
+  max-height:none;overflow:visible;padding:12px 14px 14px;
+  flex-direction:column;align-items:stretch;justify-content:flex-start;
+}
+.card-grid.is-grid .card-title{color:var(--ink-strong);text-shadow:none;font-size:15px;line-height:21px}
+.card-grid.is-grid .card-sub{margin-bottom:0}
+.card-grid.is-grid .card-author{color:var(--ink-3);font-size:13px}
+.card-grid.is-grid .card-tags{display:flex;margin-top:10px;gap:6px}
+.card-grid.is-grid .tag{background:var(--bg-tag);color:var(--ink-2);backdrop-filter:none;
+  padding:3px 10px;border-radius:999px;font-size:12px;line-height:18px}
 
 /* ===== 点卡弹窗：1080×864 居中，左 60% 图 / 右 40% 信息（对齐 aiart.pics） ===== */
 .detail{
@@ -578,8 +612,14 @@ body.detail-open{overflow:hidden}
   .control-search{display:block}
   .grid-head{display:contents}
   #result-count{grid-area:count;align-self:center;justify-self:start}
-  .grid-head-right{grid-area:sort;justify-self:end;align-self:center}   /* 书10E 反馈5：与搜索框垂直居中（等高 40px） */
-  .sort-note{display:none}                     /* 375px 放不下说明文案：元素仍在 DOM，仅视觉隐藏 */
+  /* 书16 修：#view-toggle 加入 .grid-head-right 后，移动端 120px "sort" 窄列装不下
+     「切换控件+排序」两件（flex-wrap 把排序挤到控件下一行，ui4 任务4⑤/任务1 双红）。
+     grid-head-right 移动端 display:contents 拆开——排序留行1 与搜索同行（书10E 设计不变），
+     切换控件下放行3 计数行右端（vtLeft < sortLeft 仍成立，DOM 零改动）。 */
+  .grid-head-right{display:contents}
+  #view-toggle{grid-area:count;justify-self:end;align-self:center}
+  #grid-sort{grid-area:sort;justify-self:end;align-self:center}   /* 书10E 反馈5：与搜索框同行等高对齐 */
+  /* 书16：.sort-note 已删除（视图切换控件替代说明） */
   .sort-btn{width:120px;height:40px}           /* 书10E 反馈5：与搜索框同高，同行才齐 */
   .category-nav{grid-area:cats;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
     padding:0;gap:6px;scrollbar-width:none;-ms-overflow-style:none;min-width:0}

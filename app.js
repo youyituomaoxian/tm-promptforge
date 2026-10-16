@@ -14,9 +14,36 @@
   var CATEGORIES = DEFAULT_CATEGORIES.slice();
   var RESERVED_CATEGORY = '其他';
 
+  function renderHeroCats(cats) {
+    var e = document.getElementById('hero-cats');
+    if (!e) return;
+    var real = (Array.isArray(cats) ? cats : CATEGORIES).filter(function (c) {
+      return c && c !== '其他';
+    });
+    e.textContent = real.join(' · ');
+  }
   function setCategories(cats) {
     if (Array.isArray(cats) && cats.length) CATEGORIES = cats.slice();
+    renderHeroCats(CATEGORIES);
     return CATEGORIES;
+  }
+  // 书16：瀑布流 / 网格 双视图切换（控件在 #grid-sort 左边；不写 URL / localStorage；刷新回瀑布流）
+  function wireViewToggle(doc) {
+    var grid = doc.getElementById('card-grid');
+    var wf = doc.getElementById('view-waterfall');
+    var gd = doc.getElementById('view-grid');
+    if (!grid || !wf || !gd) return;
+    function setView(v) {
+      var gridMode = v === 'grid';
+      grid.classList.toggle('is-grid', gridMode);
+      wf.classList.toggle('is-active', !gridMode);
+      gd.classList.toggle('is-active', gridMode);
+      wf.setAttribute('aria-pressed', String(!gridMode));
+      gd.setAttribute('aria-pressed', String(gridMode));
+    }
+    wf.addEventListener('click', function () { setView('waterfall'); });
+    gd.addEventListener('click', function () { setView('grid'); });
+    setView('waterfall');   // 默认瀑布流，与 HTML 初始态一致；刷新后由 HTML 重置（不记忆）
   }
 
   // ---- 纯逻辑（可被 check.js 直接断言）----
@@ -354,15 +381,19 @@
         media.classList.remove('is-loading');
       });
       media.appendChild(img);
-      var overlay = el('div', 'card-overlay');
+      // 书16：信息层改为封面下方常显（瀑布态经 CSS 绝对覆盖封面 + hover 渐显；网格态转文档流常显）
+      card.appendChild(media);
       var foot = el('div', 'card-foot');
       foot.appendChild(el('h3', 'card-title', e.title));
       var sub = el('div', 'card-sub');
       sub.appendChild(el('span', 'card-author', e.author || e.source || '团队原创'));
       foot.appendChild(sub);
-      overlay.appendChild(foot);
-      media.appendChild(overlay);
-      card.appendChild(media);
+      var tagsWrap = el('div', 'card-tags');
+      (e.tags || []).slice(0, 3).forEach(function (t) {
+        tagsWrap.appendChild(el('span', 'tag', '#' + t));
+      });
+      foot.appendChild(tagsWrap);
+      card.appendChild(foot);
       card.addEventListener('click', function () { openDetail(doc, st, e.id); });
       return card;
     }
@@ -924,6 +955,8 @@
         view.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
       });
     }
+    // 书16：视图切换控件接线（早于首渲，确保切换态一致）
+    wireViewToggle(doc);
     // 书4：分类表与条目表并行拉取，两者都到齐才首渲染（避免中途闪一下旧分类）
     // 双通道：http(s) 走 fetch；file:// 直开时浏览器禁 fetch 本地文件，
     // 走 <script> 注入 data/*.js 孪生（window.__TM_DATA__，由 server/storage-fs.js 写入时同步生成）
