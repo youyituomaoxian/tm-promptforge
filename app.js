@@ -627,6 +627,19 @@
     var count = doc.getElementById('detail-img-count');
     var prev = doc.getElementById('detail-prev');
     var next = doc.getElementById('detail-next');
+    // 书10F 缺陷修复（桌面端切图无反应）：#detail-image 是**桌面唯一可见的承载**
+    //   （.detail-track 桌面 display:none、#detail-image 移动端 display:none），
+    //   旧实现只在 renderGallery（仅开弹窗时跑一次）给 src 赋过值，syncGalleryChrome
+    //   漏了它 → 桌面点箭头只跳计数、画面不动。现归位到本函数，并加同值守卫，
+    //   避免重复赋同 src 把 #detail-image 的 fade-in 动画重播一遍。
+    var img = doc.getElementById('detail-image');
+    if (img) {
+      var want = e.images[st.imgIndex];
+      if (want && img.getAttribute('src') !== want) {
+        img.src = want;
+        img.alt = e.title + ' 图 ' + (st.imgIndex + 1);
+      }
+    }
     if (count) count.textContent = st.imgIndex + 1 + ' / ' + e.images.length;
     var multi = e.images.length > 1;
     if (prev) prev.hidden = !multi;
@@ -854,11 +867,26 @@
     var mask = doc.querySelector('#detail .detail-mask');
     if (mask) mask.addEventListener('click', function () { closeDetail(doc, st); });
     // Esc 关闭：先关大图浮层，没有浮层再关详情（书10F 大图层优先）
+    // 书15p 修：桌面端多图切换原先只有箭头可点，方向键 ← → 完全没绑定 →
+    //   「切换没反应」的另一半根因。此处补齐（不重绘 DOM，走 syncGalleryChrome），
+    //   Esc 优先级不变；大图浮层打开时方向键不劫持（浮层内无切图语义）。
     doc.addEventListener('keydown', function (ev) {
-      if (ev.key !== 'Escape') return;
       var lb = doc.getElementById('tm-lightbox');
-      if (lb && lb.classList.contains('is-open')) { closeLightbox(doc); return; }
-      if (st.openId) closeDetail(doc, st);
+      if (ev.key === 'Escape') {
+        if (lb && lb.classList.contains('is-open')) { closeLightbox(doc); return; }
+        if (st.openId) closeDetail(doc, st);
+        return;
+      }
+      if (!st.openId || ev.target && /^(INPUT|TEXTAREA|SELECT)$/.test(ev.target.tagName)) return;
+      if (lb && lb.classList.contains('is-open')) return;
+      if (ev.key !== 'ArrowLeft' && ev.key !== 'ArrowRight') return;
+      var cur = st.entries.filter(function (x) { return x.id === st.openId; })[0];
+      if (!cur || !cur.images || cur.images.length < 2) return;
+      ev.preventDefault();
+      st.imgIndex = ev.key === 'ArrowRight'
+        ? nextImageIndex(st.imgIndex, cur.images.length)
+        : prevImageIndex(st.imgIndex, cur.images.length);
+      syncGalleryChrome(doc, st, cur);
     });
     doc.getElementById('detail-copy').addEventListener('click', function () {
       var e = st.entries.filter(function (x) { return x.id === st.openId; })[0];

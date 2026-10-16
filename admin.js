@@ -240,35 +240,6 @@
       kind: 'github',
       repo: repoSlug,
       branch: branch,
-      // 修改访问口令：外科手术式替换 admin.html 里那行 window.TM_GATE 常量。
-      // 只改这一行（命中数必须恰为 1，否则拒绝写），口令明文全程不出现在内存之外的地方。
-      saveGateHash: function (gate) {
-        var pathInRepo = 'admin.html';
-        var lineRe = /window\.TM_GATE\s*=\s*\{[^}]*\};/;
-        function build(html, sha) {
-          var hits = html.match(new RegExp(lineRe.source, 'g')) || [];
-          if (hits.length !== 1) {
-            throw new Error('admin.html 里 window.TM_GATE 行命中 ' + hits.length + ' 处（应为 1），已放弃写入');
-          }
-          var next = html.replace(lineRe,
-            "window.TM_GATE = { salt: '" + gate.salt + "', iter: " + gate.iter + ", hash: '" + gate.hash + "' };");
-          var body = {
-            message: 'chore: 更新访问口令哈希（PBKDF2-SHA256/' + gate.iter + '，口令明文不入库）',
-            content: b64Utf8(next), branch: branch
-          };
-          if (sha) body.sha = sha;
-          return body;
-        }
-        return getText(pathInRepo, false).then(function (cur) {
-          return req('PUT', pathInRepo, build(cur.text, cur.sha)).catch(function (e) {
-            if (e.status !== 409) throw e;
-            // 409（有人同时改过 admin.html）→ 重取一次再替换
-            return getText(pathInRepo, false).then(function (cur2) {
-              return req('PUT', pathInRepo, build(cur2.text, cur2.sha));
-            });
-          });
-        });
-      },
       loadEntries: function () {
         return getText('data/entries.json', false).then(function (r) {
           return r ? JSON.parse(r.text) : [];
@@ -344,14 +315,13 @@
     backendLocal: backendLocal,
     backendGithub: backendGithub,
     createBackend: createBackend,
-    gateVerify: gateVerify,
-    gateHash: gateHash,
     ghConfig: ghConfig,
     hintOffline: hintOffline
   };
 
-  // ---------- 线上模式：静态口令门 + 令牌登录（书8 任务3）----------
-  // 访问口令门 = 防误触/防扫描，**不是安全边界**（页面源码公开）；
+  // ---------- 线上模式：GitHub 令牌登录（唯一凭证）----------
+  // [书14 · 领导 2026-10-15 拍板「删掉口令门，只留令牌」] 原先上方还有一道静态「访问口令」
+  // 门（PBKDF2 哈希嵌在公开的 admin.html 里，防误触、非安全边界），已整体下线。
   // 真正的权限边界是用户的 GitHub 令牌（只存 sessionStorage，关标签页即失效）。
   var GATE_KEY = 'tm_gh_token';
 
@@ -365,54 +335,15 @@
     return gateMode() ? HINT_ONLINE : HINT_OFFLINE;
   }
 
-  function hexToBytes(hex) {
-    var out = new Uint8Array(hex.length / 2);
-    for (var i = 0; i < out.length; i++) out[i] = parseInt(hex.substr(i * 2, 2), 16);
-    return out;
-  }
-
-  // 常量时间比较：不提前返回，差异累计到最后一位（不用 === 直接比字符串）
-  function ctEqualBytes(a, b) {
-    var diff = a.length ^ b.length;
-    var n = Math.min(a.length, b.length);
-    for (var i = 0; i < n; i++) diff |= a[i] ^ b[i];
-    return diff === 0 && a.length === b.length;
-  }
-
-  function gateVerify(pw) {
-    var g = window.TM_GATE;
-    if (!pw || !g || !g.salt || !g.hash) return Promise.resolve(false);
-    var enc = new TextEncoder();
-    return crypto.subtle.importKey('raw', enc.encode(pw), { name: 'PBKDF2' }, false, ['deriveBits'])
-      .then(function (key) {
-        return crypto.subtle.deriveBits(
-          { name: 'PBKDF2', salt: hexToBytes(g.salt), iterations: Number(g.iter) || 100000, hash: 'SHA-256' },
-          key, 256);   // 32 字节
-      })
-      .then(function (bits) {
-        return ctEqualBytes(new Uint8Array(bits), hexToBytes(g.hash));
-      })
-      .catch(function () { return false; });
-  }
-
-  function doGate() {
-    var pw = $('gate-pw').value;
-    var msg = $('admin-login-msg');
-    setMsg(msg, '');
-    gateVerify(pw).then(function (ok2) {
-      if (!ok2) { setMsg(msg, '访问口令不对', 'error'); return; }
-      $('gate-row').classList.add('is-hidden');
-      $('gh-row').classList.remove('is-hidden');
-      $('gh-token').focus();
-      setMsg(msg, '口令正确——请填你的 GitHub 令牌（权限边界在令牌，不在访问口令）', 'ok', true);
-    });
-  }
-
+  // ---------- 线上模式：GitHub 令牌（唯一凭证）----------
+  // [书14 · 领导 2026-10-15 拍板「删掉口令门，只留令牌」] 原「两道门」改为一道。
+  //   线上：令牌必须是真的（GitHub API 会验）；本地：随便填都能过（fs 后端不碰 GitHub，令牌无安全含义）。
+  //   改口令：线上没有服务端账号，令牌要去 GitHub → Settings → Developer settings 改或删。
   function doGhLogin() {
     var token = $('gh-token').value.trim();
     var msg = $('admin-login-msg');
     setMsg(msg, '');
-    if (token.length < 20) { setMsg(msg, '令牌看起来不对（至少 20 位）', 'error'); return; }
+    if (!token) { setMsg(msg, '请填 GitHub 令牌', 'error'); return; }
     // 令牌只进 sessionStorage（关标签页即失效）；localStorage / cookie / URL 一律不出现
     try { sessionStorage.setItem(GATE_KEY, token); } catch (e) { /* 隐私模式等 */ }
     state.token = token;
@@ -431,75 +362,9 @@
     state.token = null; state.entries = [];
     $('admin-app').classList.add('is-hidden');
     $('admin-login').classList.remove('is-hidden');
-    $('gh-row').classList.add('is-hidden');
-    $('gate-row').classList.remove('is-hidden');
-    $('gate-pw').value = ''; $('gh-token').value = '';
+    $('gh-row').classList.remove('is-hidden');
+    $('gh-token').value = ''; $('admin-pw').value = '';
     setMsg($('admin-login-msg'), '已退出，令牌已从本标签页清除', 'ok', true);
-  }
-
-  // ---------- 线上模式：修改访问口令（2026-10-13 用户要求恢复入口）----------
-  // 与本地模式的「修改口令」是两件事：本地改的是 server 的管理员口令（走 /api/password）；
-  // 线上没有服务端账号，改的是 admin.html 里那行 PBKDF2 哈希（改 GitHub 令牌请去 GitHub 设置）。
-  function bytesToHex(b) {
-    var s = '';
-    for (var i = 0; i < b.length; i++) s += ('0' + b[i].toString(16)).slice(-2);
-    return s;
-  }
-  function randomSaltHex(n) {
-    var a = new Uint8Array(n);
-    crypto.getRandomValues(a);
-    return bytesToHex(a);
-  }
-  function gateHash(pw, saltHex, iter) {
-    var enc = new TextEncoder();
-    return crypto.subtle.importKey('raw', enc.encode(pw), { name: 'PBKDF2' }, false, ['deriveBits'])
-      .then(function (key) {
-        return crypto.subtle.deriveBits(
-          { name: 'PBKDF2', salt: hexToBytes(saltHex), iterations: iter, hash: 'SHA-256' }, key, 256);
-      })
-      .then(function (bits) { return bytesToHex(new Uint8Array(bits)); });
-  }
-
-  function openGatePwModal() {
-    $('gate-pw-modal').classList.remove('is-hidden');
-    $('gate-pw-modal').setAttribute('aria-hidden', 'false');
-    ['gp-current', 'gp-new', 'gp-new2'].forEach(function (id) { $(id).value = ''; });
-    setMsg($('gp-msg'), '');
-    $('gp-current').focus();
-  }
-  function closeGatePwModal() {
-    $('gate-pw-modal').classList.add('is-hidden');
-    $('gate-pw-modal').setAttribute('aria-hidden', 'true');
-  }
-  function submitGatePw(ev) {
-    ev.preventDefault();
-    var cur = $('gp-current').value, a = $('gp-new').value, b = $('gp-new2').value;
-    var msg = $('gp-msg');
-    setMsg(msg, '');
-    if (!cur) { setMsg(msg, '请先输入当前访问口令', 'error'); return; }
-    if (a.length < 8) { setMsg(msg, '新访问口令至少 8 位', 'error'); return; }
-    if (a !== b) { setMsg(msg, '两次输入的新访问口令不一致', 'error'); return; }
-    var iter = Number((window.TM_GATE || {}).iter) || 100000;
-    setMsg(msg, '正在验当前口令…', '', true);
-    gateVerify(cur).then(function (okCur) {
-      if (!okCur) { setMsg(msg, '当前访问口令不正确', 'error'); return; }
-      if (a === cur) { setMsg(msg, '新访问口令不能与当前口令相同', 'error'); return; }
-      setMsg(msg, '正在计算新哈希并提交到仓库…', '', true);
-      var salt = randomSaltHex(16);
-      var nextGate = null;   // 跨两个 then 传递：hash 只在上一个回调里存在
-      return gateHash(a, salt, iter).then(function (hash) {
-        nextGate = { salt: salt, iter: iter, hash: hash };
-        return be().saveGateHash(nextGate);
-      }).then(function () {
-        window.TM_GATE = nextGate;                 // 本页立即切到新哈希
-        setMsg($('gp-msg'), '');
-        closeGatePwModal();
-        setMsg($('admin-status'), '访问口令已更新：Pages 重建约 1 分钟后，刷新页面用新口令登录', '', true);
-        setMsg($('admin-login-msg'), '访问口令已更新，请用新口令登录', 'ok', true);
-      });
-    }).catch(function (e) {
-      setMsg(msg, '修改失败：' + e.message + '（旧口令继续有效，可直接重试）', 'error', true);
-    });
   }
 
   // ---------- 图片压缩（真实读像素，非伪造size） ----------
@@ -1251,27 +1116,16 @@
     }
     $('admin-login-btn').addEventListener('click', doLogin);
     $('admin-pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
-    // 书8 任务3：线上模式（github 后端）—— 两道门：访问口令 → GitHub 令牌。
-    // 本地模式（localhost/127.0.0.1 或 ?backend=local）维持原样：#admin-pw 照旧用。
+    // [书14 · 领导 2026-10-15 拍板「删掉口令门，只留令牌」] 原「两道门」分支整段移除。
+    //   凭证唯一 = GitHub 令牌：线上必须真令牌（GitHub API 验），本地不碰 GitHub、随便填都能进。
+    //   线上模式下「修改口令」入口一并隐藏（已无口令可改）。
     if (gateMode()) {
-      $('gate-row').classList.remove('is-hidden');
-      $('gate-hint').classList.remove('is-hidden');
+      $('gh-row').classList.remove('is-hidden');
       $('local-row').classList.add('is-hidden');
-      // 线上模式没有服务端账号，但「访问口令」可以在线改 → 同一个入口换个标签与行为
-      $('pw-open').textContent = '修改访问口令';
-      $('gate-btn').addEventListener('click', doGate);
-      $('gate-pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGate(); });
-      $('gh-login-btn').addEventListener('click', doGhLogin);
-      $('gh-token').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGhLogin(); });
-      // 访问口令修改对话框
-      $('gp-cancel').addEventListener('click', closeGatePwModal);
-      var gpMask = $('gate-pw-modal').querySelector('.pw-mask');
-      if (gpMask) gpMask.addEventListener('click', closeGatePwModal);
-      document.addEventListener('keydown', function (ev) {
-        if (ev.key === 'Escape' && !$('gate-pw-modal').classList.contains('is-hidden')) closeGatePwModal();
-      });
-      $('gate-pw-form').addEventListener('submit', submitGatePw);
+      $('pw-open').classList.add('is-hidden');
     }
+    $('gh-login-btn').addEventListener('click', doGhLogin);
+    $('gh-token').addEventListener('keydown', function (e) { if (e.key === 'Enter') doGhLogin(); });
     $('admin-new').addEventListener('click', startNew);
     $('cat-add').addEventListener('click', addCategory);
     $('cat-new').addEventListener('keydown', function (e) { if (e.key === 'Enter') addCategory(); });
@@ -1315,10 +1169,9 @@
       $('pw-modal').classList.add('is-hidden');
       $('pw-modal').setAttribute('aria-hidden', 'true');
     }
-    // 账号动作区的「修改口令」：本地模式改服务端管理员口令，线上模式改访问口令（两道门那道）
-    $('pw-open').addEventListener('click', function () {
-      if (gateMode()) openGatePwModal(); else openPwModal();
-    });
+    // [书14] 线上已无「访问口令」可改，该门下线后 #pw-open 一律走本地服务端改密对话框；
+    //   线上模式下这个按钮已在 boot 里隐藏。改 GitHub 令牌请去 GitHub 设置页重新生成。
+    $('pw-open').addEventListener('click', openPwModal);
     $('pw-cancel').addEventListener('click', closePwModal);
     var pwMask = $('pw-modal').querySelector('.pw-mask');
     if (pwMask) pwMask.addEventListener('click', closePwModal);

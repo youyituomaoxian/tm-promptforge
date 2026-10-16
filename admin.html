@@ -16,15 +16,14 @@
     <img class="admin-login-logo" src="data/images/logo.svg" alt="TM PromptForge">
     <h1 class="admin-login-title">管理面板</h1>
     <p class="admin-login-sub">TM PromptForge · 条目与图片管理</p>
-    <!-- 线上模式第一道：访问口令（防误触，不是安全边界；书8 任务3） -->
-    <div id="gate-row" class="is-hidden">
-      <label class="field">
-        <span class="field-label">访问口令</span>
-        <input id="gate-pw" type="password" placeholder="请输入访问口令" autocomplete="off">
-      </label>
-      <button id="gate-btn" type="button" class="btn-primary-block">验证</button>
-    </div>
-    <!-- 线上模式第二道：GitHub 令牌（真正的权限边界在这里） -->
+    <!-- 唯一凭证：GitHub 令牌（真正的权限边界）
+         书14 决策（领导 2026-10-15）：删掉「访问口令」这道门。
+         理由：① 它从来不是安全边界——PBKDF2 哈希以常量形式嵌在公开的 admin.html 里，
+              看源码即可离线爆破；② 更实际的问题是它**会被部署覆盖**：口令哈希存放在
+              site/admin.html 的 <script> 里，而 deploy.sh 只推本地 site/，每次上线都会用
+              本地的旧哈希盖掉线上改过的值（领导多次遇到「上线后口令被还原」）。
+         现在管理员凭证唯一 = GitHub 令牌：线上必须真令牌（GitHub API 会验），
+         本地随便写都能过（本地 fs 后端不碰 GitHub，令牌无安全含义）。 -->
     <div id="gh-row" class="is-hidden">
       <label class="field">
         <span class="field-label">GitHub 令牌</span>
@@ -32,15 +31,16 @@
       </label>
       <button id="gh-login-btn" type="button" class="btn-primary-block">进入管理</button>
     </div>
-    <!-- 本地模式：服务端口令（线上模式隐藏但不删除，local 照旧用） -->
+    <!-- 本地模式：同一条路径。令牌在本地不做验证（不碰 GitHub），随便写都能过；
+         仍需向 server 换一枚会话 token 才能调 /api/*，该交换由 ADMIN_OPEN 开关放行。 -->
     <div id="local-row">
       <label class="field">
-        <span class="field-label">管理员口令</span>
-        <input id="admin-pw" type="password" placeholder="请输入口令" autocomplete="current-password">
+        <span class="field-label">管理员令牌</span>
+        <input id="admin-pw" type="password" placeholder="本地模式：随便填即可进入" autocomplete="off">
       </label>
       <button id="admin-login-btn" type="button" class="btn-primary-block">登录</button>
     </div>
-    <p id="gate-hint" class="field-hint is-hidden">访问口令只防误触，<strong>不是安全边界</strong>（页面源码公开，看源码就能跳过它）；真正的权限边界是你的 GitHub 令牌。<a href="pat-help.html#%E4%BB%A4%E7%89%8C%E6%80%8E%E4%B9%88%E6%8B%BF" target="_blank" rel="noopener">令牌怎么拿</a></p>
+    <p id="gate-hint" class="field-hint">访问口令这道门已下线（它会被每次上线覆盖，且从来不是安全边界）。现在凭证唯一：<strong>GitHub 令牌</strong>——线上会真实校验，本地不碰GitHub、随便填即可进。<a href="pat-help.html#%E4%BB%A4%E7%89%8C%E6%80%8E%E4%B9%88%E6%8B%BF" target="_blank" rel="noopener">令牌怎么拿</a></p>
     <p id="admin-login-msg" class="admin-msg"></p>
     <a class="admin-back" href="index.html">← 返回游客页</a>
   </div>
@@ -178,30 +178,9 @@
   </form>
 </div>
 
-<!-- 访问口令门参数（scripts/gen-gate-hash.js 生成；口令本身不进代码库，只存 PBKDF2 哈希） -->
-<!-- 线上模式：修改「访问口令」（GitHub 模式专用；本地模式改的是服务端管理员口令，见 #pw-modal） -->
-<div id="gate-pw-modal" class="pw-modal is-hidden" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="pw-mask"></div>
-  <form id="gate-pw-form" class="pw-card" autocomplete="off">
-    <h2 class="pw-title">修改访问口令</h2>
-    <label class="field"><span class="field-label">当前访问口令</span>
-      <input id="gp-current" type="password" autocomplete="current-password" required></label>
-    <label class="field"><span class="field-label">新访问口令（≥ 8 位）</span>
-      <input id="gp-new" type="password" autocomplete="new-password" required></label>
-    <label class="field"><span class="field-label">确认新访问口令</span>
-      <input id="gp-new2" type="password" autocomplete="new-password" required></label>
-    <div class="pw-actions">
-      <button id="gp-save" type="submit" class="btn-primary-block">保存新访问口令</button>
-      <button id="gp-cancel" type="button" class="btn-ghost">取消</button>
-    </div>
-    <p id="gp-msg" class="admin-msg"></p>
-    <p class="field-hint">改的是<strong>访问口令</strong>（防误触的那道门），<strong>不是 GitHub 令牌</strong>——令牌要去 GitHub → Settings → Developer settings → Fine-grained tokens 改或删。<br>
-      保存方式：浏览器重新计算 PBKDF2 哈希，只把 <code>admin.html</code> 里那行哈希常量替换掉（写入即 commit）。<strong>口令明文永不写入任何文件</strong>，commit 记录里也只有哈希。<br>
-      生效：Pages 重建约 1 分钟；<strong>本页要刷新后才用新口令</strong>（本页此刻已切到新哈希）。若提交失败，旧口令继续有效，可放心重试。</p>
-  </form>
-</div>
-
-<script>window.TM_GATE = { salt: '90d00c8ec7b59b9dd97a6374ff24abeb', iter: 100000, hash: 'be3f42c780e95099bb7bfa792ebcfa261b8cf23a9ff27dee8e33670920b84380' };</script>
+<!-- 书14：访问口令门已下线，原 window.TM_GATE 常量一并移除。
+     它的存在本身就是「会被部署覆盖」的根源——哈希是明文常量、随 site/ 一起被推上线。
+     管理员凭证唯一 = GitHub 令牌（线上真校验 / 本地不校验）。 -->
 <script src="admin.js"></script>
 </body>
 </html>

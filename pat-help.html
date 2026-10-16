@@ -28,10 +28,10 @@
 <div class="wrap">
   <a class="back" href="admin.html">← 返回管理面板</a>
   <h1>令牌怎么拿</h1>
-  <p class="sub">线上管理的「第二道门」是 GitHub 令牌——权限边界在它，不在访问口令。本页是项目文档 docs/DEPLOY.md「线上管理怎么用」的线上镜像，完整文档见项目仓库。</p>
+  <p class="sub">线上管理的唯一凭证就是 GitHub 令牌——权限边界在它，没有别的门。本页是项目文档 docs/DEPLOY.md「线上管理怎么用」的线上镜像，完整文档见项目仓库。</p>
 
   <div class="card warn">
-    <p><strong>访问口令只防误触，不是安全边界。</strong>页面源码公开，看源码就能跳过它；真正的权限边界是你的 GitHub 令牌。令牌只存在当前标签页的 sessionStorage 里（关掉即失效），不会写进任何文件、不会发往本站之外的服务器。</p>
+    <p><strong>令牌就是全部凭证。</strong>原先那道「访问口令」门已下线（它会被每次上线覆盖，且从来不是安全边界——页面源码公开，看源码就能跳过它）。现在只认 GitHub 令牌：线上会真实校验，填错或不合法进不去；本地开发不连 GitHub，随便填即可进入。令牌只存在当前标签页的 sessionStorage 里（关掉即失效），不会写进任何文件、不会发往本站之外的服务器。</p>
   </div>
 
   <div class="card" id="令牌怎么拿">
@@ -44,7 +44,7 @@
     <h2><span class="num">4</span>设个短期限</h2>
     <p><strong>Expiration</strong> 建议 30~90 天。到期即失效、需重新建——这是刻意的，不是麻烦。</p>
     <h2><span class="num">5</span>生成并复制</h2>
-    <p>点 <strong>Generate token</strong>，复制那串令牌（只显示一次）。回到管理面板第二道门粘贴进去即可。保存即自动提交到仓库 gh-pages 分支，Pages 自动重建。</p>
+    <p>点 <strong>Generate token</strong>，复制那串令牌（只显示一次）。回到管理面板粘贴进去即可。保存即自动提交到仓库 gh-pages 分支，Pages 自动重建。</p>
   </div>
 
   <div class="card">
