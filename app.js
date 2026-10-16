@@ -28,6 +28,10 @@
     return CATEGORIES;
   }
   // 书16：瀑布流 / 网格 双视图切换（控件在 #grid-sort 左边；不写 URL / localStorage；刷新回瀑布流）
+  // 归位口径（用户 16:40 反馈）：切视图须与「切分类 / 切排序 / 搜索」**同口径**回到瀑布流第一排——
+  // 深滚时切视图后停在原地会看到半屏图 + 首排丢失，与其它筛选入口行为不一致。
+  // 直接复用共用的 scrollToControlBarTop()，两向（点瀑布流 / 点网格）都归位；
+  // 该函数只滚动、不碰筛选态与 URL，故书16「切视图不写 URL / 不写 localStorage」契约不受影响。
   function wireViewToggle(doc) {
     var grid = doc.getElementById('card-grid');
     var wf = doc.getElementById('view-waterfall');
@@ -41,8 +45,12 @@
       wf.setAttribute('aria-pressed', String(!gridMode));
       gd.setAttribute('aria-pressed', String(gridMode));
     }
-    wf.addEventListener('click', function () { setView('waterfall'); });
-    gd.addEventListener('click', function () { setView('grid'); });
+    function apply(v) {
+      setView(v);
+      scrollToControlBarTop(doc);   // 与切分类/切排序/搜索同一归位口径
+    }
+    wf.addEventListener('click', function () { apply('waterfall'); });
+    gd.addEventListener('click', function () { apply('grid'); });
     setView('waterfall');   // 默认瀑布流，与 HTML 初始态一致；刷新后由 HTML 重置（不记忆）
   }
 
