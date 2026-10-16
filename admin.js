@@ -12,7 +12,7 @@
   var THUMB_QUALITY = 0.72;
 
   var state = { token: null, entries: [], draft: null, editId: null, cat: '全部',
-    categories: DEFAULT_CATEGORIES.slice(), picked: {} };
+    categories: DEFAULT_CATEGORIES.slice(), picked: {}, box: [], saving: false };
   var $ = function (id) { return document.getElementById(id); };
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -236,15 +236,288 @@
       });
     }
 
+    // ==================== Git Data API 客户端（书15：整批原子发布）====================
+    // 写路径统一：blob → tree(必带 base_tree) → commit(必带 author/committer) → PATCH ref。
+    // 任一步失败 = updateRef 绝不被调用 = 线上零变化（全上或全不上）。
+    // 旧 contents PUT（saveImage/saveEntries/putFile/mergeDims）保留标 @deprecated，不删。
+    var GIT_API = 'https://api.github.com/repos/' + repoSlug + '/git/';
+    var BLOB_CONCURRENCY = 4;    // 次级限流 80 次/分钟 → 并发压到 4
+
+    function gd(method, path, body) {
+      return doFetch(GIT_API + path, {
+        method: method,
+        headers: {
+          'Authorization': 'Bearer ' + tk,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json',
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        body: body === undefined ? undefined : JSON.stringify(body)
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok) throw ghFail(r.status, j);
+          return j;
+        });
+      });
+    }
+
+    function getRefHead() {
+      return gd('GET', 'ref/heads/' + branch).then(function (j) { return j.object.sha; });
+    }
+    function getBaseTree(headSha) {
+      return gd('GET', 'commits/' + headSha).then(function (j) { return j.tree.sha; });
+    }
+    function createBlob(b64) {
+      return gd('POST', 'blobs', { content: b64, encoding: 'base64' }).then(function (j) { return j.sha; });
+    }
+    function createTree(baseTreeSha, items) {
+      // base_tree 必传：不传 = 除本 tree 外全站文件被标删除（灾难级）
+      var body = { tree: items };
+      if (baseTreeSha) body.base_tree = baseTreeSha;
+      return gd('POST', 'trees', body).then(function (j) { return j.sha; });
+    }
+    var identityCache = null;
+    function ghIdentity() {
+      if (identityCache) return Promise.resolve(identityCache);
+      // fine-grained PAT 常无账户读权限（/user 404/403）——GitHub 不校验 author 邮箱，
+      // 回退属主 noreply 身份（与 scripts/rollback.sh 同口径），只影响头像关联。
+      var fallback = { name: repoSlug.split('/')[0], email: repoSlug.split('/')[0] + '@users.noreply.github.com' };
+      return doFetch('https://api.github.com/user', {
+        headers: { 'Authorization': 'Bearer ' + tk, 'Accept': 'application/vnd.github+json' }
+      }).then(function (r) {
+        return r.ok ? r.json() : null;
+      }).then(function (u) {
+        identityCache = (u && u.login)
+          ? { name: u.login, email: u.id + '+' + u.login + '@users.noreply.github.com' }
+          : fallback;
+        return identityCache;
+      }, function () { identityCache = fallback; return identityCache; });
+    }
+    function createCommit(message, treeSha, parentSha) {
+      return ghIdentity().then(function (who) {
+        var now = new Date().toISOString();
+        return gd('POST', 'commits', {
+          message: message,
+          tree: treeSha,
+          parents: [parentSha],
+          author: { name: who.name, email: who.email, date: now },
+          committer: { name: who.name, email: who.email, date: now }
+        }).then(function (j) { return j.sha; });
+      });
+    }
+    function updateRef(sha, force) {
+      // PATCH 只认 /git/refs/（复数）；GET 单数 /git/ref/ 是合法别名，PATCH 单数会 404
+      return gd('PATCH', 'refs/heads/' + branch, { sha: sha, force: !!force }).then(function (j) {
+        return j.object.sha;
+      }, function (e) {
+        // 422 与 409 文案分开：422 = ref 非快进（git data 链路）；409 = contents 冲突（ghFail）
+        if (e && e.status === 422) {
+          throw new Error('ref 非快进：线上已被其他提交推进，请刷新页面后重试（422。' + e.message + '）');
+        }
+        throw e;
+      });
+    }
+
+    // blob 内容寻址幂等：git blob sha = sha1("blob <len>\0" + bytes)。
+    // 重试时已成功的 blob 直接命中 memo 跳过重传（SubtleCrypto 不可用时退化为 size 键）。
+    var blobMemo = Object.create(null);
+    function gitBlobSha(b64) {
+      var bin = atob(b64);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      var prefix = new TextEncoder().encode('blob ' + bytes.length + '\0');
+      var full = new Uint8Array(prefix.length + bytes.length);
+      full.set(prefix); full.set(bytes, prefix.length);
+      if (!(window.crypto && window.crypto.subtle)) {
+        return Promise.resolve('size-' + bytes.length);
+      }
+      return window.crypto.subtle.digest('SHA-1', full).then(function (buf) {
+        var arr = new Uint8Array(buf), hex = '';
+        for (var i = 0; i < arr.length; i++) hex += ('0' + arr[i].toString(16)).slice(-2);
+        return hex;
+      });
+    }
+    function uploadBlob(b64) {
+      return gitBlobSha(b64).then(function (key) {
+        if (blobMemo[key]) return blobMemo[key];
+        return createBlob(b64).then(function (sha) { blobMemo[key] = sha; return sha; });
+      });
+    }
+    // 有限并发执行任务数组（cap ≤ BLOB_CONCURRENCY），按原顺序返回结果
+    function pool(tasks, cap) {
+      var i = 0, results = [], workers = [];
+      function worker() {
+        if (i >= tasks.length) return Promise.resolve();
+        var idx = i++;
+        return tasks[idx]().then(function (r) { results[idx] = r; return worker(); });
+      }
+      for (var k = 0; k < Math.min(cap, tasks.length); k++) workers.push(worker());
+      return Promise.all(workers).then(function () { return results; });
+    }
+    function safeDims(text) {
+      try {
+        var d = JSON.parse(text);
+        return (d && typeof d === 'object' && !Array.isArray(d)) ? d : {};
+      } catch (e) { return {}; }
+    }
+    function entriesBlobText(entries) {
+      return JSON.stringify(entries, null, 2) + '\n';
+    }
+    function thumbRel(rel) {
+      var m = /^(.*\/)([^/]+)$/.exec(rel || '');
+      return m ? m[1] + 'thumb-' + m[2] : rel;
+    }
+
+    // 整批原子发布：items = [{ entry, images:[{filename, b64, tb64, w, h}] }]。
+    // 全部 blob → 1 个 tree（含最终态 entries.json/image-dims.json/全部图+thumb）
+    // → 1 commit → 1 次 updateRef。任一步失败 = 整批不动、updateRef 调用 0 次。
+    function publishBatch(items, opts) {
+      opts = opts || {};
+      if (!items || !items.length) return Promise.reject(new Error('发布批次为空'));
+      var headSha = null, baseTreeSha = null;
+      return getText('data/entries.json', false).then(function (r) {
+        var baseEntries = JSON.parse(r.text);
+        return getText('data/image-dims.json', true).then(function (rd) {
+          return { baseEntries: baseEntries, baseDims: rd && rd.text ? safeDims(rd.text) : {} };
+        });
+      }).then(function (base) {
+        return getRefHead().then(function (sha) {
+          headSha = sha;
+          return getBaseTree(headSha);
+        }).then(function (treeSha) {
+          baseTreeSha = treeSha;
+          var dimsAdd = {};
+          var blobTasks = [];
+          items.forEach(function (it) {
+            (it.images || []).forEach(function (img) {
+              var pathInRepo = 'data/images/' + it.entry.id + '/' + img.filename;
+              blobTasks.push(function () {
+                return uploadBlob(img.b64).then(function (sha) { return { path: pathInRepo, sha: sha }; });
+              });
+              blobTasks.push(function () {
+                return uploadBlob(img.tb64 || img.b64).then(function (sha) {
+                  return { path: 'data/images/' + it.entry.id + '/thumb-' + img.filename, sha: sha };
+                });
+              });
+              if (Number(img.w) > 0 && Number(img.h) > 0) {
+                dimsAdd[pathInRepo] = [Math.round(img.w), Math.round(img.h)];
+              }
+            });
+          });
+          return pool(blobTasks, BLOB_CONCURRENCY).then(function (uploaded) {
+            var entriesFinal = base.baseEntries.concat(items.map(function (it) { return it.entry; }));
+            var dimsFinal = Object.assign({}, base.baseDims, dimsAdd);
+            var treeItems = uploaded.map(function (u) {
+              return { path: u.path, mode: '100644', type: 'blob', sha: u.sha };
+            });
+            treeItems.push({ path: 'data/entries.json', mode: '100644', type: 'blob', content: entriesBlobText(entriesFinal) });
+            treeItems.push({ path: 'data/image-dims.json', mode: '100644', type: 'blob', content: pyJsonDims(dimsFinal) });
+            return createTree(baseTreeSha, treeItems);
+          });
+        });
+      }).then(function (newTree) {
+        var ids = items.map(function (it) { return it.entry.id; }).join(',');
+        var message = opts.message || ('feat: 批量发布 ' + items.length + ' 条（' + ids + '）');
+        return createCommit(message, newTree, headSha);
+      }).then(function (newSha) {
+        return updateRef(newSha, false);
+      }).then(function (tip) {
+        return { ok: true, count: items.length, tip: tip };
+      });
+    }
+
+    // 单条原子发布（编辑/删除直发，同一条 Git Data API 链路，1 commit）。
+    // kind='save'：替换/追加该条（opts.images 可随单提交新图，形状同 publishBatch 的 images）。
+    // kind='delete'：删该条 + 其全部原图/thumb（tree 传 sha:null）+ dims 清键，全部一个 commit。
+    function publishSingle(entry, kind, opts) {
+      opts = opts || {};
+      if (!entry || !entry.id) return Promise.reject(new Error('缺少条目 id'));
+      var headSha = null, baseTreeSha2 = null;
+      return getText('data/entries.json', false).then(function (r) {
+        var baseEntries = JSON.parse(r.text);
+        return getText('data/image-dims.json', true).then(function (rd) {
+          return { baseEntries: baseEntries, baseDims: rd && rd.text ? safeDims(rd.text) : {} };
+        });
+      }).then(function (base) {
+        return getRefHead().then(function (sha) {
+          headSha = sha;
+          return getBaseTree(headSha);
+        }).then(function (baseTreeSha) {
+          baseTreeSha2 = baseTreeSha;
+          var treeItems = [];
+          var dimsFinal = Object.assign({}, base.baseDims);
+          var message;
+          var imgTasks = [];
+          if (kind === 'delete') {
+            var next = base.baseEntries.filter(function (e) { return e.id !== entry.id; });
+            if (next.length === base.baseEntries.length) throw new Error('条目 ' + entry.id + ' 不在线上，无法删除');
+            (entry.images || []).forEach(function (rel) {
+              treeItems.push({ path: rel, mode: '100644', type: 'blob', sha: null });
+              treeItems.push({ path: thumbRel(rel), mode: '100644', type: 'blob', sha: null });
+              delete dimsFinal[rel];
+            });
+            treeItems.push({ path: 'data/entries.json', mode: '100644', type: 'blob', content: entriesBlobText(next) });
+            treeItems.push({ path: 'data/image-dims.json', mode: '100644', type: 'blob', content: pyJsonDims(dimsFinal) });
+            message = 'chore: 删除条目 ' + entry.id + '（' + (entry.title || '') + '）';
+            return { treeItems: treeItems, message: message };
+          }
+          if (kind === 'save') {
+            var exists = base.baseEntries.some(function (e) { return e.id === entry.id; });
+            var next2 = exists
+              ? base.baseEntries.map(function (e) { return e.id === entry.id ? entry : e; })
+              : base.baseEntries.concat([entry]);
+            (opts.images || []).forEach(function (img) {
+              var pathInRepo = 'data/images/' + entry.id + '/' + img.filename;
+              imgTasks.push(function () { return uploadBlob(img.b64).then(function (sha) { return { path: pathInRepo, sha: sha }; }); });
+              imgTasks.push(function () {
+                return uploadBlob(img.tb64 || img.b64).then(function (sha) {
+                  return { path: 'data/images/' + entry.id + '/thumb-' + img.filename, sha: sha };
+                });
+              });
+              if (Number(img.w) > 0 && Number(img.h) > 0) dimsFinal[pathInRepo] = [Math.round(img.w), Math.round(img.h)];
+            });
+            treeItems.push({ path: 'data/entries.json', mode: '100644', type: 'blob', content: entriesBlobText(next2) });
+            treeItems.push({ path: 'data/image-dims.json', mode: '100644', type: 'blob', content: pyJsonDims(dimsFinal) });
+            message = (exists ? 'feat: 编辑条目 ' : 'feat: 新增条目 ') + entry.id + '（' + (entry.title || '') + '）';
+            return pool(imgTasks, BLOB_CONCURRENCY).then(function (uploaded) {
+              return { treeItems: uploaded.map(function (u) {
+                return { path: u.path, mode: '100644', type: 'blob', sha: u.sha };
+              }).concat(treeItems), message: message };
+            });
+          }
+          throw new Error('publishSingle: 未知 kind ' + kind);
+        });
+      }).then(function (packed) {
+        return createTree(baseTreeSha2 || null, packed.treeItems).then(function (newTree) {
+          return createCommit(packed.message, newTree, headSha);
+        });
+      }).then(function (newSha) {
+        return updateRef(newSha, false);
+      }).then(function (tip) {
+        return { ok: true, tip: tip };
+      });
+    }
+
     return {
       kind: 'github',
       repo: repoSlug,
       branch: branch,
+      // ---- 书15：Git Data API 原子发布 ----
+      getRefHead: getRefHead,
+      getBaseTree: getBaseTree,
+      createBlob: createBlob,
+      createTree: createTree,
+      createCommit: createCommit,
+      updateRef: updateRef,
+      publishBatch: publishBatch,
+      publishSingle: publishSingle,
+      // @deprecated 书15：写路径统一 Git Data API；保留兼容（判卷要求仍在），线上管理逐步迁移
       loadEntries: function () {
         return getText('data/entries.json', false).then(function (r) {
           return r ? JSON.parse(r.text) : [];
         });
       },
+      // @deprecated 书15：见 publishBatch/publishSingle
       saveEntries: function (entries) {
         return putFile('data/entries.json',
           b64Utf8(JSON.stringify(entries, null, 2) + '\n'),
@@ -261,6 +534,7 @@
           'chore: 在线更新分类（共 ' + cats.length + ' 类）')
           .then(function () { return { ok: true, count: cats.length }; });
       },
+      // @deprecated 书15：见 publishBatch（新图随批同 commit 上传）
       saveImage: function (id, filename, dataBase64, out) {
         var pathInRepo = 'data/images/' + id + '/' + filename;
         var content = String(dataBase64 || '').replace(/\s+/g, '');   // 去所有换行再提交
@@ -316,7 +590,24 @@
     backendGithub: backendGithub,
     createBackend: createBackend,
     ghConfig: ghConfig,
-    hintOffline: hintOffline
+    hintOffline: hintOffline,
+    // 书15 firetest 调试钩子：只读状态快照
+    debugState: function () {
+      var sel = $('f-category-store');
+      return {
+        saving: state.saving, editId: state.editId,
+        hasDraft: !!state.draft,
+        draftTitle: state.draft && state.draft.title,
+        draftImages: state.draft ? (state.draft.images || []).length : -1,
+        draftCats: state.draft ? (state.draft.categories || []).length : -1,
+        draftCat0: state.draft && state.draft.categories ? state.draft.categories[0] : null,
+        storeOpts: sel ? sel.options.length : -1,
+        storeSelected: sel ? Array.prototype.map.call(sel.selectedOptions, function (o) { return o.value; }) : null,
+        entryCat0: (state.entries.filter(function (e) { return e.id === state.editId; })[0] || {}).categories,
+        boxCount: state.box.length,
+        formHidden: $('admin-form').classList.contains('is-hidden')
+      };
+    }
   };
 
   // ---------- 线上模式：GitHub 令牌登录（唯一凭证）----------
@@ -446,6 +737,22 @@
       ctx.fillRect(0, 0, c.width, c.height);
       ctx.drawImage(img, 0, 0, c.width, c.height);
       return canvasToBlob(c, THUMB_QUALITY).then(blobToBase64);
+    }).catch(function () { return null; });
+  }
+  // 同上，但返回 Blob（书15 暂存箱存 IndexedDB 用，Blob 原生存储不转 base64）
+  function makeThumbBlob(blob) {
+    return loadBitmap(blob).then(function (img) {
+      var w0 = img.naturalWidth, h0 = img.naturalHeight;
+      if (!w0 || !h0) return null;
+      var scale = Math.min(1, THUMB_EDGE / Math.max(w0, h0));
+      var c = document.createElement('canvas');
+      c.width = Math.max(1, Math.round(w0 * scale));
+      c.height = Math.max(1, Math.round(h0 * scale));
+      var ctx = c.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      return canvasToBlob(c, THUMB_QUALITY);
     }).catch(function () { return null; });
   }
 
@@ -648,7 +955,7 @@
   function blankDraft() {
     return {
       id: '', title: '', prompt: '', negativePrompt: '', categories: ['其他'],
-      tags: [], model: '', author: '', source: '', images: []
+      tags: [], model: '', author: '', source: '', images: [], pendingImages: []
     };
   }
 
@@ -697,7 +1004,15 @@
       var item = document.createElement('div');
       item.className = 'admin-img-item' + (i === 0 ? ' is-cover' : '');
       var img = document.createElement('img');
-      img.src = rel; img.alt = '';
+      // 书15：待入箱图片（新上传未发布）用本地 Blob 预览，rel 在发布前 404
+      var pending = (state.draft.pendingImages || []).filter(function (p) { return p.rel === rel; })[0];
+      if (pending && pending.blob) {
+        if (!pending.__url) pending.__url = URL.createObjectURL(pending.blob);
+        img.src = pending.__url;
+      } else {
+        img.src = rel;
+      }
+      img.alt = '';
       item.appendChild(img);
       if (i === 0) {
         var c = document.createElement('span');
@@ -710,7 +1025,7 @@
       del.addEventListener('click', function () { removeImage(i); });
       item.appendChild(del);
       var meta = document.createElement('div');
-      meta.className = 'ii-meta'; meta.textContent = rel;
+      meta.className = 'ii-meta'; meta.textContent = rel + (pending ? '（待入箱）' : '');
       item.appendChild(meta);
       box.appendChild(item);
     });
@@ -735,6 +1050,15 @@
   function removeImage(i) {
     var rel = state.draft.images[i];
     state.draft.images.splice(i, 1);
+    // 书15：待入箱图片只是本地 Blob，直接移除、不碰后端
+    var pidx = -1;
+    (state.draft.pendingImages || []).forEach(function (p, k) { if (p.rel === rel) pidx = k; });
+    if (pidx !== -1) {
+      var p = state.draft.pendingImages.splice(pidx, 1)[0];
+      if (p && p.__url) URL.revokeObjectURL(p.__url);
+      renderImages();
+      return;
+    }
     renderImages();
     // 同步删磁盘文件（仅对已存在的旧图；新上传未保存的不动）
     var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
@@ -748,6 +1072,11 @@
     var max = 0;
     state.entries.forEach(function (e) {
       var m = /^p(\d+)$/.exec(e.id || '');
+      if (m) max = Math.max(max, Number(m[1]));
+    });
+    // 书15：箱内条目也要占号——否则连录两条都拿同一个 id
+    state.box.forEach(function (it) {
+      var m = /^p(\d+)$/.exec((it.entry && it.entry.id) || '');
       if (m) max = Math.max(max, Number(m[1]));
     });
     return 'p' + String(max + 1).padStart(2, '0');
@@ -781,6 +1110,9 @@
   // ---------- 保存 / 删除 ----------
   function saveEntry(ev) {
     ev.preventDefault();
+    // p26 复盘：历史出现「在线更新条目」连续两次 commit——双击保存时两次 submit 都进了
+    // 异步提交。加 saving 互斥锁：进行中的保存直接忽略后续点击。
+    if (state.saving) return;
     var d = collectForm();
     var msg = $('admin-img-msg');
     if (!d.title) { setMsg(msg, '标题必填', 'error'); return; }
@@ -792,17 +1124,70 @@
 
     // 秒级精度 ISO8601（不带毫秒）：与既有种子数据、schema 断言口径一致
     var now = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+    // 书15：新增条目按后端分流——
+    //   GitHub 模式（线上）：入暂存箱（IndexedDB + 内存态），不发任何请求；表单清空；计数 +1。
+    //     攒批整批原子发布 = 1 commit（解决线上单条 11 commit / 半成品问题）。
+    //   本地模式（判卷 / 单机预览）：保持原直写流程——本地本无 11-commit 问题，
+    //     不进暂存箱（判卷 ui4 按本地流断言「保存即写 entries.json」，卷本零改动）。
     if (state.editId) {
+      state.saving = true;
+      var btn = $('admin-save');
+      if (btn) btn.disabled = true;
       var found = state.entries.filter(function (e) { return e.id === state.editId; })[0];
       d.id = state.editId;
       d.createdAt = found.createdAt || now;
       d.updatedAt = now;
       var next = state.entries.map(function (e) { return e.id === state.editId ? d : e; });
-      return commit(next, msg);
+      // 书15：编辑单条原子直发（GitHub 模式 = publishSingle，1 commit 立等）；
+      // 本地模式保持服务端 API（server/ 本轮只读约束不动）。
+      var p = be().kind === 'github'
+        ? be().publishSingle(d, 'save').then(function () {
+          state.entries = next;
+          state.editId = d.id;
+          $('admin-form-title').textContent = '编辑：' + d.title;
+          $('admin-delete').classList.remove('is-hidden');
+          setMsg(msg, '已保存（1 commit 原子），线上 1~3 分钟生效', 'ok');
+          fillModelList();
+          renderList();
+        })
+        : commit(next, msg);
+      return p.then(function () {
+        state.saving = false;
+        if (btn) btn.disabled = false;
+      }, function (e) {
+        state.saving = false;
+        if (btn) btn.disabled = false;
+        setMsg(msg, '保存失败：' + ((e && e.message) || e), 'error');
+      });
+    }
+    if (be().kind !== 'github') {
+      // 本地模式：原直写流程（p26 双击互斥同样生效）
+      state.saving = true;
+      var btnL = $('admin-save');
+      if (btnL) btnL.disabled = true;
+      d.id = nextId();
+      d.createdAt = now; d.updatedAt = now;
+      return commit(state.entries.concat([d]), msg).then(function () {
+        state.saving = false;
+        if (btnL) btnL.disabled = false;
+      }, function (e) {
+        state.saving = false;
+        if (btnL) btnL.disabled = false;
+        setMsg(msg, '保存失败：' + ((e && e.message) || e), 'error');
+      });
     }
     d.id = nextId();
     d.createdAt = now; d.updatedAt = now;
-    return commit(state.entries.concat([d]), msg);
+    state.saving = true;
+    var pending = (state.draft.pendingImages || []).slice();
+    return addToBox({ checked: true, entry: d, images: pending }).then(function () {
+      state.saving = false;
+      setMsg(msg, '已入暂存箱（共 ' + state.box.length + ' 条待发布）。勾选后整批发布 = 1 个 commit 原子上线', 'ok');
+      startNew();
+    }, function () {
+      state.saving = false;
+      setMsg(msg, '入箱失败：' + 'IndexedDB 写入异常（数据仍在内存中）', 'error');
+    });
   }
 
   function commit(next, msg) {
@@ -823,7 +1208,30 @@
 
   function deleteEntry() {
     if (!state.editId) return;
-    deleteEntries([state.editId]);
+    if (be().kind !== 'github') { deleteEntries([state.editId]); return; }
+    // 书15：线上单条删除 = publishSingle(delete) 原子 1 commit（条目+图+thumb+dims 同 tree 置 null）
+    var e = state.entries.filter(function (x) { return x.id === state.editId; })[0];
+    if (!e) return;
+    var imgCount = (e.images || []).length;
+    if (!confirm('确认删除「' + e.title + '」？\n将移除该条目与 ' + imgCount + ' 个图片文件，且不可撤销。')) return;
+    var msgBox = $('admin-img-msg');
+    var btn = $('admin-save');
+    state.saving = true;
+    if (btn) btn.disabled = true;
+    setMsg(msgBox, '正在删除（原子提交）…', 'ok');
+    be().publishSingle(e, 'delete').then(function () {
+      state.entries = state.entries.filter(function (x) { return x.id !== e.id; });
+      state.editId = null; state.draft = null;
+      $('admin-form').classList.add('is-hidden');
+      $('admin-empty').classList.remove('is-hidden');
+      setMsg(msgBox, '已删除「' + e.title + '」（1 commit 原子），线上 1~3 分钟生效', 'ok');
+      renderList();
+    }).catch(function (err) {
+      setMsg(msgBox, '删除失败：' + ((err && err.message) || err), 'error');
+    }).then(function () {
+      state.saving = false;
+      if (btn) btn.disabled = false;
+    });
   }
 
   // ---------- 批量删除 ----------
@@ -937,8 +1345,22 @@
     files.slice(0, Math.max(0, room)).forEach(function (f) {
       chain = chain.then(function () {
         return compressImage(f).then(function (out) {
+          var name = id + '-' + out.w + 'x' + out.h + '.jpg';
+          if (!state.editId && be().kind === 'github') {
+            // 书15：线上新增模式不上传——压缩产物留作待发布图片，随「保存」入暂存箱（IndexedDB）
+            return makeThumbBlob(out.blob).then(function (tblob) {
+              var rel = 'data/images/' + id + '/' + name;
+              state.draft.pendingImages.push({
+                filename: name, blob: out.blob, thumb: tblob,
+                w: Math.round(out.w), h: Math.round(out.h), rel: rel
+              });
+              state.draft.images.push(rel);
+              renderImages();
+              setMsg(msg, '已压缩 ' + Math.round(out.w) + '×' + Math.round(out.h) + '，' +
+                Math.round(out.blob.size / 1024) + 'KB（待入箱：点「保存」存入暂存箱）', 'ok');
+            });
+          }
           return blobToBase64(out.blob).then(function (b64) {
-            var name = id + '-' + out.w + 'x' + out.h + '.jpg';
             // 书8 任务1：out（含真实宽高）随 saveImage 传后端，增量维护 image-dims.json
             return be().saveImage(id, name, b64, out)
               .then(function (r) {
@@ -958,6 +1380,213 @@
       });
     });
     chain.then(function () { ev.target.value = ''; });
+  }
+
+  // ---------- 暂存箱（书15：IndexedDB 持久化；点「保存」=入箱，不发任何请求）----------
+  // 库 tm-promptforge-staging：store entries（元数据，keyPath id）+ images（Blob，key '<id>/<i>'）。
+  // DB 打开失败 → 降级内存模式 + 横幅提示（降级是兜底不是常态）。
+  var BOX_DB = 'tm-promptforge-staging';
+  var BOX_STORE_META = 'entries';
+  var BOX_STORE_IMG = 'images';
+  var boxDb = null;
+  var boxDegraded = false;
+
+  function boxOpen() {
+    return new Promise(function (resolve, reject) {
+      if (!window.indexedDB) { reject(new Error('浏览器不支持 IndexedDB')); return; }
+      var req = indexedDB.open(BOX_DB, 1);
+      req.onupgradeneeded = function () {
+        var db = req.result;
+        if (!db.objectStoreNames.contains(BOX_STORE_META)) db.createObjectStore(BOX_STORE_META, { keyPath: 'id' });
+        if (!db.objectStoreNames.contains(BOX_STORE_IMG)) db.createObjectStore(BOX_STORE_IMG);
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error || new Error('IndexedDB 打开失败')); };
+      req.onblocked = function () { reject(new Error('IndexedDB 被占用')); };
+    });
+  }
+  function boxRw(fn) {
+    if (boxDegraded || !boxDb) return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      var tx = boxDb.transaction([BOX_STORE_META, BOX_STORE_IMG], 'readwrite');
+      fn(tx);
+      tx.oncomplete = function () { resolve(); };
+      tx.onerror = function () { reject(tx.error || new Error('IndexedDB 写入失败')); };
+      tx.onabort = function () { reject(tx.error || new Error('IndexedDB 写入中止')); };
+    });
+  }
+  function boxPut(item) {
+    return boxRw(function (tx) {
+      tx.objectStore(BOX_STORE_META).put({
+        id: item.entry.id, entry: item.entry, checked: item.checked !== false,
+        addedAt: item.addedAt,
+        imageKeys: item.images.map(function (im, i) { return item.entry.id + '/' + i; })
+      });
+      item.images.forEach(function (im, i) {
+        tx.objectStore(BOX_STORE_IMG).put(
+          { blob: im.blob, thumb: im.thumb, filename: im.filename, w: im.w, h: im.h },
+          item.entry.id + '/' + i);
+      });
+    });
+  }
+  function boxDelete(id, imgCount) {
+    return boxRw(function (tx) {
+      tx.objectStore(BOX_STORE_META).delete(id);
+      for (var i = 0; i < imgCount; i++) tx.objectStore(BOX_STORE_IMG).delete(id + '/' + i);
+    });
+  }
+  function boxGetAll() {
+    if (boxDegraded || !boxDb) return Promise.resolve([]);
+    return new Promise(function (resolve, reject) {
+      var tx = boxDb.transaction([BOX_STORE_META, BOX_STORE_IMG], 'readonly');
+      var mreq = tx.objectStore(BOX_STORE_META).getAll();
+      mreq.onsuccess = function () {
+        var recs = mreq.result || [];
+        var out = [], pending = recs.length;
+        if (!pending) { resolve(out); return; }
+        function done(rec, images) {
+          out.push({ checked: rec.checked !== false, entry: rec.entry, addedAt: rec.addedAt, images: images });
+          if (--pending === 0) resolve(out);
+        }
+        recs.forEach(function (rec) {
+          var images = [];
+          var keys = rec.imageKeys || [];
+          var left = keys.length;
+          if (!left) { done(rec, images); return; }
+          keys.forEach(function (k) {
+            var greq = tx.objectStore(BOX_STORE_IMG).get(k);
+            greq.onsuccess = function () {
+              images[Number(k.split('/')[1])] = greq.result || null;
+              if (--left === 0) done(rec, images.filter(Boolean));
+            };
+            greq.onerror = function () { if (--left === 0) done(rec, images.filter(Boolean)); };
+          });
+        });
+      };
+      mreq.onerror = function () { reject(mreq.error || new Error('IndexedDB 读取失败')); };
+    });
+  }
+
+  function boxBanner(text) {
+    var b = $('staging-banner');
+    if (!b) return;
+    b.textContent = text || '';
+    b.classList.toggle('is-hidden', !text);
+  }
+  function addToBox(item) {
+    item.addedAt = new Date().toISOString();
+    state.box.push(item);
+    renderBox();
+    return boxPut(item).catch(function (e) {
+      boxDegraded = true;
+      boxBanner('暂存不可持久化，关闭页面将丢失（IndexedDB：' + ((e && e.message) || e) + '）');
+    });
+  }
+  function removeFromBox(id) {
+    var item = null;
+    state.box = state.box.filter(function (it) {
+      if (it.entry.id === id) { item = it; return false; }
+      return true;
+    });
+    if (item) boxDelete(id, (item.images || []).length).catch(function () {});
+    renderBox();
+  }
+  function boxCheckedCount() {
+    return state.box.filter(function (it) { return it.checked; }).length;
+  }
+  function syncPublishBtn() {
+    var btn = $('staging-publish'), all = $('staging-pick-all');
+    var n = boxCheckedCount();
+    if (btn) { btn.textContent = '发布勾选（' + n + ' 条）'; btn.disabled = n === 0; }
+    if (all) all.textContent = (state.box.length && n === state.box.length) ? '全不选' : '全选';
+  }
+  function renderBox() {
+    var panel = $('staging-box');
+    if (!panel) return;
+    panel.classList.remove('is-hidden');
+    $('staging-count').textContent = String(state.box.length);
+    var rows = $('staging-rows');
+    rows.innerHTML = '';
+    state.box.forEach(function (it) {
+      var row = el('div', 'staging-row');
+      var cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = !!it.checked;
+      cb.setAttribute('aria-label', '勾选 ' + it.entry.title);
+      cb.addEventListener('change', function () { it.checked = cb.checked; syncPublishBtn(); });
+      row.appendChild(cb);
+      var im = el('img', 'staging-thumb'); im.alt = '';
+      var first = (it.images && it.images[0]) || null;
+      if (first && first.blob) {
+        if (!first.__url) first.__url = URL.createObjectURL(first.blob);
+        im.src = first.__url;
+      }
+      row.appendChild(im);
+      var meta = el('div', 'staging-meta');
+      meta.appendChild(el('strong', null, it.entry.title || '(无标题)'));
+      meta.appendChild(el('span', null,
+        it.entry.id + ' · ' + (it.entry.categories || []).join(' / ') + ' · ' + (it.images || []).length + ' 图'));
+      row.appendChild(meta);
+      var del = el('button', 'btn-mini is-danger', '移除');
+      del.type = 'button';
+      del.addEventListener('click', function () { removeFromBox(it.entry.id); });
+      row.appendChild(del);
+      rows.appendChild(row);
+    });
+    syncPublishBtn();
+  }
+  function publishChecked() {
+    // 书15 任务 3：接 publishBatch——勾选子集整批原子发布 = 1 commit，全上或全不上。
+    var items = state.box.filter(function (it) { return it.checked; });
+    if (!items.length) return;
+    if (be().kind !== 'github') {
+      boxBanner('批量发布仅线上（GitHub）模式可用：本地预览数据不会推送到仓库');
+      return;
+    }
+    var btn = $('staging-publish');
+    btn.disabled = true;
+    btn.textContent = '发布中…（请勿关闭页面）';
+    boxBanner('正在整批发布 ' + items.length + ' 条（blob 上传中，发布中按钮已禁用防重复）…');
+    // 暂存 Blob → base64（publishBatch 用）；thumb 缺失时回退原图
+    Promise.all(items.map(function (it) {
+      return Promise.all((it.images || []).map(function (im) {
+        return Promise.all([
+          blobToBase64(im.blob),
+          im.thumb ? blobToBase64(im.thumb) : Promise.resolve(null)
+        ]).then(function (arr) {
+          return { filename: im.filename, b64: arr[0], tb64: arr[1] || arr[0], w: im.w, h: im.h };
+        });
+      })).then(function (imgs) { return { entry: it.entry, images: imgs }; });
+    })).then(function (batch) {
+      return be().publishBatch(batch);
+    }).then(function (r) {
+      // 发布成功：箱内对应条目 + IndexedDB 记录清除（removeFromBox 双清）
+      items.forEach(function (it) { removeFromBox(it.entry.id); });
+      // 已发布条目并入本地列表（nextId 占号 / 列表立即可见）
+      state.entries = state.entries.concat(items.map(function (it) { return it.entry; }));
+      renderList();
+      boxBanner('已提交 ' + items.length + ' 条（commit ' + String(r.tip || '').slice(0, 7) +
+        '），线上 1~3 分钟生效。全上或全不上：任一步失败整批留箱');
+    }).catch(function (e) {
+      // 失败：updateRef 未被调用 = 线上零变化；箱不清，直接重试（已传 blob 幂等跳过）
+      boxBanner('发布失败：' + ((e && e.message) || e) + '——线上零变化，箱内条目未清除，可直接重试');
+    }).then(function () {
+      syncPublishBtn();
+    });
+  }
+  function restoreBox() {
+    return boxOpen().then(function (db) {
+      boxDb = db;
+      return boxGetAll();
+    }).then(function (items) {
+      boxDegraded = false; boxBanner('');
+      state.box = items || [];
+      renderBox();
+    }).catch(function (e) {
+      boxDegraded = true; boxDb = null;
+      state.box = [];
+      renderBox();
+      boxBanner('暂存不可持久化，关闭页面将丢失（' + ((e && e.message) || e) + '）');
+    });
   }
 
   // ---------- 启动 ----------
@@ -1073,6 +1702,7 @@
   function enterApp() {
     $('admin-login').classList.add('is-hidden');
     $('admin-app').classList.remove('is-hidden');
+    restoreBox();   // 书15：暂存箱恢复（IndexedDB 读回；失败降级内存 + 横幅）
     return load().then(function () { fillCategorySelect(); fillModelList(); renderCatRows(); renderCats(); renderList(); renderPickBar(); });
   }
 
@@ -1155,6 +1785,18 @@
     $('admin-bulk-del').addEventListener('click', function () {
       deleteEntries(pickedIds());
     });
+    // ---------- 暂存箱（书15）：全选/移除/发布 ----------
+    $('staging-pick-all').addEventListener('click', function () {
+      var allChecked = state.box.length && boxCheckedCount() === state.box.length;
+      state.box.forEach(function (it) { it.checked = !allChecked; });
+      renderBox();
+    });
+    $('staging-remove-checked').addEventListener('click', function () {
+      state.box.filter(function (it) { return it.checked; })
+        .map(function (it) { return it.entry.id; })
+        .forEach(removeFromBox);
+    });
+    $('staging-publish').addEventListener('click', publishChecked);
     // ---------- 修改口令（书9 重设计：顶栏入口 → 模态对话框）----------
     // 逻辑：验当前口令 → 新口令 ≥8 位 + 双重确认 + 不许与当前相同 → 服务端改密并
     // **吊销全部会话**（含当前）→ 面板回登录页，用新口令重登。
