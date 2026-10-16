@@ -405,7 +405,8 @@
             });
           });
           return pool(blobTasks, BLOB_CONCURRENCY).then(function (uploaded) {
-            var entriesFinal = base.baseEntries.concat(items.map(function (it) { return it.entry; }));
+            // 书15 修补：入箱条目也可能带草稿态字段（旧箱记录/兜底），发布前统一剥
+            var entriesFinal = base.baseEntries.concat(items.map(function (it) { return cleanEntry(it.entry); }));
             var dimsFinal = Object.assign({}, base.baseDims, dimsAdd);
             var treeItems = uploaded.map(function (u) {
               return { path: u.path, mode: '100644', type: 'blob', sha: u.sha };
@@ -463,9 +464,10 @@
           }
           if (kind === 'save') {
             var exists = base.baseEntries.some(function (e) { return e.id === entry.id; });
+            var oldEntry = exists ? base.baseEntries.filter(function (e) { return e.id === entry.id; })[0] : null;
             var next2 = exists
-              ? base.baseEntries.map(function (e) { return e.id === entry.id ? entry : e; })
-              : base.baseEntries.concat([entry]);
+              ? base.baseEntries.map(function (e) { return e.id === entry.id ? cleanEntry(entry) : e; })
+              : base.baseEntries.concat([cleanEntry(entry)]);
             (opts.images || []).forEach(function (img) {
               var pathInRepo = 'data/images/' + entry.id + '/' + img.filename;
               imgTasks.push(function () { return uploadBlob(img.b64).then(function (sha) { return { path: pathInRepo, sha: sha }; }); });
@@ -476,6 +478,16 @@
               });
               if (Number(img.w) > 0 && Number(img.h) > 0) dimsFinal[pathInRepo] = [Math.round(img.w), Math.round(img.h)];
             });
+            // 书15 修补：被移除的旧图（旧条目有、新条目没有）同 tree 置 null + 清 dims
+            // ——编辑零孤儿、dims 同步；与 removeImage 的延后删配套。
+            if (oldEntry) {
+              (oldEntry.images || []).forEach(function (rel) {
+                if ((entry.images || []).indexOf(rel) !== -1) return;
+                treeItems.push({ path: rel, mode: '100644', type: 'blob', sha: null });
+                treeItems.push({ path: thumbRel(rel), mode: '100644', type: 'blob', sha: null });
+                delete dimsFinal[rel];
+              });
+            }
             treeItems.push({ path: 'data/entries.json', mode: '100644', type: 'blob', content: entriesBlobText(next2) });
             treeItems.push({ path: 'data/image-dims.json', mode: '100644', type: 'blob', content: pyJsonDims(dimsFinal) });
             message = (exists ? 'feat: 编辑条目 ' : 'feat: 新增条目 ') + entry.id + '（' + (entry.title || '') + '）';
@@ -952,6 +964,18 @@
   }
 
   // ---------- 表单 ----------
+  // 书15 修补：entries.json 只收 schema 字段。collectForm 返回的是 draft 本体，
+  // 草稿态字段（pendingImages 含 Blob/__url、removeImages 等）会被一起序列化进
+  // 线上数据——firetest 实证 d94b945 里 p27 带 pendingImages:[{blob:{},…}] 污染。
+  // 所有保存/发布路径统一过 cleanEntry，从结构上根除。
+  var ENTRY_FIELDS = ['id', 'title', 'prompt', 'negativePrompt', 'images', 'categories',
+    'tags', 'model', 'author', 'source', 'createdAt', 'updatedAt'];
+  function cleanEntry(d) {
+    var e = {};
+    ENTRY_FIELDS.forEach(function (k) { if (d[k] !== undefined) e[k] = d[k]; });
+    return e;
+  }
+
   function blankDraft() {
     return {
       id: '', title: '', prompt: '', negativePrompt: '', categories: ['其他'],
@@ -976,6 +1000,8 @@
     state.editId = id;
     // 深拷贝，改动不污染列表数据，保存才提交
     state.draft = JSON.parse(JSON.stringify(e));
+    // 书15 修补：编辑态也支持「待发布」新图（Blob 草稿态，随保存原子上传）
+    state.draft.pendingImages = [];
     $('admin-form').classList.remove('is-hidden');
     $('admin-empty').classList.add('is-hidden');
     $('admin-form-title').textContent = '编辑：' + e.title;
@@ -1025,7 +1051,7 @@
       del.addEventListener('click', function () { removeImage(i); });
       item.appendChild(del);
       var meta = document.createElement('div');
-      meta.className = 'ii-meta'; meta.textContent = rel + (pending ? '（待入箱）' : '');
+      meta.className = 'ii-meta'; meta.textContent = rel + (pending ? (state.editId ? '（待发布）' : '（待入箱）') : '');
       item.appendChild(meta);
       box.appendChild(item);
     });
@@ -1060,7 +1086,12 @@
       return;
     }
     renderImages();
-    // 同步删磁盘文件（仅对已存在的旧图；新上传未保存的不动）
+    // 书15 修补：GitHub 模式不再立即 contents DELETE——立即删会让「保存失败」
+    // 留下「条目引用已删图」的坏状态。移除延后到保存：publishSingle 按「旧条目
+    // 有、新条目没有」同一个 tree 置 null（+thumb+清 dims）；未保存则线上原图
+    // 保留（条目仍引用它，无孤儿、无数据损失，比立即删更安）。
+    if (be().kind === 'github') return;
+    // 本地模式：同步删磁盘文件（仅对已存在的旧图；新上传未保存的不动）
     var m = /data\/images\/([^/]+)\/(.+)$/.exec(rel);
     if (m) {
       deleteImagePair(m[1], m[2])
@@ -1122,6 +1153,10 @@
     if (!(d.images || []).length) { setMsg(msg, '至少需要 1 张效果图', 'error'); return; }
     if ((d.images || []).length > 3) { setMsg(msg, '最多 3 张', 'error'); return; }
 
+    // 书15 修补：剥掉草稿态字段（pendingImages 等）再进任何保存/发布路径，
+    // 防 Blob/__url 被序列化进 entries.json（firetest 实证过的污染）。
+    d = cleanEntry(d);
+
     // 秒级精度 ISO8601（不带毫秒）：与既有种子数据、schema 断言口径一致
     var now = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
     // 书15：新增条目按后端分流——
@@ -1140,16 +1175,22 @@
       var next = state.entries.map(function (e) { return e.id === state.editId ? d : e; });
       // 书15：编辑单条原子直发（GitHub 模式 = publishSingle，1 commit 立等）；
       // 本地模式保持服务端 API（server/ 本轮只读约束不动）。
+      // 书15 修补：编辑时新加的图随 publishSingle 同一个 tree 原子上传（不再走
+      // contents PUT 逐图 commit）；被移除的旧图由 publishSingle 按「旧条目有、
+      // 新条目没有」diff 同 tree 置 null（removeImage 已延后、不立即删）。
       var p = be().kind === 'github'
-        ? be().publishSingle(d, 'save').then(function () {
-          state.entries = next;
-          state.editId = d.id;
-          $('admin-form-title').textContent = '编辑：' + d.title;
-          $('admin-delete').classList.remove('is-hidden');
-          setMsg(msg, '已保存（1 commit 原子），线上 1~3 分钟生效', 'ok');
-          fillModelList();
-          renderList();
-        })
+        ? pendingToPublishImages(state.draft.pendingImages || []).then(function (imgs) {
+            return be().publishSingle(d, 'save', { images: imgs });
+          }).then(function () {
+            state.draft.pendingImages = [];   // 已随单上线；失败不清（catch 保留重试素材）
+            state.entries = next;
+            state.editId = d.id;
+            $('admin-form-title').textContent = '编辑：' + d.title;
+            $('admin-delete').classList.remove('is-hidden');
+            setMsg(msg, '已保存（1 commit 原子），线上 1~3 分钟生效', 'ok');
+            fillModelList();
+            renderList();
+          })
         : commit(next, msg);
       return p.then(function () {
         state.saving = false;
@@ -1342,12 +1383,16 @@
     state.draft.id = id;
 
     var chain = Promise.resolve();
+    // 书15 修补：编辑态兜底（startEdit 已初始化，双保险）
+    if (!state.draft.pendingImages) state.draft.pendingImages = [];
     files.slice(0, Math.max(0, room)).forEach(function (f) {
       chain = chain.then(function () {
         return compressImage(f).then(function (out) {
           var name = id + '-' + out.w + 'x' + out.h + '.jpg';
-          if (!state.editId && be().kind === 'github') {
-            // 书15：线上新增模式不上传——压缩产物留作待发布图片，随「保存」入暂存箱（IndexedDB）
+          if (be().kind === 'github') {
+            // 书15：GitHub 模式（新增+编辑）压缩产物都不立即上传——
+            // 新增：待入暂存箱随批原子发布；编辑：随 publishSingle 单条原子上传。
+            // （修补前条件含 !state.editId，编辑加图会漏去 contents PUT 逐图 commit。）
             return makeThumbBlob(out.blob).then(function (tblob) {
               var rel = 'data/images/' + id + '/' + name;
               state.draft.pendingImages.push({
@@ -1357,7 +1402,8 @@
               state.draft.images.push(rel);
               renderImages();
               setMsg(msg, '已压缩 ' + Math.round(out.w) + '×' + Math.round(out.h) + '，' +
-                Math.round(out.blob.size / 1024) + 'KB（待入箱：点「保存」存入暂存箱）', 'ok');
+                Math.round(out.blob.size / 1024) + 'KB（' +
+                (state.editId ? '待发布：点「保存」随编辑原子上线' : '待入箱：点「保存」存入暂存箱') + '）', 'ok');
             });
           }
           return blobToBase64(out.blob).then(function (b64) {
@@ -1534,6 +1580,18 @@
     });
     syncPublishBtn();
   }
+  // 书15：待发布图片（Blob 草稿态）→ publishBatch/publishSingle 的 images 形状
+  // {filename, b64, tb64, w, h}；thumb 缺失回退原图。箱发布与编辑发布共用一条转换。
+  function pendingToPublishImages(pending) {
+    return Promise.all((pending || []).map(function (p) {
+      return Promise.all([
+        blobToBase64(p.blob),
+        p.thumb ? blobToBase64(p.thumb) : Promise.resolve(null)
+      ]).then(function (arr) {
+        return { filename: p.filename, b64: arr[0], tb64: arr[1] || arr[0], w: p.w, h: p.h };
+      });
+    }));
+  }
   function publishChecked() {
     // 书15 任务 3：接 publishBatch——勾选子集整批原子发布 = 1 commit，全上或全不上。
     var items = state.box.filter(function (it) { return it.checked; });
@@ -1546,16 +1604,9 @@
     btn.disabled = true;
     btn.textContent = '发布中…（请勿关闭页面）';
     boxBanner('正在整批发布 ' + items.length + ' 条（blob 上传中，发布中按钮已禁用防重复）…');
-    // 暂存 Blob → base64（publishBatch 用）；thumb 缺失时回退原图
+    // 暂存 Blob → base64（publishBatch 用）；thumb 缺失时回退原图（与编辑发布同一转换）
     Promise.all(items.map(function (it) {
-      return Promise.all((it.images || []).map(function (im) {
-        return Promise.all([
-          blobToBase64(im.blob),
-          im.thumb ? blobToBase64(im.thumb) : Promise.resolve(null)
-        ]).then(function (arr) {
-          return { filename: im.filename, b64: arr[0], tb64: arr[1] || arr[0], w: im.w, h: im.h };
-        });
-      })).then(function (imgs) { return { entry: it.entry, images: imgs }; });
+      return pendingToPublishImages(it.images).then(function (imgs) { return { entry: it.entry, images: imgs }; });
     })).then(function (batch) {
       return be().publishBatch(batch);
     }).then(function (r) {
