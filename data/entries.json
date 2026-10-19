@@ -1852,5 +1852,219 @@
     "source": "https://aiart.pics/prompts/019ba5e2-e39d-7353-9f8d-4c5b3e2924a2",
     "createdAt": "2026-01-08T11:44:27Z",
     "updatedAt": "2026-01-08T11:44:27Z"
+  },
+  {
+    "id": "ai-learning-game-illustration-for-kids",
+    "title": "儿童AI学习游戏插图",
+    "prompt": "A simple AI learning game for kids \n\nShow your kid this image and ask:\n“What do you think this dog is feeling?”\n“How do you know?”\n“When do you feel like this?”\n\nThat’s it.\n\nAI didn’t teach emotions.\nIt made them visible.\n\nMade with Nano Banana Pro.\n\nPrompt:\nCreate kid-friendly emotion illustrations using one cartoon dog character with clear facial expressions (happy, sad, angry, confused, surprised, tired).\nSimple style. White background. Designed for kids to point and identify emotions.",
+    "images": [
+      "data/images/ai-learning-game-illustration-for-kids/ai-learning-game-illustration-for-kids-1024x1024.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "插画",
+      "人物",
+      "游戏",
+      "动物",
+      "可爱"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-08T19:28:52Z",
+    "updatedAt": "2026-01-08T19:28:52Z"
+  },
+  {
+    "id": "character-concept-sheet",
+    "title": "角色概念图",
+    "prompt": "Prompt share: Concept sheet\n\n💬Prompt:\n\nA concept sheet for a [character], detailed with front, back, and side views, including close-up sketches of facial features and accessories, annotated with design notes and labeled components, drawn in blueprint style with glowing trim in [color1] and base structure in [color2], presented on a clean white background\n\nCheck ATLs for inspiration ✨",
+    "images": [
+      "data/images/character-concept-sheet/character-concept-sheet-960x640.jpg",
+      "data/images/character-concept-sheet/character-concept-sheet-960x640-2.jpg",
+      "data/images/character-concept-sheet/character-concept-sheet-960x640-3.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "插画",
+      "产品",
+      "人物",
+      "工艺",
+      "游戏"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-28T11:00:11Z",
+    "updatedAt": "2025-12-28T11:00:11Z"
+  },
+  {
+    "id": "expressive-ink-sketch-mixed-media-illustration-portrait",
+    "title": "抽象墨水素描混合媒体插画风格肖像",
+    "prompt": "1. Open ChatGPT / Gemini\n\n2. Upload your image \n\n3. Prompt : \n\nA dramatic, high-impact portrait rendered in an expressive ink sketch and mixed-media illustration style, using the uploaded image for exact facial likeness and proportions. The man is shown in side profile, his presence intense and chaotic. His face and upper body are layered with cryptic handwritten text, symbols, and abstract glyphs, partially wrapping around facial contours, suggesting inner turmoil and hidden meaning.\nHe wears a dark, abstract jacket, heavily textured with rough ink strokes, sharp angular linework, and vibrant ink splatters, creating a raw, rebellious visual energy. The illustration style is bold and experimental, blending fine pen detailing with aggressive brush marks, splashes, and controlled distortion.\nThe background is a pale, aged parchment tone, featuring subtle grain, faded paper texture, delicate linework, ink drips, and light stains—evoking an old manuscript or forgotten sketchbook.\nHigh contrast, expressive composition, artistic chaos balanced with precision, editorial art meets conceptual illustration, moody, intense, and emotionally charged.",
+    "images": [
+      "data/images/expressive-ink-sketch-mixed-media-illustration-portrait/expressive-ink-sketch-mixed-media-illustration-portrait-800x1200.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "插画",
+      "头像",
+      "人物",
+      "国风",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-11T01:39:28Z",
+    "updatedAt": "2026-01-11T01:39:28Z"
+  },
+  {
+    "id": "female-warrior-falconer-dark-misty-forest",
+    "title": "暗雾森林中的女战神与凤凰鹰混合兽",
+    "prompt": "1. Open the chatgpt\n2. Upload image reference\n3. Prompt👇\n\nA cinematic fantasy scene of a fierce female use image for face reference warrior falconer walking through a dark misty forest, wearing battle-worn leather armor infused with glowing ember textures. Her arm is raised, commanding a massive phoenix-eagle hybrid with blazing wings and flaming feathers, fire trailing from its tips. The bird radiates molten orange and red light, casting sparks and embers into the air.The warrior has braided hair, ash-streaked skin, and a determined expression, carrying a rope and utility pouch. Ultra-detailed feathers, realistic fire physics, dramatic lighting, volumetric fog, shallow depth of field, epic fantasy atmosphere, hyper-realistic, cinematic color grading, dark moody background, 8k, concept art, unreal engine quality.",
+    "images": [
+      "data/images/female-warrior-falconer-dark-misty-forest/female-warrior-falconer-dark-misty-forest-1024x1536.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "现实",
+      "神话",
+      "风景",
+      "动物",
+      "Hyper-Realistic"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb067-b0cc-77fe-8aef-0f994f9f5d36",
+    "createdAt": "2026-01-07T13:40:59Z",
+    "updatedAt": "2026-01-07T13:40:59Z"
+  },
+  {
+    "id": "luxury-korean-tasting-menu-editorial-layout",
+    "title": "Luxury Korean Tasting Menu Editorial Layout",
+    "prompt": "🍌Gemini Nano Banana pro    \n🚨  prompt  👇\n\nLuxury Korean tasting menu, editorial layout, 2+2 large grid composition, 4:5 aspect ratio.\n\nLAYOUT: 2x2 large grid, with two hero images on top and two supporting images below, balanced asymmetric arrangement\n\nBACKGROUND: Tone-on-tone panels - alternating deep crimson (#800000), ochre (#CC7722), and celadon (#ACE1AF), creating warm yet appetizing rhythm\n\nPRODUCT EXPRESSION: Product only, overhead and 45-degree angles mixed, plated presentation on artisanal black ceramics and traditional Korean wooden trays\n\nTONE STRATEGY: Monochrome red/brown/green - Korean dish colors harmonize with background tones, seamless blend with pops of natural food color\n\nMAIN ELEMENTS:\nHero Image 1 (top left): Bossam (boiled pork belly) plated with kimchi and ssamjang (fermented soybean paste)\nHero Image 2 (top right): Bibimbap (mixed rice with vegetables and beef) with gochujang (chili pepper paste), egg yolk, and sesame oil\nSupporting Image 1 (bottom left): Galbijjim (braised short ribs) in a dark glossy sauce with chestnuts and ginko nuts\nSupporting Image 2 (bottom right): Bingsu (shaved ice dessert) with red bean paste, condensed milk, and various fruits\n\nTYPOGRAPHY: Bilingual - English names in elegant light serif (Didot), Hangul below in clean sans-serif, small ingredient descriptions in light gray\n\nCAMERA: Canon EOS R5, 100mm Macro for details, 50mm for full plates, soft diffused overhead lighting, butterfly lighting\n\nSTYLE: Minimal + Luxury hybrid - generous whitespace, refined typography, Korean dish colors as only color source, shot by Annie Leibovitz\n\nStyle keywords: fine dining menu, Korean editorial, monochrome harmony, quiet luxury, bilingual design.. A stylish handwritten signature Willy is elegantly and small letters placed at the Bottom Right corner.",
+    "images": [
+      "data/images/luxury-korean-tasting-menu-editorial-layout/luxury-korean-tasting-menu-editorial-layout-1195x1600.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "插画",
+      "产品",
+      "国风",
+      "美食",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-08T10:25:01Z",
+    "updatedAt": "2026-01-08T10:25:01Z"
+  },
+  {
+    "id": "nano-banana-pro-blueprint-awakening-in-firefly",
+    "title": "火飞布线蓝图觉醒，纳米香蕉专业版",
+    "prompt": "Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting table, its ink lines rising off the paper into fully realized construction. Blue lines become steel beams mid-weld, floor plans inflate into furnished rooms, elevation drawings push outward into facades with working windows. Construction phases coexist simultaneously: foundation being poured in one corner while the penthouse is already inhabited in another. Tiny workers, cranes, and scaffolding swarm the rising structure. The flat drawing and the living building merge at impossible angles. Technical annotations float as dimensional signage. Architect's coffee cup sits at the edge, casting shadow across unbuilt sections. Extreme scale contrast, construction dust catching afternoon light, 8K, photorealistic.         ",
+    "images": [
+      "data/images/nano-banana-pro-blueprint-awakening-in-firefly/nano-banana-pro-blueprint-awakening-in-firefly-1200x896.jpg",
+      "data/images/nano-banana-pro-blueprint-awakening-in-firefly/nano-banana-pro-blueprint-awakening-in-firefly-1200x896-2.jpg",
+      "data/images/nano-banana-pro-blueprint-awakening-in-firefly/nano-banana-pro-blueprint-awakening-in-firefly-1200x897.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "插画",
+      "城市",
+      "影视",
+      "工艺",
+      "建筑"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-10T15:24:00Z",
+    "updatedAt": "2026-01-10T15:24:00Z"
+  },
+  {
+    "id": "saturday-challenge-89-trash-polka-watercolor-fusion",
+    "title": "周六挑战 #89：垃圾波尔卡/水彩融合",
+    "prompt": "🎨 SATURDAY CHALLENGE #89 🎨\n\nVERY IMPORTANT :   First, be sure to follow ALL the rules described below. The image with more likes AND following ALL rules will decide prompt next week.    \n\n * RULES * :                                \n\nShare only ONE image and ANY PROMPT YOU WANT, use ANY TOOL you want . NO QUOTE because this will be diluted and impossible de catch up. Share the prompt if you want to learn together   \n\n  - The theme is :\n\n\" Trash polka/watercolor fusion \" by @ajdasoddities\n\nBold ink splatters, drips, and graffiti-style elements with soft watercolor washes. Think emotional duality, high contrast, abstract faces/animals/figures with messy drips, gold/metal flakes.. but any object really.\n\nImage covers  by  @ajdasoddities\n\n( In comments  )\n\nI won't ask to tag people , do as it please you , I just want people to be free , no pressure no obligation\n1/2",
+    "images": [
+      "data/images/saturday-challenge-89-trash-polka-watercolor-fusion/saturday-challenge-89-trash-polka-watercolor-fusion-806x1200.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "插画",
+      "人物",
+      "国风",
+      "工艺",
+      "游戏"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-10T07:00:04Z",
+    "updatedAt": "2026-01-10T07:00:04Z"
+  },
+  {
+    "id": "vertical-engineering-poster-generator",
+    "title": "垂直工程海报生成器",
+    "prompt": "🔥各位同学，拆解一切的图片来了！\n\n详细图纸除了军工行业，现在任何行业都可以实现这个效果了。把自己喜欢的任何物品进行图纸详细化拆解。\n\n虽然本质是这就是一个玩具，因为图纸部分显然经不起推敲，但很多时候，这种图片纯粹就是一个拉升逼格的工具。\n\n输入名称或者给图片，就可以生成。评论区一键三连领取。\n\n#ai #肖师傅 #AI邪修基地\n\n👉gem如下：\n\n{\n\n\"name\": \"Nano Banana Pro\",\n\n\"description\": \"Generates a vertical engineering poster. Top 1/3: Realistic product photo. Bottom 2/3: High-density, multi-view technical blueprints. No text output.\",\n\n\"system_instruction\": {\n\n\"role\": \"You are a Vertical Visual Engineering Engine. You do not converse. You only generate images based on specific layout constraints.\",\n\n\"layout_strictness\": {\n\n\"orientation\": \"Vertical / Portrait (Aspect Ratio 9:16 or 3:4)\",\n\n\"composition_ratio\": \"Top 30% [Realism] / Bottom 70% [Technical Density]\",\n\n\"visual_density\": \"The blueprint section must be PACKED with details, not empty space.\"\n\n},\n\n\"generation_logic\": {\n\n\"zone_1_top_third\": {\n\n\"content\": \"A high-end, cinematic studio photograph of the [USER_SUBJECT].\",\n\n\"lighting\": \"Dramatic studio lighting, dark background to contrast with the paper below.\",\n\n\"purpose\": \"Show the finished product reality.\"\n\n},\n\n\"zone_2_bottom_two_thirds\": {\n\n\"content\": \"A complex, dense array of technical drawings on aged beige paper.\",\n\n\"required_elements\": [\n\n\"Main wireframe structure\",\n\n\"Exploded view of internal components\",\n\n\"Side profile elevation\",\n\n\"Top-down cutaway view\",\n\n\"Specific zoom-ins on mechanical parts (gears, motors, hinges)\",\n\n\"Dense textual annotations, dimensions, and grid lines\"\n\n],\n\n\"style\": \"Da Vinci notebook meets modern CAD. Crowded, intricate, and visionary.\"\n\n},\n\n\"prompt_construction\": \"A vertical 9:16 poster layout. The TOP 1/3 is a hyper-realistic color photograph of [USER_SUBJECT] against a dark background. The BOTTOM 2/3 is a highly detailed, vintage technical blueprint on beige paper. The blueprint section is densely packed with multiple diagrams: an exploded view, a side profile, a top-down x-ray view, and component breakdowns. The drawing is filled with measurement lines and engineering notes. High contrast between the modern photo top and the retro-industrial drawing bottom.\"\n\n},\n\n\"silence_protocol\": [\n\n\"Do NOT output any text.\",\n\n\"Output ONLY the generated image widget.\"\n\n]\n\n}\n\n}",
+    "images": [
+      "data/images/vertical-engineering-poster-generator/vertical-engineering-poster-generator-572x1024.jpg",
+      "data/images/vertical-engineering-poster-generator/vertical-engineering-poster-generator-572x1024-2.jpg",
+      "data/images/vertical-engineering-poster-generator/vertical-engineering-poster-generator-572x1024-3.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "科技",
+      "插画",
+      "3D",
+      "科幻",
+      "装置"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-04T10:44:58Z",
+    "updatedAt": "2026-01-04T10:44:58Z"
+  },
+  {
+    "id": "vibrant-expressive-portrait-of-a-man-looking-upward",
+    "title": "Gemini Nano Banana Pro - 男子仰望的生动肖像",
+    "prompt": "Gemini Nano Banana Pro\n\nPrompt:\nVibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright orange-red glasses (glass light colour full shade). The face is sketched in dynamic black strokes on a textured newspaper background, enriched with splashes of vivid blue and orange paint. The composition blends realism and abstract expressionism, evoking innocence, hope, and creativity. Take full face of the attached picture.",
+    "images": [
+      "data/images/vibrant-expressive-portrait-of-a-man-looking-upward/vibrant-expressive-portrait-of-a-man-looking-upward-1200x896.jpg",
+      "data/images/vibrant-expressive-portrait-of-a-man-looking-upward/vibrant-expressive-portrait-of-a-man-looking-upward-1200x896-2.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "插画",
+      "头像",
+      "人物",
+      "工艺",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-10T11:11:22Z",
+    "updatedAt": "2026-01-10T11:11:22Z"
   }
 ]
