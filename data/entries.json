@@ -1955,5 +1955,364 @@
     "source": "https://aiart.pics/prompts/019bb0a2-a651-7082-a243-32a14dde9aff",
     "createdAt": "2026-01-11T16:02:50Z",
     "updatedAt": "2026-01-11T16:02:50Z"
+  },
+  {
+    "id": "ana-de-arms-james-bond-fashion-look",
+    "title": "Ana De Armas 在《007：无暇赴死》中的时尚造型",
+    "prompt": "So, Ana De Armas was named \"The Most Beautiful Female Star of 2025\". \n\nHere is how she was dressed in the \"James Bond: No Time to Die\" movie.\n\nNano Banana Pro on Higgsfield AI\n\nPrompt: \nA refined fashion editorial image with a 3:4 aspect ratio, split into two clear vertical sections.\n\nRight Side – Editorial Portrait\n\nA cinematic fashion editorial featuring Ana de Armas, standing in a narrow, weathered stone corridor with aged plaster walls, exposed brick, and soft natural daylight filtering from above. The environment is rustic and historical, with warm earthy textures and a shallow depth of field.\n\nAna de Armas is wearing a black evening dress,\na floor-length black gown with a deep plunging V neckline, a high thigh slit, flowing lightweight fabric, and a visible garter strap detail revealed through the slit. She wears minimal black high-heel sandals and a delicate silver necklace.\n\nShe is looking straight forward, directly toward the camera, with a tedious, serious, composed expression—no smile, calm intensity, quiet confidence. Her posture is relaxed but controlled, one hand lightly holding the fabric of the dress. Her hair is worn short, softly styled, framing her face naturally. Makeup is minimal and cinematic, emphasizing realistic skin texture.\n\nLighting is soft natural daylight, creating gentle shadows along the stone walls and subtle highlights on the dress. The tone is elegant, sensual, restrained, and editorial.\n\nLeft Side – Product Breakdown Layout\n\nA clean, minimalist luxury fashion catalog layout on a neutral stone-inspired background. The individual fashion items worn by Ana de Armas are displayed separately, neatly arranged with subtle shadows. Each item includes a small, refined price label in elegant sans-serif typography:\n\n– Black deep-V evening gown with high slit — $4,800\n– Black minimal high-heel sandals — $950\n– Silver delicate necklace — $6,200\n\nThe layout feels like a high-end fashion lookbook or luxury e-commerce editorial, understated and premium, with ample negative space.\n\nStyle & Mood\n\nQuiet luxury, cinematic elegance, confident femininity, editorial fashion, timeless sophistication.\n\nPhotography Details\n\nEye-level angle, candid editorial pose, 35mm lens look, natural lighting, shallow depth of field, high detail, photorealistic.\n\nLighting & Quality\n\nSoft natural daylight on the editorial side, studio-clean clarity on the product side, ultra-high resolution, professional fashion photography.\n\nNegative Prompt\n\nCluttered layout, oversized text, flashy logos, mannequins, extra people, modern interiors, harsh lighting, exaggerated anatomy, cartoon style, low resolution.",
+    "images": [
+      "data/images/ana-de-arms-james-bond-fashion-look/ana-de-arms-james-bond-fashion-look-896x1200.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "影视",
+      "时尚",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb0aa-8db0-7e9a-ae27-a633df4ca64a",
+    "createdAt": "2026-01-11T16:44:05Z",
+    "updatedAt": "2026-01-11T16:44:05Z"
+  },
+  {
+    "id": "commercial-juice-box-photography-prompt",
+    "title": "果汁盒商业摄影提示词",
+    "prompt": "Make your own  juice box commercial poster .\n\n怎样使用这个提示词变成自己的果汁盒商业摄影？\n输入[品牌名]+[水果]，就可以得到！ \n\nNano Banana prompt👇\n\nCommercial product photography of a {Brand} {Fruit} juice box. The packaging features vivid {Fruit} graphics. Background is a color-matched gradient with dynamic juice splashes and floating {Fruit} slices swirling around the pack. High-quality commercial realism, glossy texture, condensation droplets, bright studio lighting. Text \"{Brand}\" clearly visible on the box. --ar 2:3\nBrand: [NAME]\nFruit: [NAME]",
+    "images": [
+      "data/images/commercial-juice-box-photography-prompt/commercial-juice-box-photography-prompt-805x1200.jpg",
+      "data/images/commercial-juice-box-photography-prompt/commercial-juice-box-photography-prompt-805x1200-2.jpg",
+      "data/images/commercial-juice-box-photography-prompt/commercial-juice-box-photography-prompt-805x1200-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "头像",
+      "产品",
+      "现实",
+      "影视",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb0aa-a078-7fe0-9996-9c392838a3fd",
+    "createdAt": "2026-01-12T02:52:54Z",
+    "updatedAt": "2026-01-12T02:52:54Z"
+  },
+  {
+    "id": "dynamic-burst-of-mango-tango-juice-can",
+    "title": "MANGO TANGO JUICE饮料罐动态喷溅",
+    "prompt": "Gemini Nano Banana Pro + Google Veo 3.1 🎥\n\nPrompt: A hyper-realistic commercial product photography shot of a condensation-covered beverage can labeled \"MANGO TANGO JUICE\" bursting dynamically out of crystal clear turquoise ocean water. The can is surrounded by a splash of golden mango juice and water. Levitating around the can are fresh whole mangoes, diced mango cubes, and crystal clear ice cubes. The foreground includes vibrant tropical flowers and green palm leaves framing the shot. The background features a blurred sunny tropical beach with palm trees. Bright cinematic backlighting with a sun flare, sparkling water reflections, high contrast, 8k resolution, vibrant colors.",
+    "images": [
+      "data/images/dynamic-burst-of-mango-tango-juice-can/dynamic-burst-of-mango-tango-juice-can-896x1200.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "影视",
+      "风景",
+      "自然"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019badc9-2b32-7246-8ff8-a7effeafa04d",
+    "createdAt": "2026-01-11T10:00:46Z",
+    "updatedAt": "2026-01-11T10:00:46Z"
+  },
+  {
+    "id": "flavor-in-motion",
+    "title": "动感的风味",
+    "prompt": "Flavor in Motion 🔥\n\ncreated by ChatGPT image 1.5 \n\nPrompt :\n{\n  \"resolution\": \"8K\",\n  \"style\": \"hyper-realistic commercial product photography\",\n  \"composition\": {\n    \"subject\": \"carbonated beverage can\",\n    \"position\": \"center frame, floating mid-air\",\n    \"orientation\": \"slightly tilted vertical\",\n    \"framing\": \"tight hero shot\"\n  },\n  \"can_details\": {\n    \"material\": \"metallic aluminum\",\n    \"top_bottom\": \"silver with visible pull tab\",\n    \"surface\": \"glossy with condensation droplets\",\n    \"label\": {\n      \"text\": \"{{BRAND_NAME}}\",\n      \"font\": \"bold uppercase sans-serif\",\n      \"color\": \"white\",\n      \"background_band\": \"deep blue\",\n      \"placement\": \"wrapped around center of can\"\n    }\n  },\n  \"liquid_effects\": {\n    \"color\": \"bright green\",\n    \"type\": \"carbonated liquid splash\",\n    \"motion\": \"frozen mid-explosion\",\n    \"details\": [\n      \"semi-transparent fluid\",\n      \"fine droplets suspended in air\",\n      \"dynamic curved splash arcs\",\n      \"visible carbonation bubbles\"\n    ]\n  },\n  \"fruit_elements\": {\n    \"type\": \"sliced fruit\",\n    \"motion\": \"floating around the can\",\n    \"texture\": \"fresh, juicy, glossy\"\n  },\n  \"lighting\": {\n    \"type\": \"studio lighting\",\n    \"highlights\": \"strong reflections\",\n    \"shadows\": \"soft\"\n  },\n  \"background\": {\n    \"color\": \"smooth gradient matching liquid tone\",\n    \"environment\": \"clean studio backdrop\"\n  },\n  \"render_quality\": {\n    \"sharpness\": \"ultra-sharp\",\n    \"contrast\": \"high\",\n    \"realism\": \"photorealistic\"\n  }\n}",
+    "images": [
+      "data/images/flavor-in-motion/flavor-in-motion-800x1200.jpg",
+      "data/images/flavor-in-motion/flavor-in-motion-800x1200-2.jpg",
+      "data/images/flavor-in-motion/flavor-in-motion-800x1200-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "人物",
+      "现实",
+      "工艺",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba43c-ccc3-7532-bb2f-57f368c2c00d",
+    "createdAt": "2026-01-09T06:54:13Z",
+    "updatedAt": "2026-01-09T06:54:13Z"
+  },
+  {
+    "id": "food-photography",
+    "title": "美食摄影",
+    "prompt": "🚨PromptShare🚨\n\nFOOD PHOTOGRAPHY\na realistic advertising photograph of [main food or dessert], with [secondary ingredients, toppings, or textures] flying in the air, against a [single strong color] background, in the style of food photography, with studio lighting, bright colors, high-resolution photography, high level of detail, and high quality.",
+    "images": [
+      "data/images/food-photography/food-photography-1200x673.jpg",
+      "data/images/food-photography/food-photography-1200x673-2.jpg",
+      "data/images/food-photography/food-photography-1200x673-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "美食",
+      "工艺",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba43c-2a13-769b-8efd-2e2cc9a9e392",
+    "createdAt": "2026-01-08T17:30:04Z",
+    "updatedAt": "2026-01-08T17:30:04Z"
+  },
+  {
+    "id": "high-end-potato-chips-advertising-photography",
+    "title": "高端薯片广告摄影",
+    "prompt": "Which flavor of potato chips do you prefer?\n\nprompt：\n\nHigh-end photorealistic studio ad of a cylindrical potato chips can (Chili flavor) as a hero product shot. Crisp golden chips orbit the can in a dramatic ring and helix, forming a clean swirling halo. Spicy cues: vibrant red chili slices and tiny chili seeds subtly mixed into the swirl, a faint spicy dust haze, micro sparks of red seasoning in the air. Background: bold deep red to dark maroon gradient, premium commercial look, high contrast. Dramatic side key light + sharp rim light, glossy highlights on can, realistic shadows and reflections on a clean surface. Ultra-detailed packaging, commercial-grade photorealism, tack-sharp focus, 8k, cinematic ad lighting, minimal clutter\n\nUltra-realistic commercial product advertising photo of a premium cylindrical potato chips can (BBQ flavor), centered in frame. Golden crispy potato chips swirl and orbit around the can in a dynamic spiral, some chips frozen mid-air with subtle motion blur trails. BBQ theme cues: faint smoky wisps, caramelized grill marks on a few chips, tiny pepper flakes and toasted spice dust floating in the air. Background: warm smoky amber-to-brown studio gradient, clean and premium, high contrast. Strong key light with crisp specular highlights on the can, soft rim light separating the can from background, subtle shadow on the surface. Condensation-free clean packaging, ultra-sharp focus, commercial-grade photorealism, high-quality detail, 8k, product hero shot, minimal composition, premium advertising style",
+    "images": [
+      "data/images/high-end-potato-chips-advertising-photography/high-end-potato-chips-advertising-photography-805x1200.jpg",
+      "data/images/high-end-potato-chips-advertising-photography/high-end-potato-chips-advertising-photography-805x1200-2.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "人物",
+      "现实",
+      "游戏",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb0ae-c567-7891-b110-97bc8a3c64e1",
+    "createdAt": "2026-01-12T05:27:46Z",
+    "updatedAt": "2026-01-12T05:27:46Z"
+  },
+  {
+    "id": "high-end-sport-jersey-floating-photography",
+    "title": "高端运动球衣悬浮摄影",
+    "prompt": "Nano Banana prompt\n\nHi end sport jersey by your fav brand\n\nPrompt below👇 \n\n---\n\nPS Get my freebies here:\nhttps://t.co/VOGPZsEBWZ https://t.co/bmGz3Zvs4J\n\nPrompt:\n\n[BRAND NAME]. Act as a fashion photographer and creative director shooting a high-end editorial lookbook for a bespoke football jersey designed by this brand.\nTHE SUBJECT & COMPOSITION (FLOATING & ANGLED):\nA single, premium custom football jersey is floating suspended in mid-air, centered in the frame. There is no hanger visible.\nCrucial Angle: The jersey is NOT presented flatly frontal. It is rotated slightly (approximately 15 degrees angled view) to show depth, form, and a dynamic profile. Despite floating, the fabric must show realistic weight, deep gravity-defying folds, creases, and natural wrinkles. It must feel like a real, heavy garment frozen in time, not a stiff 3D model.\nBRANDED DESIGN & AESTHETICS:\nThe jersey's design is a sophisticated interpretation of [BRAND NAME]'s visual identity.\nBranding Placement: The official [BRAND NAME] logo is authentically applied as the main club crest on the chest (e.g., embroidered patch or high-quality heat transfer).\nMATERIALITY & TEXTURE (CRITICAL):\nThe focus remains on luxurious, tactile textures.\nFabric: A heavyweight, retro-inspired athletic cotton-blend or technical knit with a visible, coarse weave structure.\nENVIRONMENT & BACKGROUND (WHITE STUDIO):\nThe jersey floats within an abstract, infinite white photo studio cyclorama space. The background is completely seamless, pure, clean white, and minimalist, with absolutely zero distractions, placing total focus on the suspended garment.\nLIGHTING & PHOTOGRAPHY STYLE:\nStyle: Hyper-realistic editorial fashion photography. Clean, high-key aesthetic.\nLighting: sophisticated studio lighting. Soft, diffused light that sculpts the folds of the fabric and highlights the texture against the pure white background. Subtle soft shadows might be cast on the jersey itself to define its form in the white space.\n\nSteal mor of my branding prompts:\n\nhttps://t.co/IxLTZl4aSz\n\n...and product design workflows:\n\nhttps://t.co/pz07Ep28wB\n\nScale your vision with me at $0 cost\n\nSteal my engineering secrets ⇩ https://t.co/A0eHUe3esO",
+    "images": [
+      "data/images/high-end-sport-jersey-floating-photography/high-end-sport-jersey-floating-photography-1080x1350.jpg",
+      "data/images/high-end-sport-jersey-floating-photography/high-end-sport-jersey-floating-photography-1080x1350-2.jpg",
+      "data/images/high-end-sport-jersey-floating-photography/high-end-sport-jersey-floating-photography-1080x1350-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "头像",
+      "产品",
+      "现实",
+      "工艺",
+      "时尚"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb0b8-b18e-70bf-9624-6f9da0c539f8",
+    "createdAt": "2026-01-11T19:00:17Z",
+    "updatedAt": "2026-01-11T19:00:17Z"
+  },
+  {
+    "id": "hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink",
+    "title": "巧克力咖啡饮品超写实分解图",
+    "prompt": "这个 咖啡饮品的超写实垂直爆炸分解图  太惊艳了～\n\n提示词我调整成了 json 格式。\n1. 巧克力咖啡饮品\n2. 抹茶奶盖水果咖啡饮品\n3. 粉色西柚蜜桃奶昔\n\n你可以选择其中一个发给 AI，\n告诉它改成你所喜欢的饮料名称。\n\n🍌 Nano banana pro prompt：\n\n{\n“subject”: “巧克力咖啡饮品的超写实垂直爆炸分解图”,\n“layout”: “中心垂直对齐，各组件独立悬浮且间距清晰”,\n“layers”: [\n{\n“component”: “可可粉微粒”,\n“position”: “顶部”\n},\n{\n“component”: “光泽深色巧克力酱丝带与滴落状”,\n“position”: “独立层”\n},\n{\n“component”: “轻盈的打发奶油堆”,\n“position”: “独立层”\n},\n{\n“component”: “丝滑的巧克力咖啡液态层”,\n“position”: “独立层”\n},\n{\n“component”: “烘焙咖啡豆”,\n“position”: “独立层”\n},\n{\n“component”: “糖晶体”,\n“position”: “独立层”\n},\n{\n“component”: “带配重底座的小型透明螺纹玻璃杯（空杯）”,\n“position”: “底部”\n}\n],\n“background”: “高级深色背景：干净的影棚背景，近黑色的石墨色至木炭色渐变，柔和且平滑”,\n“lighting_and_style”: {\n“lighting”: “柔和且受控的影棚光，每层下方有清晰的分层阴影”,\n“detail”: “超锐利微距写实主义，右侧极简细指示线与英文标签”,\n“category”: “高端产品信息图”,\n“resolution”: “8K”\n}\n}\n\n-------------\n\n{\n“subject”: “抹茶奶盖水果咖啡饮品的超写实垂直爆炸分解图”,\n“layout”: “中心垂直对齐，各组件独立悬浮且间距清晰”,\n“layers”: [\n{\n“component”: “细密的抹茶粉微粒”,\n“position”: “顶部”\n},\n{\n“component”: “新鲜草莓与芒果切片（带晶莹水分）”,\n“position”: “独立层”\n},\n{\n“component”: “厚实的咸芝士抹茶奶盖层（带细腻泡沫）”,\n“position”: “独立层”\n},\n{\n“component”: “清澈的冷萃咖啡液与翠绿抹茶交融层”,\n“position”: “独立层”\n},\n{\n“component”: “晶莹剔透的冰块与薄荷叶”,\n“position”: “独立层”\n},\n{\n“component”: “底部浓缩果浆（如覆盆子酱）”,\n“position”: “独立层”\n},\n{\n“component”: “极简直筒条纹玻璃杯（空杯）”,\n“position”: “底部”\n}\n],\n“background”: “清新极简背景：明亮的影棚环境，淡米色至浅灰色的柔和渐变”,\n“lighting_and_style”: {\n“lighting”: “明亮的自然光感，带有清透的玻璃反射与分层阴影”,\n“detail”: “超锐利微距写实主义，右侧极简细指示线与英文标签”,\n“category”: “高端产品信息图”,\n“resolution”: “8K”\n}\n}\n\n---------------------\n\n{\n“subject”: “粉色西柚蜜桃奶昔的超写实垂直爆炸分解图”,\n“layout”: “中心垂直对齐，各组件独立悬浮且间距清晰”,\n“layers”: [\n{\n“component”: “干燥的玫瑰花瓣碎片与金色糖粉”,\n“position”: “顶部”\n},\n{\n“component”: “晶莹剔透的水晶西柚果肉粒”,\n“position”: “独立层”\n},\n{\n“component”: “轻盈的樱花粉色打发奶油堆”,\n“position”: “独立层”\n},\n{\n“component”: “丝滑的蜜桃乌龙奶昔液态层（带有细腻挂壁感）”,\n“position”: “独立层”\n},\n{\n“component”: “新鲜多汁的蜜桃切块”,\n“position”: “独立层”\n},\n{\n“component”: “Q弹半透明的琥珀色珍珠或茶冻”,\n“position”: “独立层”\n},\n{\n“component”: “极简精致的细高足郁金香玻璃杯（空杯）”,\n“position”: “底部”\n}\n],\n“background”: “高级莫兰迪粉色背景：柔和的暖调奶油粉至浅米色渐变，纯净且通透”,\n“lighting_and_style”: {\n“lighting”: “明亮清新的自然光，高调照明，每层下方有轻盈透明的阴影”,\n“detail”: “超锐利微距写实主义，右侧极简细指示线与英文标签”,\n“category”: “高端饮品视觉海报”,\n“resolution”: “8K”\n}\n}\n\n#nanobanana  #NanoBananaPro  #Prompt",
+    "images": [
+      "data/images/hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink/hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink-670x1200.jpg",
+      "data/images/hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink/hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink-670x1200-2.jpg",
+      "data/images/hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink/hyperrealistic-decomposition-diagram-of-chocolate-coffee-drink-670x1200-3.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "图案",
+      "产品",
+      "人物",
+      "国风",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba43c-7c43-7542-940d-a0dfaf687b9f",
+    "createdAt": "2026-01-07T19:38:50Z",
+    "updatedAt": "2026-01-07T19:38:50Z"
+  },
+  {
+    "id": "indonesian-street-stall-fried-egg-macro-photography",
+    "title": "印尼街头摊位炒鸡蛋特写摄影",
+    "prompt": "Google Gemini Nano Banana pro 3.0\n\nPrompt Gambar 1: \n\"Macro food photography of a crispy martabak telur tearing open mid-air, thin golden wrapper shattering with a crack, hot filling of minced beef, scallions, and egg bursting outward. Flecks of fried onion and pepper suspended in motion, steam visible, glossy oil sheen catching the light. Warm Indonesian street-stall lighting, tungsten + charcoal warmth, dramatic rim light, ultra high texture detail (bubbled wrapper, layered interior).Editorial food shot, shallow depth of field, bokeh of night market signage, Nikon Z9 look, 105mm macro, fast shutter freeze, hyper-real crumbs. --ar 3:4\"",
+    "images": [
+      "data/images/indonesian-street-stall-fried-egg-macro-photography/indonesian-street-stall-fried-egg-macro-photography-896x1200.jpg",
+      "data/images/indonesian-street-stall-fried-egg-macro-photography/indonesian-street-stall-fried-egg-macro-photography-896x1200-2.jpg",
+      "data/images/indonesian-street-stall-fried-egg-macro-photography/indonesian-street-stall-fried-egg-macro-photography-896x1200-3.jpg"
+    ],
+    "categories": [
+      "UI界面"
+    ],
+    "tags": [
+      "头像",
+      "产品",
+      "现实",
+      "影视",
+      "美食"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019badc7-448c-7445-be2f-1c1b6affb6d6",
+    "createdAt": "2026-01-10T10:35:07Z",
+    "updatedAt": "2026-01-10T10:35:07Z"
+  },
+  {
+    "id": "kling-ai-google-nano-banana-pro",
+    "title": "智能AI + 谷歌纳米香蕉Pro",
+    "prompt": "Kling AI  + Google Nano Banana Pro\n\nMotion Prompt: The Can starts to round spin while ingredients separate gently and precisely, maintaining alignment and scale. The motion is smooth, with no extra effects.\n\nImage 1 : High-quality professional product photography of a chilled Coca-Cola can with condensation water droplets and a refreshing, icy look. The aluminum can appears crisp and glossy with realistic highlights, subtle reflections, and visible cold texture. Shot in a minimalist commercial beverage advertising style against a pure white background with soft natural shadows. Sharp focus, ultra-clean composition, modern aesthetic.\n\nImage 2 : Create a hyper-realistic vertical exploded infographic illustrating the ingredients of a coca cola soft drink. At the top, clear carbonated water shown as sparkling liquid with fine rising bubbles. Below it, floating white sugar crystals with sharp crystalline texture. Beneath that, a rich amber-brown caramel color layer with glossy, syrup-like depth. Next, a subtle translucent layer representing phosphoric acid with a clean liquid look. Below it, abstract aromatic particles symbolizing natural flavors, light and minimal. Further down, small dark caffeine granules suspended mid-air. At the bottom, a chilled red aluminum cola can standing upright with realistic condensation droplets and metallic reflections. Pure solid white background, soft studio lighting, subtle realistic shadows under each floating layer, ultra-sharp focus, DSLR macro photography look. Clean minimalist infographic labels with thin pointer lines for each ingredient. Premium beverage advertising aesthetic, modern, photorealistic.",
+    "images": [
+      "data/images/kling-ai-google-nano-banana-pro/kling-ai-google-nano-banana-pro-896x1200.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "抽象",
+      "产品",
+      "美食",
+      "工艺",
+      "Photorealistic"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb065-0705-7846-bf43-745f1911dac0",
+    "createdAt": "2026-01-10T14:41:37Z",
+    "updatedAt": "2026-01-10T14:41:37Z"
+  },
+  {
+    "id": "luxury-brand-design-template",
+    "title": "豪华品牌设计模板",
+    "prompt": "Luxury Brand Design Template\n🍌Gemini Nano Banana pro \n🚨prompt 👇\n\nLuxury watch brand landing page, clean dark luxury aesthetic, 16:9 ratio.\n\nPAGE TYPE: Landing page - product showcase and brand storytelling\nLAYOUT: Asymmetric bento grid, black and gold color scheme\n\nHEADER:\n-Minimal logo (gold serif on black)\n-Discreet navigation (Our Story, Craftsmanship, Collections, Contact)\n\nHERO SECTION:\n-Dominated by a single, high-quality product shot: A luxury watch with intricate detailing,\n-Spotlight illuminating the watch against a black velvet background\n-Title: \"Timeless Precision\", gold serif\n-Supporting text: \"Experience the art of horology. Each timepiece a legacy.\"\n-CTA: Explore the Collection\n\nOTHER SECTIONS:\n-Short sections with imagery and minimal text\n-Story: Gold-etched text about the history of the brand\n-Craftsmanship: Close-up shots of the watchmaking process, highlighting details\n-Collection: Small thumbnail previews with hover states\n\nSTYLE: Dark luxury, noir, sophisticated, subtle gold accents\nCOLOR PALETTE: Black base (#000000 to #1A1A1A), gold accents (#D4AF37), white typography\nTYPOGRAPHY: Didot headlines, clean sans-serif body text\n\nUI ELEMENTS:\n-Gold line dividers to segment sections\n-Limited animations to give the impression of quality and exclusivity\n\nKeywords: dark luxury, bento grid layout, luxury watch brand, product showcase, brand storytelling, noir, premium aesthetic. A stylish handwritten signature Willy is elegantly and small letters placed at the Bottom Right corner.",
+    "images": [
+      "data/images/luxury-brand-design-template/luxury-brand-design-template-1600x1600.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "抽象",
+      "产品",
+      "工艺",
+      "时尚",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba5f7-3f21-7c6a-8ce0-52ba6481bb36",
+    "createdAt": "2026-01-08T11:18:02Z",
+    "updatedAt": "2026-01-08T11:18:02Z"
+  },
+  {
+    "id": "nano-banana-pro-exploded-food-infographics",
+    "title": "Nano Banana Pro制作的爆炸式食物信息图表",
+    "prompt": "Exploded Food Infographics by Nano Banana Pro 🍽️✨\n\nPrompt👇🏻 https://t.co/wXPlAAavrh\n\n“Create a hyper-realistic exploded vertical infographic composition of [FOOD].\nAt the top, characteristic particles, droplets, or garnishes associated with the food, frozen mid-air.\nBelow it, the primary surface or topping layer with rich texture and realistic material detail.\nUnderneath, the core ingredient layer showing structure, depth, and natural variation.\nBelow that, the supporting base or interior layer, slightly separated to reveal construction.\nAt the bottom, a minimal plate, bowl, cup, or base appropriate to the food’s presentation.\nPure white background, soft studio lighting, subtle shadows beneath each floating element, ultra-sharp focus, DSLR macro photography, clean infographic text labels with thin pointer lines, premium editorial food photography aesthetic, 8K quality.”",
+    "images": [
+      "data/images/nano-banana-pro-exploded-food-infographics/nano-banana-pro-exploded-food-infographics-1170x1560.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "室内",
+      "美食",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019badc2-859c-7898-99cc-89e0073e36fd",
+    "createdAt": "2026-01-11T11:00:08Z",
+    "updatedAt": "2026-01-11T11:00:08Z"
+  },
+  {
+    "id": "nano-banana-pro-prompt-share",
+    "title": "纳米香蕉专业版提示分享",
+    "prompt": "Nano Banana Pro prompt share\n\nCreate an exploded products with inner mechanics revealed using this prompt 👇 https://t.co/eW4ZObj5z2\n\n[product], high-end product advertising, white seamless background, exploded view with inner mechanics revealed, outer shell hovering above core, micro screws and components suspended, perfect alignment guides implied, crisp soft shadow, ultra realistic, macro product photography, 100mm lens look, f/8, 8k, 1:1",
+    "images": [
+      "data/images/nano-banana-pro-prompt-share/nano-banana-pro-prompt-share-1080x1080.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "科幻",
+      "工艺",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb0ba-7224-7d71-ae7b-190c23a7ca37",
+    "createdAt": "2026-01-11T13:56:06Z",
+    "updatedAt": "2026-01-11T13:56:06Z"
+  },
+  {
+    "id": "nano-banana-pro-turkish-doner-kebab",
+    "title": "纳米香蕉Pro - 土耳其烤肉串",
+    "prompt": "Nano Banana Pro - Turkish Doner Kebab\n\n{\n  \"resolution\": \"8K UHD\",\n  \"aspect_ratio\": \"3:4\",\n  \"image_style\": \"hyper-realistic commercial food photography\",\n  \"global_settings\": {\n    \"quality\": \"Ultra-high detail, razor-sharp focus, premium street food clarity\",\n    \"lighting\": \"Controlled studio lighting emphasizing meat texture, char marks, and sauce glistening\",\n    \"motion\": \"Frozen mid-air elements with subtle gravity realism\",\n    \"background_style\": \"Solid or smooth gradient background, color varies per module\",\n    \"camera\": \"High-speed photography look, shallow to medium depth of field\",\n    \"post_processing\": \"Rich contrast, warm savory tones, natural shine, appetizing color grading\"\n  },\n  \"modules\": {\n    \n    \"module_1_classic_doner_slice_explosion\": {\n      \"scene_description\": \"A dramatic vertical döner stack with flying meat slices and sauce droplets\",\n      \"doner\": {\n        \"type\": \"Traditional Turkish döner kebab slices\",\n        \"texture\": \"Thinly sliced beef and lamb mix with visible char marks\",\n        \"cut\": \"Paper-thin ribbons\",\n        \"position\": \"Stacked vertically and floating mid-air\"\n      },\n      \"details\": {\n        \"char_marks\": \"Dark caramelized edges with grill stripes\",\n        \"fat_marbling\": \"Glistening fat streaks between meat layers\",\n        \"seasoning\": \"Visible spice particles on meat surface\"\n      },\n      \"motion_effects\": {\n        \"meat_slices\": \"Individual döner slices spiraling outward\",\n        \"sauce\": \"White garlic sauce and red chili sauce droplets splashing\",\n        \"herbs\": \"Fresh parsley leaves floating in air\"\n      },\n      \"background\": {\n        \"color\": \"Deep crimson red\",\n        \"texture\": \"Smooth, seamless\"\n      }\n    },\n\n    \"module_2_minimal_doner_durum_floating\": {\n      \"scene_description\": \"Minimalist premium döner dürüm presentation with controlled floating ingredients\",\n      \"doner\": {\n        \"type\": \"Perfectly wrapped dürüm (wrap) cross-section\",\n        \"arrangement\": \"Single dürüm cut in half, floating vertically\",\n        \"surface\": \"Lightly toasted lavash bread with golden char marks\"\n      },\n      \"accent_elements\": {\n        \"filling\": \"Layered döner meat, lettuce, tomatoes, onions visible in cross-section\",\n        \"sauce\": \"White garlic yogurt sauce drizzling elegantly\",\n        \"vegetables\": \"Fresh red tomato slices, crisp lettuce, purple onion rings\"\n      },\n      \"motion_effects\": {\n        \"particles\": \"Subtle floating spice particles and herb fragments\",\n        \"drops\": \"Sauce droplets frozen mid-fall\"\n      },\n      \"background\": {\n        \"color\": \"Warm terracotta orange\",\n        \"gradient\": \"Very soft tonal gradient\"\n      }\n    },\n\n    \"module_3_doner_sauce_pour_drama\": {\n      \"scene_description\": \"Cinematic sauce pour over döner meat pile\",\n      \"doner\": {\n        \"type\": \"Mountain of freshly sliced döner meat\",\n        \"texture\": \"Highly detailed crispy edges and tender interior\"\n      },\n      \"additional_elements\": {\n        \"sauces\": {\n          \"white_sauce\": {\n            \"state\": \"Thick creamy garlic yogurt sauce pouring from above\",\n            \"motion\": \"Frozen in elegant flowing ribbon\"\n          },\n          \"red_sauce\": {\n            \"state\": \"Spicy red chili sauce drizzling alongside\",\n            \"motion\": \"Thin crimson streams intertwining with white sauce\"\n          }\n        },\n        \"vegetables\": [\n          \"Sliced tomatoes\",\n          \"Chopped lettuce\",\n          \"Thinly sliced onions\",\n          \"Fresh parsley sprigs\"\n        ]\n      },\n      \"motion_effects\": {\n        \"splashes\": \"Micro sauce splashes on meat surface\",\n        \"particles\": \"Floating spice particles and herb fragments\",\n        \"steam\": \"Subtle heat vapor rising from meat\"\n      },\n      \"background\": {\n        \"color\": \"Dark charcoal black\",\n        \"tone\": \"High contrast, premium street food aesthetic\"\n      }\n    },\n\n    \"module_4_modern_doner_deconstructed_composition\": {\n      \"scene_description\": \"Modern deconstructed döner composition in mid-air\",\n      \"elements\": {\n        \"bread\": \"Pieces of toasted lavash bread floating separately\",\n        \"meat\": \"Individual döner slices suspended at different angles\",\n        \"vegetables\": \"Tomato slices, lettuce leaves, onion rings floating between layers\",\n        \"sauces\": \"Glossy sauce ribbons connecting elements artistically\"\n      },\n      \"motion_effects\": {\n        \"particles\": \"Ultra-fine spice dust suspended in air\",\n        \"drops\": \"Scattered sauce droplets frozen in motion\",\n        \"steam\": \"Minimal heat waves rising from meat\"\n      },\n      \"background\": {\n        \"color\": \"Muted sage green\",\n        \"texture\": \"Smooth, seamless\"\n      }\n    },\n\n    \"module_5_rotating_doner_spit_close_up\": {\n      \"scene_description\": \"Extreme close-up of döner meat on vertical spit with knife slice frozen in time\",\n      \"doner_spit\": {\n        \"type\": \"Vertical döner tower on rotating spit\",\n        \"texture\": \"Layers of seasoned meat with charred outer crust\",\n        \"detail\": \"Visible spices, fat marbling, and grill marks\"\n      },\n      \"action_elements\": {\n        \"knife\": \"Large döner knife mid-slice through meat\",\n        \"meat_slice\": \"Fresh slice falling away from spit\",\n        \"shavings\": \"Meat shavings and crispy bits floating\"\n      },\n      \"motion_effects\": {\n        \"particles\": \"Charred bits and seasoning particles in air\",\n        \"steam\": \"Heat vapor wisps rising from fresh cut\"\n      },\n      \"background\": {\n        \"color\": \"Rich golden amber\",\n        \"texture\": \"Smooth gradient\"\n      }\n    },\n\n    \"module_6_doner_plate_overhead_explosion\": {\n      \"scene_description\": \"Overhead shot of döner plate with ingredients exploding upward\",\n      \"composition\": {\n        \"base\": \"Thin lavash bread pieces on bottom\",\n        \"center\": \"Pile of döner meat slices\",\n        \"explosion\": \"All ingredients bursting upward in circular pattern\"\n      },\n      \"flying_elements\": [\n        \"Döner meat slices spiraling\",\n        \"French fries launching upward\",\n        \"Grilled peppers and tomatoes\",\n        \"Fresh parsley and sumac\",\n        \"Sauce droplets spraying\",\n        \"Lemon wedges\"\n      ],\n      \"motion_effects\": {\n        \"height_variation\": \"Elements at different heights creating depth\",\n        \"rotation\": \"Some elements rotating while airborne\"\n      },\n      \"background\": {\n        \"color\": \"Deep burgundy red\",\n        \"style\": \"Vignette effect focusing on center\"\n      }\n    }\n\n  },\n  \"negative_prompt\": [\n    \"text\",\n    \"logos\",\n    \"branding\",\n    \"hands\",\n    \"people\",\n    \"utensils beyond döner knife\",\n    \"full plates visible\",\n    \"tables\",\n    \"restaurant interior\",\n    \"cartoon style\",\n    \"raw meat\",\n    \"excessive grease pooling\",\n    \"burnt or overcooked appearance\",\n    \"overexposure\",\n    \"artificial glow\",\n    \"low detail textures\",\n    \"unappetizing colors\",\n    \"plastic-looking food\"\n  ]\n}",
+    "images": [
+      "data/images/nano-banana-pro-turkish-doner-kebab/nano-banana-pro-turkish-doner-kebab-896x1200.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "影视",
+      "美食",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba8cb-2e1b-7d3b-a139-519b3c3aeba8",
+    "createdAt": "2026-01-10T10:53:59Z",
+    "updatedAt": "2026-01-10T10:53:59Z"
+  },
+  {
+    "id": "reimagined-portable-coffee-ritual-system",
+    "title": "重新想象的可携式咖啡仪式系统",
+    "prompt": "Hahaha, I did this by accident, but now I need it because I’m crazy about coffee. ☕️\n\n Nano Banana Pro @bageldotcom\n\n Base Prompt: @AmirMushich\n\nBAGEL LABS\n\nRecontextualized Everyday Object Series\n\nOBJECT CATEGORY\n\nTravel / Utility Hybrid (formerly Barware & Kitchen → recontextualized for mobility)\n\nCHOSEN OBJECT\n\nA backpack-integrated espresso machine and coffee cup —\nan instantly recognizable travel object reimagined as a luxury, transparent, technological artifact.\n\nTHE CONCEPT\n\nRecontextualize a backpack as a portable coffee ritual system.\n\nA fully transparent, precision-engineered glass backpack houses a complete espresso machine inside its structure. The internal systems—hot water circulation, pressure chambers, grinder, bean hopper, extraction pathway, and embedded circuitry—are fully visible through the optical glass shell.\n\nThe backpack is not worn.\nIt stands upright on a minimal pedestal, presented as an object.\n\nA glass coffee cup docks into a recessed port at the lower front of the backpack, where fresh espresso is actively pouring mid-flow. The moment is frozen at peak precision: mobility meets ritual, technology meets calm.\n\nMATERIALS & FINISH\nBACKPACK BODY\n\nPrecision-molded optical glass shell, subtle green-tinted transparency\n\nArchitectural rigidity, engineered thickness\n\nBackpack silhouette remains recognizable: shoulder straps, spine curve, base structure — all rendered in transparent or neutral technical materials\n\nINTERNAL COMPONENTS (VISIBLE)\n\nHot water tubes and pressure lines in brushed titanium and warm grey\n\nCoffee bean hopper visible at the upper spine, filled with realistic roasted beans\n\nGrinding and extraction mechanisms exposed, clean, symmetrical, and highly engineered\n\nInternal layout reads like a mechanical blueprint in 3D space\n\nCIRCUITRY (STRUCTURAL, NOT DECORATIVE)\n\nEmbedded PC-style circuitry integrated into the internal frame\n\nCircuit paths in restrained BAGEL LABS orange\n\nSupporting elements in graphite and titanium tones\n\nCircuits behave like a nervous system—logical, physical, purposeful\n\nNo glow, no LEDs, no sci-fi effects\n\nSTRAPS & ERGONOMICS\n\nShoulder straps in translucent technical polymer or matte titanium structure\n\nStrap attachment points are mechanical, exposed, and precise\n\nNo fabric, no padding, no softness — engineered luxury only\n\nCOFFEE CUP\n\nMatching optical glass cup with weighted base\n\nMinimalist silhouette\n\nSubtle BAGEL LABS logomark engraved near the base\n\nCup positioned directly beneath the extraction port, receiving coffee mid-pour\n\nBRAND INTEGRATION\n\nBAGEL LABS logomark engraved into the glass backpack body (rear or side plane)\n\nMatching etched mark on the cup\n\nNo stickers, no printed logos, no surface graphics\n\nACTION / MOMENT\n\nEspresso is actively flowing from the backpack-integrated machine into the glass cup\n\nLiquid motion captured mid-stream\n\nRealistic crema formation and color gradient visible through glass\n\nMotion feels intentional, controlled, and engineered\n\nPRESENTATION (NO PACKAGING)\n\nBackpack stands upright, fully exposed\n\nMinimal pedestal or seamless surface\n\nNo box, no housing, no protective casing\n\nAll components visible by design\n\nPHOTOGRAPHY & LIGHTING\n\nStyle: High-end product editorial (Wallpaper* / Dezeen / luxury tech catalog)\nLighting:\n\nSoft, high-key studio lighting\n\nControlled reflections to emphasize glass thickness, refraction, and internal depth\n\nNo harsh shadows\nBackground:\n\nClean, seamless light grey or white cyclorama\n\nCOLOR & GRADING\n\nPrimary tones: transparent glass (subtle green tint), warm greys, titanium neutrals\n\nAccent: restrained BAGEL LABS orange (circuitry only)\n\nOverall mood: clean, intelligent, technological luxury\n\nGRAPHIC OVERLAYS (UI)\n\nBottom left: minimalist two-line object descriptor\n\nBottom right: discreet monochrome BAGEL LABS logomark\n\nNo visible font names, no color codes, no UI clutter\n\nCAMERA & DETAIL\n\nFull-frame, 50mm equivalent\n\nUltra-high realism\n\nAccurate glass refraction and liquid physics\n\nMicro-detail in circuits and mechanical parts\n\nShallow depth of field allowed, but entire backpack and cup must remain legible\n\nNEGATIVE PROMPT (STRICT)\n\nNo people\nNo hands\nNo wearing the backpack\nNo kitchens, no cafés\nNo clutter\nNo packaging\nNo stickers\nNo printed text on surfaces\nNo neon colors\nNo glow effects\nNo LEDs\nNo cartoon or CGI look\nNo fingerprints\nNo dust\nNo watermarks",
+    "images": [
+      "data/images/reimagined-portable-coffee-ritual-system/reimagined-portable-coffee-ritual-system-670x1200.jpg",
+      "data/images/reimagined-portable-coffee-ritual-system/reimagined-portable-coffee-ritual-system-670x1200-2.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "科技",
+      "抽象",
+      "产品",
+      "科幻",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba5e2-e39d-7353-9f8d-4c5b3e2924a2",
+    "createdAt": "2026-01-08T11:44:27Z",
+    "updatedAt": "2026-01-08T11:44:27Z"
   }
 ]
