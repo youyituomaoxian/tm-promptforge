@@ -735,27 +735,6 @@
     "updatedAt": "2026-10-19T08:30:17Z"
   },
   {
-    "id": "retro-comic-style-cartoon-illustration",
-    "title": "复古漫画风格卡通插画",
-    "prompt": "2D cartoon illustration of a [subject] mid-motion in a [dynamic action pose], drawn in vintage comic book style with bold outlines and saturated primary colors. Featuring dramatic motion streaks, exaggerated perspective, punchy panel composition, and crisp halftone texture. Designed for high-energy visual storytelling with retro superhero flair.\n2D卡通插画，描绘了一位[主体]以[动态动作姿势]的中途运动，采用复古漫画风格绘制，轮廓粗犷，色彩饱和。具有戏剧性的运动条纹、夸张的透视、富有冲击力的面板构图和清晰的半色调纹理。旨在以复古超级英雄的风格呈现充满活力的视觉叙事。",
-    "images": [
-      "data/images/retro-comic-style-cartoon-illustration/retro-comic-style-cartoon-illustration.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Amira Zairi",
-    "source": "https://x.com/azed_ai/status/1967180553553330306",
-    "createdAt": "2025-12-01T00:00:00Z",
-    "updatedAt": "2025-12-01T00:00:00Z"
-  },
-  {
     "id": "japanese-comedy-manga-style-illustration",
     "title": "日本搞笑漫画风格插画",
     "prompt": "Transform this image into a Japanese gag manga style illustration. Use a high-contrast black-and-white color palette with bold linework and screentone (halftone) shading. Characters should have exaggerated facial expressions, cartoonish proportions (big head, small body), and comedic intensity. Include dynamic action lines or radiating background effects. The overall aesthetic should mimic retro manga from the 80s and 90s with humorous and intense emotion.\n将这张图片转化为日本搞笑漫画风格插画。使用高对比度的黑白色彩搭配，粗犷的线条和网点（半色调）阴影。角色应有夸张的面部表情，卡通化的比例（大头小身），以及喜剧张力。包含动态动作线条或放射状背景效果。整体美学应模仿 80 年代和 90 年代的复古漫画，充满幽默和强烈的情感。",
