@@ -866,9 +866,22 @@
     var box = $('cat-rows');
     box.innerHTML = '';
     if ($('cat-count')) $('cat-count').textContent = '共 ' + state.categories.length + ' 类';
-    state.categories.forEach(function (name) {
+    var dragName = null;
+    function clearMarks() {
+      Array.prototype.forEach.call(box.children, function (r) {
+        r.classList.remove('is-dragging', 'is-drop-before', 'is-drop-after');
+      });
+    }
+    state.categories.forEach(function (name, index) {
       var row = document.createElement('div');
       row.className = 'cat-row';
+      row.setAttribute('data-cat', name);
+      row.draggable = true;               // 拖动排序：数组顺序即全站显示顺序
+      var handle = document.createElement('span');
+      handle.className = 'cat-drag';
+      handle.textContent = '⋮⋮';
+      handle.title = '按住拖动调整顺序（顺序即游客页显示顺序）';
+      handle.setAttribute('aria-hidden', 'true');
       var label = document.createElement('span');
       label.className = 'cat-name'; label.textContent = name;
       var inp = document.createElement('input');
@@ -876,6 +889,15 @@
       inp.setAttribute('aria-label', '改名 ' + name);
       var save = document.createElement('button');
       save.type = 'button'; save.className = 'btn-mini cat-save'; save.textContent = '改名';
+      // 触屏/键盘没有 HTML5 拖动，给一对上移下移兜底（同一落盘路径）
+      var up = document.createElement('button');
+      up.type = 'button'; up.className = 'btn-mini cat-up'; up.textContent = '↑';
+      up.title = '上移'; up.setAttribute('aria-label', '上移 ' + name);
+      up.disabled = index === 0;
+      var down = document.createElement('button');
+      down.type = 'button'; down.className = 'btn-mini cat-down'; down.textContent = '↓';
+      down.title = '下移'; down.setAttribute('aria-label', '下移 ' + name);
+      down.disabled = index === state.categories.length - 1;
       var del = document.createElement('button');
       del.type = 'button'; del.className = 'btn-mini is-danger cat-del'; del.textContent = '删';
       if (name === RESERVED_CATEGORY) {         // 「其他」永不可删：保留可点，点击给出原因
@@ -884,9 +906,64 @@
       }
       save.addEventListener('click', function () { renameCategory(name, inp.value.trim()); });
       del.addEventListener('click', function () { deleteCategory(name); });
-      row.appendChild(label); row.appendChild(inp); row.appendChild(save); row.appendChild(del);
+      up.addEventListener('click', function () { moveCategory(name, -1); });
+      down.addEventListener('click', function () { moveCategory(name, 1); });
+      row.addEventListener('dragstart', function (ev) {
+        dragName = name;
+        row.classList.add('is-dragging');
+        try { ev.dataTransfer.effectAllowed = 'move'; ev.dataTransfer.setData('text/plain', name); } catch (e) {}
+      });
+      row.addEventListener('dragend', function () { dragName = null; clearMarks(); });
+      row.addEventListener('dragover', function (ev) {
+        if (!dragName || dragName === name) return;
+        ev.preventDefault();
+        var rect = row.getBoundingClientRect();
+        var after = (ev.clientY - rect.top) > rect.height / 2;
+        row.classList.toggle('is-drop-after', after);
+        row.classList.toggle('is-drop-before', !after);
+      });
+      row.addEventListener('dragleave', function () {
+        row.classList.remove('is-drop-before', 'is-drop-after');
+      });
+      row.addEventListener('drop', function (ev) {
+        ev.preventDefault();
+        if (!dragName || dragName === name) { clearMarks(); return; }
+        var rect = row.getBoundingClientRect();
+        var after = (ev.clientY - rect.top) > rect.height / 2;
+        var next = state.categories.filter(function (c) { return c !== dragName; });
+        next.splice(next.indexOf(name) + (after ? 1 : 0), 0, dragName);
+        var moved = dragName;
+        dragName = null;
+        clearMarks();
+        persistCatOrder(next, '已调整「' + moved + '」顺序');
+      });
+      row.appendChild(handle); row.appendChild(label); row.appendChild(inp);
+      row.appendChild(save); row.appendChild(up); row.appendChild(down); row.appendChild(del);
       box.appendChild(row);
     });
+  }
+
+  // 拖动排序 / 上移下移 共用的落盘：写 categories.json（数组顺序 = 全站显示顺序）
+  function persistCatOrder(next, okMsg) {
+    var prev = state.categories.slice();
+    be().saveCategories(next).then(function (r) {
+      state.categories = next;
+      fillCategorySelect(); renderCatRows(); renderCats();
+      catMsg(okMsg + '，共 ' + r.count + ' 类' + commitHint(), 'ok', true);
+    }).catch(function (e) {
+      state.categories = prev;                 // 失败回滚内存态，界面不留假顺序
+      renderCatRows(); renderCats();
+      catMsg('排序没保存：' + e.message, 'error');
+    });
+  }
+
+  function moveCategory(name, delta) {
+    var i = state.categories.indexOf(name);
+    var j = i + delta;
+    if (i < 0 || j < 0 || j >= state.categories.length) return;
+    var next = state.categories.slice();
+    next.splice(j, 0, next.splice(i, 1)[0]);
+    persistCatOrder(next, '已' + (delta < 0 ? '上移' : '下移') + '「' + name + '」');
   }
 
   function addCategory() {
