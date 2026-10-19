@@ -3572,5 +3572,55 @@
     "source": "https://aiart.pics/prompts/019ca7dd-fbca-752e-8db0-652203717fb0",
     "createdAt": "2026-02-26T21:10:20Z",
     "updatedAt": "2026-02-26T21:10:20Z"
+  },
+  {
+    "id": "art-journey-indian-impressions",
+    "title": "艺术之旅：印度印象",
+    "prompt": "Create a hyper-realistic fine-art illustration where a large, sweeping, elaborate paint stroke curves diagonally across the canvas, occupying most of the frame. The brushstroke must feel bold, wide, and expressive, not thin or minimal, with visible layered paint texture and organic edges. Inside the single brushstroke only, reveal a miniature 3D world of Japan featuring Senso-ji Temple and Kaminarimon Gate, Tokyo Tower, Tokyo Skytree, Shibuya Crossing with glowing neon motion, Meiji Shrine torii gate, reflections along the Sumida River, and a distant subtle silhouette of Mount Fuji at sunset. The world must exist strictly within the stroke, with no elements outside it. Style blends impasto oil painting with refined editorial poster realism, featuring bas-relief depth, miniature architectural precision, and cinematic lighting. Color palette dominated by warm sunset oranges, reds, golds, and soft neon highlights, combining traditional Japanese architecture with modern Tokyo energy. Background is clean, textured white paper with premium fiber detail and generous negative space. No text, no typography, no symbols, no hand, no human presence. Hyper-realistic, HDR, ultra-detailed, aspect ratio 4:5.",
+    "images": [
+      "data/images/art-journey-indian-impressions/art-journey-indian-impressions-1280x1600.jpg",
+      "data/images/art-journey-indian-impressions/art-journey-indian-impressions-1289x1600.jpg",
+      "data/images/art-journey-indian-impressions/art-journey-indian-impressions-1289x1600-2.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "插画",
+      "产品",
+      "影视",
+      "风景",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ba8cd-52a4-7c78-b1a5-955a5df972e5",
+    "createdAt": "2026-01-10T16:01:22Z",
+    "updatedAt": "2026-01-10T16:01:22Z"
+  },
+  {
+    "id": "chocolate-juice-packaging-design-analysis",
+    "title": "巧克力果汁包装设计分析",
+    "prompt": "{\n  \"juice_boxes\": [\n    {\n      \"id\": 1,\n      \"product\": {\n        \"brand\": \"Tip-Top\",\n        \"flavor\": \"Strawberry\",\n        \"image\": {\n          \"description\": \"strawberry juice with ripe strawberries\",\n          \"background\": {\n            \"color\": \"fresh pastel pink\",\n            \"elements\": [\n              \"strawberry halves\",\n              \"juice splashes\",\n              \"dynamic swirling around the pack\"\n            ]\n          }\n        }\n      },\n      \"design\": {\n        \"style\": {\n          \"detail\": \"high-quality detail\",\n          \"texture\": \"commercial-grade photorealism\"\n        },\n        \"aspect_ratio\": \"2:3\"\n      }\n    },\n    {\n      \"id\": 2,\n      \"product\": {\n        \"brand\": \"Tip-Top\",\n        \"flavor\": \"Mango\",\n        \"image\": {\n          \"description\": \"mango juice with ripe golden mangoes\",\n          \"background\": {\n            \"color\": \"tropical orange-yellow gradient\",\n            \"elements\": [\n              \"mango cubes\",\n              \"swirling juice streams\",\n              \"energetic and appetizing scene\"\n            ]\n          }\n        }\n      },\n      \"design\": {\n        \"style\": {\n          \"texture\": \"ultra-realistic packaging material texture\"\n        },\n        \"aspect_ratio\": \"2:3\"\n      }\n    },\n    {\n      \"id\": 3,\n      \"product\": {\n        \"brand\": \"Tip-Top\",\n        \"flavor\": \"Grape\",\n        \"image\": {\n          \"description\": \"grape juice with purple grapes\",\n          \"background\": {\n            \"color\": \"deep purple gradient\",\n            \"elements\": [\n              \"grape bunches\",\n              \"glossy juice splashes\",\n              \"surrounding the carton\"\n            ]\n          }\n        }\n      },\n      \"design\": {\n        \"style\": {\n          \"tone\": \"elegant\",\n          \"mood\": \"lively commercial promotion style\"\n        },\n        \"aspect_ratio\": \"2:3\"\n      }\n    }\n  ]\n}",
+    "images": [
+      "data/images/chocolate-juice-packaging-design-analysis/chocolate-juice-packaging-design-analysis-805x1200.jpg",
+      "data/images/chocolate-juice-packaging-design-analysis/chocolate-juice-packaging-design-analysis-805x1200-2.jpg",
+      "data/images/chocolate-juice-packaging-design-analysis/chocolate-juice-packaging-design-analysis-805x1200-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "插画",
+      "产品",
+      "美食",
+      "工艺",
+      "自然"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019bb0a2-a651-7082-a243-32a14dde9aff",
+    "createdAt": "2026-01-11T16:02:50Z",
+    "updatedAt": "2026-01-11T16:02:50Z"
   }
 ]
