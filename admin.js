@@ -12,7 +12,10 @@
   var THUMB_QUALITY = 0.72;
 
   var state = { token: null, entries: [], draft: null, editId: null, cat: '全部',
-    categories: DEFAULT_CATEGORIES.slice(), picked: {}, box: [], saving: false };
+    categories: DEFAULT_CATEGORIES.slice(), picked: {}, box: [], saving: false,
+    // 书17：条目是否已从后端读完。enterApp 先显示面板再 load()，若不加这道闸，
+    // 采集包导入会在 state.entries 还是空的时候判重 → 已存在条目被判成新条目重新入箱。
+    loaded: false };
   var $ = function (id) { return document.getElementById(id); };
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -1640,6 +1643,224 @@
     });
   }
 
+  // ---------- 书17：采集包导入（只入暂存箱，绝不发布、绝不写 site/data）----------
+  // 契约见 docs/书17-任务书.md「硬契约 3」。七条硬约束：
+  //   ① 判重：state.entries + state.box + 同包内已入 → 跳过
+  //   ② 分类必须属 categories.json，非法整条拒（不许偷偷塞「其他」）
+  //   ③ images 夹到 ≤3（verify/check.js 硬禁 >3）
+  //   ④ 文件名按 <id>-<w>x<h>.jpg 重算（与手动上传同口径），撞名追加 -2/-3（check.js 禁重复项）
+  //   ⑤ 一律过 cleanEntry()，采集包 meta 层丢弃（防重演 pendingImages 污染）
+  //   ⑥ compressed:true → 跳过二次压缩，只补缩略图
+  //   ⑦ 两种后端都入箱；发布仍由既有 publishChecked 把关（非 github 模式它会拒绝）
+  var IMPORT_SCHEMA = 'tm-promptforge/import';
+  var IMPORT_MAX_ITEMS = 60;      // 单包条数上限，防误喂全量
+  var IMPORT_MAX_IMAGES = 3;      // 与 verify/check.js 同口径
+  var IMPORT_MAX_PROMPT = 8000;   // 与任务书同口径
+  var IMPORT_ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+
+  function importSay(text, kind) {
+    var m = $('import-msg');
+    if (!m) return;
+    m.textContent = text || '';
+    m.className = 'import-msg' + (kind ? ' is-' + kind : '');
+  }
+
+  // base64 → Blob，同时验 JPEG 魔数（FF D8 FF）。假图一律拒，不许糊过校验。
+  function importJpegBlob(b64) {
+    var bin = atob(String(b64 || ''));
+    if (bin.length < 3) throw new Error('字节过短');
+    if (bin.charCodeAt(0) !== 0xFF || bin.charCodeAt(1) !== 0xD8 || bin.charCodeAt(2) !== 0xFF) {
+      throw new Error('不是 JPEG（魔数非 FF D8 FF）');
+    }
+    var arr = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return new Blob([arr], { type: 'image/jpeg' });
+  }
+
+  function importValidateEntry(e) {
+    if (!e || typeof e !== 'object') return '条目不是对象';
+    if (!e.id || !String(e.id).trim()) return 'id 为空';
+    if (!/^[A-Za-z0-9._-]+$/.test(String(e.id))) return 'id 含非法字符（只许字母数字 . _ -）';
+    if (!e.title || !String(e.title).trim()) return '标题为空';
+    if (!e.prompt || !String(e.prompt).trim()) return 'prompt 为空';
+    if (String(e.prompt).length > IMPORT_MAX_PROMPT) return 'prompt 超 ' + IMPORT_MAX_PROMPT + ' 字';
+    if (!Array.isArray(e.categories) || !e.categories.length) return '分类为空';
+    var bad = e.categories.filter(function (c) { return state.categories.indexOf(c) === -1; });
+    if (bad.length) return '分类非法: ' + bad.join('/');
+    if (!e.model || !String(e.model).trim()) return 'model 为空';
+    return '';
+  }
+
+  // 单图：真 JPEG → （已合规则直接用，否则压缩）→ 补缩略图
+  function importOneImage(img) {
+    return Promise.resolve().then(function () {
+      if (!img || !img.dataBase64) throw new Error('缺 dataBase64');
+      var blob = importJpegBlob(img.dataBase64);
+      var fast = img.compressed === true && Number(img.w) > 0 && Number(img.h) > 0;
+      if (!fast) {
+        return compressImage(new File([blob], 'import.jpg', { type: 'image/jpeg' }))
+          .then(function (out) { return { blob: out.blob, w: out.w, h: out.h }; });
+      }
+      return { blob: blob, w: Math.round(Number(img.w)), h: Math.round(Number(img.h)) };
+    }).then(function (o) {
+      return makeThumbBlob(o.blob).then(function (tb) {
+        return { blob: o.blob, thumb: tb, w: o.w, h: o.h };
+      });
+    });
+  }
+
+  // 一个条目的多图：顺序压/缩略，文件名按真实像素重算并去重
+  function importBuildImages(list, id) {
+    var used = {}, out = [], chain = Promise.resolve();
+    list.forEach(function (img) {
+      chain = chain.then(function () {
+        return importOneImage(img).then(function (o) {
+          var base = id + '-' + o.w + 'x' + o.h;
+          var name = base + '.jpg', n = 2;
+          while (used[name]) { name = base + '-' + n + '.jpg'; n++; }
+          used[name] = 1;
+          out.push({ filename: name, blob: o.blob, thumb: o.thumb, w: o.w, h: o.h });
+        });
+      });
+    });
+    return chain.then(function () { return out; });
+  }
+
+  // 单条：校验 → 归一 → 生成图 → 入箱。返回 {ok:1} 或 {why}
+  function importOneItem(raw, seen, defaults) {
+    var e = raw && raw.entry;
+    var why = importValidateEntry(e);
+    if (why) return Promise.resolve({ why: (e && e.id ? e.id + '：' : '') + why });
+    if (seen[e.id]) return Promise.resolve({ why: e.id + '：重复 id' });
+
+    var imgs = Array.isArray(raw.images) ? raw.images.slice() : [];
+    var dropped = 0;
+    if (imgs.length > IMPORT_MAX_IMAGES) {
+      dropped = imgs.length - IMPORT_MAX_IMAGES;
+      imgs = imgs.slice(0, IMPORT_MAX_IMAGES);
+    }
+    if (!imgs.length) return Promise.resolve({ why: e.id + '：无图片' });
+
+    var now = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+    var created = IMPORT_ISO_RE.test(String(e.createdAt || '')) ? e.createdAt : now;
+    var updated = IMPORT_ISO_RE.test(String(e.updatedAt || '')) ? e.updatedAt : created;
+    if (updated < created) updated = created;
+
+    var entry = cleanEntry({
+      id: String(e.id),
+      title: String(e.title).trim(),
+      prompt: String(e.prompt),
+      categories: e.categories.filter(function (c, i, a) { return a.indexOf(c) === i; }),
+      tags: (Array.isArray(e.tags) ? e.tags : [])
+        .filter(function (t) { return t && String(t).trim(); }).slice(0, 5),
+      model: String(e.model).trim(),
+      author: String(e.author || defaults.author || '').trim(),
+      source: String(e.source || defaults.source || '').trim(),
+      images: [],
+      createdAt: created,
+      updatedAt: updated
+    });
+
+    return importBuildImages(imgs, entry.id).then(function (built) {
+      if (!built.length) return { why: entry.id + '：图片全部生成失败' };
+      built.forEach(function (b) {
+        entry.images.push('data/images/' + entry.id + '/' + b.filename);
+      });
+      seen[entry.id] = 1;      // 同包内也不许重复
+      return addToBox({ checked: true, entry: entry, images: built })
+        .then(function () { return { ok: 1, dropped: dropped }; });
+    }, function (err) {
+      return { why: entry.id + '：' + ((err && err.message) || err) };
+    });
+  }
+
+  // 单文件：读 → 验契约 → 逐条处理
+  function importBundleFile(file) {
+    return new Promise(function (resolve, reject) {
+      var fr = new FileReader();
+      fr.onload = function () { resolve(String(fr.result)); };
+      fr.onerror = function () { reject(new Error('读不到文件：' + file.name)); };
+      fr.readAsText(file, 'utf-8');
+    }).then(function (text) {
+      var pack;
+      try { pack = JSON.parse(text); } catch (x) { throw new Error(file.name + ' 不是合法 JSON'); }
+      if (!pack || pack.schema !== IMPORT_SCHEMA) throw new Error(file.name + ' 缺 schema=' + IMPORT_SCHEMA);
+      if (Number(pack.version) !== 1) throw new Error(file.name + ' version 不支持：' + pack.version);
+      var items = Array.isArray(pack.items) ? pack.items : [];
+      if (!items.length) throw new Error(file.name + ' 没有 items');
+      if (items.length > IMPORT_MAX_ITEMS) {
+        throw new Error(file.name + ' 共 ' + items.length + ' 条，超过单包上限 ' + IMPORT_MAX_ITEMS);
+      }
+      if (!state.loaded) throw new Error('条目还没加载完，请稍等一秒再导（判重依赖已加载的条目表）');
+      if (!state.categories.length) throw new Error('分类表未加载，稍后再试');
+
+      var defaults = pack.defaults || {};
+      var seen = {};
+      state.entries.forEach(function (x) { seen[x.id] = 1; });
+      state.box.forEach(function (it) { seen[it.entry.id] = 1; });
+
+      var r = { ok: 0, skip: [], dropped: 0 };
+      var chain = Promise.resolve();
+      items.forEach(function (raw) {
+        chain = chain.then(function () {
+          return importOneItem(raw, seen, defaults).then(function (res) {
+            if (res.ok) { r.ok++; r.dropped += res.dropped || 0; }
+            else r.skip.push(res.why);
+          }, function (err) {
+            r.skip.push('条目异常：' + ((err && err.message) || err));
+          });
+        });
+      });
+      return chain.then(function () { return r; });
+    });
+  }
+
+  function handleImportFiles(ev) {
+    var input = ev.target;
+    var files = Array.prototype.slice.call((input && input.files) || []);
+    if (!files.length) return;
+    input.value = '';                      // 允许重复选同一个文件
+    var btn = $('import-btn');
+    if (btn) btn.disabled = true;
+    importSay('正在导入 ' + files.length + ' 个采集包…（图多时需要几秒）');
+    var acc = { ok: 0, skip: [], dropped: 0 };
+    files.reduce(function (chain, f) {
+      return chain.then(function () {
+        return importBundleFile(f).then(function (r) {
+          acc.ok += r.ok; acc.dropped += r.dropped;
+          acc.skip = acc.skip.concat(r.skip);
+        }, function (err) {
+          acc.skip.push(f.name + '：' + ((err && err.message) || err));
+        });
+      });
+    }, Promise.resolve()).then(function () {
+      var parts = ['成功入箱 ' + acc.ok + ' 条'];
+      if (acc.dropped) parts.push('另有 ' + acc.dropped + ' 张图因超 3 张被丢弃');
+      if (acc.skip.length) {
+        var by = {};
+        acc.skip.forEach(function (s) {
+          var key = /重复 id$/.test(s) ? '重复 id'
+            : /分类非法/.test(s) ? '分类非法'
+            : /分类为空/.test(s) ? '分类为空'
+            : /魔数|JPEG/.test(s) ? '图片非 JPEG'
+            : /超过单包上限|不是合法 JSON|缺 schema|version|没有 items/.test(s) ? '包格式错误'
+            : '其它';
+          by[key] = (by[key] || 0) + 1;
+        });
+        var sum = Object.keys(by).map(function (k) { return k + '×' + by[k]; }).join('；');
+        parts.push('跳过 ' + acc.skip.length + ' 条（' + sum + '）');
+        importSay(parts.join('，') + '。明细：' + acc.skip.slice(0, 8).join(' / ') +
+          (acc.skip.length > 8 ? ' …' : ''), 'warn');
+      } else {
+        importSay(parts.join('，') + '。勾选后点「发布勾选」才真正上线', 'ok');
+      }
+      if (btn) btn.disabled = false;
+    }, function (err) {
+      importSay('导入失败：' + ((err && err.message) || err), 'error');
+      if (btn) btn.disabled = false;
+    });
+  }
+
   // ---------- 启动 ----------
   // ---------- 分类多选组件（书6 用户反馈重构：通用多选，已选以小标签展示）----------
   // 结构：#f-category（可见盒子：已选 chips + ▾）/ #f-category-panel（下拉选项面板）/
@@ -1763,6 +1984,8 @@
       return be().loadCategories().then(function (cats) {
         if (Array.isArray(cats) && cats.length) state.categories = cats;
       }).catch(function () { state.categories = DEFAULT_CATEGORIES.slice(); });
+    }).then(function () {
+      state.loaded = true;   // 书17：判重前置闸门（见 state.loaded 注释）
     });
   }
 
@@ -1848,6 +2071,9 @@
         .forEach(removeFromBox);
     });
     $('staging-publish').addEventListener('click', publishChecked);
+    // ---------- 书17：采集包导入（只入箱；发布仍须人勾选，见 publishChecked）----------
+    $('import-btn').addEventListener('click', function () { $('import-file').click(); });
+    $('import-file').addEventListener('change', handleImportFiles);
     // ---------- 修改口令（书9 重设计：顶栏入口 → 模态对话框）----------
     // 逻辑：验当前口令 → 新口令 ≥8 位 + 双重确认 + 不许与当前相同 → 服务端改密并
     // **吊销全部会话**（含当前）→ 面板回登录页，用新口令重登。

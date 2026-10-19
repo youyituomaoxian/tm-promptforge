@@ -98,6 +98,16 @@
 
     <!-- 右：编辑表单 -->
     <main class="admin-main">
+      <!-- 书17 · 采集包导入：把源站采集的 JSON 灌进暂存箱（只入箱，绝不自动发布） -->
+      <section id="import-box" class="import-box">
+        <div class="import-head">
+          <span class="import-title">采集包导入</span>
+          <button id="import-btn" type="button" class="btn-mini">导入采集包</button>
+          <input id="import-file" type="file" accept="application/json,.json" multiple hidden>
+        </div>
+        <p id="import-msg" class="import-msg"></p>
+      </section>
+
       <!-- 书15 · 暂存箱：新增条目先入箱（IndexedDB 持久化），攒批整批原子发布 -->
       <section id="staging-box" class="staging is-hidden">
         <div class="staging-head">

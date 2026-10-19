@@ -267,3 +267,14 @@
 .staging-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .staging-meta strong{font-size:13px;color:var(--ink-strong);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .staging-meta span{font-size:11px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- 书17 · 采集包导入（只入暂存箱，不发布） ---------- */
+.import-box{margin-bottom:14px;padding:12px 14px;background:var(--bg);
+  border:1px solid var(--line);border-radius:var(--radius)}
+.import-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.import-title{flex:1;font-size:14px;font-weight:700;color:var(--ink-strong)}
+.import-msg{margin:8px 0 0;font-size:12px;line-height:1.7;color:var(--ink-2);word-break:break-word}
+.import-msg:empty{display:none}
+.import-msg.is-ok{color:#1B7F3B}
+.import-msg.is-warn{color:#8a5b00}
+.import-msg.is-error{color:#C0392B}
