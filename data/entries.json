@@ -1050,111 +1050,6 @@
     "updatedAt": "2025-12-08T00:00:00Z"
   },
   {
-    "id": "nano-banana-pro-art-of-magazine-layout-for-articles",
-    "title": "Nano Banana Pro：将文章排版成杂志的艺术",
-    "prompt": "🐂🍺，Nano Banana Pro 直接将一整篇文章排版成杂志。\n提示词：请将这段文字原封不动地复制到一张精美杂志文章的照片中，照片需包含图片、漂亮的排版设计、精选语录和大胆的格式。原文如下： https://t.co/kvtbvkFgO1",
-    "images": [
-      "data/images/nano-banana-pro-art-of-magazine-layout-for-articles/nano-banana-pro-art-of-magazine-layout-for-articles.jpg"
-    ],
-    "categories": [
-      "UI界面"
-    ],
-    "tags": [
-      "界面设计",
-      "组件规范",
-      "信息层级"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@歸藏(guizang.ai)",
-    "source": "https://x.com/op7418/status/1991702565579563166",
-    "createdAt": "2025-12-08T00:00:00Z",
-    "updatedAt": "2025-12-08T00:00:00Z"
-  },
-  {
-    "id": "3d-cube-shaped-city-dioramas-created-by-nano-banana-pro-on-geminiapp",
-    "title": "纳米香蕉Pro在GeminiApp上制作的3D城市立体模型",
-    "prompt": "3D cube-shaped cities dioramas created by Nano Banana Pro on @GeminiApp\nPrompt ⤵️ https://t.co/F5XJUEUIMr\nCreate a floating 3D cube-shaped diorama of [CITY], with one open side revealing miniature streets, famous buildings, vehicles, and street life. Use stylized PBR materials, soft global lighting, and a calm pastel color palette. Include volumetric clouds floating around the cube and subtle weather FX that match the city’s current conditions. Add a small title plaque on the front face reading “[CITY NAME]”.",
-    "images": [
-      "data/images/3d-cube-shaped-city-dioramas-created-by-nano-banana-pro-on-geminiapp/3d-cube-shaped-city-dioramas-created-by-nano-banana-pro-on-geminiapp.jpg"
-    ],
-    "categories": [
-      "UI界面"
-    ],
-    "tags": [
-      "界面设计",
-      "组件规范",
-      "信息层级"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@aleenaamiir",
-    "source": "https://x.com/aleenaamiir/thread/1997622401140740224",
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z"
-  },
-  {
-    "id": "liu-yifei-backstage写真-男友视角下的性感与私密",
-    "title": "刘亦菲后台写真：男友视角下的性感与私密",
-    "prompt": "Prompt：\n**画面描述:**\n一张超写实的第一人称（POV）照片。一只男性的手从画面底部伸入，与刘亦菲紧紧十指相扣。\n她坐在杂乱的后台化妆间里。身穿粉色纱质短裙，勾勒出曼妙身姿，搭配极薄的白色透明丝袜和精致的金项链。\n她歪着头，眼神迷离且深情地直视着相机镜头。\n背景：摆满化妆瓶、发胶和刷子的梳妆台。一面带有明亮灯泡的好莱坞式化妆镜映出了她裸露的后背和相机的闪光灯光芒。\n**构图与视角:**\nPOV（男友视角）。高角度，略微俯视她。\n**光影风格：**\n硬直闪光（Direct Flash）。这创造了高对比度，在她身后形成硬阴影，并突出了她皮肤的油润感和粉色服装的光泽质感。角落有暗角效果。\n**视觉焦点与细节:**\n- **质感:** 白色薄丝袜轻微的织物拉伸感，在强闪光灯下光滑的瓷白皮肤质感，金项链的金属反光，镜子上的指纹。\n- **氛围:** 空气中有轻微的雾气（闪光灯下可见的发胶颗粒）。\n- **手部:** 男性手部清晰的血管细节与她柔软、修剪整齐的手形成对比。\n**美学风格:**\nTerry Richardson 或 Juergen Teller 风格的原始时尚摄影。90年代抓拍美学。无滤镜、粗粝、迷人且极度私密。\n再来一张 https://t.co/4Rw3BhR7eq",
-    "images": [
-      "data/images/liu-yifei-backstage写真-男友视角下的性感与私密/liu-yifei-backstage写真-男友视角下的性感与私密.jpg"
-    ],
-    "categories": [
-      "UI界面"
-    ],
-    "tags": [
-      "界面设计",
-      "组件规范",
-      "信息层级"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@ShenYouX",
-    "source": "https://x.com/shenyou_x/thread/1994694927960477918",
-    "createdAt": "2025-12-05T00:00:00Z",
-    "updatedAt": "2025-12-05T00:00:00Z"
-  },
-  {
-    "id": "futuristic-social-interface-keywords-in-comments",
-    "title": "未来风社交界面：提示词见评论",
-    "prompt": "未来风社交界面，提示词见评论 https://t.co/MVNf0WM7pu",
-    "images": [
-      "data/images/futuristic-social-interface-keywords-in-comments/futuristic-social-interface-keywords-in-comments.jpg"
-    ],
-    "categories": [
-      "UI界面"
-    ],
-    "tags": [
-      "界面设计",
-      "组件规范",
-      "信息层级"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@宝玉",
-    "source": "https://x.com/dotey/status/1983941652730278148",
-    "createdAt": "2025-12-04T00:00:00Z",
-    "updatedAt": "2025-12-04T00:00:00Z"
-  },
-  {
-    "id": "nano-banana-prompt-convert-your-x-profile-to-a-cyber-aesthetic-futuristic-social-app-interface",
-    "title": "纳米香蕉提示：转换您的X资料为赛博未来主义社交应用界面",
-    "prompt": "🍌 nano banana prompt\nConvert your X profile to a cyber-aesthetic futuristic social-app interface.\nTake a screenshot with your X profile, and send it to Gemini/nano banan pro with the prompt\n--- Prompt ---\nA 9:16 vertical, photorealistic cyber-aesthetic futuristic social-app interface. A hand is holding a vertical, iPhone-sized, borderless acrylic card, taking up most of the frame. The card displays a social media profile interface with no banners or background images. Its smooth, rounded edges emit a soft neon glow in blue, pink, and purple gradients.\nThe background is dark and blurred, emphasizing the glowing edges; the light reflections on the fingers feel cinematic and atmospheric, creating a high-tech holographic mood. The card surface is crystal-clear, and the profile details appear almost engraved, showing only the information from the reference image.\nDisplayed in this exact order:\n- Profile avatar (centered)\n- Name + blue verification badge (centered)\n- Username with “@”, e.g., @dotey (centered)\n- Bio (left-aligned)\n- Location, website (left-aligned)\n- Join date (left-aligned)\n- Following count & followers count (left-aligned)\n- Follow button (full-width, transparent background, rounded-full, border with soft neon glow)",
-    "images": [
-      "data/images/nano-banana-prompt-convert-your-x-profile-to-a-cyber-aesthetic-futuristic-social-app-interface/nano-banana-prompt-convert-your-x-profile-to-a-cyber-aesthetic-futuristic-social-app-interface.jpg"
-    ],
-    "categories": [
-      "UI界面"
-    ],
-    "tags": [
-      "界面设计",
-      "组件规范",
-      "信息层级"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@宝玉",
-    "source": "https://x.com/dotey/status/1995633652139442373",
-    "createdAt": "2025-12-02T00:00:00Z",
-    "updatedAt": "2025-12-02T00:00:00Z"
-  },
-  {
     "id": "abstract-liquid-typography",
     "title": "抽象液体排版文字",
     "prompt": "Abstract liquid typography spelling \"text\", made of thick, transparent water-gel with realistic refraction and soft shadows. Each letter appears sculpted from droplets with surface tension, smooth curves, and light reflections. Water droplets scattered on the surface, minimal background, hyper-realistic lighting, photorealistic render\n抽象液体排版拼写“text”，由厚实、透明的水凝胶制成，具有逼真的折射和柔和的阴影。每个字母都由具有表面张力、平滑曲线和光反射的水滴雕刻而成。散落在表面上的水滴、极小的背景、超逼真的照明、照片级逼真的渲染",
@@ -1365,27 +1260,6 @@
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
-    "id": "cartoon-style-character-jumping-through-blue-circular-portal-in-fantasy-forest",
-    "title": "卡通风格角色通过蓝色圆形传送门跳跃在奇幻森林",
-    "prompt": "https://t.co/rqlKvyayTS\nA cartoon-style character with a smiling computer monitor as its head, wearing gloves and boots, happily jumping through a glowing, blue, circular portal in a lush, fantasy forest landscape. The forest is detailed with large trees, mushrooms, flowers, a serene river, floating islands, and an atmospheric starry night sky with multiple moons. Bright, vibrant colors with soft lighting, fantasy illustration style.",
-    "images": [
-      "data/images/cartoon-style-character-jumping-through-blue-circular-portal-in-fantasy-forest/cartoon-style-character-jumping-through-blue-circular-portal-in-fantasy-forest.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@宝玉",
-    "source": "https://x.com/dotey/status/1905103477879267823",
-    "createdAt": "2025-12-16T00:00:00Z",
-    "updatedAt": "2025-12-16T00:00:00Z"
-  },
-  {
     "id": "minimalist-flat-q-version-sticker",
     "title": "极简扁平风格Q版贴纸",
     "prompt": "改了一版扁平小贴纸：\n把这张照片设计成一个极简扁平插画风格的Q版贴纸，厚白边，保留人物特征，风格要可爱一些，人物要超出圆形区域边框，圆形区域要为纯色不要3d感，透明背景 https://t.co/RgH33FUiOS",
@@ -1407,48 +1281,6 @@
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
-    "id": "nano-banana-pro-vol3-comment-tag-sticker",
-    "title": "Nano香蕉Pro Vol.3 评论标签贴纸",
-    "prompt": "🍌 Nano Banana Pro プロンプト集 Vol.3\n「コメント付きシール画像」\n▼プロンプト文\nA die-cut sticker illustration based on the uploaded image. The subject is transformed into a chibi deformed illustration style, featuring thick bold black outlines, flat vibrant colors, and a cartoon pose. Large vertical Japanese text \"【右側のコメント】\" on the right side, vertical Japanese text \"【左側のコメント】\" on the left side, and text \"【下部のコメント】\" at the bottom edge. **Crucially, a single, large, continuous white die-cut border must encompass all elements entirely—surrounding the illustration and all text blocks together—to create one unified, easy-to-cut sticker shape against a plain white background.**",
-    "images": [
-      "data/images/nano-banana-pro-vol3-comment-tag-sticker/nano-banana-pro-vol3-comment-tag-sticker.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@清水勇人｜DMM .com 亀ちょく本部長 / DMMホールディングス 代表取締役",
-    "source": "https://x.com/HAYXtqsWTN58832/status/1997147760093511730",
-    "createdAt": "2025-12-09T00:00:00Z",
-    "updatedAt": "2025-12-09T00:00:00Z"
-  },
-  {
-    "id": "from-nano-banana-pro-illustration-to-manga-prompt",
-    "title": "从Nano Banana Pro插画到漫画化提示",
-    "prompt": "Nano Banana Proのイラストから漫画化のプロンプト\n#nanobanana\n👇️NanoBanana Pro Prompt👇\nこのイラストからモノクロの漫画を1ページ推論してください。日本のラブコメディです。\n--\nPlease infer one page of a monochrome manga from this illustration. It's a Japanese romantic comedy. https://t.co/bYVlefN4oR",
-    "images": [
-      "data/images/from-nano-banana-pro-illustration-to-manga-prompt/from-nano-banana-pro-illustration-to-manga-prompt.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@とすくん",
-    "source": "https://x.com/tokyo_Valentine/status/1991680180541333653",
-    "createdAt": "2025-12-09T00:00:00Z",
-    "updatedAt": "2025-12-09T00:00:00Z"
-  },
-  {
     "id": "nano-banana-3d-carrot-character-creation",
     "title": "纳米香蕉：3D卡通角色创作",
     "prompt": "Nano Banana Prompt:\nTransform the subject into a stylized 3D character with soft clay-like materials, rounded sculptural forms, exaggerated facial features, pastel + vibrant color palette, smooth subsurface scattering skin, large cartoon eyes, simplified anatomy. Render against a bold blue studio background with soft frontal lighting and subtle shadows. Playful, surreal, polished character-design aesthetic similar to modern stylized 3D illustration. Keep the original photo’s composition and framing.",
@@ -1468,27 +1300,6 @@
     "source": "https://x.com/gizakdag/status/1997602898075615682",
     "createdAt": "2025-12-08T00:00:00Z",
     "updatedAt": "2025-12-08T00:00:00Z"
-  },
-  {
-    "id": "cheerful-3d-cartoon-girl-sticker",
-    "title": "欢快3D卡通女孩贴纸",
-    "prompt": "🍌 NANOBANANA PROMPT\nSubject: cheerful 3D cartoon girl with long dark hair, white flower hair clip, expressive brown eyes, soft rounded features; wearing a mix of cute outfits (white off-shoulder top, yellow sweater, purple tee, green dress, blue pajamas, coral shirt, pink blazer); each pose conveys emotions like waving, hugging, clapping, sleeping, and giving a thumbs up\nSetting: bright neutral background in a 3×3 grid sticker layout, each labeled with phrases — “Goodmorning,” “Lunch kana,” “Huh?,” “Hugs,” “Thank you,” “Goodnight,” “You’re the best,” “miss you,” and “good job”; with an elegant overlay at the top center reading “Thank You 900 Followers” in a friendly, modern font\nLighting: soft diffuse daylight, balanced exposure emphasizing 3D shading and gloss\nCamera: straight-on, symmetrical framing, close-up shot for detail clarity\nStyle: kawaii 3D emoji-sticker illustration, modern gratitude aesthetic\nColor Palette: warm and pastel tones — cream, blush pink, sage green, sky blue, peach, ivory\nQuality: ultra-detailed, high-resolution, photorealistic 3D render\nReference: uploaded face\nNegative Prompt: distorted text, blur, watermark, overexposure, bad anatomy",
-    "images": [
-      "data/images/cheerful-3d-cartoon-girl-sticker/cheerful-3d-cartoon-girl-sticker.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Owa Knight",
-    "source": "https://x.com/Owa_Knight/status/1985773397809512627",
-    "createdAt": "2025-12-04T00:00:00Z",
-    "updatedAt": "2025-12-04T00:00:00Z"
   },
   {
     "id": "cartoon-modern-style-illustration",
@@ -1638,27 +1449,6 @@
     "updatedAt": "2025-12-29T00:00:00Z"
   },
   {
-    "id": "happy-character-cartoon-breaking-down-a-wall",
-    "title": "快乐角色卡通打破墙壁",
-    "prompt": "🚨PromptShare🚨\n3D cartoon\n3d cartoon of a happy [character] breaking down [type of wall or object] with [hands / body / special ability], in the style of pixar. adorable [eye description], lovely colorful soft background, vibrant colors, very cute face, high detail, octane render, depth of field, cinematic lighting.\nNOW YOU TURN to test this prompt",
-    "images": [
-      "data/images/happy-character-cartoon-breaking-down-a-wall/happy-character-cartoon-breaking-down-a-wall.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Pierrick Chevallier | IA",
-    "source": "https://x.com/CharaspowerAI/status/2004968032745951651",
-    "createdAt": "2025-12-28T00:00:00Z",
-    "updatedAt": "2025-12-28T00:00:00Z"
-  },
-  {
     "id": "hyper-detailed-paper-sculpture-character-minimalist-museum-display-box",
     "title": "卡通角色博物馆展示纸雕塑",
     "prompt": "Turn your favourite cartoon characters into Museum display paper sculptures using Gemini Nano Banana Pro.\nPrompt: A hyper-detailed paper sculpture of [CHARACTER], mounted inside a minimalist museum display box. The figure is crafted from layered premium paper with visible folds, edges, and textures. Soft gallery lighting, glass reflections, subtle depth-of-field. High-end collectible art style, photorealistic finish, sharp focus. 1:1 square format.",
@@ -1678,48 +1468,6 @@
     "source": "https://x.com/rovvmut_/status/2001504388108685376",
     "createdAt": "2025-12-19T00:00:00Z",
     "updatedAt": "2025-12-19T00:00:00Z"
-  },
-  {
-    "id": "fluid-anime-illustration",
-    "title": "流畅的动漫插画",
-    "prompt": "Prompt share: fluid anime\n💬Prompt:\nA 2D animated illustration of a [subject], rendered in a fluid anime-inspired style with soft watercolor linework and delicate motion. Subtle highlights and airy brush textures evoke a dreamy, almost weightless atmosphere. Set against a [background] with gentle blends of [color1] and [color2], creating visual harmony and emotional depth.\nCheck ATLs for inspiration ✨",
-    "images": [
-      "data/images/fluid-anime-illustration/fluid-anime-illustration.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Amira Zairi",
-    "source": "https://x.com/azed_ai/status/1987113654089884115",
-    "createdAt": "2025-12-16T00:00:00Z",
-    "updatedAt": "2025-12-16T00:00:00Z"
-  },
-  {
-    "id": "anime-sticker-image-generation-analysis",
-    "title": "动漫贴纸图生成分析",
-    "prompt": "4o能在一些很简单的promopt 情况下稳定生成固定样式的图片这点很神奇 - 以下面这几张动漫贴纸图来说，prompt就是简单的 动漫名+stickers，例如下面火影这种就是朴实无华的两个词 “Naruto stikers”，而且通过尝试其他动漫的提示词发现基本能稳定按照很相似的风格来生成。",
-    "images": [
-      "data/images/anime-sticker-image-generation-analysis/anime-sticker-image-generation-analysis.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@RichChat",
-    "source": "https://x.com/richardchang/status/1909086122959139312",
-    "createdAt": "2025-12-16T00:00:00Z",
-    "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
     "id": "nano-banana-pro-dragon-ball-z-style-q-version-pseudo-3d-illustration",
@@ -1806,69 +1554,6 @@
     "updatedAt": "2025-12-09T00:00:00Z"
   },
   {
-    "id": "exclusive-pop-anime-stage-posters-for-otaku-characters-guide",
-    "title": "中二角色专属波普动漫舞台海报生成指南",
-    "prompt": "这套是给「中二角色」准备的专属舞台：\n你只要给一个人物 / 职业 / 动作场景，这个 Prompt 会自动把 TA 改造成一张“仿游戏开场动画海报”的波普动漫图。\n粗线条、广角透视、UI 血条、涂鸦文字、爆炸感背景，全都一起上。\n下方是我用的中文 Prompt，你只需要把 {角色} 换成你自己的设定就能复用：\n生成一张极具视觉冲击力和潮流感的【波普艺术风格动漫插画（Pop-Art Anime Illustration）】。画面主角是「{角色}」，整体风格参考《女神异闻录5 Persona 5》和街头涂鸦视觉，将人物画成极度张扬、极度扁平的潮酷动漫角色。\n角色采用锐利的赛璐璐上色方式（sharp cel-shading），线条硬朗清晰，轮廓干净利落。姿态必须夸张且充满动势，可以使用广角透视或鱼眼效果，让手部、武器或道具极度接近镜头，好像是在释放必杀技定格的一瞬间。表情要非常有戏剧性，带着自信、狂气或冷酷的“颜艺”张力，而不是日常淡定表情。\n整体画面拒绝写实体积感，转而使用大量纯黑色重阴影和高饱和度纯色块，构成极致的平面高对比效果。主色可以选用鲜红、柠檬黄、电光蓝、霓虹紫等高饱和色，与大面积的黑色剪影阴影构成强烈撞色。阴影区域与背景中加入漫画网点纸（screentones）、半调波点（halftone dots）、速度线、放射线等纹理，让画面有印刷漫画与街头涂鸦叠加的感觉。\n背景不需要真实透视空间，而是一个平面的视觉拼贴舞台：用巨大的无衬线英文字母、撕裂纸张效果、飞溅的墨迹、粗暴的箭头图形、对话框和拟声词来填满画面，例如夸张的“BOOM”“SLASH”“WAKE UP”等漫画拟声涂鸦。可以把 UI 元素融入画面中，如血条、技能名称、按钮、数值、提示框等，悬浮在主角周围，仿佛游戏界面与画面本身混为一体，打破第四面墙。\n光影上保持强对比但不追求真实灯光逻辑，更像是平面设计意义上的“黑/白/色块”分区。人物与背景的色块边缘非常干脆，没有柔和渐变，所有色彩都清晰地分区。可以在局部加上一些粗糙的喷漆、涂抹、手写涂鸦纹理，让画面更有街头感与手工质感。\n整体氛围要极度动感、极度中二、极度潮酷：画面看起来像是要从屏幕里爆炸出来，而不是安静地挂在画廊里。避免写实油画风、低饱和复古风或温柔系插画风，不要自然风景或日常生活背景，不要柔和小清新色彩。画面比例为竖版 2:3，高分辨率插画，用于呈现一张张力十足的极繁波普漫绘海报。",
-    "images": [
-      "data/images/exclusive-pop-anime-stage-posters-for-otaku-characters-guide/exclusive-pop-anime-stage-posters-for-otaku-characters-guide.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@VoxcatAI",
-    "source": "https://x.com/VoxcatAI/status/1996467308529942931",
-    "createdAt": "2025-12-09T00:00:00Z",
-    "updatedAt": "2025-12-09T00:00:00Z"
-  },
-  {
-    "id": "gguo-manhuan-zhuan-ren-zhen-huan-yuan-comiket-dongman-yuanshu",
-    "title": "国漫转真人：还原Comiket动漫角色",
-    "prompt": "这是我想要的国漫转真人！\n用到的提示如下：\n第一：用到了@ZHO_ZHO_ZHO 的nbp二次元转真人提示\nGenerate a highly detailed photo of a girl cosplaying this illustration, at Comiket. Exactly replicate the same pose, body posture, hand gestures, facial expression, and camera framing as in the original illustration. Keep the same angle, perspective, and composition, without any deviation\n第二：用到了即梦保持人物原角色特征的提示词\n保持人物面部和身份的完全一致，聚焦上传的肖像照转换为.....\n第三：反推其他图像的氛围色彩元素、面部微表情元素。\n基本一次过，诸君加油！",
-    "images": [
-      "data/images/gguo-manhuan-zhuan-ren-zhen-huan-yuan-comiket-dongman-yuanshu/gguo-manhuan-zhuan-ren-zhen-huan-yuan-comiket-dongman-yuanshu.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@素人极客-Amateur Geek",
-    "source": "https://x.com/changli71829684/status/1998002583332663299",
-    "createdAt": "2025-12-08T00:00:00Z",
-    "updatedAt": "2025-12-08T00:00:00Z"
-  },
-  {
-    "id": "chaotic-anime-illustration-poster-design",
-    "title": "混沌风格的二次元插画海报设计",
-    "prompt": "カオス系の方向性にチャレンジ！２枚目の画像を入れつつ、プロンプトで100人とか言ってみる。(nano banana pro) 多分いらないプロンプトはありそう。\n[100 girls with high school uniform]\nChaotic and anime illustration poster design featuring the subject.\nTheme: Visual overload, maximalism, and disordered composition.\nInterpret the subject into a fragmented explosion of related concepts and abstract shapes. Randomly redraw input subject and chaotically arrange elements similar to the input subject, creating a sense of visual noise and repetition.\nStyle: Mixed media collage, glitch art, acid graphics, random scattered objects.\nNo negative space, fill every corner with details. High saturation, clashing colors, psychedelic atmosphere.Chaotic visual layout.",
-    "images": [
-      "data/images/chaotic-anime-illustration-poster-design/chaotic-anime-illustration-poster-design.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@HERO | AIクリエイター ＆ アートディレクター",
-    "source": "https://x.com/hero_aicreative/status/1998767486813221171",
-    "createdAt": "2025-12-13T00:00:00Z",
-    "updatedAt": "2025-12-13T00:00:00Z"
-  },
-  {
     "id": "cartoon-style-app-icon-design",
     "title": "卡通风格应用图标设计",
     "prompt": "🚨PromptShare🚨\nCartoon Style App Icon\nColorful, cartoon-style app icon design for a [type of app: game, movie, food, sport, etc.] logo with the text [\"App Name\"] and [character, symbol, or cute object + short description of its pose or action] on the front of a square button, set against a [background color / theme] with simple details. High-resolution game art and graphics for a mobile app, Pixar style, realistic.",
@@ -1911,48 +1596,6 @@
     "updatedAt": "2025-12-01T00:00:00Z"
   },
   {
-    "id": "minimalist-vector-icon-of-any-character",
-    "title": "简约矢量图标任意角色",
-    "prompt": "Nano Banana smart prompt:\nMinimalist vector icon of any character\nPrompt 👇\n(access Nano Banana here:",
-    "images": [
-      "data/images/minimalist-vector-icon-of-any-character/minimalist-vector-icon-of-any-character.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@AmirMušić",
-    "source": "https://x.com/AmirMushich/status/2006092994835804617",
-    "createdAt": "2025-12-31T00:00:00Z",
-    "updatedAt": "2025-12-31T00:00:00Z"
-  },
-  {
-    "id": "typographic-logos-by-gpt-1-5-image",
-    "title": "GPT-1.5 图片的排版标志",
-    "prompt": "Typographic Logos by GPT-1.5 Image🔠\nPrompt👇🏻",
-    "images": [
-      "data/images/typographic-logos-by-gpt-1-5-image/typographic-logos-by-gpt-1-5-image.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@TechieSA",
-    "source": "https://x.com/TechieBySA/status/2005620980891480567",
-    "createdAt": "2025-12-31T00:00:00Z",
-    "updatedAt": "2025-12-31T00:00:00Z"
-  },
-  {
     "id": "nintendo-brand-merchandise-showcase",
     "title": "Nintendo品牌周边产品展示",
     "prompt": "简单的｛品牌周边｝提示词：\n【Nintendo】品牌的周边产品展示，高端的“系列”，囊括品牌实用纪念品。图片展示了一系列种类丰富且精心挑选的实物（例如品牌徽章、服装配饰、装饰挂件、科技配件、实用装备、生活用品、文具、日常用品等），这些物品在语义上与品牌的特定行业和受众群体密切相关。\n每件商品都采用品牌的官方标志性配色方案设计，并醒目地融入了品牌标识。\n这些物品以简洁有序的组合构图（俯视或等距视角）排列在无边框的背景上。\n柔和专业的灯光营造出微妙的光影效果。宽广的取景框确保产品组合四周留有大量的空白空间。",
@@ -1972,90 +1615,6 @@
     "source": "https://x.com/yyyole/status/2006260776575840276",
     "createdAt": "2025-12-31T00:00:00Z",
     "updatedAt": "2025-12-31T00:00:00Z"
-  },
-  {
-    "id": "christmas-advent-calendar-24th-day",
-    "title": "圣诞 advent 日历24日",
-    "prompt": "🎄Christmas Advent🎅\nアドベントカレンダー24日目\n～夜まで待ってて！プレゼントを届けに行くよ～\n画像生成：Nano Banana Pro\n↓プロンプトはリプ欄（画像添付して使ってみてください） https://t.co/AY3I4jO6T7\n⇩プロンプト\nA square illustration of a large central \"24\" number for an advent calendar. The big \"24\" looks like it is made from moonlit glass, slightly translucent with a pale bluish glow and gentle reflections of the night sky. The attached character is converted into a soft, cute 3D chibi figure in a storybook style, with cool moonlight and warm chimney glow, gentle shadows, and clear toy-like 3D depth. Even if the attached reference is a flat 2D illustration, render the character as a 3D figure toy with real volume and lighting, not as a flat drawing. Strictly preserve the character’s facial features, hairstyle, mood, headwear, and key clothing traits so they are clearly the same person; do not remove, hide, or cover their original hat, hood, or headband. Dress them in a Santa-themed outfit (red Santa coat and pants with small Santa accessories); if you add a Santa hat, make it small and placed to the side so it does not cover their original headwear.\nScene: Santa is about to go down a chimney on a rooftop. The glassy \"2\" forms part of the roof edge, and the \"4\" wraps around or frames the chimney opening. The character stands on the slanted rooftop, one foot on the \"4\" and one on the roof, leaning forward as if about to climb into the chimney and holding onto the \"4\" or chimney edge for balance. The character clearly interacts with the glowing glass number.\nBackground shows a dark, magical night sky with bright stars and a clear moon, plus the silhouette of rooftops; cool blue light from the moon mixes with warm light from the chimney. No text or letters anywhere; only the numeric day number \"24\" is visible.",
-    "images": [
-      "data/images/christmas-advent-calendar-24th-day/christmas-advent-calendar-24th-day.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@た〜や｜AI副業ワーママ",
-    "source": "https://x.com/taya_mama_AI/thread/2003600263505174855",
-    "createdAt": "2025-12-26T00:00:00Z",
-    "updatedAt": "2025-12-26T00:00:00Z"
-  },
-  {
-    "id": "pixar-style-3d-cartoon-character-prompt-words",
-    "title": "皮克斯风格3D卡通形象提示词",
-    "prompt": "一组炒鸡可爱的提示词！给你一套专属于你的皮克斯风格 3D 卡通形象😍\n只需提供你自己的照片，就能获得九个不同表情的形象照🥳\n提示词见原贴，我也优化过一版放评论👇都试试看",
-    "images": [
-      "data/images/pixar-style-3d-cartoon-character-prompt-words/pixar-style-3d-cartoon-character-prompt-words.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@MapleShaw",
-    "source": "https://x.com/msjiaozhu/status/2003454640680284219",
-    "createdAt": "2025-12-25T00:00:00Z",
-    "updatedAt": "2025-12-25T00:00:00Z"
-  },
-  {
-    "id": "christmas-digital-art-prompt",
-    "title": "圣诞节数字艺术提示",
-    "prompt": "🚨PromptShare🚨\nCHRISTMAS DIGITAL ART PROMPT\na christmas [main festive element] made of glowing [line or light material], [additional christmas elements or decorations around it], dark background, digital art style, simple illustration, cartoon style, high resolution, high detail, 3d render, sharp focus, studio lighting.\nNOW YOUR TURN Try it !",
-    "images": [
-      "data/images/christmas-digital-art-prompt/christmas-digital-art-prompt.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Pierrick Chevallier | IA",
-    "source": "https://x.com/CharaspowerAI/status/2003156101718581386",
-    "createdAt": "2025-12-23T00:00:00Z",
-    "updatedAt": "2025-12-23T00:00:00Z"
-  },
-  {
-    "id": "makeup-blogger-christmas-makeup-tutorial-interface",
-    "title": "美妆博主圣诞妆容教程界面",
-    "prompt": "圣诞特辑-美妆博主圣诞妆容教程界面\nNano banana pro提示词：\n竖屏社交媒体故事设计 (9:16 宽高比)，美妆博主圣诞妆容教程界面。背景为柔和的高级感粉色渐变，营造甜美梦幻氛围。\n核心视觉：\n人物一致性（最高权重）： 画面中央展示一位亚洲女性美妆博主，面部特征、五官及发型必须严格、完美地复刻上传的参考图片人物。\n妆容与配饰： 极度精致的“圣诞麋鹿甜酷妆”。眼妆为红棕色晕染，面部有白色小鹿斑点，头戴毛绒驯鹿角发箍。\n红笔标记与步骤对应（逻辑核心）： 在右侧完妆人物的面部，使用醒目的红色墨水笔引出5条指示线，分别指向妆容的5个关键部位，并按顺序标注中文：1. 眼影；2. 金色闪片；3. 睫毛；4. 鹿系腮红；5. 饱满红唇。\n排版布局：\n顶部： 中文标题“圣诞妆容教程”，搭配口红图标。副标题“麋鹿少女妆 甜酷风”。\n中部（对比区）： 左右分屏设计。左侧为该人物“素颜”，右侧为“完妆”。中间用虚线和剪刀图标连接。\n下部（强关联步骤预览区）： 设置横向滑动的圆角卡片栏，展示5个与面部标记严格对应的步骤图：\n卡片1：眼部涂抹眼影的特写；\n卡片2：用手指点缀金色闪片的特写；\n卡片3：夹睫毛或刷睫毛的特写；\n卡片4：面颊扫腮红和画鹿斑的特写；\n卡片5：涂抹红色口红的嘴唇特写。 每张卡片左上角需清晰标注数字1-5，与面部红笔标记的序号呼应。\n底部（互动区）： “上滑看完整教程”箭头，“点击查看同款产品”按钮，点赞与收藏图标。\n风格： 高清商业摄影质感结合UI设计，光影通透，色彩鲜艳，肤质细腻真实，时尚杂志排版风格。 --ar 9:16",
-    "images": [
-      "data/images/makeup-blogger-christmas-makeup-tutorial-interface/makeup-blogger-christmas-makeup-tutorial-interface.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@松果先森",
-    "source": "https://x.com/songguoxiansen/status/2003466070502564105",
-    "createdAt": "2025-12-23T00:00:00Z",
-    "updatedAt": "2025-12-23T00:00:00Z"
   },
   {
     "id": "exploded-view-of-nespresso-coffee-machine-internal-components",
@@ -2079,27 +1638,6 @@
     "updatedAt": "2025-12-22T00:00:00Z"
   },
   {
-    "id": "baby-store-product-photography-marketing-analysis",
-    "title": "母婴店产品图营销策略分析",
-    "prompt": "今天给母婴店美女老板做了几张样图，她很满意，但她考虑和纠结的点在于：要不要在小红书上开店。\n我对小红书开店了解不多，但看了她的小红书号，粉丝还没有我多，也没什么爆款内容，我建议她沉淀一下粉丝，做个爆款再开店，或者起一个新号，内容和店铺同时进行。\n她看了这些图，对我提了一个问题，她说为什么产品图里都是妈妈在推婴儿车，妈妈在用奶瓶喂奶，爸爸呢？\n我猛然惊醒！！\n作为一个女性占有绝对决策权的产品，在营销上一定要迎合女性心理，一个新晋宝妈，刚经历难熬的十月怀胎，而这个时候，她一定会希望是宝爸承担起更多的责任义务，深夜喂奶，出门准备好一切，推婴儿车……\n而产品图，需要迎合这个心理，让受众妈妈们有一种“轻松感”，这个产品买回去是给爸爸用。\n突然想起之前小米汽车的销售，当小两口一起去看车，她会侧重为女朋友/妻子介绍车的外观、内饰、化妆镜如何如何时尚漂亮，如何如何方便，如何如何人性化。\n因为汽车这样的大件，在一个家庭里，女性也具有相当大的决策权。\n感谢美女老板，不管她要不要开店，但今天又以一种更加深刻的方式，让我学到了一点很有用的东西。",
-    "images": [
-      "data/images/baby-store-product-photography-marketing-analysis/baby-store-product-photography-marketing-analysis.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@沐阳",
-    "source": "https://x.com/yyyole/status/2002580978355806502",
-    "createdAt": "2025-12-21T00:00:00Z",
-    "updatedAt": "2025-12-21T00:00:00Z"
-  },
-  {
     "id": "fashion-lady-and-labubu-character-advertising-photo",
     "title": "时尚女士与Labubu角色广告大片合影",
     "prompt": "上传你的照片，和你喜欢的角色来一张广告大片感的合影\n🍌Nano Banana Prompt：\n生成一张超高逼真图像，一位时尚女士，使用上传的照片（保留我的原脸），身穿名《文字》为“黄色针织衫”的、超短裙和白色高跟鞋，手臂搭在一个巨大的、照片级逼真的3D渲染版《角色》角色上。整个场景以无缝、纯色、充满活力的浅蓝色背景为衬托。采用影棚灯光、专业摄影技术，呈现高细节、超逼真的时尚大片效果。\n文字：Prompt Kiddie\n角色：Labubu",
@@ -2119,48 +1657,6 @@
     "source": "https://x.com/linxiaobei888/status/2002021192648339808",
     "createdAt": "2025-12-20T00:00:00Z",
     "updatedAt": "2025-12-20T00:00:00Z"
-  },
-  {
-    "id": "gpt-image-1-5-vs-midjourney-anime-style-cross-stitch-of-a-christmas-elf",
-    "title": "GPT Image 1.5 vs Midjourney - 日式动漫风格的圣诞精灵十字绣",
-    "prompt": "GPT Image 1.5 vs Midjourney.\nMJ's aesthetics are still superior.\nprompt: \"a cross-stitch of a christmas elf - anime style. the elf is working at a guitar store, guitars hang on the wall. the cross stitch has a christmas border with mistletoe and christmas decorations.\"",
-    "images": [
-      "data/images/gpt-image-1-5-vs-midjourney-anime-style-cross-stitch-of-a-christmas-elf/gpt-image-1-5-vs-midjourney-anime-style-cross-stitch-of-a-christmas-elf.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@mash tun",
-    "source": "https://x.com/MashTunTimmy/status/2001745127396573635",
-    "createdAt": "2025-12-19T00:00:00Z",
-    "updatedAt": "2025-12-19T00:00:00Z"
-  },
-  {
-    "id": "christmas-snow-globe-characters-by-nano-banana-pro",
-    "title": "Nano Banana Pro的圣诞雪花球角色",
-    "prompt": "Christmas snow globes with characters in kawaii form by Nano Banana Pro\nPrompt ↓ https://t.co/jUeG89Sd5A",
-    "images": [
-      "data/images/christmas-snow-globe-characters-by-nano-banana-pro/christmas-snow-globe-characters-by-nano-banana-pro.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@1RPC.ai",
-    "source": "https://x.com/1rpc_ai/status/1999038943443177955",
-    "createdAt": "2025-12-18T00:00:00Z",
-    "updatedAt": "2025-12-18T00:00:00Z"
   },
   {
     "id": "p21",
@@ -2409,77 +1905,6 @@
     "source": "团队原创",
     "createdAt": "2026-10-16T05:18:51Z",
     "updatedAt": "2026-10-16T05:18:51Z"
-  },
-  {
-    "id": "japanese-idol-daily-snap-prompt",
-    "title": "日本アイドル日常スナッププロンプト",
-    "prompt": "日本国内で、アイドルの何気ない日常を「雑に撮れたiPhoneスナップ」っぽく再現するためのプロンプトです。\n構図の甘さや露出ムラ、軽いノイズなど“生活感のある写り”を出しつつ、毎回ロケーション・距離・角度・色味・髪型・服装などを少しずつ変えて、同じ雰囲気のままバリエーションが出るように設計されています\n\n多彩性が弱いと感じたら、変動項目（3〜5）の中で“ロケーション”と“角度”の比重を上げると効きます\n\nさらに、この設計はLLM（大規模言語モデル）を使って、用途に合わせた改造が可能です（例：座り限定／空港比率アップ／フィルム寄せ／パパラッチ感強め／季節固定／服装テンプレ差し替えなど）",
-    "images": [
-      "data/images/japanese-idol-daily-snap-prompt/japanese-idol-daily-snap-prompt-156x62.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "iPhone",
-      "日常スナップ",
-      "アイドル",
-      "生活感",
-      "バリエーション"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "https://aiart.pics/prompts/019ca7dd-e416-7150-a953-5ebd1369c1d4",
-    "createdAt": "2026-01-28T11:49:34Z",
-    "updatedAt": "2026-01-28T11:49:34Z"
-  },
-  {
-    "id": "runway-character-renderer-feature-analysis-video",
-    "title": "Runway「Character Renderer」功能分析",
-    "prompt": "Runway「Character Renderer」\n2Dのスケッチや画像を、3Dレンダリング風のキャラクターに変換できる新機能です！\n\nRunway内で利用できるNano Banana Proを活用したテンプレートみたいな機能で、ワンクリックで画像を生成できます💡\n\n↓の動画のようにそのまま動画化することも◎ https://t.co/o1KihvWxPN",
-    "images": [
-      "data/images/runway-character-renderer-feature-analysis-video/runway-character-renderer-feature-analysis-video-1080x1080.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "Sketch to Character",
-      "Character Rendering",
-      "3D Conversion",
-      "Runway AI",
-      "AI Template"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "https://aiart.pics/prompts/019ca7dd-ecfc-7cb3-987b-bb8cb6b044b7",
-    "createdAt": "2026-02-28T05:08:06Z",
-    "updatedAt": "2026-02-28T05:08:06Z"
-  },
-  {
-    "id": "y2k-fashion-generation",
-    "title": "Y2K时尚生成",
-    "prompt": "・システムプロンプト+検索プロンプト+リファレンス画像で生成（Freepik）\n・理想とするコーデだったのでしばらく🥹ってなってました\n・Nano Banana 2は「real-time information and images from web search」を用いて、特定の主題（ここではY2Kファッション）の正確なレンダリングを強化します。ただし、出力は常に生成された新規画像であり、直接の検索結果画像を返すわけではありません。",
-    "images": [
-      "data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600.jpg",
-      "data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600-2.jpg",
-      "data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600-3.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "Y2K时尚",
-      "数字艺术",
-      "网络搜索融合",
-      "实时生成",
-      "时尚插画"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "https://aiart.pics/prompts/019ca7dd-fbca-752e-8db0-652203717fb0",
-    "createdAt": "2026-02-26T21:10:20Z",
-    "updatedAt": "2026-02-26T21:10:20Z"
   },
   {
     "id": "art-journey-indian-impressions",
