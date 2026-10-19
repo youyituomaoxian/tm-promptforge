@@ -3501,5 +3501,76 @@
     "source": "团队原创",
     "createdAt": "2026-10-16T05:18:51Z",
     "updatedAt": "2026-10-16T05:18:51Z"
+  },
+  {
+    "id": "japanese-idol-daily-snap-prompt",
+    "title": "日本アイドル日常スナッププロンプト",
+    "prompt": "日本国内で、アイドルの何気ない日常を「雑に撮れたiPhoneスナップ」っぽく再現するためのプロンプトです。\n構図の甘さや露出ムラ、軽いノイズなど“生活感のある写り”を出しつつ、毎回ロケーション・距離・角度・色味・髪型・服装などを少しずつ変えて、同じ雰囲気のままバリエーションが出るように設計されています\n\n多彩性が弱いと感じたら、変動項目（3〜5）の中で“ロケーション”と“角度”の比重を上げると効きます\n\nさらに、この設計はLLM（大規模言語モデル）を使って、用途に合わせた改造が可能です（例：座り限定／空港比率アップ／フィルム寄せ／パパラッチ感強め／季節固定／服装テンプレ差し替えなど）",
+    "images": [
+      "data/images/japanese-idol-daily-snap-prompt/japanese-idol-daily-snap-prompt-156x62.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "iPhone",
+      "日常スナップ",
+      "アイドル",
+      "生活感",
+      "バリエーション"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ca7dd-e416-7150-a953-5ebd1369c1d4",
+    "createdAt": "2026-01-28T11:49:34Z",
+    "updatedAt": "2026-01-28T11:49:34Z"
+  },
+  {
+    "id": "runway-character-renderer-feature-analysis-video",
+    "title": "Runway「Character Renderer」功能分析",
+    "prompt": "Runway「Character Renderer」\n2Dのスケッチや画像を、3Dレンダリング風のキャラクターに変換できる新機能です！\n\nRunway内で利用できるNano Banana Proを活用したテンプレートみたいな機能で、ワンクリックで画像を生成できます💡\n\n↓の動画のようにそのまま動画化することも◎ https://t.co/o1KihvWxPN",
+    "images": [
+      "data/images/runway-character-renderer-feature-analysis-video/runway-character-renderer-feature-analysis-video-1080x1080.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "Sketch to Character",
+      "Character Rendering",
+      "3D Conversion",
+      "Runway AI",
+      "AI Template"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ca7dd-ecfc-7cb3-987b-bb8cb6b044b7",
+    "createdAt": "2026-02-28T05:08:06Z",
+    "updatedAt": "2026-02-28T05:08:06Z"
+  },
+  {
+    "id": "y2k-fashion-generation",
+    "title": "Y2K时尚生成",
+    "prompt": "・システムプロンプト+検索プロンプト+リファレンス画像で生成（Freepik）\n・理想とするコーデだったのでしばらく🥹ってなってました\n・Nano Banana 2は「real-time information and images from web search」を用いて、特定の主題（ここではY2Kファッション）の正確なレンダリングを強化します。ただし、出力は常に生成された新規画像であり、直接の検索結果画像を返すわけではありません。",
+    "images": [
+      "data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600.jpg",
+      "data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600-2.jpg",
+      "data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600-3.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "Y2K时尚",
+      "数字艺术",
+      "网络搜索融合",
+      "实时生成",
+      "时尚插画"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "https://aiart.pics/prompts/019ca7dd-fbca-752e-8db0-652203717fb0",
+    "createdAt": "2026-02-26T21:10:20Z",
+    "updatedAt": "2026-02-26T21:10:20Z"
   }
 ]

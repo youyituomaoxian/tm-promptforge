@@ -351,6 +351,10 @@
 1200,
 800
 ],
+"data/images/japanese-idol-daily-snap-prompt/japanese-idol-daily-snap-prompt-156x62.jpg": [
+156,
+62
+],
 "data/images/league-of-legends-yasuo-mid-lane-lane-clearing-game-interface/league-of-legends-yasuo-mid-lane-lane-clearing-game-interface.jpg": [
 1408,
 768
@@ -779,6 +783,10 @@
 1600,
 873
 ],
+"data/images/runway-character-renderer-feature-analysis-video/runway-character-renderer-feature-analysis-video-1080x1080.jpg": [
+1080,
+1080
+],
 "data/images/sale-gemini-3-pro-nano-banana-ai-image-generator-for-perfect-text/sale-gemini-3-pro-nano-banana-ai-image-generator-for-perfect-text.jpg": [
 1190,
 1600
@@ -930,5 +938,17 @@
 "data/images/world-in-a-bottle/world-in-a-bottle.jpg": [
 1200,
 800
+],
+"data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600-2.jpg": [
+893,
+1600
+],
+"data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600-3.jpg": [
+893,
+1600
+],
+"data/images/y2k-fashion-generation/y2k-fashion-generation-893x1600.jpg": [
+893,
+1600
 ]
 }
