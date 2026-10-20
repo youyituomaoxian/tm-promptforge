@@ -151,9 +151,10 @@
   {
     "id": "ultra-realistic-premium-beverage-product-photography",
     "title": "超真实高品质饮料产品摄影",
-    "prompt": "This image was created by me using Gemini Nano Banana 3.0\nPrompt:-\nUltra-realistic premium beverage product photography of a chilled aluminum soda can standing upright at the center of the frame, featuring a glossy deep-pink metallic body covered in condensation droplets, with a bold front label reading “Strawberry Cake” and an illustrated strawberry cake topped with raspberries; a vivid stream of red strawberry liquid is pouring dynamically into the open can from above, captured mid-splash with dramatic arcs and droplets frozen in motion",
+    "prompt": "超写实高端饮品产品摄影，画面中心直立摆放【冰镇铝制汽水罐】，拥有【亮面深粉色金属罐身】，表面布满【冷凝水珠】；正面醒目的标签写着 “【TECHMATION 】”，配有【点缀覆盆子的草莓蛋糕图案】；鲜活的【红色草莓原液】液体从上方动态注入开口容器，定格在飞溅瞬间，带有流畅优美的液体弧线与悬浮液滴。",
     "images": [
-      "data/images/ultra-realistic-premium-beverage-product-photography/ultra-realistic-premium-beverage-product-photography.jpg"
+      "data/images/ultra-realistic-premium-beverage-product-photography/ultra-realistic-premium-beverage-product-photography.jpg",
+      "data/images/ultra-realistic-premium-beverage-product-photography/ultra-realistic-premium-beverage-product-photography-1024x1536.jpg"
     ],
     "categories": [
       "产品图"
@@ -164,10 +165,10 @@
       "质感细节"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@𝐌𝐢𝐧𝐝𝐒𝐩𝐚𝐫𝐤",
-    "source": "https://x.com/Strength04_X/status/2004597812554862648",
+    "author": "@马守坤",
+    "source": "网络社区",
     "createdAt": "2025-12-27T00:00:00Z",
-    "updatedAt": "2025-12-27T00:00:00Z"
+    "updatedAt": "2026-10-20T01:23:56Z"
   },
   {
     "id": "chiaroscuro-product-photography",
