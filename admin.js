@@ -1450,6 +1450,24 @@
   }
 
   // ---------- 上传 ----------
+  // 图片文件名去重：`<id>-<w>x<h>.jpg` 在「三张不同图压缩后尺寸相同」时会算出同一个名字，
+  // 于是三张指向同一个 rel —— 预览按 rel 查找就变成三张一样的，发布时也是同一路径互相覆盖。
+  // （2026-10-20 用户实测「三张不一样的上传后显示成三张一样的」即此。）
+  function uniqueImageName(base) {
+    var used = {};
+    (state.draft.images || []).forEach(function (rel) {
+      var m = /([^/]+)$/.exec(String(rel || ''));
+      if (m) used[m[1]] = 1;
+    });
+    (state.draft.pendingImages || []).forEach(function (p) {
+      if (p && p.filename) used[p.filename] = 1;
+    });
+    var name = base + '.jpg';
+    var n = 2;
+    while (used[name]) { name = base + '-' + n + '.jpg'; n++; }
+    return name;
+  }
+
   function handleFiles(ev) {
     var files = Array.prototype.slice.call(ev.target.files || []);
     if (!files.length) return;
@@ -1468,7 +1486,7 @@
     files.slice(0, Math.max(0, room)).forEach(function (f) {
       chain = chain.then(function () {
         return compressImage(f).then(function (out) {
-          var name = id + '-' + out.w + 'x' + out.h + '.jpg';
+          var name = uniqueImageName(id + '-' + out.w + 'x' + out.h);
           if (be().kind === 'github') {
             // 书15：GitHub 模式（新增+编辑）压缩产物都不立即上传——
             // 新增：待入暂存箱随批原子发布；编辑：随 publishSingle 单条原子上传。
