@@ -65,9 +65,10 @@
   {
     "id": "shadow-architecture-product-photography",
     "title": "光影建筑产品摄影",
-    "prompt": "Prompt Studio: Shadow Architecture Product Photography\n[PRODUCT] with dramatic geometric shadows cast across it from [window blinds, perforated screen, architectural element], interplay of light and dark, pattern overlay, temporal quality suggesting time of day, moody sophistication.\nCheck ALTs for ideas 👇",
+    "prompt": "Shadow Architecture Product Photography\n[PRODUCT] with dramatic geometric shadows cast across it from [window blinds, perforated screen, architectural element], interplay of light and dark, pattern overlay, temporal quality suggesting time of day, moody sophistication.",
     "images": [
-      "data/images/shadow-architecture-product-photography/shadow-architecture-product-photography.jpg"
+      "data/images/shadow-architecture-product-photography/shadow-architecture-product-photography-1082x1453.jpg",
+      "data/images/shadow-architecture-product-photography/shadow-architecture-product-photography-1303x1207.jpg"
     ],
     "categories": [
       "产品图"
@@ -77,11 +78,11 @@
       "影棚布光",
       "质感细节"
     ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@AllaAisling",
-    "source": "https://x.com/AllaAisling/status/2006047127492067487",
+    "model": "GPT Image 2.5 (OpenAI)",
+    "author": "@马守坤",
+    "source": "网络社区收集",
     "createdAt": "2025-12-31T00:00:00Z",
-    "updatedAt": "2025-12-31T00:00:00Z"
+    "updatedAt": "2026-10-20T01:13:28Z"
   },
   {
     "id": "desert-mirage-product-photography",
