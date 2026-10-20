@@ -107,10 +107,11 @@
   },
   {
     "id": "color-block-product-photography-flux-2-adobe-firefly",
-    "title": "色彩块产品摄影，使用FLUX.2在@AdobeFirefly中",
-    "prompt": "Prompt Studio: Color Block Product Photography, with FLUX.2 in @AdobeFirefly\n[PRODUCT] placed within bold color-blocked environment, [complementary or contrasting color scheme], hard edges between color zones, graphic design influence, pop art aesthetic, flat lighting, editorial product photography, striking simplicity.\nCheck ALTs for ideas 👇",
+    "title": "色彩块产品摄影",
+    "prompt": "Color Block Product Photography, with FLUX.2 in @AdobeFirefly\n【PRODUCT】placed within bold color-blocked environment, [complementary or contrasting color scheme], hard edges between color zones, graphic design influence, pop art aesthetic, flat lighting, editorial product photography, striking simplicity.",
     "images": [
-      "data/images/color-block-product-photography-flux-2-adobe-firefly/color-block-product-photography-flux-2-adobe-firefly.jpg"
+      "data/images/color-block-product-photography-flux-2-adobe-firefly/color-block-product-photography-flux-2-adobe-firefly.jpg",
+      "data/images/color-block-product-photography-flux-2-adobe-firefly/color-block-product-photography-flux-2-adobe-firefly-1300x1210.jpg"
     ],
     "categories": [
       "产品图"
@@ -121,10 +122,10 @@
       "质感细节"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@AllaAisling",
-    "source": "https://x.com/AllaAisling/status/2005398855852982441",
+    "author": "@马守坤",
+    "source": "网络社区",
     "createdAt": "2025-12-29T00:00:00Z",
-    "updatedAt": "2025-12-29T00:00:00Z"
+    "updatedAt": "2026-10-20T01:18:30Z"
   },
   {
     "id": "melting-product-photography",
