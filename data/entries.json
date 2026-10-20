@@ -210,27 +210,6 @@
     "updatedAt": "2025-12-26T00:00:00Z"
   },
   {
-    "id": "mid-air-suspended-product-with-glowing-sparks-textured-surfaces-highlighted-by-dramatic-studio-lighting",
-    "title": "空中悬浮的产品，周围环绕着发光的火花，戏剧性的工作室灯光突出了质感的表面，充满原始能量和耐久性的感觉，运动以电影般的清晰度被冻结",
-    "prompt": "PROMPT TO ART\n[PRODUCT] suspended mid-air, glowing sparks swirling around, dramatic studio lighting highlighting textured surfaces, sense of raw energy and durability, motion frozen with cinematic clarity.",
-    "images": [
-      "data/images/mid-air-suspended-product-with-glowing-sparks-textured-surfaces-highlighted-by-dramatic-studio-lighting/mid-air-suspended-product-with-glowing-sparks-textured-surfaces-highlighted-by-dramatic-studio-lighting.jpg"
-    ],
-    "categories": [
-      "产品图"
-    ],
-    "tags": [
-      "产品渲染",
-      "影棚布光",
-      "质感细节"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Skipper",
-    "source": "https://x.com/RobotCleopatra/status/2004298915001389518",
-    "createdAt": "2025-12-26T00:00:00Z",
-    "updatedAt": "2025-12-26T00:00:00Z"
-  },
-  {
     "id": "botanical-product-photography",
     "title": "植物产品摄影",
     "prompt": "Prompt Studio: Botanical Product Photography\n[PRODUCT] nestled among lush green plants and tropical leaves, dappled natural light, humidity visible in air, organic freshness, sustainable aesthetic, life and growth symbolism, botanical studio setup, verdant backdrop.\nCheck ALTs for ideas",
