@@ -23,7 +23,7 @@
   {
     "id": "liquid-pour-product-photography",
     "title": "液体倒灌产品摄影",
-    "prompt": "Prompt Studio: Liquid Pour Product Photography\n[PRODUCT] with [liquid: honey, oil, paint, milk] being poured over it, captured at moment of contact, dripping and coating surface, viscous flow frozen in time, studio lighting revealing liquid texture, sensory product photography, indulgent aesthetic\nCheck ALTs for ideas 👇",
+    "prompt": "Liquid Pour Product Photography\n[PRODUCT] with [liquid: honey, oil, paint, milk] being poured over it, captured at moment of contact, dripping and coating surface, viscous flow frozen in time, studio lighting revealing liquid texture, sensory product photography, indulgent aesthetic",
     "images": [
       "data/images/liquid-pour-product-photography/liquid-pour-product-photography.jpg"
     ],
@@ -36,10 +36,10 @@
       "质感细节"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@AllaAisling",
-    "source": "https://x.com/AllaAisling/status/2004673828203467087",
+    "author": "@马守坤",
+    "source": "网络社区收集",
     "createdAt": "2025-12-27T00:00:00Z",
-    "updatedAt": "2025-12-27T00:00:00Z"
+    "updatedAt": "2026-10-20T01:09:50Z"
   },
   {
     "id": "nano-banana-pro-product-photography-tips",
