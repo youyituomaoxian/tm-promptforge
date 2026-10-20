@@ -254,9 +254,10 @@
   {
     "id": "frozen-in-ice-product-photography",
     "title": "冰封产品摄影",
-    "prompt": "Prompt Studio: Frozen in Ice Product Photography\n[PRODUCT] encased in cracked ice block, frost crystals forming on surface, cold blue-white lighting, frozen mist rising, arctic aesthetic, preserved in time, studio shot against dark background, texture contrast between ice and product.\nCheck ALTs for ideas 👇",
+    "prompt": "Prompt Studio: Frozen in Ice Product Photography\n[PRODUCT] encased in cracked ice block, frost crystals forming on surface, cold blue-white lighting, frozen mist rising, arctic aesthetic, preserved in time, studio shot against dark background, texture contrast between ice and product.",
     "images": [
-      "data/images/frozen-in-ice-product-photography/frozen-in-ice-product-photography.jpg"
+      "data/images/frozen-in-ice-product-photography/frozen-in-ice-product-photography-1304x1206.jpg",
+      "data/images/frozen-in-ice-product-photography/frozen-in-ice-product-photography-1082x1454.jpg"
     ],
     "categories": [
       "产品图"
@@ -266,11 +267,11 @@
       "影棚布光",
       "质感细节"
     ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@AllaAisling",
-    "source": "https://x.com/AllaAisling/status/2002139782105710756",
+    "model": "GPT Image 2.5 (OpenAI)",
+    "author": "@马守坤",
+    "source": "网络社区收集",
     "createdAt": "2025-12-20T00:00:00Z",
-    "updatedAt": "2025-12-20T00:00:00Z"
+    "updatedAt": "2026-10-20T00:48:37Z"
   },
   {
     "id": "male-studio-portrait",
