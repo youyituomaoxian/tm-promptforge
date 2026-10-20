@@ -194,9 +194,11 @@
   {
     "id": "sand-and-wind-product-photography",
     "title": "沙与风产品摄影",
-    "prompt": "Prompt Studio: Sand & Wind Product Photography\n[PRODUCT] with fine sand particles swirling around it, caught mid-motion, desert wind effect, warm golden lighting, gritty texture contrast, elemental power, rugged durability implied, dynamic studio capture.\nCheck ALTs for ideas 👇",
+    "prompt": "Prompt Studio: Sand & Wind Product Photography\n[PRODUCT] with fine sand particles swirling around it, caught mid-motion, desert wind effect, warm golden lighting, gritty texture contrast, elemental power, rugged durability implied, dynamic studio capture.",
     "images": [
-      "data/images/sand-and-wind-product-photography/sand-and-wind-product-photography.jpg"
+      "data/images/sand-and-wind-product-photography/sand-and-wind-product-photography.jpg",
+      "data/images/sand-and-wind-product-photography/sand-and-wind-product-photography-1200x1600.jpg",
+      "data/images/sand-and-wind-product-photography/sand-and-wind-product-photography-1410x1115.jpg"
     ],
     "categories": [
       "产品图"
@@ -207,10 +209,10 @@
       "质感细节"
     ],
     "model": "Gemini Nano Banana Pro",
-    "author": "@AllaAisling",
-    "source": "https://x.com/AllaAisling/status/2003960376766222356",
+    "author": "@马守坤",
+    "source": "网络社区",
     "createdAt": "2025-12-26T00:00:00Z",
-    "updatedAt": "2025-12-26T00:00:00Z"
+    "updatedAt": "2026-10-20T01:32:42Z"
   },
   {
     "id": "botanical-product-photography",
