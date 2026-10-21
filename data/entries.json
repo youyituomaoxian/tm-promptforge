@@ -238,7 +238,7 @@
   {
     "id": "miniature-world-product-photography",
     "title": "微型世界产品摄影",
-    "prompt": "Prompt Studio: Miniature World Product Photography\n[PRODUCT] as giant object in miniature scene, tiny figures or landscape elements around it, tilt-shift effect, playful scale distortion, whimsical advertising, model-making aesthetic, imaginative perspective.\nCheck ALTs for ideas 👇",
+    "prompt": "Miniature World Product Photography\n[PRODUCT] as giant object in miniature scene, tiny figures or landscape elements around it, tilt-shift effect, playful scale distortion, whimsical advertising, model-making aesthetic, imaginative perspective.",
     "images": [
       "data/images/miniature-world-product-photography/miniature-world-product-photography-1300x1210.jpg"
     ],
@@ -254,7 +254,7 @@
     "author": "@马守坤",
     "source": "网络社区收集",
     "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2026-10-20T00:44:10Z"
+    "updatedAt": "2026-10-21T00:51:38Z"
   },
   {
     "id": "frozen-in-ice-product-photography",
