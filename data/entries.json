@@ -384,69 +384,6 @@
     "updatedAt": "2025-12-01T00:00:00Z"
   },
   {
-    "id": "90s-style-wrestler",
-    "title": "90年代风格的摔跤人物",
-    "prompt": "Product photography, a 1990's style WWF Wrestling Figurine package with the figurine wrestler in the package being [your character]. The figure features bright colors, a detailed character design,  white background with professional studio lighting.\n产品摄影，一个 90 年代风格的 WWF 摔角人偶包装，包装中的人偶是[你的角色]。人偶色彩鲜艳，角色设计精细，背景为白色，配有专业工作室灯光。",
-    "images": [
-      "data/images/90s-style-wrestler/90s-style-wrestler.jpg"
-    ],
-    "categories": [
-      "产品图"
-    ],
-    "tags": [
-      "产品渲染",
-      "影棚布光",
-      "质感细节"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Pierrick Chevallier | IA",
-    "source": "https://x.com/CharaspowerAI/status/1934287289154228450",
-    "createdAt": "2025-12-01T00:00:00Z",
-    "updatedAt": "2025-12-01T00:00:00Z"
-  },
-  {
-    "id": "brand-3d-render-of-large-capsule-container",
-    "title": "大型胶囊形容器的品牌3D渲染图",
-    "prompt": "Create a hyper-realistic 3D render of a large capsule-shaped container. The top half is solid and glossy in the brand’s signature color, featuring the official [BRAND] logo prominently. The bottom half is transparent, revealing multiple miniature famous products of this brand, [PRODUCT], neatly packed inside. Set against a dark background with cinematic lighting and soft reflections to create a premium, surreal advertising aesthetic. Ultra-detailed, professional product render style. 1080x1080 dimension\n制作一个超逼真的大型胶囊形容器的3D渲染图。上半部分为品牌标志性颜色的实心亮面材质，并醒目地印有[品牌]官方标识。下半部分为透明材质，展现出该品牌众多知名产品的微缩模型[产品]，整齐地包装在内。以深色背景搭配电影级灯光和柔和的反射效果，营造出高端超现实的广告美感。采用超精细的专业产品渲染风格。尺寸为1080x1080。",
-    "images": [
-      "data/images/brand-3d-render-of-large-capsule-container/brand-3d-render-of-large-capsule-container.jpg"
-    ],
-    "categories": [
-      "产品图"
-    ],
-    "tags": [
-      "产品渲染",
-      "影棚布光",
-      "质感细节"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@TechieSA",
-    "source": "https://x.com/TechieBySA/status/1984265548251980140",
-    "createdAt": "2025-12-01T00:00:00Z",
-    "updatedAt": "2025-12-01T00:00:00Z"
-  },
-  {
-    "id": "paper-toy-version",
-    "title": "纸制玩具版本",
-    "prompt": "Ultra-detailed render of a [CHARACTER NAME] paper toy version in box form (papertoy) made from matte folded cardboard and cut with visible paper texture, clean edges and neat folds. Cubic head and body, square extremities, simplified facial features, flat printed colors and subtle shading for greater depth. The clothing and accessories faithfully imitate the appearance of the reference image in a minimalist geometric papercraft style, maintaining compact proportions and chibi style. Neutral studio lighting, soft shadows, smooth background, photorealistic product photography, 4K, no text or logos. 1080x1080 dimension.\n超细节渲染的[角色名称]纸制玩具版本，呈盒子形状（纸制玩具），由哑光折叠纸板制成，带有可见的纸张纹理，边缘干净，折叠整齐。头部和身体为立方体，四肢为方形，面部特征简化，采用平面印刷色彩和微妙阴影以增强深度。服装和配饰以极简几何纸艺风格忠实地模仿参考图的外观，保持紧凑比例和Q版风格。中性工作室灯光，柔和阴影，平滑背景，逼真的产品摄影效果，4K分辨率，无文字或标志。尺寸为1080x1080。",
-    "images": [
-      "data/images/paper-toy-version/paper-toy-version.jpg"
-    ],
-    "categories": [
-      "产品图"
-    ],
-    "tags": [
-      "产品渲染",
-      "影棚布光",
-      "质感细节"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@TechieSA",
-    "source": "https://x.com/TechieBySA/status/1961411111879594453",
-    "createdAt": "2025-12-01T00:00:00Z",
-    "updatedAt": "2025-12-01T00:00:00Z"
-  },
-  {
     "id": "3d-shop-render",
     "title": "3D店铺渲染图",
     "prompt": "Ultra-realistic 3D render of a cute, miniature [BRAND NAME] storefront building. Designed using the brand’s signature style and color palette. Features a clean, modern exterior with large glass windows and a glowing 3D [BRAND NAME] logo sign on the front. Includes subtle branded props inside the store. Background matches the brand’s identity — clean, relevant, and atmospheric. Slight isometric angle, warm lighting, soft shadows, and centered composition.\n逼真的 3D 渲染图，展示了一个可爱、迷你版的[品牌名称]店铺建筑。采用品牌的标志性风格和色彩搭配设计。外部设计简洁现代，配有大型玻璃窗，正面有一个发光的 3D[品牌名称]标志。店内包含细微的品牌道具。背景与品牌身份相匹配——干净、相关且富有氛围。略微的等距角度，温暖的照明，柔和的阴影，居中构图。",
