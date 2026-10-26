@@ -321,27 +321,6 @@
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
-    "id": "product-render-based-on-sketch",
-    "title": "基于草图创建的产品渲染",
-    "prompt": "Create any product from any sketch using Nano Banana Pro\nPrompt:\nCreate a Product render based on this drawing, Aluminium, stainless, and a bright accent color, RAL orange.\nLoad in 4k https://t.co/1NDPzGSkc9",
-    "images": [
-      "data/images/product-render-based-on-sketch/product-render-based-on-sketch.jpg"
-    ],
-    "categories": [
-      "产品图"
-    ],
-    "tags": [
-      "产品渲染",
-      "影棚布光",
-      "质感细节"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@LinusEkenstam",
-    "source": "https://x.com/LinusEkenstam/status/1991818290713465055",
-    "createdAt": "2025-12-16T00:00:00Z",
-    "updatedAt": "2025-12-16T00:00:00Z"
-  },
-  {
     "id": "8k-morning-still-life-on-a-100-year-old-wooden-desk-in-golden-sunlight",
     "title": "百年老桌上的8K晨光静物：金光洒满尘埃之窗",
     "prompt": "🍌 nano banana pro prompt:\nExtreme close-up 8K morning still life on an old wooden desk bathed in golden sunlight through dusty window:\n- Half-eaten glazed strawberry on fine bone china plate, sticky syrup dripping\n- Antique silver fork with food residue and tiny scratches\n- Open Moleskine notebook with real leather cover, worn edges, textured paper showing fiber\n- Spilled red wine making rings on wood, absorbing into grain\n- Brass fountain pen leaking dark blue ink, pooling and reflecting light\n- Crumpled silk handkerchief with subtle embroidery threads\n- Dust particles floating in sunbeams, landing on matte black camera body with micro-scratches\n- Small puddle of water with floating dust and lens flare\n- Tiny spider web strand catching light between objects\n- Visible wood grain, knots, and 100-year-old cracks on the desk\nMaximum texture detail, subsurface scattering, caustics, sharp specular highlights where needed, photorealistic, shot on medium format Phase One, --ar 4:5 --v 3 --stylize 350",
