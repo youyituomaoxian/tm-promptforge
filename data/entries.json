@@ -657,69 +657,6 @@
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
-    "id": "coca-cola-miniature-building-illustration",
-    "title": "Coca-Cola迷你建筑插画",
-    "prompt": "Nano Banana Pro Prompt\nA whimsical 2D flat illustration of a SINGLE giant [Product Name] transformed into a bustling miniature building. The entire scene is focused on this one [Product Name] structure. Architectural details like tiny windows, awnings, stairs, and neon signs are attached to its surface. Cute miniature characters and plants are interacting with the building. Isometric micro-world style, hand-drawn texture, simple solid color background with no other large objects, creative product poster\nProduct Name：Coca-Cola",
-    "images": [
-      "data/images/coca-cola-miniature-building-illustration/coca-cola-miniature-building-illustration.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@LiberRicky",
-    "source": "https://x.com/LiberRicky/status/1998384490759196795",
-    "createdAt": "2025-12-13T00:00:00Z",
-    "updatedAt": "2025-12-13T00:00:00Z"
-  },
-  {
-    "id": "cute-3d-cartoon-character",
-    "title": "可爱的卡通3D角色",
-    "prompt": "🚨PromptShare🚨\nCUTE CARTOON 3D Character\na cute cartoon [character] [doing a fun or silly action], wearing [specific Christmas outfit or accessory], holding [a small item or prop], surrounded by [festive or wintery elements]. the color scheme is mainly [color palette], with a simple white background, 3d rendering effect, clay material, cute style, natural lighting, a static pose, and a warm atmosphere.\nNOX it's your turn my fiends !",
-    "images": [
-      "data/images/cute-3d-cartoon-character/cute-3d-cartoon-character.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "网络社区收集",
-    "createdAt": "2025-12-09T00:00:00Z",
-    "updatedAt": "2026-10-19T08:31:52Z"
-  },
-  {
-    "id": "nano-banana-pro-drawing-tips-cartoon-character-illustration",
-    "title": "纳米香蕉Pro绘图技巧：卡通人物插画",
-    "prompt": "哇 这个prompt很好用，使用nano banana pro出图：\n📕使用方法：\n直接替换Character即可，分别使用了爱丽丝漫游仙境、海贼王路飞、火影忍者鸣人、名侦探柯南，贼可爱！\nPrompt：\nDRAWING a drawing of [Character], crayon on white paper, in the style of a children's book illustration – simple, cute, and full-color, with [two glitter accent colors] glitter accents and high detail.",
-    "images": [
-      "data/images/nano-banana-pro-drawing-tips-cartoon-character-illustration/nano-banana-pro-drawing-tips-cartoon-character-illustration.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Jason Zhu",
-    "source": "https://x.com/GoSailGlobal/status/1996505714404036617",
-    "createdAt": "2025-12-09T00:00:00Z",
-    "updatedAt": "2025-12-09T00:00:00Z"
-  },
-  {
     "id": "cartoon-style-app-icon-design",
     "title": "卡通风格应用图标设计",
     "prompt": "🚨PromptShare🚨\nCartoon Style App Icon\nColorful, cartoon-style app icon design for a [type of app: game, movie, food, sport, etc.] logo with the text [\"App Name\"] and [character, symbol, or cute object + short description of its pose or action] on the front of a square button, set against a [background color / theme] with simple details. High-resolution game art and graphics for a mobile app, Pixar style, realistic.",
@@ -1482,54 +1419,6 @@
     "updatedAt": "2026-01-08T11:44:27Z"
   },
   {
-    "id": "ai-learning-game-illustration-for-kids",
-    "title": "儿童AI学习游戏插图",
-    "prompt": "A simple AI learning game for kids \n\nShow your kid this image and ask:\n“What do you think this dog is feeling?”\n“How do you know?”\n“When do you feel like this?”\n\nThat’s it.\n\nAI didn’t teach emotions.\nIt made them visible.\n\nMade with Nano Banana Pro.\n\nPrompt:\nCreate kid-friendly emotion illustrations using one cartoon dog character with clear facial expressions (happy, sad, angry, confused, surprised, tired).\nSimple style. White background. Designed for kids to point and identify emotions.",
-    "images": [
-      "data/images/ai-learning-game-illustration-for-kids/ai-learning-game-illustration-for-kids-1024x1024.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "插画",
-      "人物",
-      "游戏",
-      "动物",
-      "可爱"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "网络社区收集",
-    "createdAt": "2026-01-08T19:28:52Z",
-    "updatedAt": "2026-01-08T19:28:52Z"
-  },
-  {
-    "id": "character-concept-sheet",
-    "title": "角色概念图",
-    "prompt": "Prompt share: Concept sheet\n\n💬Prompt:\n\nA concept sheet for a [character], detailed with front, back, and side views, including close-up sketches of facial features and accessories, annotated with design notes and labeled components, drawn in blueprint style with glowing trim in [color1] and base structure in [color2], presented on a clean white background\n\nCheck ATLs for inspiration ✨",
-    "images": [
-      "data/images/character-concept-sheet/character-concept-sheet-960x640.jpg",
-      "data/images/character-concept-sheet/character-concept-sheet-960x640-2.jpg",
-      "data/images/character-concept-sheet/character-concept-sheet-960x640-3.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "插画",
-      "产品",
-      "人物",
-      "工艺",
-      "游戏"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "网络社区收集",
-    "createdAt": "2025-12-28T11:00:11Z",
-    "updatedAt": "2025-12-28T11:00:11Z"
-  },
-  {
     "id": "expressive-ink-sketch-mixed-media-illustration-portrait",
     "title": "抽象墨水素描混合媒体插画风格肖像",
     "prompt": "1. Open ChatGPT / Gemini\n\n2. Upload your image \n\n3. Prompt : \n\nA dramatic, high-impact portrait rendered in an expressive ink sketch and mixed-media illustration style, using the uploaded image for exact facial likeness and proportions. The man is shown in side profile, his presence intense and chaotic. His face and upper body are layered with cryptic handwritten text, symbols, and abstract glyphs, partially wrapping around facial contours, suggesting inner turmoil and hidden meaning.\nHe wears a dark, abstract jacket, heavily textured with rough ink strokes, sharp angular linework, and vibrant ink splatters, creating a raw, rebellious visual energy. The illustration style is bold and experimental, blending fine pen detailing with aggressive brush marks, splashes, and controlled distortion.\nThe background is a pale, aged parchment tone, featuring subtle grain, faded paper texture, delicate linework, ink drips, and light stains—evoking an old manuscript or forgotten sketchbook.\nHigh contrast, expressive composition, artistic chaos balanced with precision, editorial art meets conceptual illustration, moody, intense, and emotionally charged.",
@@ -1551,29 +1440,6 @@
     "source": "网络社区收集",
     "createdAt": "2026-01-11T01:39:28Z",
     "updatedAt": "2026-01-11T01:39:28Z"
-  },
-  {
-    "id": "female-warrior-falconer-dark-misty-forest",
-    "title": "暗雾森林中的女战神与凤凰鹰混合兽",
-    "prompt": "1. Open the chatgpt\n2. Upload image reference\n3. Prompt👇\n\nA cinematic fantasy scene of a fierce female use image for face reference warrior falconer walking through a dark misty forest, wearing battle-worn leather armor infused with glowing ember textures. Her arm is raised, commanding a massive phoenix-eagle hybrid with blazing wings and flaming feathers, fire trailing from its tips. The bird radiates molten orange and red light, casting sparks and embers into the air.The warrior has braided hair, ash-streaked skin, and a determined expression, carrying a rope and utility pouch. Ultra-detailed feathers, realistic fire physics, dramatic lighting, volumetric fog, shallow depth of field, epic fantasy atmosphere, hyper-realistic, cinematic color grading, dark moody background, 8k, concept art, unreal engine quality.",
-    "images": [
-      "data/images/female-warrior-falconer-dark-misty-forest/female-warrior-falconer-dark-misty-forest-1024x1536.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "现实",
-      "神话",
-      "风景",
-      "动物",
-      "Hyper-Realistic"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "https://aiart.pics/prompts/019bb067-b0cc-77fe-8aef-0f994f9f5d36",
-    "createdAt": "2026-01-07T13:40:59Z",
-    "updatedAt": "2026-01-07T13:40:59Z"
   },
   {
     "id": "luxury-korean-tasting-menu-editorial-layout",
