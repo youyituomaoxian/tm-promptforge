@@ -2033,5 +2033,67 @@
     "source": "团队原创",
     "createdAt": "2026-10-26T05:08:06Z",
     "updatedAt": "2026-10-26T05:08:06Z"
+  },
+  {
+    "id": "p52",
+    "title": "超真实复刻：人像",
+    "prompt": "A candid photograph of a young woman standing on a Shanghai metro platform during the summer morning commute, authentic daily life photography, natural candid moment. Half-body framing, shot at eye level from moderate distance — the arriving train a motion-blurred streak behind her, the yellow safety line at her feet.\nEast Asian young woman in her early 20s. Almond-shaped eyes with natural double eyelids, slightly elongated eye corners — eyes directed downward, absorbed. Straight refined nose with a delicate bridge. Skin tone fair to light beige (NC10–NC20) — skin subsurface scattering visible under cool overhead station light, specular micro-highlights on cheekbones and nose ridge, fine foundation powder grain perceptible. Summer fresh look, no heavy coverage, lightly tinted lip.\nShe wears a relaxed oversized white shirt dress, collar lightly open, sleeves loosely rolled above the elbow. A structured natural tan canvas tote hangs from her shoulder, a physical novel tucked under one arm — pages open at a saved page. She stands with her weight on one hip, gaze downward at the open book, entirely absorbed, occupying her own stillness inside the morning rush. Background: white and grey tiled metro wall, overhead route signage board, arriving train motion blur to one side, other commuters blurred and distant. Two or three stray hairs displaced by the train's air displacement on arrival, natural unplanned imperfection, not geometrically symmetrical.\nCool overhead fluorescent lighting with a slight greenish cast, flat frontal illumination offset by a warm spill from the platform entrance behind. Absorbed in focus, eyes downward, unaware — a private moment inside a public space, the Shanghai morning. Subtle ISO 400 film grain in shadow areas, photographic noise texture not CG render smoothness. Aspect ratio 2:3. No watermark, no text overlay, not cartoon, not digitally painted, not illustration, not anime.",
+    "images": [
+      "data/images/p52/p52-1200x1600.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "超真实",
+      "虚拟显示"
+    ],
+    "model": "GPT Image 2.5 (OpenAI)",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-10-26T05:36:19Z",
+    "updatedAt": "2026-10-26T05:36:19Z"
+  },
+  {
+    "id": "p53",
+    "title": "超真实复刻：场景",
+    "prompt": "生成一张超真实的城市街头群像照片，场景是夏夜十点的便利店门口，三到四个年轻人正在门口短暂停留聊天，有人拿着饮料，有人坐在店外塑料椅上，有人站着低头看手机。便利店的玻璃门和橱窗透出明亮白光，外面路边则是暖黄街灯和远处车灯。人物穿搭非常日常，包含 T 恤、衬衫、短裤、牛仔裤、运动鞋，不要网红穿搭感，脸部状态和体态都要像真实路人，不能每个人都过于精致。环境要有真实便利店元素，冰柜贴纸、促销海报、垃圾桶、门口地垫、玻璃倒影、路边共享单车、地面饮料瓶水珠。画面像摄影师在城市里拍到的一张非常真实的生活切片，重点测试多人自然互动、夜间便利店灯光、玻璃反射和普通人气质的还原能力。",
+    "images": [
+      "data/images/p53/p53-1200x1600.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "超真实",
+      "摄影",
+      "场景"
+    ],
+    "model": "",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-10-26T05:37:05Z",
+    "updatedAt": "2026-10-26T05:37:05Z"
+  },
+  {
+    "id": "p54",
+    "title": "超写实复刻：人像2",
+    "prompt": "使用场景：写实自然风\n图像类型：电影感人像照片，竖版肖像，尺寸1216×1536\n画面风格：写实摄影，日系负片胶片质感，柔和过曝，褪色低饱和中性色，低对比度，细腻胶片颗粒，随性快照构图，轻微高光泛光，克制电影感，无过度美颜\n背景环境：小型唱片公司后楼梯间，磨损水泥台阶，灰色金属扶手，散落搬家纸箱，惨白安保灯，安静私密，后台日常氛围感，练习结束搬家日的抓拍瞬间\n人物主体：虚构25岁左右韩国女性爱豆，不撞脸任何真实明星，长相自然耐看，内敛氛围感，沉静有吸引力，神态松弛，含蓄撩人，不低俗暴露\n穿搭道具：短款黑色西装外套（随意敞开），合身麻灰色罗纹打底衫，柔和勾勒身形、不露胸；宽松卡其工装裤；细银项链；一卷黑色布基胶带放在身旁；一只运动鞋鞋带半系\n姿态构图：竖幅构图，人物坐在台阶，一膝微抬、另一条腿下放；身体后靠，单手撑在身后台阶，另一只手靠近未系好的鞋带；西装自然垂落，轮廓柔和优雅；抬头望向镜头，神情平静慵懒、从容魅惑；抓拍感，姿态自然，不刻意摆拍\n光影要求：楼梯间平实环境光，纪实后台光影，柔和颗粒，低饱和色调，氛围安静私密，写实克制，无裸露\n附加文字：右下角白色手写签名文字「BubbleBrain」\n负面提示词：真实明星脸，夸张浓妆，暴露，色情，锐化过重，高对比，网红美颜，畸形肢体，扭曲，水印，多余文字",
+    "images": [
+      "data/images/p54/p54-1200x1600.jpg",
+      "data/images/p54/p54-1024x1536.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "人像",
+      "摄影"
+    ],
+    "model": "GPT Image 2.5 (OpenAI)",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-10-26T05:40:32Z",
+    "updatedAt": "2026-10-26T05:40:32Z"
   }
 ]
