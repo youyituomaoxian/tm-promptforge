@@ -13,6 +13,10 @@
   var DEFAULT_CATEGORIES = ['品牌视觉', 'PPT演示', '营销海报', '产品图', 'UI界面', '插画IP', '其他'];
   var CATEGORIES = DEFAULT_CATEGORIES.slice();
   var RESERVED_CATEGORY = '其他';
+  // 默认排序（2026-10-26 用户指定改默认为「按类别」）：**唯一真相源**——
+  // 状态初值、URL 写键与否、select 控件默认选中，都以它为准，勿在别处再写死字面量。
+  // URL 规矩：仅当排序 ≠ 默认值时才写 `sort` 键；等于默认则删键（不留空壳）。
+  var DEFAULT_SORT = 'category';
 
   function renderHeroCats(cats) {
     var e = document.getElementById('hero-cats');
@@ -222,7 +226,7 @@
 
   function state(doc) {
     return { entries: [], query: '', category: '全部', openId: null, imgIndex: 0,
-      sort: 'recent', dims: {},
+      sort: DEFAULT_SORT, dims: {},
       categories: CATEGORIES.slice() };
   }
 
@@ -487,7 +491,7 @@
   // 规矩（任务书）：
   //   ① 写入点挂在与 renderAll 相同的触发处（芯片 click / sort change / 防抖回调），
   //      **不放进 renderAll 内部**——它还被 SWR 后台拉新调用，会把临时态写进历史。
-  //   ② 空值/「全部」/默认排序（recent）→ 删键，不留 `?q=&cat=` 空壳。
+  //   ② 空值/「全部」/默认排序（DEFAULT_SORT = category）→ 删键，不留 `?q=&cat=` 空壳。
   //   ③ 与 syncURL(?prompt=) 共用同一 URL 对象顺序操作：先删/设筛选三键，
   //      再设/删 prompt —— 两处调用不会互相覆盖（写筛选态时保留 prompt，反之亦然）。
   //   ④ 只用 replaceState（同 syncURL 同款），不污染后退栈。
@@ -502,7 +506,7 @@
     if (cat && cat !== '全部') u.searchParams.set('cat', cat);
     else u.searchParams.delete('cat');
     var sort = st.sort;
-    if (sort && sort !== 'recent') u.searchParams.set('sort', sort);
+    if (sort && sort !== DEFAULT_SORT) u.searchParams.set('sort', sort);
     else u.searchParams.delete('sort');
     doc.defaultView.history.replaceState(null, '', u.toString());
   }
