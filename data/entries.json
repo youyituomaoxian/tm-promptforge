@@ -279,27 +279,6 @@
     "updatedAt": "2026-10-20T00:48:37Z"
   },
   {
-    "id": "inspired-new-gameplay-creative-product-photography",
-    "title": "神启新玩法：创意产品摄影",
-    "prompt": "受神佬启发，来一套新玩法：\n简单玩法就是替换最后一句话，可控性很高\n另外有三种玩法需替换一些词：\n✅ 玩法 1：纯文字生成（Text-to-Image）\n✅ 玩法 2：有服装图，生成模特上身效果（Image-to-Image + ControlNet）\n✅ 玩法 3：有人物图，生成展示背景（Face Swap / IP-Adapter）\n提示词如下：\nPrompt:\nA vertical split-screen creative product photography composition on a clean white wall background. High-resolution, photorealistic, commercial advertisement quality.\nTop Section: The Specimen Box\nThe upper half features an exquisite light oak wooden shadow box frame mounted on the wall. Inside, a specific outfit is displayed as an artistic flat-lay museum specimen: [Insert Clothing Details Here, e.g., a sleek black satin slip dress with delicate lace trim and thin spaghetti straps]. The garments are neatly pinned in place. Surrounding them are small thematic decorative props: [Insert Props, e.g., dried roses, vintage perfume bottles, silk ribbon]. Elegant calligraphy on the matte paper backdrop reads: [Insert Text, e.g., \"Midnight Elegance\" or \"Silk & Secrets\"]. Soft studio lighting accentuates the rich texture and drape of the fabric.\nBottom Section: Naked-Eye 3D Reality\nThe lower half creates a hyperrealistic \"naked-eye 3D\" illusion. A rectangular picture-frame border sits directly beneath the top box. A stunningly realistic young woman [Insert Model Description, e.g., a poised East Asian model with long wavy black hair, subtle smoky eyes, and a confident gaze] wears the exact same outfit as shown above.\nShe lounges casually on the bottom edge of the frame—one leg bent with foot resting inside the frame, the other leg elegantly dangling out into the viewer’s space. Her torso leans back slightly, elbow resting on her raised knee, fingers lightly grazing the fabric near her collarbone. Her body forms a soft, sensual S-curve that highlights the garment’s silhouette without overt exposure. She looks directly at the camera with a calm, knowing smile—inviting yet enigmatic. This dynamic, lifelike pose contrasts powerfully with the static, archival display above, creating visual tension between reality and presentation.\nTechnical Specs:\nSoft natural shadows, ambient occlusion, bright and airy yet cinematic lighting, 8K resolution, Octane Render, vivid but refined color palette, ultra-detailed fabric textures (satin sheen, lace transparency, stitching), shallow depth of field, Vogue editorial style, filmic grain, professional fashion photography.\nNegative Prompt (recommended):\nblurry, low-res, distorted anatomy, extra limbs, deformed hands, cartoon, anime, doll-like, plastic skin, overexposed, cluttered background, text errors, mismatched clothing, floating objects, unrealistic proportions.\n参考人物，想看老师制服\n欢迎来评论区交作业 https://t.co/x2H6jku783",
-    "images": [
-      "data/images/inspired-new-gameplay-creative-product-photography/inspired-new-gameplay-creative-product-photography.jpg"
-    ],
-    "categories": [
-      "产品图"
-    ],
-    "tags": [
-      "产品渲染",
-      "影棚布光",
-      "质感细节"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@岚叔",
-    "source": "https://x.com/LufzzLiz/thread/2001831802269499412",
-    "createdAt": "2025-12-19T00:00:00Z",
-    "updatedAt": "2025-12-19T00:00:00Z"
-  },
-  {
     "id": "floating-product-photography",
     "title": "悬浮产品摄影",
     "prompt": "Prompt Studio: Floating Product Photography\n[PRODUCT] floating in mid-air, suspended against seamless [color] background, soft omnidirectional lighting, zero-gravity effect, clean negative space, surreal product photography, perfect symmetry, crisp edges, advertising campaign style\n1. Futuristic electric skateboard floating in mid-air, suspended against seamless cool slate gray background, soft omnidirectional lighting, zero-gravity effect, clean negative space, surreal product photography, perfect symmetry, crisp edges, advertising campaign style\n2. Architectural sculptural vase floating in mid-air, suspended against seamless muted sand beige background, soft omnidirectional lighting, zero-gravity effect, clean negative space, surreal product photography, perfect symmetry, crisp edges, advertising campaign style\n3. Hypercar tire with sculpted tread floating in mid-air, suspended against seamless deep graphite background, soft omnidirectional lighting, zero-gravity effect, clean negative space, surreal product photography, perfect symmetry, crisp edges, advertising campaign style\n4. Minimalist ceramic tea set floating in mid-air, suspended against seamless soft sage green background, soft omnidirectional lighting, zero-gravity effect, clean negative space, surreal product photography, perfect symmetry, crisp edges, advertising campaign style",
