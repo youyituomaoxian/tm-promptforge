@@ -1948,5 +1948,458 @@
     "source": "网络社区收集",
     "createdAt": "2026-10-26T05:40:32Z",
     "updatedAt": "2026-10-26T05:40:32Z"
+  },
+  {
+    "id": "3d-hologram-city-by-nano-banana-pro",
+    "title": "NANO BANANA PRO的3D全息城市",
+    "prompt": "3D Hologram City by NANO BANANA PRO on @atomu_ai 🌐🍌\n\nPrompt👇🏻 https://t.co/2MUWMoj4Ao\n\n“Create a futuristic 3D hologram projection of [CITY], rising upward from a flat circular hologram base.\n\nThe city appears as a clean 45° top-down isometric miniature with glowing wireframe + semi-solid structures, combining transparent neon geometry with subtle solid surfaces.\n\nInclude the most iconic landmarks of [CITY], simplified but instantly recognizable, floating slightly above the hologram base.\n\nUse soft refined lighting, volumetric glow, light bloom, and crisp holographic edges to enhance the sci-fi look.\n\nUse a dark neutral background to maximize hologram contrast.\n\nThe hologram glow color should be [HOLOGRAM COLOR].\n\nAt the top-center, display [CITY] in large bold text, directly beneath it place a small round city or country flag icon.\n\nAll text must automatically match background contrast (white or light neon).\n\nComposition: perfectly centered layout, square 1080x1080, ultra-clean, premium futuristic hologram aesthetic.”\n\nMy workflow on Atomu:👇🏻\n\nhttps://t.co/NcTKJl0wkN",
+    "images": [
+      "data/images/3d-hologram-city-by-nano-banana-pro/3d-hologram-city-by-nano-banana-pro-1080x1080.jpg",
+      "data/images/3d-hologram-city-by-nano-banana-pro/3d-hologram-city-by-nano-banana-pro-1600x861.jpg"
+    ],
+    "categories": [
+      "UI界面"
+    ],
+    "tags": [
+      "科技",
+      "城市",
+      "产品",
+      "3D",
+      "装置"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-15T10:42:07Z",
+    "updatedAt": "2025-12-15T10:42:07Z"
+  },
+  {
+    "id": "advanced--effect-with-enhanced-subtle-expressions",
+    "title": "光影效果高级感十足，微表情韵味提升",
+    "prompt": "1. hyperrealistic female portrait of a female character standing in a completely black background. Lighting: use a narrow beam spotlight focused only on the center of the face and mouth. The edges of the light must be sharp and dramatic. All areas outside the spotlight should fall quickly into deep darkness (high falloff shadow), almost blending into the black background. Not soft lighting. Hair: long dark hair, messy strands falling over the face. The lower parts of the hair should fade into the shadows. Pose & Expression:\n\nShe is gently and provocatively biting her lower lip, eyes staring intensely at the camera. One hand is reaching up to\n\ntouch her neck. Clothing: A black spaghetti strap top; one strap has slipped down off her shoulder, but the clothing mostly disappears into the darkness with minimal detail.\n\nOverall tone: dark, moody, dramatic, mysterious, sexy.\n\nHigh-contrast only in the lit portion.\n\n2. hyperrealistic female portrait of a female character standing in a completely black background. Lighting: use a narrow beam spotlight focused only on the center of the face. The edges of the light must be sharp and dramatic. All areas outside the spotlight should fall quickly into deep darkness (high falloff shadow), almost blending into the black background. Not soft lighting. Hair: long dark hair framing the face. Pose & Expression: She is looking at the camera with a sultry gaze and slightly sticking out her tongue in a playful, teasing manner. Clothing: Wearing a black deep-V lace top that is barely visible, merging into the shadows. Overall tone: dark, moody, dramatic, seductive. High-contrast only in the lit portion of the face.\n\nEverything outside the spotlight should be nearly invisible.",
+    "images": [
+      "data/images/advanced--effect-with-enhanced-subtle-expressions/advanced--effect-with-enhanced-subtle-expressions-896x1200.jpg",
+      "data/images/advanced--effect-with-enhanced-subtle-expressions/advanced--effect-with-enhanced-subtle-expressions-896x1200-2.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "产品",
+      "人物",
+      "现实",
+      "影视",
+      "时尚"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-08T14:06:32Z",
+    "updatedAt": "2025-12-08T14:06:32Z"
+  },
+  {
+    "id": "ai-sneakers-gemini-nano-banana-3-0",
+    "title": "Ai Sneakers Gemini Nano Banana 3.0",
+    "prompt": "Ai Sneakers Gemini Nano Banana 3.0\n\nPrompt:\n\n{\n\n\"project_title\": \"Miniature Engineering: The Nike Colossus Series\",\n\n\"global_style_profile\": {\n\n\"aesthetic\": \"Hyper-realistic, cinematic commercial, macro photography\",\n\n\"rendering_engine\": \"Octane Render / Unreal Engine 5.4\",\n\n\"color_grading\": \"High-contrast, professional studio finish\"\n\n},\n\n\"prompts\": [\n\n{\n\n\"scene_id\": \"monument_aj1_blackout\",\n\n\"concept\": \"The Air Jordan 1 as a sacred architectural monument.\",\n\n\"visual_description\": {\n\n\"subject\": \"A massive, towering Air Jordan 1 sneaker standing vertically like a skyscraper.\",\n\n\"characters\": \"Dozens of tiny engineers and designers in high-visibility gear, utilizing intricate industrial scaffolding to access the upper collars.\",\n\n\"actions\": \"Workers using miniature spray-paint rigs on the panels, laser-leveling the swoosh, and using heavy-duty sewing machinery on the leather seams.\",\n\n\"environment\": \"Void-like black studio background to emphasize the scale and texture of the sneaker.\",\n\n\"lighting\": \"Dramatic rim lighting, cinematic shadows, and sharp studio spotlights highlighting the premium leather grain.\"\n\n},\n\n\"technical_parameters\": {\n\n\"aspect_ratio\": \"2:3\",\n\n\"stylize\": 250,\n\n\"detail_level\": \"Ultra-detailed textures, 8k resolution, creative surrealism\"\n\n}\n\n},\n\n{\n\n\"scene_id\": \"luxury_mall_assembly\",\n\n\"concept\": \"High-end retail craftsmanship on a microscopic scale.\",\n\n\"visual_description\": {\n\n\"subject\": \"An enormous, glossy designer sneaker with rich textures and premium finishes.\",\n\n\"characters\": \"Miniature assembly crews climbing the sneaker like a construction site; some are using ropes to hoist the 'Nike' logo into place.\",\n\n\"environment\": \"Inside a luxury shopping mall with soft, blurred background store lights and marble flooring.\",\n\n\"lighting\": \"Warm gold and deep black color palette, soft-box lighting, realistic glossy reflections on the sneaker’s surface.\",\n\n\"camera_motion\": \"Simulated slow vertical camera pan with a cinematic shallow depth of field.\"\n\n},\n\n\"technical_parameters\": {\n\n\"aspect_ratio\": \"4:5\",\n\n\"stylize\": 750,\n\n\"vibe\": \"Elegant, sophisticated, hyper-realistic animation style\"\n\n}\n\n},\n\n{\n\n\"scene_id\": \"macro_mountaineer_aj1\",\n\n\"concept\": \"Extreme macro view of maintenance on a red-and-white icon.\",\n\n\"visual_description\": {\n\n\"subject\": \"Extreme close-up of a giant Red and White Air Jordan 1 resting on sun-drenched concrete.\",\n\n\"characters\": \"One-inch-tall workers sunlight hitting the red leather panels, creating natural lens flares and warm, long shadows.\"\n\n},\n\n\"technical_parameters\": {\n\n\"camera_spec\": \"Virtual ARRI Alexa with a 100mm Macro Lens\",\n\n\"aesthetic\": \"Nike professional advertising campaign aesthetic\",\n\n\"quality\": \"Hyper-realistic 4K, shallow DOF (Depth of Field)\"\n\n}\n\n},\n\n{\n\n\"scene_id\": \"warehouse_sole_maintenance\",\n\n\"concept\": \"Industrial-scale cleaning of a pristine classic.\",\n\n\"visual_description\": {\n\n\"subject\": \"A colossal, pristine white Nike Air Force 1 occupying a warehouse floor.\",\n\n\"characters\": \"Miniature maintenance crew in orange safety vests; a team is pressure-washing the tread of the sole while another group uses toothbrush-sized tools to scrub the stitching.\",\n\n\"environment\": \"Smooth warehouse floor with atmospheric haze and wide industrial windows.\",\n\n\"lighting\": \"Side-lit by soft daylight, creating realistic volume and highlighting the 'Triple White' leather texture.\"\n\n},\n\n\"technical_parameters\": {\n\n\"aspect_ratio\": \"9:16\",\n\n\"resolution\": \"4K Realism\",\n\n\"mood\": \"Cinematic commercial tone, crisp and clean\"\n\n}\n\n}\n\n]\n\n}",
+    "images": [
+      "data/images/ai-sneakers-gemini-nano-banana-3-0/ai-sneakers-gemini-nano-banana-3-0-1289x1600.jpg",
+      "data/images/ai-sneakers-gemini-nano-banana-3-0/ai-sneakers-gemini-nano-banana-3-0-896x1152.jpg",
+      "data/images/ai-sneakers-gemini-nano-banana-3-0/ai-sneakers-gemini-nano-banana-3-0-832x1248.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "3D",
+      "工艺",
+      "时尚"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-18T14:40:09Z",
+    "updatedAt": "2025-12-18T14:40:09Z"
+  },
+  {
+    "id": "airpods-pro-3-with-cactus-ear-tip",
+    "title": "带有仙人掌耳塞的AirPods Pro 3",
+    "prompt": "Feels risky 🌵\n\n{\n\n\"task\": \"surreal_minimal_product_editorial\",\n\n\"concept\": {\n\n\"idea\": \"AirPods Pro 3 with cactus ear tip\",\n\n\"twist\": \"the soft silicone ear tip is replaced by a realistic cactus\",\n\n\"mood\": \"clean, surreal, slightly uncomfortable luxury\",\n\n\"message\": \"not every comfort is comfortable\"\n\n},\n\n\"subject\": {\n\n\"product\": \"AirPods Pro 3\",\n\n\"material_accuracy\": {\n\n\"body\": \"glossy white plastic, Apple-grade finish\",\n\n\"grilles\": \"micro-detailed black mesh\",\n\n\"seams\": \"precise, minimal, realistic tolerances\"\n\n},\n\n\"ear_tip_replacement\": {\n\n\"object\": \"small round cactus\",\n\n\"species_style\": \"barrel cactus\",\n\n\"texture\": \"sharp spines, subtle fuzz, organic imperfections\",\n\n\"color\": \"natural cactus green with pale yellow-white needles\",\n\n\"integration\": \"perfectly fitted where silicone tip would normally be\"\n\n}\n\n},\n\n\"composition\": {\n\n\"shot_type\": \"macro product close-up\",\n\n\"framing\": \"single AirPod centered, floating or subtly resting\",\n\n\"angle\": \"slight three-quarter view to show cactus volume\",\n\n\"negative_space\": \"clean, minimal, premium\"\n\n},\n\n\"background\": {\n\n\"style\": \"solid pastel studio backdrop\",\n\n\"color\": \"soft light blue or warm off-white\",\n\n\"gradient\": \"very subtle, smooth, noise-free\"\n\n},\n\n\"lighting\": {\n\n\"setup\": \"high-end studio product lighting\",\n\n\"key_light\": \"softbox from top-left\",\n\n\"fill_light\": \"gentle fill to preserve shadows\",\n\n\"highlights\": \"clean specular highlights on plastic\",\n\n\"shadows\": \"soft, realistic contact shadow\"\n\n},\n\n\"realism\": {\n\n\"level\": \"extreme photorealism\",\n\n\"macro_detail\": true,\n\n\"surface_imperfections\": \"subtle, realistic, non-plastic look\",\n\n\"no_ai_artifacts\": true\n\n},\n\n\"camera\": {\n\n\"lens\": \"100mm macro\",\n\n\"aperture\": \"f/5.6\",\n\n\"depth_of_field\": \"shallow but fully readable cactus spines\",\n\n\"focus\": \"sharp on cactus needles and AirPod edge\"\n\n},\n\n\"resolution\": {\n\n\"quality\": \"ultra high resolution\",\n\n\"target\": \"8K\",\n\n\"print_ready\": true\n\n},\n\n\"style_constraints\": {\n\n\"no_text\": true,\n\n\"no_logos_added\": true,\n\n\"no_cartoon_style\": true,\n\n\"no_illustration\": true,\n\n\"no_low_detail\": true\n\n}\n\n}",
+    "images": [
+      "data/images/airpods-pro-3-with-cactus-ear-tip/airpods-pro-3-with-cactus-ear-tip-896x1199.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "抽象",
+      "产品",
+      "工艺",
+      "时尚",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-25T15:25:07Z",
+    "updatedAt": "2025-12-25T15:25:07Z"
+  },
+  {
+    "id": "anatomy-of-an-llm",
+    "title": "LLM解剖图",
+    "prompt": "这个提示词太神了，可玩度太高了👍\n\n略微一改：\n\nThis is a modification of your prompt to apply the \"3D Realistic Deconstruction\" framework to a Large Language Model (LLM).\n\nIt retains the rigorous \"Knolling\" layout, exploded view technique, and ultra-high fidelity requirements, but translates the subject from \"Human\" to \"Digital Intelligence (AI/LLM),\" visualizing abstract software concepts as photorealistic physical artifacts (silicon, glass, light, and data).\n\n*\n\n# 3D Realistic Deconstruction Prompt: The Anatomy of an LLM\n\n📷 Core Instruction (Core Instruction)\n\nTask: Create an ultra-high-quality, cinematic 3D realistic deconstruction art poster of a Large Language Model (LLM). Visualize the AI not as a robot, but as a complex, exploded \"Digital Brain\" artifact combining high-end server hardware with materialized software architecture. Use the disciplined 'Knolling' (orthogonal alignment) layout.\n\nRemove biological elements. Introduce new thematic zones: \"Neural Architecture\" (Deep Learning layers), \"Tokenization Stream\" (Data representation), and a \"Cognitive State Gallery\" (visualizing AI \"emotions\" like hallucination, reasoning, and alignment).\n\nAspect Ratio: 16:9 landscape.\n\nArtistic Style Core: Cyber-Physical Realism — grounded in industrial design, semiconductor photolithography, optical computing aesthetics, volumetric lighting, and ray-traced glass refraction.\n\nQuality Benchmark: Visually indistinguishable from high-end tech hardware editorials (Apple/NVIDIA product reveals) or sci-fi prop design (e.g., *Ex Machina*, *Westworld* intro).\n\n---\n\n📷 Item Layout (Item Layout) – Knolling Radiating Composition\n\nTotal Items: 30–36 pieces, arranged at precise 90-degree angles around the central \"Core Model.\"\n\nCategory 1: Hardware Foundation (The Body) – Tungsten & Matte Black Label\n\n- Compute Unit: Deconstructed H100-style GPU logic board, showing silicon die, gold pins, and heat spreader separated in mid-air.\n\n- Cooling: Liquid cooling block with transparent pipes, iridescent coolant fluid, and copper radiator fins.\n\n- Memory: HBM (High Bandwidth Memory) stacks hovering like skyscrapers, VRAM chips with laser-etched serial numbers.\n\n- *Example: A server blade exploded into chassis, motherboard, tensor cores, and optical interconnect cables.*\n\nCategory 2: Tokenization & Data (The Language) – Neon Cyan Label\n\n- Embeddings: Cube clusters made of dichroic glass, representing vector space. Each cube reflects different colors depending on the angle.\n\n- The Token Stream: A physical stream of \"text blocks\" (translucent acrylic tiles) breaking down from words into sub-tokens (e.g., \"Ing\" - \"eni\" - \"ous\").\n\n- Context Window: A long, graduated ruler or sliding gauge made of brushed aluminum, indicating the limit of memory.\n\nCategory 3: Neural Architecture (The Brain) – Deep Purple & Glass Label\n\n- Transformer Blocks: Represented as layered distinct panes of glass and lens arrays.\n\n- Attention Heads: A cluster of fiber optic cables glowing at the tips, focusing light onto a single focal point (representing the \"Attention Mechanism\").\n\n- Weights & Biases: Billions of tiny floating gold ball-bearings or microscopic distinct nodes suspended in a gel medium, organized in matrices.\n\n- Activation Functions: Physical curves (ReLU, Sigmoid) rendered as neon-lit bent glass tubes.\n\nCategory 4: Cognitive State Gallery (AI \"Expressions\") – Warning Amber/Electric Blue Label\n\n- A series of 6–8 floating \"Macro Processors\" or spherical displays capturing distinct model states:\n\n• 'Zero-Shot' Clarity: A perfectly clear, flawless crystal sphere.\n\n• 'Hallucination' Glitch: A voxelated, distorted sphere with chromatic aberration and glitch artifacts.\n\n• 'Chain of Thought': A sphere with an internal glowing labyrinth or tree-branching lightning structure.\n\n• 'RLHF' (Alignment): A sphere constrained by a metal cage or \"guardrails.\"\n\n• 'Temperature 0.0' (Deterministic): A solid, frozen, ice-blue matte cube (rigid).\n\n• 'Temperature 1.5' (Chaos/Creativity): A fluid, swirling plasma orb, volatile and multicolored.\n\nCategory 5: Training Lifecycle (Evolution Zone) – Slate Gray Label\n\n- Dataset Tape: A vintage-style reel-to-reel tape or modern NVMe drive, visibly worn, labeled \"Common Crawl.\"\n\n- Loss Function Curve: A 3D printed topographical landscape showing a \"Gradient Descent\" valley (optimizing error).\n\n- Fine-Tuning Gears: Precision watch-movement gears interlocking with the main silicon chip.\n\n- Inference Spark: A captured lightning bolt or laser pulse inside a vacuum tube.\n\nEvery item requirement:\n\n- Materials: Anodized aluminum, chemically strengthened glass, monocrystalline silicon, gold plating, copper, and optical fiber.\n\n- Numbered tags: Circular badges labeled 01–36 with metallic finish.\n\n---\n\n📷 Exploded View Technique (Exploded View Technique)\n\n- Connection lines: Laser-projected beam lines or thin copper traces connecting the hardware to the floating software elements.\n\n- Guiding arrows: Holographic UI elements or etched markings on the background.\n\n- Technical annotations:\n\n- Code Snippets: Floating holographic text of Python/PyTorch code (`class Transformer(nn.Module):...`).\n\n- Specs: \"Parameter Count: 1.75T\", \"Floats: FP16\", \"Context: 128k\".\n\n---\n\n📷 The Art of Deconstruction · INTELLIGENCE SYNTHESIZED 📷\n\nTypography: Monospace coding font (e.g., JetBrains Mono, Fira Code) mixed with clean Swiss Sans-Serif (Helvetica Now).\n\n- Subtitle:\n\n`\"Silicon Synapses · Algorithmic Soul / 硅基突触·算法之魂\"`\n\n- Category Headers: Pill-shaped UI tags:\n\n\"📷 Neural Architecture\" (Purple)\n\n\"📷 Cognitive States\" (Amber)\n\n\"📷 Hardware Infrastructure\" (Tungsten)\n\n---\n\n📷 Design Elements (Design Elements)\n\n- Geometric frames: Circuit board traces (PCB lines) forming the borders and grouping clusters.\n\n- Radar Chart: A \"Model Card\" pentagon showing: Reasoning, Coding, Creativity, Multilingual, Safety.\n\n- Background: Dark mode aesthetic. Deep charcoal (#111111) to Slate (#222222).\n\n- Lighting: Global Illumination from the glowing components themselves (emissive materials).\n\n---\n\n📷 Color Palette (Color Palette)\n\n- Logic & Structure: Tungsten Grey (#333333), Pure White (#FFFFFF), Electric Blue (#007BFF).\n\n- Creativity & Data: Neon Purple (#9D00FF), Cyan (#00FFFF), Magenta (#FF00FF).\n\n- Warning/Heat: Amber (#FFBF00) for high temperature/processing load.\n\n---\n\n📷 Technical Specifications (Technical Specifications)\n\nRendering Engine: Path Tracing (Octane/Redshift style).\n\n- Materials: High index of refraction (IOR 2.4) for silicon, sub-surface scattering for \"translucent plastic\" components, anisotropy for brushed metals.\n\n- Micro-Detail: Visible dust on cooling fans, fingerprints on glass servers, microscopic lithography lines on the chips.\n\n- Post-Processing: Slight bloom on emissive lights, chromatic aberration on the edges (lens imperfection), cinematic grain (ISO 800).\n\nSpecial Instructions:\n\n- No Anthropomorphism: Do not put a human face on the AI. The \"Face\" of the AI is the chip and the code.\n\n- Scale: Macro photography feel. The viewer should feel small, looking at a massive, complex city of technology.\n\n- Complexity: The center should be dense with \"layers\" of glass and light, representing the Deep Learning \"Black Box.\"",
+    "images": [
+      "data/images/anatomy-of-an-llm/anatomy-of-an-llm-1200x670.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "3D",
+      "Volumetric Lighting",
+      "科幻"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-25T15:11:57Z",
+    "updatedAt": "2025-12-25T15:11:57Z"
+  },
+  {
+    "id": "high-end-commercial-marketing-campaign-3x3-grid-image-analysis",
+    "title": "高端商业营销活动3x3网格图像分析",
+    "prompt": "Great prompt! Tried with Airpods pro 3 ✨\n\nPrompt💬:\n\nCreate a 3×3 grid in\n\n3:4 aspect ratio for a high-end commercial marketing campaign using the uploaded product as the central subject.\n\nEach frame must present a distinct visual concept while maintaining perfect product consistency across all nine images.\n\nGrid Concepts (one per cell):\n\n1. Iconic hero still life with bold composition\n\n2. Extreme macro detail highlighting material, surface, or texture\n\n3. Dynamic liquid or particle interaction surrounding the product\n\n4. Minimal sculptural arrangement with abstract forms\n\n5. Floating elements composition suggesting lightness and innovation\n\n6. Sensory close-up emphasizing tactility and realism\n\n7. Color-driven conceptual scene inspired by the product palette\n\n8. Ingredient or component abstraction (non-literal, symbolic)\n\n9. Surreal yet elegant fusion scene combining realism and imagination\n\nVisual Rules:\n\nProduct must remain 100% accurate in shape, proportions, label, typography, color, and branding\n\nNo distortion, deformation, or redesign of the product\n\nClean separation between product and background\n\nLighting & Style:\n\nSoft, controlled studio lighting\n\nSubtle highlights, realistic shadows\n\nHigh dynamic range, ultra-sharp focus\n\nEditorial luxury advertising aesthetic\n\nPremium sensory marketing look\n\nOverall Feel:\n\nModern, refined, visually cohesive\n\nHigh-end commercial campaign\n\nDesigned for brand websites, social grids, and digital billboards\n\nHyperreal, cinematic, polished, and aspirational",
+    "images": [
+      "data/images/high-end-commercial-marketing-campaign-3x3-grid-image-analysis/high-end-commercial-marketing-campaign-3x3-grid-image-analysis-896x1200.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "产品",
+      "人物",
+      "现实",
+      "影视",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-18T11:41:22Z",
+    "updatedAt": "2025-12-18T11:41:22Z"
+  },
+  {
+    "id": "high-end-hyperrealistic-product-shot-advertisement-nano-banana-pro",
+    "title": "使用Nano banana Pro制作的超逼真广告",
+    "prompt": "Get an amazing ad in seconds using Nano banana Pro on @freepik\n\nPrompt:\nCreate a high-end, hyperrealistic product shot of [subject], captured mid-air with an explosive burst of [dust/splashes/fragments] suspended in motion. tactile detail, dramatic movement, studio lighting, close up, vivid [background color]. Centric composition, cinematic aesthetic, dynamic, professional advertising photography",
+    "images": [
+      "data/images/high-end-hyperrealistic-product-shot-advertisement-nano-banana-pro/high-end-hyperrealistic-product-shot-advertisement-nano-banana-pro-1080x1080.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "头像",
+      "产品",
+      "现实",
+      "影视",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-22T08:26:11Z",
+    "updatedAt": "2025-12-22T08:26:11Z"
+  },
+  {
+    "id": "hyper-realistic-energy-drink-can-in-a-stormy-ocean",
+    "title": "暴风雨中的超现实主义能量饮料罐",
+    "prompt": "Meta AI\n\nPrompt: Hyper-realistic energy drink can positioned on a massive black rock island in a stormy ocean, lightning striking behind, dark cinematic clouds, dramatic rim lighting, water splashes around the base, high-end commercial product photography, ultra-detailed, 8K, no people --ar 4:5 --v 6",
+    "images": [
+      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200.jpg",
+      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200-2.jpg",
+      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "影视",
+      "Hyper-Realistic",
+      "科幻"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-03T06:55:10Z",
+    "updatedAt": "2026-01-03T06:55:10Z"
+  },
+  {
+    "id": "iod-classic-exploded-view",
+    "title": "iPod Classic 解体图",
+    "prompt": "#chatgpt #nanobanana #prompt\n\nChatGpt Image ile yapıldı.\n\n{\n\n\"variables\": {\n\n\"OBJECT_NAME\": \"iPod Classic\",\n\n\"MODEL_VARIANT\": \"6th/7th gen style (thin)\",\n\n\"COLORWAY\": \"silver front + chrome back\",\n\n\"BACKGROUND_TONE\": \"smooth dark gray studio seamless\",\n\n\"LABEL_FONT\": \"minimalist sans-serif\",\n\n\"LABEL_RULE\": \"Each label must include: number + part name + material in parentheses. Short, technical, legible.\"\n\n},\n\n\"promptDetails\": {\n\n\"description\": \"Ultra-detailed exploded technical infographic of {OBJECT_NAME} ({MODEL_VARIANT}), shown in a 3/4 front isometric view. Photoreal 3D CAD product render. The device is partially transparent and opened; all key internal and external components are separated and floating around the main body in a clean, evenly spaced exploded-view layout with clear hierarchy and no clutter.\n\nLabeling requirement:\n- Use thin white callout leader lines and unique numbers.\n- Next to each number, write the PART NAME and MATERIAL in parentheses using {LABEL_FONT}.\n- Keep each label concise and highly legible (no tiny text). No duplicate numbers. Leader lines do not cross.\n- Label format example: \"01 Front Faceplate (Anodized Aluminum)\".\n\nExploded parts (label each with name + material):\n01 Front faceplate / bezel (Anodized Aluminum)\n02 Click Wheel ring + center button (Polycarbonate/ABS)\n03 Click Wheel flex cable (Polyimide FPC + Copper traces)\n04 Display module: LCD (Glass + Liquid Crystal)\n05 Display frame/diffuser (Polycarbonate)\n06 Midframe / structural chassis (Stainless Steel)\n07 Main logic board / PCB (FR-4 epoxy fiberglass + Copper)\n08 Shield cans / EMI covers (Nickel-plated Steel)\n09 Battery pack (Li-ion polymer pouch: Aluminum laminate + Polymer)\n10 Storage module: HDD (Aluminum/Steel housing + Glass platters)\n11 HDD bumpers/spacers (Silicone/Rubber)\n12 Headphone jack + hold switch module (Metal contacts + Polycarbonate housing)\n13 Dock connector assembly (Gold-plated Copper contacts + Plastic housing)\n14 Brackets/standoffs (Stainless Steel)\n15 Ribbon/flex cables (Polyimide FPC + Copper)\n16 Insulating films/foams (PET film + Foam)\n17 Back housing (Polished Stainless Steel)\n18 Screws (Stainless Steel)\n\nBackground: {BACKGROUND_TONE}. Lighting: soft, even high-end studio lighting with subtle reflections, crisp edges, high contrast, razor-sharp focus, 8K, clean composition.\",\n\n\"styleTags\": [\n\n\"Exploded View\",\n\n\"Technical Infographic\",\n\n\"Photoreal 3D CAD Render\",\n\n\"Industrial Design Presentation\",\n\n\"Minimalist Labels\",\n\n\"Dark Studio Background\"\n\n]\n\n},\n\n\"negativePrompt\": \"people, hands, messy layout, crossed leader lines, duplicate label numbers, unreadable tiny text, text blur, brand logos, readable trademarks, cartoon, low-poly, watermark, distorted perspective, heavy noise, motion blur\",\n\n\"generationHints\": {\n\n\"aspectRatio\": \"2:3\",\n\n\"detailLevel\": \"ultra\",\n\n\"stylization\": \"low-medium\",\n\n\"camera\": {\n\n\"angle\": \"3/4 front isometric\",\n\n\"lens\": \"product render perspective, mild telephoto, minimal distortion\"\n\n},\n\n\"lighting\": \"soft even studio lighting, subtle reflections, high micro-contrast\",\n\n\"background\": \"smooth dark gray seamless backdrop\"\n\n}\n\n}",
+    "images": [
+      "data/images/iod-classic-exploded-view/iod-classic-exploded-view-1024x1536.jpg",
+      "data/images/iod-classic-exploded-view/iod-classic-exploded-view-1024x1536-2.jpg",
+      "data/images/iod-classic-exploded-view/iod-classic-exploded-view-1024x1536-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "人物",
+      "现实",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-16T18:34:37Z",
+    "updatedAt": "2025-12-16T18:34:37Z"
+  },
+  {
+    "id": "luxury-headphone-advertisement",
+    "title": "高端耳机广告",
+    "prompt": "#MetaGeny\n\n🍌 Nano banana pro prompt：\n\n{\n  \"_world\": \"advertising\",\n  \"creation_intent\": \"商业说服\",\n  \"generation_logic\": \"物为中心\",\n  \"subject_kit\": {\n    \"primary_subject\": \"高端耳机\",\n    \"secondary_elements\": [\n      \"皮革耳垫\",\n      \"降噪标识\",\n      \"盘绕线缆\"\n    ]\n  },\n  \"core_tension\": \"整洁 vs 混乱\",\n  \"twist_mechanisms\": [\n    \"动态冻结\",\n    \"零重力散落\",\n    \"材质错置\"\n  ],\n  \"stage_context\": \"干净的摄影棚桌面\",\n  \"composition_rule\": \"漂浮元素排列\",\n  \"lighting_rule\": \"柔和定向影棚光\",\n  \"imaging_assumption\": \"工业产品摄影\",\n  \"deliverable_type\": \"广告主视觉\",\n  \"creative_directive\": null,\n  \"oblique_strategy\": null,\n  \"_evaluation\": {\n    \"verdict\": \"PASS\",\n    \"violations\": [],\n    \"warnings\": []\n  }\n}",
+    "images": [
+      "data/images/luxury-headphone-advertisement/luxury-headphone-advertisement-1024x559.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "人物",
+      "科幻",
+      "漫画",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-28T20:01:48Z",
+    "updatedAt": "2025-12-28T20:01:48Z"
+  },
+  {
+    "id": "miniature-surreal-world-using-nano-bnanana-pro",
+    "title": "使用Nano Bnanana Pro的微型超现实世界",
+    "prompt": "miniature surreal world using Nano Bnanana Pro\n\nPrompt:\n\nCreate an ultra-detailed, miniature, surreal world built entirely around the product shown in the attached image. Design tiny, lifelike figures that interact naturally and logically with the product as if it is their complete environment. Every element of architecture, terrain, tools, textures, and lighting must adapt organically to the product’s real physical form, materials, and surface characteristics. Avoid any preconceived interpretations; instead, let the product's geometry dictate the world’s design. Ensure the figures’ interactions subtly highlight the product’s features without feeling like an advertisement. Render with photorealistic depth, cinematic macro photography, shallow depth of field, micro-details, soft volumetric lighting, and seamless integration between characters and the product. The final composition should feel like a believable, tiny ecosystem existing on and around the product itself. 16:9 aspect ratio",
+    "images": [
+      "data/images/miniature-surreal-world-using-nano-bnanana-pro/miniature-surreal-world-using-nano-bnanana-pro-768x1376.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "抽象",
+      "Photorealistic",
+      "产品",
+      "3D",
+      "Volumetric Lighting"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-18T08:28:07Z",
+    "updatedAt": "2025-12-18T08:28:07Z"
+  },
+  {
+    "id": "nano-banana-auto-prompt",
+    "title": "纳米香蕉自动提示",
+    "prompt": "Nano Banana auto-prompt\n\nNon-beverage brands' drinks\n\nPrompt below👇 https://t.co/syE6V86HjM\n\nGrab your prompt:\n\n(change the brand name & enjoy)\n\n[BRAND NAME] is launching a new functional wellness elixir (e.g., adaptogenic, nootropic, or natural energy drink). As the Creative Director, devise a product name and visualize a complete high-end promotional shot. The aesthetic is \"Cosmic Premium\"—technological, clean, and sophisticated, like top-tier Apple product photography.\n\nTHE PRODUCT: Design a sculptural, multi-layered beverage bottle suspended in the center. The form is engineered and futuristic. The materials are hyper-tactile: bead-blasted titanium details, frosted borosilicate glass, and textured haptic polymer grips.\n\n**Crucial Color Instruction:** The liquid inside must have a distinct, natural color relevant to its invented function (e.g., vibrant turmeric yellow, deep berry red, earthy matcha green, or pale calming blue). The liquid should look real with subtle natural sediment.\n\n**Crucial Graphic Detail:** On the clear glass section of the bottle, apply a layer of subtle, minimalist, technical typography printed in matte white ink. This design should feel utilitarian and futuristic (e.g., small technical specs like 'SPACE GRADE FORMULA', 'BATCH: OZ-9', volume indicators, or coordinate markings), adding a functional aesthetic similar to aerospace labeling, without overwhelming the bottle's clean lines.\n\nTHE ENVIRONMENT & LIGHTING: The bottle is in a seamless studio.\n\n**Crucial Background Instruction:** The background must be a solid, clean, very light pastel tone that is specifically chosen to complement the liquid color (e.g., a soft cool mint background for a warm orange liquid, or a pale blush background for a deep green liquid). No gradients. Ultra-soft, diffused studio lighting creates sleek highlights on metal and deep subsurface scattering in the glass and liquid.\n\nPHOTOGRAPHY STYLE: High-resolution 100mm macro lens shot. Shallow depth of field, sharp focus on bottle textures and the printed graphics on the glass, smooth pastel background bokeh. 8k resolve, hyper-realistic textures.\n\nGRAPHIC OVERLAYS: Include subtle dark gray UI elements.\n\nBottom Left Corner: Very small, minimalist text (like Manrope Regular font) describing the product's name and function in two sentences.\n\nBottom Right Corner: A small, minimalist dark gray logomark for [BRAND NAME].\n\nSteal more of my \"Creative Director's\" prompts:\n\nhttps://t.co/ck6ipEhhqu\n\nAnimate like a pro:\n\nhttps://t.co/JdBfcNi0vU\n\nMaster the creative direction of AI\n\nLess tools. More brand vision &amp; creative philosophy\n\nI fuse 10+ years of branding &amp; ad design with AI\n\nFollow me @AmirMushich &amp; master it with me\n\nPS\n\nGrab my free assets I built to boost your growth:\n\n🔗link in bio https://t.co/AjEA78etw8",
+    "images": [
+      "data/images/nano-banana-auto-prompt/nano-banana-auto-prompt-1080x1350.jpg",
+      "data/images/nano-banana-auto-prompt/nano-banana-auto-prompt-1080x1350-2.jpg",
+      "data/images/nano-banana-auto-prompt/nano-banana-auto-prompt-1080x1350-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "科技",
+      "抽象",
+      "产品",
+      "科幻",
+      "Shallow Depth of Field"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-21T17:30:25Z",
+    "updatedAt": "2025-12-21T17:30:25Z"
+  },
+  {
+    "id": "nano-banana-pro-3d-brand-headquarters",
+    "title": "NANO BANANA PRO 3D品牌总部",
+    "prompt": "3D Brand HQ by NANO BANANA PRO on @atomu_ai 🏬🍌\n\nPrompt👇🏻 https://t.co/h9UmRCRVNf\n\n“Present a clear, 45° top-down isometric miniature 3D cartoon scene of [BRAND] Headquarters, designed as a recognizable corporate campus world.\n\nUse soft refined textures, realistic PBR materials, and clean, lifelike lighting.\n\nThe scene should feature the most iconic and widely recognized headquarters architecture associated with [BRAND], placed at the center of a small raised diorama-style base.\n\nInclude surrounding elements that naturally fit a modern HQ campus (paths, greenery, roads, minimal structures), all scaled consistently and proportionally.\n\nUse a clean solid neutral background with strong contrast.\n\nAt the top-center, display [BRAND] in large bold text.\n\nDirectly beneath it, display “Headquarters” in medium text.\n\nPlace the official [BRAND] logo below the subtext.\n\nAll text must automatically match background contrast (white or black).\n\nComposition: perfectly centered layout, square 1080×1080, ultra-clean, premium isometric 3D aesthetic.”\n\nMy workflow on Atomu AI:👇🏻\n\nhttps://t.co/woqPyLPDoB",
+    "images": [
+      "data/images/nano-banana-pro-3d-brand-headquarters/nano-banana-pro-3d-brand-headquarters-1080x1080.jpg",
+      "data/images/nano-banana-pro-3d-brand-headquarters/nano-banana-pro-3d-brand-headquarters-1600x868.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "头像",
+      "产品",
+      "现实",
+      "3D",
+      "科幻"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-21T11:07:16Z",
+    "updatedAt": "2025-12-21T11:07:16Z"
+  },
+  {
+    "id": "nanobanana-pro-spacex-falcon-9-rocket-anatomy-technical-poster",
+    "title": "NANOBANANA PRO - SpaceX Falcon 9 火箭解剖技术海报",
+    "prompt": "🎨 NANOBANANA PRO 🎨\n\nPrompt :\n\nDesign a hyper-detailed technical poster dissecting the anatomy of a SpaceX Falcon 9 rocket. Explode-view of components thrusters. Each labeled with precise sans-serif text and dashed connector lines. Use metallic silver and blue palette on a starry black background. Add realistic lighting, orbital glows, and particle effects for depth. Studio render style, high resolution, aerospace engineering illustration, isometric view with slight rotation, Blender render.\n\nMade in @freepik",
+    "images": [
+      "data/images/nanobanana-pro-spacex-falcon-9-rocket-anatomy-technical-poster/nanobanana-pro-spacex-falcon-9-rocket-anatomy-technical-poster-1600x893.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "现实",
+      "3D",
+      "科幻"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-14T13:00:01Z",
+    "updatedAt": "2025-12-14T13:00:01Z"
+  },
+  {
+    "id": "product-interaction-photography-powder-explosion",
+    "title": "产品互动摄影：粉末爆炸中的产品",
+    "prompt": "Prompt Studio: Product Interaction Photography\n\n[PRODUCT] at center of [colored powder, flour, cocoa, pigment] explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.\n\nCheck ALTs for ideas\n\n1. A vintage film camera at center of deep indigo pigment explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising\n\n2. A modern sneaker mid-stride at center of neon coral pigment explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising\n\n3. An open umbrella at center of colorful pigment explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising\n\n4. A classic glass lightbulb (unlit) at center of soft pearl-white powder explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+    "images": [
+      "data/images/product-interaction-photography-powder-explosion/product-interaction-photography-powder-explosion-1232x928.jpg",
+      "data/images/product-interaction-photography-powder-explosion/product-interaction-photography-powder-explosion-1232x928-2.jpg",
+      "data/images/product-interaction-photography-powder-explosion/product-interaction-photography-powder-explosion-1232x928-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "3D",
+      "影视",
+      "节庆"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-18T22:07:00Z",
+    "updatedAt": "2025-12-18T22:07:00Z"
+  },
+  {
+    "id": "quantum-computing-basics-infographic",
+    "title": "量子计算基础信息图",
+    "prompt": "🎨 NANOBANANA PRO 🎨\n\nPrompt :\n\nCreate a sleek infographic poster explaining quantum computing basics: qubits vs. bits, superposition, entanglement, and real-world applications, with comparative diagrams, flowcharts, and icon-based visuals. Use a futuristic blue and purple palette, minimalist lines, labeled sections, and interactive-style annotations. Clean tech design on a gradient background, high-res format, professional and educational tone.\n\nMade in @freepik",
+    "images": [
+      "data/images/quantum-computing-basics-infographic/quantum-computing-basics-infographic-1600x893.jpg"
+    ],
+    "categories": [
+      "UI界面"
+    ],
+    "tags": [
+      "科技",
+      "Infographic",
+      "抽象",
+      "产品",
+      "科幻"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-17T13:01:22Z",
+    "updatedAt": "2025-12-17T13:01:22Z"
+  },
+  {
+    "id": "tilted-product-with-dynamic-elements-and-backlighting",
+    "title": "倾斜的产品，周围有飞溅和动态元素，背景为黑色，使用背光照明，两侧有飞行元素，高分辨率，超逼真摄影风格，焦点锐利，超高清晰度图像",
+    "prompt": "PROMPT TO MARKETING\nA [PRODUCT] is tilted, with splashes and dynamic elements floating in the air around it. The background color should be black to highlight details. Use backlighting for lighting effects. There will also appear some flying elements on both sides of the picture. It has high resolution and hyper-realistic photography style, in sharp focus, ultra-high definition image.\n@Adobe, @AdobeFirefly boards",
+    "images": [
+      "data/images/tilted-product-with-dynamic-elements-and-backlighting/tilted-product-with-dynamic-elements-and-backlighting-1200x670.jpg",
+      "data/images/tilted-product-with-dynamic-elements-and-backlighting/tilted-product-with-dynamic-elements-and-backlighting-1200x670-2.jpg",
+      "data/images/tilted-product-with-dynamic-elements-and-backlighting/tilted-product-with-dynamic-elements-and-backlighting-1200x670-3.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "头像",
+      "产品",
+      "现实",
+      "影视",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-07T19:19:15Z",
+    "updatedAt": "2026-01-07T19:19:15Z"
+  },
+  {
+    "id": "ultra-realistic-isometric-diorama-based-on-uploaded-image",
+    "title": "基于上传图像创建超逼真等距立体沙盘",
+    "prompt": "Güzel prompt\n\n{\n\n\"prompt\": \"Create an ultra realistic isometric diorama based strictly on the uploaded image. Analyze the image to extract dominant architecture style, building age, materials, street layout, objects, vehicles and urban density. Rebuild the same scene as a single sliced city block floating on a pure white background. Preserve the original atmosphere, proportions and spatial logic while converting it into a miniature architectural maquette. Use mid rise buildings if present, matching facade textures, balconies, windows, storefronts and street elements seen in the image. Keep only elements visible in the source image. Remove anything not present. Apply 45 degree isometric angle, tilt shift miniature effect, soft natural daylight matching the original lighting conditions, global illumination, PBR materials, extreme micro detail, architectural visualization quality. Clean studio lighting. No sky, no horizon.\",\n\n\"negative_prompt\": \"invented objects, extra buildings, fantasy elements, cartoon, anime, illustration, low poly, flat shading, fisheye, distortion, surreal details, inconsistent scale, random props\",\n\n\"aspect_ratio\": \"1:1\",\n\n\"style\": \"photorealistic\",\n\n\"quality\": \"high\"\n\n}",
+    "images": [
+      "data/images/ultra-realistic-isometric-diorama-based-on-uploaded-image/ultra-realistic-isometric-diorama-based-on-uploaded-image-1600x1600.jpg",
+      "data/images/ultra-realistic-isometric-diorama-based-on-uploaded-image/ultra-realistic-isometric-diorama-based-on-uploaded-image-1600x1600-2.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "Isometric Architecture",
+      "工艺",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-14T17:21:05Z",
+    "updatedAt": "2025-12-14T17:21:05Z"
+  },
+  {
+    "id": "white-monster-ultra-energy-drink-ad-style-image",
+    "title": "白色怪物超能量饮料广告风格图片",
+    "prompt": "Product ad-style image of the white Monster ultra energy drink half submerged in crystal clear water\n\nCreated with Google Nano Banana Pro on Higgsfield\n\nPrompt used: cinematic, ultra realistic, aesthetic wallpaper style image of a White Monster Energy Ultra can dramatically half submerged in crystal clear water with insane sharp details, wild lighting reflections, and intense emotional energy, the top half of the can emerging powerfully above the water while the bottom half sinks beneath the transparent ripples, water splashing with dramatic motion, cold frosty condensation on the can, vibrant high contrast colors, epic viral clickbait mood, ragebait intensity, insane hype energy, breathtaking composition, deeply atmospheric lighting, shallow depth of field, hyper detailed textures, premium advertising look, photorealistic, 8k resolution, cinematic framing, highly polished commercial visual, bold dramatic vibe, visually shocking and attention grabbing, perfect for viral wallpaper",
+    "images": [
+      "data/images/white-monster-ultra-energy-drink-ad-style-image/white-monster-ultra-energy-drink-ad-style-image-1600x1600.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "产品",
+      "现实",
+      "影视",
+      "神话",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-27T14:03:30Z",
+    "updatedAt": "2025-12-27T14:03:30Z"
   }
 ]
