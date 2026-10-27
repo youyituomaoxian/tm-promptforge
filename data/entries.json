@@ -489,27 +489,6 @@
     "updatedAt": "2026-10-19T08:59:04Z"
   },
   {
-    "id": "minimalist-flat-q-version-sticker",
-    "title": "极简扁平风格Q版贴纸",
-    "prompt": "改了一版扁平小贴纸：\n把这张照片设计成一个极简扁平插画风格的Q版贴纸，厚白边，保留人物特征，风格要可爱一些，人物要超出圆形区域边框，圆形区域要为纯色不要3d感，透明背景 https://t.co/RgH33FUiOS",
-    "images": [
-      "data/images/minimalist-flat-q-version-sticker/minimalist-flat-q-version-sticker.jpg"
-    ],
-    "categories": [
-      "插画IP"
-    ],
-    "tags": [
-      "角色设定",
-      "插画风格",
-      "表情包"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@-Zho-",
-    "source": "https://x.com/ZHO_ZHO_ZHO/status/1908044836953108490",
-    "createdAt": "2025-12-16T00:00:00Z",
-    "updatedAt": "2025-12-16T00:00:00Z"
-  },
-  {
     "id": "cartoon-style-app-icon-design",
     "title": "卡通风格应用图标设计",
     "prompt": "🚨PromptShare🚨\nCartoon Style App Icon\nColorful, cartoon-style app icon design for a [type of app: game, movie, food, sport, etc.] logo with the text [\"App Name\"] and [character, symbol, or cute object + short description of its pose or action] on the front of a square button, set against a [background color / theme] with simple details. High-resolution game art and graphics for a mobile app, Pixar style, realistic.",
