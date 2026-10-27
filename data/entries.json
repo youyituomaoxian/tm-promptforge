@@ -489,48 +489,6 @@
     "updatedAt": "2026-10-19T08:59:04Z"
   },
   {
-    "id": "cartoon-style-app-icon-design",
-    "title": "卡通风格应用图标设计",
-    "prompt": "🚨PromptShare🚨\nCartoon Style App Icon\nColorful, cartoon-style app icon design for a [type of app: game, movie, food, sport, etc.] logo with the text [\"App Name\"] and [character, symbol, or cute object + short description of its pose or action] on the front of a square button, set against a [background color / theme] with simple details. High-resolution game art and graphics for a mobile app, Pixar style, realistic.",
-    "images": [
-      "data/images/cartoon-style-app-icon-design/cartoon-style-app-icon-design.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Pierrick Chevallier | IA",
-    "source": "https://x.com/CharaspowerAI/status/1966539819158212759",
-    "createdAt": "2025-12-05T00:00:00Z",
-    "updatedAt": "2025-12-05T00:00:00Z"
-  },
-  {
-    "id": "branding-minimalist",
-    "title": "品牌设计指南海报",
-    "prompt": "Create a vertical 9:16 brand design guide poster using the uploaded product image. Adapt the design style to match the product’s niche and visual identity. Structure the poster with clear, elegant sections: (1) Large logo display and safe zone usage, (2) Product mockup centered and highlighted, (3) Primary and secondary color palette swatches with hex codes, (4) Typography guide with heading, subheading, body font samples, and line spacing specs, (5) Iconography or graphic motif examples used by the brand, (6) Image treatment style with sample lifestyle or studio visuals, (7) Grid system or layout rules, (8) Packaging mockups and surface applications, (9) Do’s & Don’ts with annotated visuals. Use minimalist white or soft neutral background with structured layout dividers and drop shadows. The result must be visually rich, clean, and suitable for a printed or digital brand book.",
-    "images": [
-      "data/images/branding-minimalist/branding-minimalist.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@ai4everyday",
-    "source": "https://x.com/ai4everyday/status/1925838516979646795",
-    "createdAt": "2025-12-01T00:00:00Z",
-    "updatedAt": "2025-12-01T00:00:00Z"
-  },
-  {
     "id": "nintendo-brand-merchandise-showcase",
     "title": "Nintendo品牌周边产品展示",
     "prompt": "简单的｛品牌周边｝提示词：\n【Nintendo】品牌的周边产品展示，高端的“系列”，囊括品牌实用纪念品。图片展示了一系列种类丰富且精心挑选的实物（例如品牌徽章、服装配饰、装饰挂件、科技配件、实用装备、生活用品、文具、日常用品等），这些物品在语义上与品牌的特定行业和受众群体密切相关。\n每件商品都采用品牌的官方标志性配色方案设计，并醒目地融入了品牌标识。\n这些物品以简洁有序的组合构图（俯视或等距视角）排列在无边框的背景上。\n柔和专业的灯光营造出微妙的光影效果。宽广的取景框确保产品组合四周留有大量的空白空间。",
@@ -550,27 +508,6 @@
     "source": "AI",
     "createdAt": "2025-12-31T00:00:00Z",
     "updatedAt": "2026-10-19T09:03:06Z"
-  },
-  {
-    "id": "exploded-view-of-nespresso-coffee-machine-internal-components",
-    "title": "Nespresso咖啡机内部组件分解视图",
-    "prompt": "🚨PromptShare🚨\nWhen it comes to exploded views, I’m blown away by the quality Banana Pro can deliver 💥 Made In Firefly\nEXPLODED VIEW\nan exploded view of the internal components of [a Nespresso coffee machine], set against a white background. 3d rendering, realistic and highly detailed depiction in white, black, and grey colors. octane render in a hyper-realistic appearance.",
-    "images": [
-      "data/images/exploded-view-of-nespresso-coffee-machine-internal-components/exploded-view-of-nespresso-coffee-machine-internal-components.jpg"
-    ],
-    "categories": [
-      "其他"
-    ],
-    "tags": [
-      "创意视觉",
-      "生成实验",
-      "风格探索"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@Pierrick Chevallier | IA",
-    "source": "https://x.com/CharaspowerAI/status/2002819092986675491",
-    "createdAt": "2025-12-22T00:00:00Z",
-    "updatedAt": "2025-12-22T00:00:00Z"
   },
   {
     "id": "fashion-lady-and-labubu-character-advertising-photo",
