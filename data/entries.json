@@ -2401,5 +2401,53 @@
     "source": "网络社区收集",
     "createdAt": "2025-12-27T14:03:30Z",
     "updatedAt": "2025-12-27T14:03:30Z"
+  },
+  {
+    "id": "hyper-realistic-black-white-fashion-portrait",
+    "title": "超现实主义黑白时尚肖像",
+    "prompt": "Grok (1,2) vs Gemini Banana Prompt ;\n\nGLOBAL STYLE & QUALITY\n\nUltra-realistic black & white cinematic fashion portrait, high-end editorial photography, luxury magazine cover quality, bold premium aesthetic, film-grade monochrome toning, no color shift, no stylization, no illustration, razor-sharp focus, subtle film grain\n\nFACE\n\nAdult woman with striking facial symmetry, full sculpted lips slightly parted, strong yet elegant jawline, high cheekbones, almond-shaped eyes with a heavy-lidded seductive gaze, calm dominance, unbothered confidence, subtle tension in expression, editorial-level facial control\n\nEXPRESSION & GAZE (BOLD ENHANCED)\n\nDirect, unapologetic gaze toward camera, slow-burning intensity, composed dominance, effortless power, confident sensuality without exaggeration, expression feels intentional and controlled rather than posed\n\nBODY & PHYSIQUE\n\nSlim yet curvy feminine physique, elegant neck and collarbone line, natural bust shape emphasized subtly by posture and lighting, relaxed shoulders, grounded stance, body language communicates authority and self-awareness\n\nSKIN\n\nSmooth realistic skin texture in monochrome, soft highlight roll-off, visible natural pores, subtle glow on cheekbones, nose bridge and upper chest, no over-smoothing, no plastic finish\n\nHAIR\n\nMessy, wet-look dark hair, loose strands falling naturally across the face, slightly disheveled editorial styling, high realism individual strands, controlled chaos aesthetic, adds raw bold attitude\n\nOUTFIT\n\nBlack leather fitted jacket, partially unzipped, structured yet flexible texture, visible leather grain in monochrome, high-fashion biker-inspired silhouette, black neck wrap or scarf adding layered depth and mystery, sunglasses resting casually on top of the head\n\nCAMERA & ANGLE\n\nMedium-close portrait framing (chest-up), eye-level angle with slight upward chin tilt, cinematic fashion lens (50–85mm look), shallow depth of field, face and upper torso in perfect focus\n\nLIGHTING\n\nClassic studio portrait lighting, soft but directional key light from front-left, gentle shadow sculpting facial structure, subtle rim light separating hair and shoulders from background, monochrome contrast preserved exactly, no blown highlights, no crushed blacks\n\nTONALITY & COLOR GRADING\n\nPure black & white, neutral grayscale palette, rich blacks, clean whites, smooth midtone transitions, cinematic contrast curve, timeless fashion editorial toning, no color contamination\n\nATMOSPHERE\n\nMoody, intimate, powerful, luxury fashion house energy, quiet intensity, minimalism with attitude, strong presence without aggression\n\nFINAL RESULT GOAL\n\nA hyper-realistic, black & white, bold cinematic fashion portrait that elevates the original aesthetic with stronger dominance and editorial confidence — timeless, luxurious, controlled, and irresistibly powerful",
+    "images": [
+      "data/images/hyper-realistic-black-white-fashion-portrait/hyper-realistic-black-white-fashion-portrait-784x1168.jpg",
+      "data/images/hyper-realistic-black-white-fashion-portrait/hyper-realistic-black-white-fashion-portrait-784x1168-2.jpg",
+      "data/images/hyper-realistic-black-white-fashion-portrait/hyper-realistic-black-white-fashion-portrait-670x1200.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "人物",
+      "现实",
+      "影视",
+      "时尚",
+      "建筑"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-09T21:58:34Z",
+    "updatedAt": "2026-01-09T21:58:34Z"
+  },
+  {
+    "id": "hyperrealistic-caricature-portrait",
+    "title": "超现实主义讽刺肖像",
+    "prompt": "Hyperrealistic Caricature Portrait\n\nGoogle Gemini ai Nano Banana 3 Pro ✨\n\nPrompt ⤵️\n\n{\n\n\"style\": {\n\n\"type\": \"hyperrealistic caricature\",\n\n\"lighting\": \"soft studio lighting\",\n\n\"mood\": \"serious, dramatic\",\n\n\"details\": \"exaggerated facial proportions, smooth skin texture, painterly realism\"\n\n},\n\n\"subject\": {\n\n\"type\": \"older man\",\n\n\"features\": {\n\n\"hair\": \"light blond, voluminous, swept to the side with dramatic flow\",\n\n\"face\": \"large exaggerated cheeks and chin, deep frown lines, pronounced brows, slightly drooping eyelids\",\n\n\"expression\": \"stern, pouting, serious\"\n\n},\n\n\"clothing\": {\n\n\"outfit\": \"dark formal suit\",\n\n\"shirt\": \"light-colored dress shirt\",\n\n\"tie\": \"light blue textured tie\"\n\n},\n\n\"pose\": \"straight posture, facing forward\"\n\n},\n\n\"background\": {\n\n\"type\": \"plain dark gradient\",\n\n\"atmosphere\": \"studio portrait, minimalistic\"\n\n},\n\n\"camera\": {\n\n\"angle\": \"straight-on\",\n\n\"depth_of_field\": \"shallow, soft background\",\n\n\"focus\": \"sharp on",
+    "images": [
+      "data/images/hyperrealistic-caricature-portrait/hyperrealistic-caricature-portrait-1201x1600.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "产品",
+      "人物",
+      "现实",
+      "3D",
+      "Ethereal"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-08T05:25:36Z",
+    "updatedAt": "2025-12-08T05:25:36Z"
   }
 ]
