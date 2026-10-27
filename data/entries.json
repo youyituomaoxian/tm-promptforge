@@ -2611,10 +2611,10 @@
   },
   {
     "id": "if-confidence-had-a-scent",
-    "title": "如果自信有味道...",
-    "prompt": "If confidence had a scent.. this would be it.\n\nImage generated with ChatGPT and video by Grok \n\nPrompt 👇🏼 https://t.co/uh1pjRscPs",
+    "title": "广告静物摄影",
+    "prompt": "主体：【黑色驱动电机】，竖直放置在粗糙圆形石台上，正面正对镜头，\n构图机位：低机位近景静物构图，主体居中，背景简洁朦胧\n环境布景：周围搭配弯曲风化开裂枯木与不规则黑色炭石，一根长枯木从左上方弯向右上方，形成拱形框景\n光影：主色调暗灰与棕黑色调，浓烈红色侧逆光，光线打亮枯木边缘、石台与瓶身，强烈戏剧明暗对比\n风格参数：【高端工业产品】广告静物摄影，超写实，精致材质光影，氛围神秘沉稳富有力量感，8K，超高细节",
     "images": [
-      "data/images/if-confidence-had-a-scent/if-confidence-had-a-scent-1024x1024.jpg"
+      "data/images/if-confidence-had-a-scent/if-confidence-had-a-scent-1600x1200.jpg"
     ],
     "categories": [
       "产品图"
@@ -2630,7 +2630,7 @@
     "author": "@马守坤",
     "source": "网络社区收集",
     "createdAt": "2026-03-01T09:11:58Z",
-    "updatedAt": "2026-03-01T09:11:58Z"
+    "updatedAt": "2026-10-27T07:32:52Z"
   },
   {
     "id": "material-swapping-with-nano-banana-pro",
