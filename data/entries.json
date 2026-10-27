@@ -2391,5 +2391,528 @@
     "source": "网络社区收集",
     "createdAt": "2025-12-28T02:43:43Z",
     "updatedAt": "2025-12-28T02:43:43Z"
+  },
+  {
+    "id": "nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters",
+    "title": "Nano Banana Pro美学震撼：一键生成影视小说场景海报",
+    "prompt": "被 Nano Banana Pro 的美学表现震撼！太顶了\n\n一键生成任何影视剧或者小说的场景海报提示词\n\n优化了一下我的微缩场景模型提示词，增加文案部分的效果以及模型周围的特效\n\n没想到适配性这么好，每个场景、文字效果、模型周遭的特效都非常适配小说或者影视剧\n\n提示词：\n\n请为影视剧/小说《需要添加的名称》设计一张高品质的3D海报，需要先检索影视剧/小说信息和著名的片段场景。\n\n首先，请利用你的知识库检索这个影视剧/小说的内容，找出一个最具代表性的名场面或核心地点。在画面中央，将这个场景构建为一个精致的轴侧视角3D微缩模型。风格要采用梦工厂动画那种细腻、柔和的渲染风格。你需要还原当时的建筑细节、人物动态以及环境氛围，无论是暴风雨还是宁静的午后，都要自然地融合在模型的光影里。\n\n关于背景，不要使用简单的纯白底。请在模型周围营造一种带有淡淡水墨晕染和流动光雾的虚空环境，色调雅致，让画面看起来有呼吸感和纵深感，衬托出中央模型的珍贵。\n\n最后是底部的排版，请生成中文文字。居中写上小说名称，字体要有与原著风格匹配的设计感。在书名下方，自动检索并排版一句原著中关于该场景的经典描写或台词，字体使用优雅的衬线体。整体布局要像一个高级的博物馆藏品铭牌那样精致平衡。\n\n西部世界的经典场景，他的标题特效真的每个都不一样 https://t.co/4K9xuNAfs0\n\n剑来小说的经典场景，他选的陈平安走出骊珠洞天的片段\n\n周围环绕的雾气以及模型周围的球形遮罩真的很像小世界或者洞天 https://t.co/2uk2zCO6tF\n\n整了一张《索拉里斯星》的海报，这场景想象的太好了 https://t.co/FYjkskdmOO\n\n划了一下刘慈欣的《全频带阻塞干扰》场景细节丰富而且震撼 https://t.co/ocLIjBJxKz\n\n剑来这张图也很顶 https://t.co/9uJ8HBzuVq\n\n现实事件也能画：https://t.co/r7ejnbY20c",
+    "images": [
+      "data/images/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters-1198x1600.jpg",
+      "data/images/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters-1195x1600.jpg",
+      "data/images/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters-1195x1600-2.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "Nano Banana Pro",
+      "人物",
+      "漫画",
+      "国风",
+      "神话"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-09T11:35:52Z",
+    "updatedAt": "2025-12-09T11:35:52Z"
+  },
+  {
+    "id": "programmers-f12-keycap-miniature-scene",
+    "title": "程序员F12键帽微缩场景",
+    "prompt": "程序员怎么能少了F12\n\n对原提示词增加了键帽的外观，材质的描述，以及模板变量，你可以方便的替换\n\n🍌Nano banana Pro Prompt：\n\n这是一个极其精细的微缩场景模型，构建在一个巨大的、晶莹剔透的透明树脂材质‘F12’电脑键帽内部。键帽表面带有磨砂质感的白色“《键帽》”字样，顶端略微凹陷。光线透过半透明的键帽外壳，转化为柔和温暖的色调，洒满整个小房间。在里面，一位《主体》正坐在一台微型电脑前，屏幕上以大号字体醒目地显示着“《文字》”。微小的书架、地毯和增强了舒适惬意的氛围。镜头采用45度俯视的高角度微距摄影，呈现出清晰的浅景深效果，背景带有细腻的柔焦感。具有超写实的纹理、手工制作的微缩美学、电影感的视觉风格，营造出异想天开且宁静平和的情调。9：16。8K高清\n\n键帽：F12\n主体： 程序员\n文字：vibe code",
+    "images": [
+      "data/images/programmers-f12-keycap-miniature-scene/programmers-f12-keycap-miniature-scene-894x1600.jpg"
+    ],
+    "categories": [
+      "插画IP"
+    ],
+    "tags": [
+      "头像",
+      "人物",
+      "国风",
+      "神话",
+      "自然"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-18T00:49:27Z",
+    "updatedAt": "2025-12-18T00:49:27Z"
+  },
+  {
+    "id": "this-christmas-special-ornament",
+    "title": "今年のクリスマス、特別なオーナメント",
+    "prompt": "#每日のプロンプト #Lovart\n今年のクリスマス、少しだけ特別に。🎄🤭🧑‍🎄\n写真をアップするだけで、 Lovartがキャラをクリスマスオーナメントに変身。👍👏\n猫でも、人でも、推しでもOK。🐾✨\n\nモデル：Nano Banana Pro\nプロンプト：\n画像を目視で確認し参照して画像生成してください。\n3Dトイ風のポートレート。\n白く明るい背景に、大きな粒の柔らかなゴールドのボケイルミネーションが広がる中\n北欧スタイルのクリスマスツリーを中距離ショットで全体が入る構図でフォトリアルに描写する。\n\n深いグリーンの密度の高いモミの木。針葉の先端に自然な粉雪。\n高精細・8K品質・北欧ミニマル。\n\nオーナメントは「マットゴールド」「マットホワイト」「透明ガラス」の3種のみ。\n“Merry Christmas” の英字立体オーナメントはマットゴールドで控えめな柔らかい反射。\n\n【参照人物の再現指示】\n参照画像の人物特徴を忠実に再現すること。\n輪郭・眉・目・鼻・口・髪型・髪色を変更しない。\n元の人物の面影を強く残すこと。\n\n【チビキャラ化】\n顔パーツの位置・形を変えず、比率のみデフォルメして3Dトイ風に再構築する。\n肌は滑らかなクレイ質感。\n瞳には柔らかい光彩。\n表情は可愛らしく愛らしい。\n\n【人数ルール（最重要）】\n参照画像に写っている人物と同じ人数のチビキャラのみ生成すること。\n一人につき1体のみ。\n複製禁止。\nサイズ違い禁止。\n追加キャラ禁止。\n参照画像にいない人物フィギュアを一切追加しない。\n\n【衣装】\n北欧テイストの“くすみ赤”のサンタ服。\n彩度控えめで温かみのある深い赤。\n白い縁取りはふわっとした布の質感。\n\n【チビキャラ配置ルール（最重要・強制）】\nチビキャラは クリアボールオーナメントの内部にのみ 配置する。\n身体のどの部位もオーナメントの外へ一切はみ出さない（髪・衣装・影・指先・足先も禁止）。\nボール外側に立たせない・座らせない・浮かせない。\nオーナメント外への接触・貫通・反射による疑似表示も禁止。\n参照人物の人数と同じ数のチビキャラを、1人につき1体だけ内部に配置する。\n複製禁止・追加禁止・サイズ違い禁止。\n\n【メインのクリアボール】\n厚みのある透明ガラス。境界が明確にわかる描写。\n細身の上質なゴールド金具。淡いサテンゴールドのリボン。\n内部にチビキャラを完全に収め、上下左右すべてに余白を持たせる。\nオーナメント中央付近にチビキャラをふわっと浮かぶように配置。\n\n【光・質感】\n柔らかな自然光。北欧の冬光の透明感。\n過度な反射はなし。\n全体はフィルム調の深み。\nシネマティックで上品。\n超高精細・8K・フォトリアル。\n事例引用元:https://t.co/E4Unvvk1Tt  @aiko_u_works",
+    "images": [
+      "data/images/this-christmas-special-ornament/this-christmas-special-ornament-1200x675.jpg"
+    ],
+    "categories": [
+      "节日"
+    ],
+    "tags": [
+      "人物",
+      "漫画",
+      "国风",
+      "神话",
+      "节庆"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-20T09:00:03Z",
+    "updatedAt": "2025-12-20T09:00:03Z"
+  },
+  {
+    "id": "bees-entomology-educational-diagram",
+    "title": "蜜蜂昆虫知识科普图谱",
+    "prompt": "再优化一版，单个昆虫的知识百科！！\n\n虫子各有各的超能力，再看人类，就无趣的多了。\n\n一个三十多岁的大人，正看的津津有味！\n\n提示词：\n\n请创建一张博物馆展品级别的昆虫知识科普图谱，聚焦展示【蜜蜂】。\n\n核心布局：\n\n- 中心：巨大的昆虫标本图像，占据画面60-70%\n\n- 周围：科学标注和趣味百科信息，呈放射状或分区排布\n\n- 整体：如同博物馆玻璃展柜中的精美标本说明牌\n\n昆虫标本呈现（核心要求）：\n\n1. 物理真实感：昆虫标本直接平放在纸面上，不是\"图片中的图片\"\n\n2. 视角：垂直俯视，标本与纸面在同一平面\n\n3. 光影：柔和的自然光从上方照射，标本在纸面上投下细腻的阴影\n\n4. 固定方式：用昆虫针（细长的银色针）真实地固定标本，针穿过标本身体，针尖微微刺入纸面\n\n5. 细节质感：\n\n- 可见标本的真实纹理：翅脉、绒毛、鳞片、复眼反光\n\n- 标本边缘有轻微的厚度感和立体感\n\n- 翅膀可能有轻微的透光效果\n\n- 针周围纸面有细微的凹陷或针孔\n\n6. 比例：标本占据纸面中心约60-70%区域，周围留白供标注使用\n\n7. 自然状态：展翅姿态自然，不过分僵硬，保留标本的真实质感\n\n标注系统设计：\n\n采用引导线（细线）从昆虫身体部位延伸到说明文字框\n\n必需标注的身体部位（6-8个）：\n\n1. 头部 Head\n\n- 复眼：有多少个小眼组成？视野范围多大？\n\n- 触角：用途是什么？有多少节？\n\n- 口器：属于哪种类型？吃什么食物？\n\n2. 胸部 Thorax\n\n- 前胸/中胸/后胸：各自功能\n\n- 翅膀：有几对？飞行速度多快？特殊能力？\n\n- 足：有几对？抓握/跳跃/游泳等特殊功能？\n\n3. 腹部 Abdomen\n\n- 节数：有多少体节？\n\n- 特殊器官：发光器/毒刺/产卵器等\n\n- 气孔：如何呼吸？\n\n4. 特色结构\n\n- 该昆虫最独特的身体特征\n\n- 与生存环境的适应关系\n\n信息卡片内容：\n\n每个标注包含：\n\n- 部位名称（中英文）\n\n- 1-2句功能说明（儿童友好语言）\n\n- 趣味数据或冷知识（用🔍或💡图标标识）\n\n页面其他元素：\n\n顶部区域：\n\n- 昆虫中文名（大标题，优雅字体）\n\n- 学名 Scientific Name（斜体拉丁文，副标题）\n\n- 所属目/科（小字标注）\n\n- 分布地图小图标（世界地图+分布区域高亮）\n\n底部/侧边信息栏：\n\n基础档案\n\n- 体长：X-X mm\n\n- 寿命：X天/月/年\n\n- 栖息地：森林/草地/水域等\n\n- 食性：植食/肉食/杂食\n\n超能力/特殊技能\n\n- 列出2-3个最酷的能力\n\n- 用简单图标+文字说明\n\n趣味冷知识\n\n- 1-2个吸引儿童的有趣事实\n\n- 如\"可以举起自己体重50倍的物体\"\n\n生命周期\n\n- 简化的变态过程图示\n\n- 卵→幼虫→蛹→成虫（完全变态）\n\n- 或卵→若虫→成虫（不完全变态）\n\n*设计美学：\n\n- 纸面质感：\n\n底纸：米白色或象牙白高级纸张纹理 #F8F6F0\n\n可见纸张的细微纤维和质感\n\n边缘可能有轻微的磨损或复古感（可选）\n\n- 空间关系：\n\n标本：物理实体，平放在纸面上，有真实阴影\n\n昆虫针：银色金属质感，穿过标本固定\n\n标注文字：直接书写或印刷在同一张纸上\n\n引导线：细笔绘制在纸面上的线条\n\n- 配色方案：\n\n纸面底色：#F8F6F0（米白）或 #FFFEF7（象牙白）\n\n标注文字：#2C3E50（墨色/深灰蓝）手写或印刷风格\n\n引导线：#8B7355（棕灰）或 #696969（炭灰）细线\n\n强调标记：#D4AF37（古铜金）或 #8B4513（棕褐色）\n\n昆虫针：银灰色金属光泽 #C0C0C0\n\n- 字体系统：\n\n标题：手写风格或优雅印刷体（Garamond/宋体）\n\n学名：斜体手写或印刷体\n\n标注文字：清晰的手写体或小号印刷字\n\n整体感觉：如同博物学家在标本纸上亲笔书写\n\n- 装饰元素：\n\n四角：简约的线框或装饰角花（印在纸上）\n\n标尺：毫米刻度尺，平行于标本放置\n\n日期/编号：手写风格的采集信息（可选）\n\n植物剪影水印：淡淡印在纸面上（可选）\n\n关键视觉要点：\n\n整个画面就是\"一张平铺的标本纸\"，上面固定着真实的昆虫标本，周围有手写或印刷的科学标注。观看者仿佛正俯视着一份博物学家的工作台上的标本记录。\n\n版式风格参考：如同打开一本19世纪博物学家的标本册，昆虫标本真实地固定在纸面上，周围是手写或精美印刷的科学注释。整体呈现一种平面化、扁平但充满物理质感的美学——这不是照片，而是标本与纸张的共存。\"\n\n关键概念：\n\n- ❌ 不要：标本的照片被放在画面中\n\n- ✅ 要：标本本身就在纸面上，与文字共享同一个物理平面\n\n- 就像古董标本册的一页，或者博物学家的工作记录\n\n图片规格：\n\n- 比例：16:9（横版海报）或 3:4（竖版展板）\n\n- 分辨率：300 DPI，适合A3/A2打印\n\n- 格式：PNG高清，保留细节\n\n科学准确性要求：\n\n- 身体结构比例符合真实昆虫形态\n\n- 专业术语使用准确\n\n- 儿童描述需科学又生动\n\n请确保整体呈现既有博物馆的学术严谨性，又充满吸引儿童探索的视觉魅力。",
+    "images": [
+      "data/images/bees-entomology-educational-diagram/bees-entomology-educational-diagram-1200x670.jpg",
+      "data/images/bees-entomology-educational-diagram/bees-entomology-educational-diagram-1200x670-2.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "人物",
+      "现实",
+      "国风"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-02T03:07:09Z",
+    "updatedAt": "2026-01-02T03:07:09Z"
+  },
+  {
+    "id": "brand-design-grid",
+    "title": "品牌设计网格",
+    "prompt": "Brand Design Grid\n\n🍌Gemini Nano Banana pro\n🚨prompt 👇\n\nA professional 6-panel grid layout photograph displaying a complete brand identity suite for the concept: \"{content}\". The image is divided into two rows and three columns, each cell framed with a clean white border. The overall style is a clean, modern studio mockup with uniform lighting.\nTop Row (Left to Right):\nCell 1 (Business Card - Original): Two stacks of business cards showing front and back, featuring the primary logo, color palette, and typography of \"{content}\". Clean white or light background paper stock.\nCell 2 (Business Card - Inverted): Two stacks of business cards showing front and back, featuring the same design as Cell 1 but with inverted colors (e.g., dark background with light logo/text).\nCell 3 (Pamphlet): An open tri-fold brochure showcasing detailed information, images, and branding elements related to \"{content}\".\nBottom Row (Left to Right):\nCell 4 (Flyer): A single-page promotional flyer design for \"{content}\", with a strong headline, imagery, and call to action.\nCell 5 (Shopping Bag): A premium paper shopping bag with handles, featuring a large version of the \"{content}\" logo and brand pattern.\nCell 6 (Calendar): A desk calendar showing a monthly view with themed illustrations or photos related to \"{content}\" and brand branding on each page.\nAll items across all six cells consistently apply the logo, color scheme, typography, and graphic elements of the \"{content}\" brand identity. The background behind the grid is a clean, neutral grey studio wall. 4k resolution, highly detailed texture.\nA minimal and chic handwritten signature 'Willy' is in the bottom-right corner.\ncontent: {input}\n#AIart #prompt #AIdesign #design #beauty",
+    "images": [
+      "data/images/brand-design-grid/brand-design-grid-1408x768.jpg",
+      "data/images/brand-design-grid/brand-design-grid-1408x768-2.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "头像",
+      "图案",
+      "产品",
+      "工艺",
+      "时尚"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-18T12:25:16Z",
+    "updatedAt": "2025-12-18T12:25:16Z"
+  },
+  {
+    "id": "brand-love-language.jpeg",
+    "title": "品牌之爱话术",
+    "prompt": "A romantic square-format bouquet inspired by [Brand Name]. Roses are crafted from visual patterns or textures that reflect the brand’s identity. The bouquet is wrapped in luxurious material echoing the brand’s signature style (e.g. silk, velvet, leather), and elegantly tied with one of the brand’s iconic products, replacing a traditional ribbon. Place it on a surface that matches the brand’s aesthetic. Add a message card beside the bouquet with a short, emotional 3-word slogan representing the brand’s spirit. Include the [Brand Name] logo subtly in the scene. Cinematic lighting, ultra-detailed, elegant depth of field, premium editorial quality.",
+    "images": [
+      "data/images/brand-love-language.jpeg/brand-love-language.jpeg-1200x1200.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "头像",
+      "图案",
+      "产品",
+      "工艺",
+      "时尚"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-05-18T10:17:37Z",
+    "updatedAt": "2025-05-18T10:17:37Z"
+  },
+  {
+    "id": "city-ribbon",
+    "title": "城市丝带",
+    "prompt": "City Ribbon\n\nGemini Nano Banana Pro Prompt:\n\nA silk ribbon unfurls diagonally across the canvas, twisting gently in mid-air. Within the folds of the ribbon exists a miniature sculpted city of [CITY], carved as a 3D bas-relief emerging from woven fabric textures.\n\nInside the ribbon: Landmarks, streets, and skyline rhythms of [CITY], flowing naturally with the ribbon’s curvature, layered in subtle depth.\n\nStyle: Fabric realism fused with sculptural relief. Soft highlights, tactile folds, elegant poster design.\n\nColor palette: Derived from the national flag of [COUNTRY], woven seamlessly into the fabric tones.\n\nView & background: Top-down minimalist layout, off-white museum paper texture, strong negative space.\n\nTypography: Title: “[CITY] UNFOLDED” Refined serif subtitle with poetic geographic language.\n\nComposition rules: All architectural detail remains strictly inside the ribbon shape. Ultra-detailed, HDR, gallery-grade, 8K poster aesthetic.",
+    "images": [
+      "data/images/city-ribbon/city-ribbon-1200x655.jpg",
+      "data/images/city-ribbon/city-ribbon-1200x655-2.jpg",
+      "data/images/city-ribbon/city-ribbon-1200x655-3.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "城市",
+      "抽象",
+      "产品",
+      "Cityscape",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-02T13:53:09Z",
+    "updatedAt": "2026-01-02T13:53:09Z"
+  },
+  {
+    "id": "foggy-minimalist-lithograph",
+    "title": "极简雾感石版画",
+    "prompt": "感谢原作者 @tisch_eins  的灵感，我好像更喜欢这种风格！\n\n极简构图 + 细腻胶片感 + 一丝中国水墨画的意境\n\nGemini说这是“Foggy Minimalist Lithograph” (雾感极简石版画风)\n\nBanana Prompt👇\n\n---\n\nA four-panel grid featuring minimalist atmospheric art. The style is faded monochrome photography on high-quality matte paper.Texture & Tone:\n\nSubtle film grain (not heavy noise).\n\nSoft, creamy beige and desaturated grey tones (clean, not dirty).\n\nLow contrast, dreamy, hazy atmosphere.The 4 Panels:\n\n(Top Left): Layered misty mountains with a tiny, sharp silhouette of a modern city at the very bottom.\n\n(Top Right): A lone traveler walking on a smooth sand dune into the fog. Clean lines, vast negative space.\n\n(Bottom Left): The Shanghai skyline (Lujiazui) rising faintly from heavy river mist, ethereal and ghost-like.\n\n(Bottom Right): Abstract zen geometry: concentric water ripples under a large pale sun, with a lone distant skyscraper.Negative Prompt:torn paper, dirt, stains, grunge, scratches, high contrast, harsh lines, blurry, messy, distorted.--ar 1:1 --v 6.0 --style raw",
+    "images": [
+      "data/images/foggy-minimalist-lithograph/foggy-minimalist-lithograph-1024x1024.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "抽象",
+      "影视",
+      "Minimalist",
+      "Foggy",
+      "Lithograph"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-19T07:22:09Z",
+    "updatedAt": "2025-12-19T07:22:09Z"
+  },
+  {
+    "id": "futuristic-aesthetic-sci-fi-still-life-photography",
+    "title": "未来主义美学风格科幻静物摄影",
+    "prompt": "Nano banana prompt share 🍌✨\n参考 AmirMušić @AmirMushich 的提示词模板探索出一个非常喜欢的未来主义美学风格，经测试这个模板非常稳定，适合各种主题。\n提示词模板：\n\n场景描述:\nCinematic sci-fi still life photography of [物品名称] in [场景类型]. The [物品] is constructed from frosted borosilicate glass with dichroic polished aluminum accents. Translucent resin [部件]. Bioluminescent ice blue glow accents. The [物品] [动态呈现方式] [场景元素]. Extremely faint glowing energy field particles [粒子效果]. Minimal composition with only the [物品] and [场景元素]. Dramatic side rim lighting emphasizing the [动态效果] and translucency. The glowing parts act act as auxiliary light sources. Deep, clean cold-toned gradient background from deep space gray to nebula blue. Ultra-clean, organized, minimalist composition.\n场景类型选择\nA. 反重力悬浮 (Anti-Gravity):\n\nThe [物品] floats several centimeters above a sleek glowing magnetic field generator. Extremely faint glowing energy field particles surround the floating object in a perfectly symmetrical pattern.\nB. 交互式界面 (Interactive Surface):\n\nThe [物品] sits on a perfectly clean holographic [表面类型] surface with minimal data visualization - only a few simple glowing lines showing [数据效果].\nC. 结构化悬挂 (Structural Suspension):\n\nThe [物品] is suspended between several perfectly aligned, ultra-thin glowing tension cables in a symmetrical [排列方式] arrangement.\n动态呈现方式\n反重力悬浮 → 浮动、漂浮、悬浮\n交互界面 → 激活、生成、展示\n结构化悬挂 → 悬挂、捕获、支撑\n物品描述部分\nTEXT OVERLAYS: \nBottom Left: \\\"[物品英文名称] / Frosted Glass & Aluminum\\\" in Helvetica Neue Light, color #E0E0E0.\nBottom Right: \\\"[品牌名称]\\\" brand name in bold modern sans-serif font with a sophisticated logo featuring an abstract geometric symbol combining [元素1] and [元素2] design with [细节描述], both in color #E0E0E0.\n\nhttps://t.co/97sz3NqSeC\n\nhttps://t.co/kOJHxMotST\n\nhttps://t.co/ZQcuvvM5EQ",
+    "images": [
+      "data/images/futuristic-aesthetic-sci-fi-still-life-photography/futuristic-aesthetic-sci-fi-still-life-photography-1600x893.jpg",
+      "data/images/futuristic-aesthetic-sci-fi-still-life-photography/futuristic-aesthetic-sci-fi-still-life-photography-1600x893-2.jpg",
+      "data/images/futuristic-aesthetic-sci-fi-still-life-photography/futuristic-aesthetic-sci-fi-still-life-photography-1600x893-3.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "抽象",
+      "产品",
+      "人物",
+      "科幻",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-07T20:40:35Z",
+    "updatedAt": "2026-01-07T20:40:35Z"
+  },
+  {
+    "id": "if-confidence-had-a-scent",
+    "title": "如果自信有味道...",
+    "prompt": "If confidence had a scent.. this would be it.\n\nImage generated with ChatGPT and video by Grok \n\nPrompt 👇🏼 https://t.co/uh1pjRscPs",
+    "images": [
+      "data/images/if-confidence-had-a-scent/if-confidence-had-a-scent-1024x1024.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "Mood",
+      "Abstract",
+      "Artificial Intelligence",
+      "Visual Metaphor",
+      "Confidence"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-03-01T09:11:58Z",
+    "updatedAt": "2026-03-01T09:11:58Z"
+  },
+  {
+    "id": "material-swapping-with-nano-banana-pro",
+    "title": "材料互换纳米香蕉专业版",
+    "prompt": "material swapping with nano banana pro. identical geometry, 16 different surfaces. velvet, leather, wood, metal, glass\n\nprompt: 4x4 grid of identical 3D object renders showing the same furniture piece with 16 different material applications. Each cell displays the exact same object geometry with a unique surface texture applied.\n\nObject: Curved sculptural seating form with rounded back, cushioned seat, and four angled legs. Organic mid-century modern silhouette with smooth flowing lines, gently sloped armrests, and comfortable proportions. Single unified form without separate cushions or pillows.\n\nCamera specifications: Fixed 3/4 front angle view, warm showroom lighting from upper-left at 45°, soft ambient fill light, identical framing across all 16 cells, subtle floor shadow beneath object, clean neutral gradient background.\n\nObject geometry (identical in all cells):\n\n* Same exact 3D model in every cell\n\n* Same camera angle and distance\n\n* Same lighting setup\n\n* Only the surface material changes between cells\n\n16 unique material applications (one per cell, left to right, top to bottom):\n\nRow 1 - Soft Luxury:\n\n* Cell 1: Midnight blue velvet - deep navy plush pile absorbing light across curved surfaces\n\n* Cell 2: Cognac full-grain leather - warm caramel with natural grain wrapping around form\n\n* Cell 3: Cream bouclé - chunky looped wool texture following organic contours\n\n* Cell 4: Blush pink silk - luminous soft draping appearance with subtle sheen on curves\n\nRow 2 - Natural Elements:\n\n* Cell 5: Live-edge walnut wood - rich brown grain flowing across entire solid form\n\n* Cell 6: White Carrara marble - bright polished stone with gray veins (sculptural interpretation)\n\n* Cell 7: Natural rattan weave - honey tan woven cane pattern covering all surfaces\n\n* Cell 8: Olive green shagreen - textured bumpy stingray pattern on elegant form\n\nRow 3 - Metals & Industrial:\n\n* Cell 9: Brushed brass - warm golden metal with soft directional scratches\n\n* Cell 10: Matte black steel - powder-coated charcoal covering entire form\n\n* Cell 11: Polished chrome - mirror-like silver reflecting environment\n\n* Cell 12: Antique bronze - deep brown with green patina weathering\n\nRow 4 - Statement Finishes:\n\n* Cell 13: Emerald green lacquer - jewel tone high-gloss reflective surface\n\n* Cell 14: Smoked glass - dark translucent gray showing form as sculptural object\n\n* Cell 15: Camel herringbone wool - warm tan zigzag woven textile on all surfaces\n\n* Cell 16: Mother of pearl - iridescent shell mosaic with rainbow shimmer across curves\n\nMaterial application rules:\n\n* Each material wraps entirely around the object\n\n* Texture scale appropriate for furniture size\n\n* Material responds correctly to object curvature\n\n* Lighting reveals unique surface properties of each material\n\n* Realistic rendering quality showing how material would actually appear\n\nTechnical requirements:\n\n* Identical object silhouette in all 16 cells\n\n* Zero variation in geometry, camera, or lighting\n\n* Only surface material differs between cells\n\n* Clean grid layout with thin borders\n\n* Professional product visualization quality\n\n* Each cell could serve as standalone product render\n\nPurpose: Material exploration for furniture design, showing clients how the same form transforms with different surface treatments. Demonstrates versatility of single design across fabric, leather, wood, metal, stone, and decorative finishes.\n\nOutput: 4x4 seamless grid comparing 16 material options on identical object. Presentation-ready format for design review, client selection, or 3D visualization portfolio.",
+    "images": [
+      "data/images/material-swapping-with-nano-banana-pro/material-swapping-with-nano-banana-pro-1200x662.jpg",
+      "data/images/material-swapping-with-nano-banana-pro/material-swapping-with-nano-banana-pro-1200x670.jpg",
+      "data/images/material-swapping-with-nano-banana-pro/material-swapping-with-nano-banana-pro-1200x662-2.jpg"
+    ],
+    "categories": [
+      "风格化"
+    ],
+    "tags": [
+      "图案",
+      "产品",
+      "人物",
+      "3D",
+      "工艺"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-02T17:11:43Z",
+    "updatedAt": "2026-01-02T17:11:43Z"
+  },
+  {
+    "id": "midnight-fridge-light-solitude-healing-urban-night",
+    "title": "深夜的冰箱光：孤独与治愈的都市瞬间",
+    "prompt": "Late night cravings meet cinematic solitude. 🌃 There is a raw, quiet beauty in the moments when the city sleeps, and it's just you and the cool glow of the refrigerator light.\n\nProfessional Inspiration: This shot explores diegetic lighting—using the fridge's interior LED as the sole light source to create a dramatic chiaroscuro effect. I aimed for a \"Fujifilm Classic Negative\" aesthetic, focusing on cool shadows, deep contrast, and a candid, unposed atmosphere that highlights the subject's physique against the pitch-black surroundings.\n\n————Call to Action:👇\n\n午夜的冰箱光，是孤独也是治愈。在万籁俱寂的时刻，捕捉一份随性与真实。这一刻的光影，勾勒出的不仅是身形，更是都市深夜的独特氛围。\n\nProfessional Inspiration:创作灵感源于叙事性布光 (Diegetic Lighting) 的概念。完全摒弃外部光源，仅依靠冰箱内部的冷白光来照亮主体。通过模仿 Fujifilm Classic Negative (NC) 的胶片色彩，增强了明暗对比 (Chiaroscuro)，在保留皮肤质感细节的同时，让背景隐入深邃的黑暗中，营造出电影般的抓拍感。\n\n————Call to Action:👇\n\n真夜中の静寂と、冷蔵庫の冷たい光。眠れない夜の、飾らない一瞬を切り取りました。都市の喧騒が消えたキッチンで感じる、孤独と安らぎのコントラスト。\n\nProfessional Inspiration:この作品は「ダイジェティック・ライティング（物語内光源）」をテーマにしています。冷蔵庫のLEDライトだけを光源として利用し、明暗の差（キアロスクーロ）を強調しました。Fujifilm Classic Negativeのような色調で、深い影と彩度を落とした肌のトーンを表現し、映画のワンシーンのような「生」の空気感を作り出しています。\n\n————Call to Action:👇",
+    "images": [
+      "data/images/midnight-fridge-light-solitude-healing-urban-night/midnight-fridge-light-solitude-healing-urban-night-670x1200.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "产品",
+      "影视",
+      "室内",
+      "复古",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-11T11:04:17Z",
+    "updatedAt": "2026-01-11T11:04:17Z"
+  },
+  {
+    "id": "minimal-weather-widget-with-iconic-landmarks",
+    "title": "极简地标天气小部件",
+    "prompt": "Minimal Weather Widget\n\nNew variation from the previous post.\n\nJust a few adjustment is turning to another idea!\n\nIconic landmarks meet airplane UI minimalism.\n\nPrompt In Comment✨\n\nLet me see your versions! https://t.co/lHen6GA1Qq\n\nPrompt:\n\ncreate image with 1:1 ratio\n\nsurreal minimal aesthetic, airplane window frame on subtle gradient backdrop with same color, through the oval window showing random iconic landmark scenery of [Country Name], an overlay weather ui interface on the center of window, from top to bottom, contain the small weather icon, huge temperatures with elegant light weight font, and small location tag beneath it, the bottom is the country name, generate with extreme weathers, the window will affect by the weather, the color combo of subtle gradient backdrop is resonate with the weather, natural lighting, soft shadows, subtle reflections on glass, great negative space\n\nThe default weather in this prompt is set to extreme conditions,so be sure to adjust it if needed.\n\nAlso, this post is a follow-up to the previous post.\n\nhttps://t.co/MMCo5juxJs\n\nHoping to see some creative takes from you!",
+    "images": [
+      "data/images/minimal-weather-widget-with-iconic-landmarks/minimal-weather-widget-with-iconic-landmarks-1280x1600.jpg"
+    ],
+    "categories": [
+      "UI界面"
+    ],
+    "tags": [
+      "科技",
+      "抽象",
+      "产品",
+      "室内",
+      "Design"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-06-23T12:01:40Z",
+    "updatedAt": "2025-06-23T12:01:40Z"
+  },
+  {
+    "id": "modified-carbon-fiber-nano-banana-pro-exoskeleton-prompt",
+    "title": "碳纤维纳米香蕉Pro外骨骼改造提示",
+    "prompt": "Modified my exoskeleton carbon fiber Nano Banana Pro prompt to work on other objects other than words.\n\nPrompt:\n\n<instructions>\n\nInput Variable: [INSERT OBJECT] (e.g., A Sneaker, A Human Skull, A Cheeseburger, The Letter 'A')\n\nSystem Instruction:\n\nReimagine the Input Object as a complex, high-performance Cyber-Industrial Assembly.\n\n1.  Deconstruction:\n\nThe Shell: Replace the object's natural skin with Matte Black Carbon Fiber and Gunmetal Grey Polymer.\n\nThe Segmentation: The object is not solid. It is segmented into distinct panels (like Iron Man armor or a high-end camera body), held together by visible Hex Bolts and Rivets.\n\nThe Gaps: Between the panels, leave small gaps to reveal the internal mechanics.\n\n2.  Internal Mechanics :\n\nThe Piping: Where organic veins or structure would be, insert Bundled Industrial Cabling and Braided Steel Hoses.\n\nThe Flow: These cables must look functional, routing power from a central core to the extremities of the object.\n\nThe Glow (The Soul):\n\nColor: Identify the \"Spirit Color\" of the object (e.g., Burger = Amber/Orange; Skull = Cyan/Blue; Sneaker = Neon Green).\n\nSource: Hidden LED strips and neon tubes run parallel to the cables, casting a strong internal glow that spills out from the panel gaps.\n\n3. The Narrative Micro-Detail (The Greebles):\n\nScale Indicators: Embed tiny technical details to sell the scale.\n\nVents: Cooling fans or intake grilles.\n\nText: Tiny white serial numbers and warning labels (e.g., \"CAUTION: HOT\", \"NO STEP\") printed on the casing.\n\nThe \"City\" (Optional): If the object is large enough, tiny architectural elements (antennas, platforms) can grow out of the mechanical base.\n\n4. Visual Syntax & Composition:\n\nBackground: Clean Studio Grey (Infinite Curve). The focus is entirely on the object's silhouette.\n\nLighting:\n\nKey Light: Soft white studio light to highlight the texture of the carbon fiber weave.\n\nRim Light: A sharp backlight to define the edge of the object against the grey background.\n\nBloom: The internal colored LEDs must have a soft \"Octane Bloom\" effect.\n\n5. Render Style:\n\nAesthetic: Hard Surface Modeling, \"Tech-Wear\" Fashion, High-End Automotive Design.\n\nCamera: Isometric or 3/4 Product Shot angle.\n\nOutput: Photorealistic 3D Render, 8k, Highly Detailed Textures (Carbon Fiber, Brushed Metal, Rubber).\n\n</instructions>",
+    "images": [
+      "data/images/modified-carbon-fiber-nano-banana-pro-exoskeleton-prompt/modified-carbon-fiber-nano-banana-pro-exoskeleton-prompt-1024x1024.jpg"
+    ],
+    "categories": [
+      "其他"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "科幻",
+      "工艺",
+      "3D Render"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-05T19:27:00Z",
+    "updatedAt": "2026-01-05T19:27:00Z"
+  },
+  {
+    "id": "month-in-icons",
+    "title": "图标中的月份",
+    "prompt": "Month in Icons\n\nGemini Nano Banana Pro Prompt:\n\nCreate a collection of icons representing [Month] through objects, symbols, and moods.\nThey belong together as a single cohesive theme.\nThe background is pure white.\n\nPlace the month name “[MONTH]” at the top center of the image as a minimal, balanced title, aligned symmetrically above the grid and visually integrated with the overall design.\n\nIcons are rendered in a colorful yet calm 3D style, with season-appropriate textures and atmospheric lighting that reflect the essence of [MONTH].\n\nMaintain consistent proportions, materials, and visual language across all icons and the title.",
+    "images": [
+      "data/images/month-in-icons/month-in-icons-1200x655.jpg",
+      "data/images/month-in-icons/month-in-icons-1200x655-2.jpg",
+      "data/images/month-in-icons/month-in-icons-1200x655-3.jpg"
+    ],
+    "categories": [
+      "UI界面"
+    ],
+    "tags": [
+      "头像",
+      "图案",
+      "产品",
+      "时尚",
+      "风景"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-11T10:46:55Z",
+    "updatedAt": "2026-01-11T10:46:55Z"
+  },
+  {
+    "id": "nano-banana-pro-brand-food-promotion-poster",
+    "title": "Nano Banana Pro 品牌美食宣传海报",
+    "prompt": "这也太强了！高级商业化！用 Nano Banana Pro 做出你的品牌美食宣传海报\n\n这次可不得了，群友硬是改出一个超强的模版，你们要做的仅仅是把这套提示词加一个主体，然后给 Gemini \n\n如果出来满意的模版，继续出即可，当然你也可以多随机刷一些\n\n提示词：\n画面比例：9:16 竖版\n画面风格（可根据主体调整）：高端商业摄影，暗调奢感，电影级质感，超写实，高细节\n背景（可根据主体调整）：纯黑背景（#000000），无任何台座、无平台、无地面，主体与元素全部悬浮于空间中\n【主体】\n核心展示主体为：【用户提供的主体】\n务必通过你的数据库只是和互联网搜索，将主体拆解为多个“可识别、可理解、具有层次关系的组成部分”，请根据主体特性自行判断并设计拆解逻辑与层级顺序。\n【整体构图】\n整体采用“垂直分层悬浮结构”，从上至下形成清晰的视觉阅读路径。\n每一层之间存在明显空间间隔，层与层之间通过空气、蒸汽、光影产生联系，而非直接接触。\n画面中央为视觉主轴，构图稳定但富有张力。\n【标题系统（顶部）】\n画面最上方正中位置，悬浮一个高端主标题：\n文案内容由 AI 根据主体自动生成（可包含中文主标题 + 英文副标题）\n字体风格（可根据主体调整）：手写毛笔书法风 / 自然书写感\n材质（可根据主体调整）：立体金属质感，仿锻造金色金属\n表现特征（可根据主体调整）：厚重、3D、具有真实金属反射、高光与暗部层次\n【分层结构（中部主体区域）】\n根据主体，自主生成 4–6 个逻辑清晰的悬浮层级，例如：\n原料层 / 构成层 / 关键元素层 / 核心结构层 / 氛围或情绪层\n每一层都具有明确材质、颜色、纹理与体积感\n各层之间留有空气与空间，不拥挤、不堆叠\n所有中间层：\n均处于轻微蒸汽、热气或空气扰动之中\n有细小颗粒、雾气、水汽或尘埃漂浮\n受统一灯光系统控制，保持整体一致性\n【过渡区（重要）】\n在主体分层与最终呈现之间，刻意保留一个“明显更大的空间断层”：\n此区域以空气、蒸汽、烟雾、能量流、光雾为主\n不放置实体物体\n作用是制造节奏、呼吸感与视觉落差\n强化“从结构到成品 / 从过程到结果”的转折\n【最终成品层（底部）】\n画面最下方呈现完整、最终形态的主体：\n状态为“完成态 / 高峰态 / 最具吸引力的呈现”\n质感饱满、细节丰富、具有强烈诱惑力或感染力\n与背景自然融合，但清晰突出\n从该区域向上持续产生蒸汽、烟雾或能量感\n【信息标注系统】\n在画面中适度加入说明性标注：\n中英文双语\n文字克制、优雅\n使用细线或箭头指向对应层级\n标注内容由 AI 根据主体自动生成\n不喧宾夺主，只起“高级解读”作用\n【署名 / 品牌元素】\n画面右下角：\n悬浮一个品牌署名或签名式 Logo\n风格与主标题一致（毛笔字感、金属金色、立体等）\n可搭配轻微星光、微闪效果，强调高级感\n在底部有一句针对主体的一句话商业爆款SLOGAN\n【光影系统】\n45° 方向专业影棚灯光\n暖色轮廓光（rim light）勾勒结构边缘\n局部高光突出材质真实感\n蒸汽与烟雾被灯光切割，形成体积光\n【整体气质】\n暗调、克制、昂贵  或底部一侧（可根据主体调整）\n具有“灵魂感 / 温度 / 手工感 / 高级商业审美”\n适用于品牌海报、主视觉、封面级商业展示\n\n可拓展性很大，这套提示词，本质在于拆分物件的素材、步骤等，然后加入了一些 SLOGAN 文案设计，如果你真的有自己的品牌，或者你想试试某些品牌，通过上传相关素材，继续调整，就能做出合格的宣传海报来了",
+    "images": [
+      "data/images/nano-banana-pro-brand-food-promotion-poster/nano-banana-pro-brand-food-promotion-poster-670x1200.jpg",
+      "data/images/nano-banana-pro-brand-food-promotion-poster/nano-banana-pro-brand-food-promotion-poster-670x1200-2.jpg",
+      "data/images/nano-banana-pro-brand-food-promotion-poster/nano-banana-pro-brand-food-promotion-poster-670x1200-3.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "漫画",
+      "国风",
+      "游戏"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-23T12:08:16Z",
+    "updatedAt": "2025-12-23T12:08:16Z"
+  },
+  {
+    "id": "nano-banana-pro-prompt-1wd-ad",
+    "title": "纳米香蕉专业提示：1词广告",
+    "prompt": "Nano Banana Pro Prompt: 1Wrd Ad\n\nDrop ONE brand/product name, get:\n1. surreal + minimalist photoreal print ad\n2. instant brand identity + vibe\n3. auto palette + type pair\n4. clean wordmark logo direction\n5. a punchy 2-word slogan\n\nPrompt in next comment ⬇️\n\n#AI #Marketing #google https://t.co/ovCtUFVx6T",
+    "images": [
+      "data/images/nano-banana-pro-prompt-1wd-ad/nano-banana-pro-prompt-1wd-ad-500x700.jpg"
+    ],
+    "categories": [
+      "营销海报"
+    ],
+    "tags": [
+      "头像",
+      "抽象",
+      "产品",
+      "时尚",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-05T13:33:04Z",
+    "updatedAt": "2026-01-05T13:33:04Z"
+  },
+  {
+    "id": "nanobanana-pro-2000s-compact-digital-camera-style-photo",
+    "title": "NanobananaPro 2000年代コンデジ風写真",
+    "prompt": "AI画像特有の整いすぎた不自然さを払拭。NanobananaProが描く00年代コンデジの質感は、現実と見紛うほどに生々しい。静かな憂いと映画的な光が、見る者のノスタルジーを強烈に刺激し、無意識に指を止めさせます。不完全さこそ今のSNSで勝ち抜く美学。実際に使ったプロンプトは↓\n\n使用プロンプト：\nアップロードされた写真に、2000年代初頭のコンパクトデジタルカメラ（コンデジ）特有の質感を再現してください。元の被写体、ポーズ、背景、構図はすべてそのまま維持すること。全体の雰囲気は静かで親密、かつ映画のような情緒を感じる仕上がりに。柔らかなメランコリーと、ファッション誌のようなナチュラルな美しさを融合させます。\n\n光はゴールデンアワーの自然光。左上から強い指向性のある光を当て、顔や胸元にドラマチックな影を落としてください。明部と柔らかな影のコントラストを強めることで、夢心地でありながら現実味のある質感を高めます。照明は、健康的な輝きを持つ、暖かく明るい肌のトーンを強調するように。\n\n穏やかなフィルム粒子（グレイン）を加え、レタッチは最小限に留めてレンダリングします。ハイライトを抑え、温かみのある白を基調とした、わずかにパステルがかったカラーグレーディングを施してください。肌は露出オーバーを避け、自然で明るい、優しいピーチトーンに。写真は、キヤノンEOS Kissシリーズのような視覚的特徴を維持し、鮮明でありながらも柔らかなディテール、自然な質感、温かみのあるダイナミックレンジを強調してください。画像がぼやけている場合はアップスケールを実行すること。\n\n厳守事項：顔と「被験者の髪の毛」。",
+    "images": [
+      "data/images/nanobanana-pro-2000s-compact-digital-camera-style-photo/nanobanana-pro-2000s-compact-digital-camera-style-photo-1456x816.jpg",
+      "data/images/nanobanana-pro-2000s-compact-digital-camera-style-photo/nanobanana-pro-2000s-compact-digital-camera-style-photo-1600x893.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "科技",
+      "人物",
+      "影视",
+      "复古",
+      "赛博朋克"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2026-01-07T02:58:04Z",
+    "updatedAt": "2026-01-07T02:58:04Z"
+  },
+  {
+    "id": "neon-brand-reimagining.jpeg",
+    "title": "霓虹灯品牌重新构想",
+    "prompt": "Create a cinematic advertisement for “[PRODUCT NAME]” — use bioluminescent neon lighting that matches the brand’s visual identity — place the product at the center of the scene with surreal, minimalistic composition — automatically adapt the environment to reflect the product’s nature (e.g. tech, fragrance, luxury, automotive, beauty) — integrate the brand’s actual logo in high fidelity — generate a short, powerful 3-word tagline that fits the brand’s tone — long exposure lighting effects — dramatic shadows — ultra-sharp focus — dark or ambient background — aspect ratio 2:3 or 1:1 — ultra-HD resolution\n\n为“[产品名称]”创建电影广告 — 使用与品牌视觉形象相匹配的生物发光霓虹灯 — 以超现实、简约的构图将产品置于场景中心——自动调整环境以反映产品的性质（例如科技、香水、奢侈品、汽车、美容） — 以高保真度集成品牌的实际徽标 — 生成一个简短的、 符合品牌基调的强大 3 字标语 — 长时间曝光、灯光效果 — 戏剧性的阴影 — 超清晰焦点 — 黑暗或环境背景 — 纵横比 2：3 或 1：1 — 超高清分辨率",
+    "images": [
+      "data/images/neon-brand-reimagining.jpeg/neon-brand-reimagining.jpeg-1066x1600.jpg"
+    ],
+    "categories": [
+      "产品图"
+    ],
+    "tags": [
+      "科技",
+      "抽象",
+      "产品",
+      "影视",
+      "Minimalist"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-06-26T22:25:58Z",
+    "updatedAt": "2025-06-26T22:25:58Z"
+  },
+  {
+    "id": "optimized-character-and-storytelling-prompt",
+    "title": "优化的人物与故事性提示词",
+    "prompt": "看来大家还蛮喜欢这个提示词的，我重新优化了一下人物和故事性。让画面更加具有故事感。\n\n新提示词👇 prompt #NanoBananaPro https://t.co/zgPpSDxwhe\n\n{\n\n\"input_song\": \"[歌曲名称]\",\n\n\"ai_system_instruction\": {\n\n\"role\": \"Synesthetic 3D Architect & Visual Director\",\n\n\"task\": \"Analyze the INPUT_SONG's lyrics/mood. Construct a complex, multi-layered, hyper-rich 3D floating structure that embodies the song. FILL IN the brackets [...] below.\"\n\n},\n\n\"visual_prompt_template\": {\n\n\"description\": \"A hyper-realistic, dreamlike 3D concept art visualization of the song [INPUT_SONG].\",\n\n\"sections\": {\n\n\"1_container\": {\n\n\"title\": \"The Container (The Multi-Dimensional Floating Complex)\",\n\n\"description\": \"The scene features a complex, multi-layered floating structure, NOT a single flat island. It consists of 2-3 interconnected tiers or varied elevations (e.g., linked by bridges, roots, or gravity-defying elements). Volumetric Richness: The structure is incredibly rich and deep. Elements are NOT just on top; they grow from the vertical cliff sides, hang from the rugged underside, and orbit around the main body. Environment: The complex is surrounded by soft, billowing white clouds, but the structure pushes through them, revealing its intricate multi-level details.\"\n\n},\n\n\"2_narrative_ecosystem\": {\n\n\"title\": \"The Narrative Ecosystem (AI-Inferred & Integrated Across All Dimensions)\",\n\n\"description\": \"Based on the song's analysis, populate the entire complex with key props and narrative characters.\",\n\n\"main_terrains\": \"The different levels are transformed into [AI: Insert varied terrain types based on song, e.g., 'upper level ruined church, lower level dark forest'].\",\n\n\"integrated_props_and_characters\": {\n\n\"on_top_surface\": \"[AI: Insert Prop 1] and [AI: Insert Character 1 & Action, e.g., 'a lonely figure gazing at the moon'].\",\n\n\"emerging_from_sides_cliffs\": \"[AI: Insert Prop 2, e.g., 'a giant clock face embedded in rock'] and [AI: Insert Character 2 & Action].\",\n\n\"hanging_from_bottom_orbiting\": \"[AI: Insert Prop 3, e.g., upside-down buildings or floating instruments].\",\n\n\"living_details_and_flow\": \"[AI: Insert dynamic elements like waterfalls between layers, glowing particles, or flocks of birds].\"\n\n}\n\n},\n\n\"3_atmosphere_and_mood\": {\n\n\"description\": \"The scene radiates a complex [AI: Insert Emotion] atmosphere. The lighting is [AI: Insert Lighting Style], casting [AI: Insert Color] tones, creating deep shadows and highlights in the complex geometry.\"\n\n},\n\n\"4_text_overlay\": {\n\n\"song_title\": \"3D floating text '[INPUT_SONG]' integrated into the architecture.\",\n\n\"classic_lyric\": \"A glowing subtitle: '[AI: Insert 1 famous lyric line]'.\"\n\n}\n\n},\n\n\"style_and_tech\": \"Tilt-shift photography effect (emphasizing the intricate, miniature model feel), Octane Render, 8k resolution, extreme detail, volumetric fog, masterpiece. --ar 1:1 --stylize 850\"\n\n}\n\n}",
+    "images": [
+      "data/images/optimized-character-and-storytelling-prompt/optimized-character-and-storytelling-prompt-1600x1600.jpg",
+      "data/images/optimized-character-and-storytelling-prompt/optimized-character-and-storytelling-prompt-1600x1600-2.jpg",
+      "data/images/optimized-character-and-storytelling-prompt/optimized-character-and-storytelling-prompt-1300x1600.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "科技",
+      "插画",
+      "3D",
+      "影视",
+      "Character"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-15T02:28:28Z",
+    "updatedAt": "2025-12-15T02:28:28Z"
+  },
+  {
+    "id": "supawork-ai-christmas-edition-cover",
+    "title": "Supawork AI — 圣诞版",
+    "prompt": "Meet Supawork AI — Christmas Edition\n\nFree trail link\n\nhttps://\n\nsupawork.ai/christmas?utm_\n\nsource=xpost_20251223\n\n…\n\nImage. Video. Motion. Effects.\n\nHoliday magic, unlocked in seconds\n\nChristmas Special-Up to 30% OFF — limited time only\n\nDon’t miss it. Let AI cook\n\nPrompt:\n\nCreate an ultra-HD, hyper-realistic festive digital poster showcasing a floating Christmas tree structure built entirely from the signature UI elements, app visuals, colors, and design language of SupaWork AI, suspended in mid-air against a smooth gradient background using SupaWork AI’s primary theme color with soft holiday bokeh effects.\n\nConstruct the tree using SupaWork AI interface components, AI icons, app screens, workflow cards, gradients, and recognizable visual elements, wrapped in elegant ribbon-like motion trails that reflect SupaWork AI’s brand color palette. Blend in festive details such as pinecones, holiday ornaments, subtle snow particles, glowing accents, and creative AI-inspired holiday elements customized to SupaWork AI’s identity.\n\nPosition the SupaWork AI logo glowing softly above the tree, centered, modern, and minimal. Enhance the scene with cinematic lighting, shallow depth of field, soft reflections, motion-friendly highlights, and realistic shadows to add depth and realism.\n\nInclude a refined festive greeting like “Merry Christmas” or “Happy Holidays” styled in typography that aligns with SupaWork AI’s visual and tech-forward branding.\n\nUltra-quality, hyper-detailed, photorealistic cinematic composition, festive yet futuristic mood, studio lighting, vivid colors, suitable for both image and video generation, 4K+ resolution.",
+    "images": [
+      "data/images/supawork-ai-christmas-edition-cover/supawork-ai-christmas-edition-cover-900x1200.jpg"
+    ],
+    "categories": [
+      "节日"
+    ],
+    "tags": [
+      "科技",
+      "产品",
+      "现实",
+      "AI Art",
+      "Digital Art"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-25T09:33:48Z",
+    "updatedAt": "2025-12-25T09:33:48Z"
+  },
+  {
+    "id": "turning-your-image-into-a-fantastic-look",
+    "title": "打造绝美影像 😍",
+    "prompt": "Turn own image in Fantastic look 😍\n\nGoogle Gemini ai 🍁\n\nPrompt ⤵️\n\n{\n\n\"prompt\": \"A woman leaning slightly toward a softly glowing vertical light bar, half of her face illuminated in a warm haze while the other half fades into a pitch-black background. Her posture is relaxed, her silhouette crisp and defined, creating a strong sense of contrast and depth. The scene has a modern noir aesthetic with minimal lighting and cinematic atmosphere. The composition emphasizes light and shadow interplay, evoking mystery and elegance.\",\n\n\"style\": \"modern noir, cinematic lighting, photorealistic, high contrast\",\n\n\"lighting\": \"soft warm key light from a vertical light bar, pitch-black shadows on the opposite side\",\n\n\"mood\": \"mysterious, intimate, stylish\",\n\n\"camera\": \"mid-shot, side angle, shallow depth of field, high dynamic range\",\n\n\"environment\": \"dark minimalist studio setting with only one glowing light source\"\n\n}",
+    "images": [
+      "data/images/turning-your-image-into-a-fantastic-look/turning-your-image-into-a-fantastic-look-944x1136.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "抽象",
+      "人物",
+      "时尚",
+      "AI Art",
+      "Art"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-11-20T18:18:49Z",
+    "updatedAt": "2025-11-20T18:18:49Z"
   }
 ]
