@@ -2035,11 +2035,11 @@
   {
     "id": "hyper-realistic-energy-drink-can-in-a-stormy-ocean",
     "title": "暴风雨中的超现实主义能量饮料罐",
-    "prompt": "Meta AI\n\nPrompt: Hyper-realistic energy drink can positioned on a massive black rock island in a stormy ocean, lightning striking behind, dark cinematic clouds, dramatic rim lighting, water splashes around the base, high-end commercial product photography, ultra-detailed, 8K, no people --ar 4:5 --v 6",
+    "prompt": "Hyper-realistic black integrated electric drive motor as the main subject, positioned on a massive black rock island in a stormy ocean, lightning striking behind, dark cinematic storm clouds, dramatic rim lighting outlining the machine, turbulent water splashes around the base, high-end commercial industrial product photography, sharp metal texture, intricate mechanical details, high contrast, photorealistic, 8K, no people",
     "images": [
+      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-1200x1600.jpg",
       "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200.jpg",
-      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200-2.jpg",
-      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200-3.jpg"
+      "data/images/hyper-realistic-energy-drink-can-in-a-stormy-ocean/hyper-realistic-energy-drink-can-in-a-stormy-ocean-675x1200-2.jpg"
     ],
     "categories": [
       "产品图"
@@ -2055,7 +2055,7 @@
     "author": "@马守坤",
     "source": "网络社区收集",
     "createdAt": "2026-01-03T06:55:10Z",
-    "updatedAt": "2026-01-03T06:55:10Z"
+    "updatedAt": "2026-10-27T07:06:57Z"
   },
   {
     "id": "iod-classic-exploded-view",
