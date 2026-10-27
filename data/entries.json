@@ -2429,5 +2429,29 @@
     "source": "网络社区收集",
     "createdAt": "2025-12-08T05:25:36Z",
     "updatedAt": "2025-12-08T05:25:36Z"
+  },
+  {
+    "id": "unreal-version",
+    "title": "超现实感的版本",
+    "prompt": "Which version feels unreal?\n\nNano banana pro / ChatGPT image 1.5\n\nPrompt :\n\n{\n\n\"image_type\": \"portrait_photography\",\n\n\"resolution_target\": \"8K UHD\",\n\n\"aspect_ratio\": \"vertical\",\n\n\"frame_composition\": {\n\n\"crop\": \"mid-chest to head\",\n\n\"orientation\": \"portrait\",\n\n\"subject_position\": \"centered\",\n\n\"camera_angle\": \"eye-level\",\n\n\"perspective\": \"straight-on\"\n\n},\n\n\"subject\": {\n\n\"gender_presentation\": \"female\",\n\n\"age_appearance\": \"young adult\",\n\n\"face\": {\n\n\"shape\": \"oval\",\n\n\"skin_tone\": \"fair with neutral undertone\",\n\n\"skin_texture\": \"smooth, natural, visible realism, no heavy retouching\",\n\n\"facial_features\": {\n\n\"eyes\": {\n\n\"color\": \"light blue-green\",\n\n\"shape\": \"almond-shaped\",\n\n\"gaze_direction\": \"directly toward camera\",\n\n\"eyelids\": \"slightly relaxed\",\n\n\"eyelashes\": \"natural length, not exaggerated\"\n\n},\n\n\"eyebrows\": {\n\n\"color\": \"dark brown\",\n\n\"thickness\": \"medium\",\n\n\"shape\": \"soft natural arch\"\n\n},\n\n\"nose\": {\n\n\"shape\": \"straight\",\n\n\"size\": \"proportionate\",\n\n\"bridge\": \"smooth\"\n\n},\n\n\"lips\": {\n\n\"color\": \"soft natural pink\",\n\n\"fullness\": \"medium to full\",\n\n\"state\": \"slightly parted\"\n\n}\n\n},\n\n\"expression\": \"neutral, calm, composed\"\n\n},\n\n\"hair\": {\n\n\"color\": \"dark brown\",\n\n\"length\": \"short to medium\",\n\n\"style\": \"loose, slightly wavy\",\n\n\"movement\": \"wind-blown strands crossing face\",\n\n\"parting\": \"natural, unstructured\"\n\n}\n\n},\n\n\"clothing\": {\n\n\"outerwear\": {\n\n\"type\": \"coat\",\n\n\"color\": \"deep royal blue\",\n\n\"material_appearance\": \"wool or felt-like texture\",\n\n\"fit\": \"structured but relaxed\",\n\n\"visible_details\": \"clean seams, minimal design\"\n\n},\n\n\"accessory\": {\n\n\"type\": \"scarf\",\n\n\"color\": \"matching royal blue\",\n\n\"material_appearance\": \"soft, fabric texture\",\n\n\"placement\": \"wrapped loosely around neck\"\n\n}\n\n},\n\n\"color_palette\": {\n\n\"dominant_colors\": [\n\n\"royal blue\",\n\n\"deep blue\",\n\n\"soft skin tones\"\n\n],\n\n\"contrast\": \"high contrast between blue clothing and lighter skin\",\n\n\"color_temperature\": \"cool\"\n\n},\n\n\"lighting\": {\n\n\"type\": \"natural light\",\n\n\"direction\": \"frontal with slight side softness\",\n\n\"intensity\": \"moderate\",\n\n\"shadows\": \"soft, minimal harsh shadows\",\n\n\"highlights\": \"subtle highlights on cheekbones and lips\"\n\n},\n\n\"background\": {\n\n\"environment\": \"open outdoor setting\",\n\n\"elements\": \"blurred horizon line, blue gradient background\",\n\n\"depth_of_field\": \"shallow\",\n\n\"background_detail\": \"intentionally out of focus\",\n\n\"color\": \"blue gradient resembling sky and distant water\"\n\n},\n\n\"image_style\": {\n\n\"realism\": \"high realism with subtle AI polish\",\n\n\"sharpness\": \"high facial detail\",\n\n\"texture_detail\": \"visible fabric texture and skin detail\",\n\n\"noise\": \"minimal\",\n\n\"post_processing\": \"clean color grading, no heavy filters\"\n\n},\n\n\"mood\": {\n\n\"overall_feel\": \"calm, serene, minimalistic\",\n\n\"visual_energy\": \"soft and composed\"\n\n},\n\n\"generation_constraints\": {\n\n\"preserve_original_composition\": true,\n\n\"preserve_subject_structure\": true,\n\n\"no_face_alteration\": true,\n\n\"no_style_assumptions\": true,\n\n\"do_not_change_image_size\": true\n\n}\n\n}",
+    "images": [
+      "data/images/unreal-version/unreal-version-800x1200.jpg",
+      "data/images/unreal-version/unreal-version-800x1200-2.jpg"
+    ],
+    "categories": [
+      "超真实复刻"
+    ],
+    "tags": [
+      "人物",
+      "现实",
+      "Minimalist",
+      "时尚",
+      "Portrait Photography"
+    ],
+    "model": "Gemini Nano Banana Pro",
+    "author": "@马守坤",
+    "source": "网络社区收集",
+    "createdAt": "2025-12-28T02:43:43Z",
+    "updatedAt": "2025-12-28T02:43:43Z"
   }
 ]
