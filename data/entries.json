@@ -2334,7 +2334,7 @@
   {
     "id": "tilted-product-with-dynamic-elements-and-backlighting",
     "title": "倾斜的产品，周围有飞溅和动态元素，背景为黑色，使用背光照明，两侧有飞行元素，高分辨率，超逼真摄影风格，焦点锐利，超高清晰度图像",
-    "prompt": "PROMPT TO MARKETING\nA [PRODUCT] is tilted, with splashes and dynamic elements floating in the air around it. The background color should be black to highlight details. Use backlighting for lighting effects. There will also appear some flying elements on both sides of the picture. It has high resolution and hyper-realistic photography style, in sharp focus, ultra-high definition image.\n@Adobe, @AdobeFirefly boards",
+    "prompt": "PROMPT TO MARKETING\nA [PRODUCT] is tilted, with splashes and dynamic elements floating in the air around it. The background color should be black to highlight details. Use backlighting for lighting effects. There will also appear some flying elements on both sides of the picture. It has high resolution and hyper-realistic photography style, in sharp focus, ultra-high definition image.",
     "images": [
       "data/images/tilted-product-with-dynamic-elements-and-backlighting/tilted-product-with-dynamic-elements-and-backlighting-1200x670.jpg",
       "data/images/tilted-product-with-dynamic-elements-and-backlighting/tilted-product-with-dynamic-elements-and-backlighting-1200x670-2.jpg",
@@ -2354,7 +2354,7 @@
     "author": "@马守坤",
     "source": "网络社区收集",
     "createdAt": "2026-01-07T19:19:15Z",
-    "updatedAt": "2026-01-07T19:19:15Z"
+    "updatedAt": "2026-10-27T01:45:55Z"
   },
   {
     "id": "ultra-realistic-isometric-diorama-based-on-uploaded-image",
