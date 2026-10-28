@@ -2396,31 +2396,6 @@
     "updatedAt": "2025-12-28T02:43:43Z"
   },
   {
-    "id": "nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters",
-    "title": "Nano Banana Pro美学震撼：一键生成影视小说场景海报",
-    "prompt": "被 Nano Banana Pro 的美学表现震撼！太顶了\n\n一键生成任何影视剧或者小说的场景海报提示词\n\n优化了一下我的微缩场景模型提示词，增加文案部分的效果以及模型周围的特效\n\n没想到适配性这么好，每个场景、文字效果、模型周遭的特效都非常适配小说或者影视剧\n\n提示词：\n\n请为影视剧/小说《需要添加的名称》设计一张高品质的3D海报，需要先检索影视剧/小说信息和著名的片段场景。\n\n首先，请利用你的知识库检索这个影视剧/小说的内容，找出一个最具代表性的名场面或核心地点。在画面中央，将这个场景构建为一个精致的轴侧视角3D微缩模型。风格要采用梦工厂动画那种细腻、柔和的渲染风格。你需要还原当时的建筑细节、人物动态以及环境氛围，无论是暴风雨还是宁静的午后，都要自然地融合在模型的光影里。\n\n关于背景，不要使用简单的纯白底。请在模型周围营造一种带有淡淡水墨晕染和流动光雾的虚空环境，色调雅致，让画面看起来有呼吸感和纵深感，衬托出中央模型的珍贵。\n\n最后是底部的排版，请生成中文文字。居中写上小说名称，字体要有与原著风格匹配的设计感。在书名下方，自动检索并排版一句原著中关于该场景的经典描写或台词，字体使用优雅的衬线体。整体布局要像一个高级的博物馆藏品铭牌那样精致平衡。\n\n西部世界的经典场景，他的标题特效真的每个都不一样 https://t.co/4K9xuNAfs0\n\n剑来小说的经典场景，他选的陈平安走出骊珠洞天的片段\n\n周围环绕的雾气以及模型周围的球形遮罩真的很像小世界或者洞天 https://t.co/2uk2zCO6tF\n\n整了一张《索拉里斯星》的海报，这场景想象的太好了 https://t.co/FYjkskdmOO\n\n划了一下刘慈欣的《全频带阻塞干扰》场景细节丰富而且震撼 https://t.co/ocLIjBJxKz\n\n剑来这张图也很顶 https://t.co/9uJ8HBzuVq\n\n现实事件也能画：https://t.co/r7ejnbY20c",
-    "images": [
-      "data/images/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters-1198x1600.jpg",
-      "data/images/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters-1195x1600.jpg",
-      "data/images/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters/nano-banana-pro-aesthetics-shock-one-click-generation-of-movie-and-novel-scene-posters-1195x1600-2.jpg"
-    ],
-    "categories": [
-      "营销海报"
-    ],
-    "tags": [
-      "Nano Banana Pro",
-      "人物",
-      "漫画",
-      "国风",
-      "神话"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "网络社区收集",
-    "createdAt": "2025-12-09T11:35:52Z",
-    "updatedAt": "2025-12-09T11:35:52Z"
-  },
-  {
     "id": "programmers-f12-keycap-miniature-scene",
     "title": "程序员F12键帽微缩场景",
     "prompt": "程序员怎么能少了F12\n\n对原提示词增加了键帽的外观，材质的描述，以及模板变量，你可以方便的替换\n\n🍌Nano banana Pro Prompt：\n\n这是一个极其精细的微缩场景模型，构建在一个巨大的、晶莹剔透的透明树脂材质‘F12’电脑键帽内部。键帽表面带有磨砂质感的白色“《键帽》”字样，顶端略微凹陷。光线透过半透明的键帽外壳，转化为柔和温暖的色调，洒满整个小房间。在里面，一位《主体》正坐在一台微型电脑前，屏幕上以大号字体醒目地显示着“《文字》”。微小的书架、地毯和增强了舒适惬意的氛围。镜头采用45度俯视的高角度微距摄影，呈现出清晰的浅景深效果，背景带有细腻的柔焦感。具有超写实的纹理、手工制作的微缩美学、电影感的视觉风格，营造出异想天开且宁静平和的情调。9：16。8K高清\n\n键帽：F12\n主体： 程序员\n文字：vibe code",
@@ -2776,29 +2751,6 @@
     "source": "网络社区收集",
     "createdAt": "2025-12-23T12:08:16Z",
     "updatedAt": "2025-12-23T12:08:16Z"
-  },
-  {
-    "id": "nano-banana-pro-prompt-1wd-ad",
-    "title": "纳米香蕉专业提示：1词广告",
-    "prompt": "Nano Banana Pro Prompt: 1Wrd Ad\n\nDrop ONE brand/product name, get:\n1. surreal + minimalist photoreal print ad\n2. instant brand identity + vibe\n3. auto palette + type pair\n4. clean wordmark logo direction\n5. a punchy 2-word slogan\n\nPrompt in next comment ⬇️\n\n#AI #Marketing #google https://t.co/ovCtUFVx6T",
-    "images": [
-      "data/images/nano-banana-pro-prompt-1wd-ad/nano-banana-pro-prompt-1wd-ad-500x700.jpg"
-    ],
-    "categories": [
-      "营销海报"
-    ],
-    "tags": [
-      "头像",
-      "抽象",
-      "产品",
-      "时尚",
-      "赛博朋克"
-    ],
-    "model": "Gemini Nano Banana Pro",
-    "author": "@马守坤",
-    "source": "网络社区收集",
-    "createdAt": "2026-01-05T13:33:04Z",
-    "updatedAt": "2026-01-05T13:33:04Z"
   },
   {
     "id": "nanobanana-pro-2000s-compact-digital-camera-style-photo",
