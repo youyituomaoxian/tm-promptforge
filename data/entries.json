@@ -2869,5 +2869,27 @@
     "source": "网络社区收集",
     "createdAt": "2025-11-20T18:18:49Z",
     "updatedAt": "2025-11-20T18:18:49Z"
+  },
+  {
+    "id": "p55",
+    "title": "苹果式极简美学，产品营销",
+    "prompt": "16:9 横构图，高端无线头戴式耳机产品广告海报。【纯黑色 / 深炭灰色背景】，整体色调为低明度的黑灰色系，营造静谧高奢的极简科技感氛围。\n画面中央偏右放置【一台黑色驱电一体机（电机 ），紧凑圆柱形机身，深黑金属外壳，细密散热鳍片，精密法兰结构，硬朗工业线条，表面带细腻磨砂与冷光反射】，设备悬浮展示，主轴与法兰端面朝向画面左前方，结构完整清晰。设备背后有一层柔和的【银白色】辉光 / 光晕向外扩散，增加产品的悬浮感和聚焦效果。\n设备后方叠加超大号半透明【深灰色】立体字【DRIVE】作为背景装饰文字，字体为粗黑体 / 无衬线加粗，带有轻微的玻璃拟态质感和模糊效果。\n设备左侧叠加一个毛玻璃效果的圆角矩形【数据面板】UI 界面卡片 —— 深色半透明玻璃质感，内含【设备缩略图，设备详细参数：Cooling Method: Air Cooling;Rated Speed:2500rpm等】。\n画面顶部居中位置印有品牌名【Techmation】（白色细体无衬线字体）和产品系列名【Direct Drive Motor】（白色粗体大号无衬线字体），系列名下方为型号名【25-80kW】（超大号半透明发光字，带有白色辉光描边效果）。\n画面底部横向排列三个功能图标 + 说明文字：【节能图标】、【高转速】、【高性能】，【高效率】均为浅灰白色小号无衬线字体。\n最底部居中一行小字【Our electric servo rotary table control system has the advantages over the hydraulic system in terms of accuracy, stability, and ease of use.Our electric servo rotary table control system has the advantages over the hydraulic system in terms of accuracy, stability, and ease of use.】配品牌小图标。\n整体设计风格：苹果式极简科技美学，毛玻璃拟态 UI 元素融合产品实物，纯黑背景衬托白色产品形成强烈明暗对比，光效克制仅用于聚焦产品。\n光线：产品本身有来自正面偏上的柔和冷调环境光照明，黑色金属外壳呈现细腻的珠光反射质感，边缘有微妙的轮廓光勾勒产品线条，背景辉光为后期合成效果。",
+    "images": [
+      "data/images/p55/p55-1600x900.jpg"
+    ],
+    "categories": [
+      "营销海报",
+      "产品图"
+    ],
+    "tags": [
+      "苹果风",
+      "产品营销海报",
+      "科技克制"
+    ],
+    "model": "",
+    "author": "@马守坤",
+    "source": "团队原创",
+    "createdAt": "2026-10-29T01:10:22Z",
+    "updatedAt": "2026-10-29T01:10:22Z"
   }
 ]
